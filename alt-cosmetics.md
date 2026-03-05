@@ -58,7 +58,7 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 - [x] Strategy session (completed 25 Feb)
 - [x] Creative brief developed (v1.0 — pending client sign-off)
 - [x] Brand strategy synthesis document produced
-- [ ] Creative brief signed off by client
+- [ ] Creative brief signed off by client — v5 sent but brief is still evolving; previous version sent was too rambling. Needs a cleaner version before resending.
 - [ ] Resolve chrome vs. matte/satin materiality question with Anh — **blocker**
 - [ ] Confirm packaging supplier + receive dielines, dimensions, capacity — **blocker**
 - [ ] Receive final ingredient list + regulatory copy — **outstanding**
@@ -123,7 +123,7 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 - Anh's preference: SRA SRA mark (old-school atelier vibe, organic) and Loewe anagram — she prefers organic over structured engraving
 - This atelier/organic lean is where the "atelier" theme originated
 - Public domain assets being explored for the Victorian route
-- AI tools (Firefly, potentially Midjourney) being used for rapid 3D concept testing
+- AI tools (Firefly, Midjourney) being used for rapid 2D logo mark ideation — generating lots of directions to pick from before committing to anything. 3D tube mockups are a separate, later step once mark direction is confirmed.
 
 **Tone of voice:** Precise, confident, uncluttered. States rather than suggests. No exclamation marks. No wellness clichés ("ritual," "glow," "nourishing"). Warm in the way a trusted expert is warm — not effusive. Specificity over vagueness.
 

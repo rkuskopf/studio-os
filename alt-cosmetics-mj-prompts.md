@@ -1,9 +1,14 @@
 # ALT. Cosmetics — Midjourney Prompts
-*Copy-paste ready. Run each group, pick the strongest 1–2, then redraw in Figma.*
+*Copy-paste ready. Current priority is GROUP 2 (mark/crest direction) — run those first to establish a logo direction. Wordmarks and packaging mockups come after.*
+
+**Workflow:**
+1. Run Group 2 to generate lots of 2D mark directions → pick strongest 1–2
+2. Run Group 1 to explore typographic lockups alongside
+3. Groups 3–4 (3D packaging mockups) come later, once mark is confirmed
 
 ---
 
-## GROUP 1 — Typographic Wordmark (run these first)
+## GROUP 1 — Typographic Wordmark
 
 **1A — Extended, wide tracking (primary direction)**
 ```
@@ -27,26 +32,43 @@ typographic logo design, wordmark "ALT" with oversized full stop period mark, ex
 
 ---
 
-## GROUP 2 — Symbol / Mark (run if you want a standalone icon)
+## GROUP 2 — Mark / Crest (START HERE — current priority)
 
-**2A — Abstract A mark**
-```
-minimal abstract logo mark, single letter A, geometric sans-serif construction, negative space, editorial beauty brand, black on white, flat vector-style, luxury cosmetics, no text, isolated --ar 1:1 --style raw --v 6.1 --no gradients, shadows, decoration, 3D
-```
+*Goal: generate many 2D logo mark directions. All should feel hot-pressed or stamped — like a seal or crest engraved into a surface. Flat, black on white. No gradients, no 3D.*
 
-**2B — Dot/punctuation mark**
+**2A — Organic atelier mark (SRA SRA / Loewe direction)**
 ```
-minimal logo mark, single punctuation mark, period or dash, geometric, pure black on white, abstract beauty brand identity, editorial, considered, quiet luxury, isolated symbol --ar 1:1 --style raw --v 6.1 --no text, gradients, illustration
+logo mark design, organic intertwined letterforms, atelier stamp quality, hand-pressed seal, old-world craftsmanship, cosmetics brand, black on white, flat 2D, elegant not ornate, no structured grid, fluid lines --ar 1:1 --style raw --v 6.1 --no gradients, shadows, 3D, geometric construction
 ```
 
-**2C — Geometric form**
+**2B — Organic atelier mark, looser**
 ```
-minimal abstract logo mark, geometric form, thin lines, architectural, editorial luxury cosmetics brand, black and white, flat, no text, isolated on white background, Prada retaW aesthetic --ar 1:1 --style raw --v 6.1 --no gradients, shadows, 3D effects
+brand mark design, abstract organic stamp, loose fluid letterform, wax seal quality, artisan atelier, beauty brand, monochrome, flat vector, black on white, quiet luxury, not geometric, handcrafted feel --ar 1:1 --style raw --v 6.1 --no gradients, shadows, mechanical shapes
+```
+
+**2C — Ancient/stone route**
+```
+logo mark design, archaic symbol, ancient stone carving quality, raw mark, pre-modern seal, organic irregular edges, beauty brand identity, black on white, flat 2D, hand-cut quality, primitive elegance --ar 1:1 --style raw --v 6.1 --no modern design, gradients, shadows, clean geometry
+```
+
+**2D — Regal/Victorian route**
+```
+logo mark design, Victorian crest style, medallion seal, engraved heritage mark, oval or arch frame, fine line detail, luxury cosmetics brand, black on white, flat 2D, restrained ornament, not busy --ar 1:1 --style raw --v 6.1 --no colour, gradients, shadows, modern minimalism
+```
+
+**2E — Hot-press stamp quality, letterform-based**
+```
+brand mark design, single letterform stamp, embossed seal quality, cosmetics brand, organic not geometric, black on white, flat, looks like it would be hot-foil pressed onto a tube, quiet luxury, atelier quality --ar 1:1 --style raw --v 6.1 --no gradients, 3D, shadows, mechanical feel
+```
+
+**2F — Crest with organic inner mark**
+```
+logo crest design, simple oval or arch container, organic mark inside, no illustration, abstract inner element, engraved quality, luxury beauty brand, black on white, flat, restrained, stamp-like --ar 1:1 --style raw --v 6.1 --no faces, flowers, crests with animals, gradients, shadows
 ```
 
 ---
 
-## GROUP 3 — In-Context Packaging (for presentation mood — chrome direction)
+## GROUP 3 — In-Context Packaging / 3D Mockups (do this after mark is confirmed — chrome direction)
 
 **3A — Chrome tube mockup**
 ```
@@ -60,7 +82,7 @@ luxury cosmetics product flatlay, chrome serum tube and minimal outer packaging,
 
 ---
 
-## GROUP 4 — In-Context Packaging (matte/satin direction — for comparison)
+## GROUP 4 — In-Context Packaging / 3D Mockups (after mark confirmed — matte/satin direction)
 
 **4A — Matte tube mockup**
 ```
