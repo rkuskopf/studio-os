@@ -11,7 +11,7 @@
 - Brand strategy + identity
 - Creative direction
 - UX / product design
-- Web builds (specialist in Cargo, also Squarespace)
+- Web builds (custom coded, also Squarespace)
 - Packaging design
 
 ## Tools & Stack

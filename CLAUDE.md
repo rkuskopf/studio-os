@@ -14,7 +14,7 @@ Rowan Kuskopf. Creative studio founder / director. Studio: KSPF (kspf.au). Email
 | Name | What | Status |
 |------|------|--------|
 | **Branding: Alt Cosmetics** | Brand identity for Anh's cosmetics product. Chrome packaging, "whisper don't shout" positioning, ~20 March deadline. | Active |
-| **kspf.au** | Studio website build (GitHub repo: rkuskopf/kspf.studio-repo). | In progress |
+| **kspf.au** | Studio website (GitHub repo: rkuskopf/kspf.studio-repo). Live as landing/visual folio. UX case studies section planned next. | Live |
 | **AP-REPS** | Previous client web project — Squarespace custom CSS. Mix-blend-mode bug fixes. | Likely complete |
 | **Bally Cara pitch** | Pitch — marked complete Feb 12. | Done |
 | **Engine** | Ongoing: Askable certification task sitting here. | Active |
@@ -37,7 +37,7 @@ Rowan Kuskopf. Creative studio founder / director. Studio: KSPF (kspf.au). Email
 | **Fuel / CEO** | Monday/recurring block combining income-generating + business leadership tasks |
 | **Alt Cosmetics** | Working brand name for Anh's cosmetics product (open to renaming) |
 | **AP-REPS** | Previous client — artist management/booking agency site on Squarespace |
-| **Cargo** | Web platform Rowan builds on (mentioned as a speciality) |
+| **Cargo** | Web platform — previously noted as a speciality, but kspf.au is custom coded. |
 | **Askable** | Research platform — Rowan doing their certification |
 | **ifykyk** | "If you know you know" — Anh's brand positioning shorthand |
 | **Engine** | Asana project for skill-building and certifications |

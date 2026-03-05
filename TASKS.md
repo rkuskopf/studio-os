@@ -5,9 +5,16 @@
 
 ## Up Next
 <!-- Prioritised and ready to start -->
+- [ ] Set up Pinterest business account (studio@kspf.au) + claim kspf.au — see `lead-generation.md` for steps
+- [ ] Build target outreach list (10–15 ideal clients)
+- [ ] Document Alt Cosmetics progress for case study (capture before project wraps)
 
 ## Backlog
 <!-- Not yet scheduled -->
+- [ ] Add UX case studies section to kspf.au
+- [ ] Write AP-REPS retrospective case study
+- [ ] Direct outreach — 5 contacts/week (start April)
+- [ ] Check in with past clients post-Alt Cosmetics delivery
 
 ## Waiting / Blocked
 <!-- Waiting on someone else or external dependency -->
