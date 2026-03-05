@@ -141,12 +141,15 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 ## Key Assets
 
 - Meeting notes: https://docs.google.com/document/d/18X5qA58JgCO4wQ6zH7kWzKkCJp1sfdd0CDFnn_mcuPo/
-- Brand Foundations spreadsheet: https://docs.google.com/spreadsheets/d/1HBsfwvK8qbEiqeI0cqkBJSG-K1L0-ZIC/
-- Creative brief (v1.0): https://docs.google.com/document/d/1xI8XLSHW9z6nDWnJZFiaFJVx71cQ030xQAGsDsWeJQc/edit
-- Project scope + contract: https://docs.google.com/document/d/17Ccu3mWNI6nqpS5emHfZCa8ri7bQN7osCUKzVlcSj6c/edit
+- Creative brief (v2.0 — current): https://docs.google.com/document/d/1wtEIEOPXYHuHdXflzWrB8P-nTeUqNaYhpFtsMdOkvEA/edit
+- Creative brief (v1.0 — archived): https://docs.google.com/document/d/1xI8XLSHW9z6nDWnJZFiaFJVx71cQ030xQAGsDsWeJQc/edit
+- Scope + contract (v2.0 — current): https://docs.google.com/document/d/1N_9v4cKI3_nb9vSC46sexOx7qq_YcEC8-7Lbshef0ok/edit
+- Scope + contract (v1.0 — archived): https://docs.google.com/document/d/17Ccu3mWNI6nqpS5emHfZCa8ri7bQN7osCUKzVlcSj6c/edit
 - Timeline doc: https://docs.google.com/document/d/18SWRkCzrBNT1ejJNftuMMohtjljDavg3hz5fkZVIVhk/edit
 - Design notes: https://docs.google.com/document/d/13zKWob84Uf9JOsQtpqRNUxWjoNopne1Wa1iFEGGEp3k/edit
 - Design proposal (PDF): Alt__Cosmetics_Design_Proposal__kspf_studio.pdf
+- Client folder (Drive): https://drive.google.com/drive/folders/1FdbcG_3dQGD7A5c00orFDFZ-Jl3-t_5L
+- Onboarding [Final for client] folder: https://drive.google.com/drive/folders/1Jqd77iqU2USKZK1QMKyLwE9Sc5tWjxtF
 
 ---
 
