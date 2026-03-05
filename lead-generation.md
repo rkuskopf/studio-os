@@ -66,14 +66,14 @@ Pinterest works well for brand, packaging, and visual identity work — people s
 **2. Claim your website**
 - In Settings → Claim → enter kspf.au
 - Pinterest will give you a meta tag or HTML file to add to your site
-- Add it to your Cargo site header (Settings → Custom Code / Head)
+- Add it to your site's `<head>` in your custom code
 - Once verified, your pins link back to kspf.au with attribution
 
 **3. Set up boards**
 Start with 3–5 focused boards:
 - **Brand Identity** — your own work + references
 - **Packaging Design** — your work + strong references
-- **Web & Digital** — kspf.au work + Cargo builds
+- **Web & Digital** — kspf.au work + custom web builds
 - **Visual References** — mood boards, aesthetic inspiration (draws traffic)
 - **Typography** — always performs well on Pinterest
 

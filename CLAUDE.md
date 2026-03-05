@@ -37,7 +37,7 @@ Rowan Kuskopf. Creative studio founder / director. Studio: KSPF (kspf.au). Email
 | **Fuel / CEO** | Monday/recurring block combining income-generating + business leadership tasks |
 | **Alt Cosmetics** | Working brand name for Anh's cosmetics product (open to renaming) |
 | **AP-REPS** | Previous client — artist management/booking agency site on Squarespace |
-| **Cargo** | Web platform Rowan builds on (mentioned as a speciality) |
+| **Cargo** | Web platform — previously noted as a speciality, but kspf.au is custom coded. |
 | **Askable** | Research platform — Rowan doing their certification |
 | **ifykyk** | "If you know you know" — Anh's brand positioning shorthand |
 | **Engine** | Asana project for skill-building and certifications |
