@@ -3,7 +3,7 @@
 **Client:** Anh Tran
 **Studio:** kspf.studio
 **Asana Project:** 1213237592487953
-**Status:** Active — Week 2 (rapid concept/ideation phase, mark direction being tested in 3D)
+**Status:** Active — Week 2 (pre-concept; mark ideation not yet started — Midjourney rapid-concept session planned before Friday)
 **Deadline:** 20 March 2026 · Phase 1: 06 March · Phase 2: 20 March
 
 ---
@@ -59,12 +59,13 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 - [x] Creative brief developed (v1.0 — pending client sign-off)
 - [x] Brand strategy synthesis document produced
 - [ ] Creative brief signed off by client — v5 sent but brief is still evolving; previous version sent was too rambling. Needs a cleaner version before resending.
-- [ ] Resolve chrome vs. matte/satin materiality question with Anh — **blocker**
+- [x] Finish confirmed: **chrome/reflective** — not matte/satin
 - [ ] Confirm packaging supplier + receive dielines, dimensions, capacity — **blocker**
 - [ ] Receive final ingredient list + regulatory copy — **outstanding**
 - [ ] Receive confirmed pricing (retail + wholesale) — **outstanding**
 - [ ] Confirm brand name (ALT. Cosmetics) in writing — **outstanding**
-- [ ] Concept presentation (scheduled Mon 02 Mar — check if completed)
+- [ ] Run Midjourney rapid-concept session (GROUP 2 prompts first) — generate wide range of mark directions **before Friday**
+- [ ] Concept presentation to Anh — **Friday** (mark directions to select from)
 - [ ] Identity refinement round 1
 - [ ] Identity approval
 - [ ] Packaging artwork development
@@ -79,11 +80,11 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 | Item | Status |
 |------|--------|
 | Supplier dielines + confirmed dimensions | Open |
-| Tube shape, finish, capacity (3ml / 4ml / 5ml) | Open |
+| Tube shape, capacity (3ml / 4ml / 5ml) | Open |
 | Secondary packaging (vacuum foil pouch) confirmed | Open |
 | Final ingredient list (regulatory-approved) | Open |
 | Brand name confirmed in writing | Open |
-| Sustainability position | Open |
+| Sustainability position | Resolved — Mar 3 (avoid clear plastic; transition to sustainable packaging as brand scales) |
 | Retail + wholesale pricing | Open |
 
 > Packaging artwork will not commence until supplier dielines, final component dimensions, confirmed capacity, and ingredient/regulatory information have been received. Delays extend the timeline accordingly.
@@ -103,27 +104,31 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 **Visual references:** Alaïa, Prada, retaW — high-contrast, editorial, considered.
 
 **Typography:**
-- Primary: Aktiv Grotesque (current working choice)
+- Primary: Aktiv Grotesque Extended — confirmed at concept presentation. Medium-to-bold weight, all caps, deliberate tracking.
 - Also exploring: gothic and art deco typefaces — still open
-- Secondary: Mono or typewriter-adjacent for functional text (ingredients, regulatory)
 
 **Colour:** Restrained, material-adjacent. Near-neutrals with considered accent. No brights. Not pure black/white — some warmth or material quality should be present. Direction: monochrome, low contrast.
 
-**Finish & Materiality — UNRESOLVED:**
-- Brief specifies matte/satin, hot-stamping or debossing
-- Anh has been considering reflective chrome options — currently being tested in 3D ideation
-- This is a fundamental contradiction requiring client resolution before artwork can proceed
-- Chrome/reflective is not ruled out, but needs to be a deliberate decision, not a drift
+**Finish & Materiality:**
+- **Chrome/reflective** is the confirmed primary packaging direction — polished aluminium or chrome
+- Not decorative; deliberate choice that communicates precision and industrial cool, subverting the soft/matte conventions of traditional beauty packaging
+- Cold reflective surfaces to be balanced with warm secondary elements in brand imagery
 
-**Mark — current direction:**
-- Concept: hot-pressed onto the tube — stamp or crest engraved quality (like a wax seal)
-- Two style routes being weighed:
-  - **Ancient/stone** — more raw, archaic mark quality
-  - **Regal/Victorian** — more structured, heritage engraving feel
-- Anh's preference: SRA SRA mark (old-school atelier vibe, organic) and Loewe anagram — she prefers organic over structured engraving
-- This atelier/organic lean is where the "atelier" theme originated
-- Public domain assets being explored for the Victorian route
-- AI tools (Firefly, Midjourney) being used for rapid 2D logo mark ideation — generating lots of directions to pick from before committing to anything. 3D tube mockups are a separate, later step once mark direction is confirmed.
+**Mark — current status: PRE-CONCEPT (no directions developed yet)**
+- Target: rapid-concept session via Midjourney before Friday presentation to Anh
+- Goal: generate a wide range of 2D mark directions to review and pick from — not committing to anything yet
+- See `alt-cosmetics-mj-prompts.md` for ready-to-run Midjourney prompts (start with GROUP 2)
+
+**Mark — intended quality:**
+- Hot-pressed onto tube — stamp or crest engraved quality (like a wax seal or atelier mark)
+- Flat, 2D at this stage — no 3D mockups until a direction is confirmed
+
+**Three routes to explore in ideation:**
+- **Organic atelier** (primary lean) — fluid letterforms, hand-pressed, SRA SRA / Loewe anagram feel. Anh explicitly prefers organic over structured engraving. This is the direction to weight most heavily.
+- **Ancient/stone** — raw, archaic, pre-modern mark quality
+- **Regal/Victorian** — structured heritage crest, fine-line engraving. Public domain assets may be useful here.
+
+> Midjourney is the plan for rapid ideation. 3D tube mockups are a later step, once a mark direction is selected and approved.
 
 **Tone of voice:** Precise, confident, uncluttered. States rather than suggests. No exclamation marks. No wellness clichés ("ritual," "glow," "nourishing"). Warm in the way a trusted expert is warm — not effusive. Specificity over vagueness.
 
@@ -152,7 +157,9 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 
 - **Client folder (Drive — source of truth for all docs):** https://drive.google.com/drive/folders/1Jqd77iqU2USKZK1QMKyLwE9Sc5tWjxtF
 - **Creative brief (v5 — current):** https://docs.google.com/document/d/1AG2q65K26iMXyRqv_5_GSdLbEMgSan5Y/edit
+- **Creative brief (succinct version — repo):** `alt-cosmetics-brief-succinct.md`
 - **Identity process log (internal — not client-facing):** https://docs.google.com/presentation/d/1RS7Gn8_xeHoCeaIE5_MF6wHlUXScHfZAw66fyqApn1s/edit
+- **Midjourney prompts:** `alt-cosmetics-mj-prompts.md`
 
 > **Note on document history:** The creative brief went through v1–v5 with Claude chat assistance and accumulated errors along the way — stale info was copied forward and compounded across versions. v5 is the most accurate version and should be treated as the reset point. Do not rely on older versions or earlier repo content for brief details. When in doubt, the Drive folder and v5 brief are the source of truth.
 
