@@ -21,19 +21,14 @@ A standalone beauty brand launching with a single hero product: a plant-based, p
 A hot-pressed or stamped quality — like an atelier seal or engraved crest. Flat and 2D, not illustrative. The primary direction is **organic/atelier**: fluid, hand-pressed, not structured or mechanical. Think SRA SRA, Loewe anagram. Mark is still at ideation stage — directions to be presented Friday.
 
 ### Typography
-- **Primary:** Aktiv Grotesque (extended, wide tracking, all caps for brand name)
-- **Secondary:** Mono or typewriter-adjacent for functional copy (ingredients, regulatory)
+- **Primary:** Aktiv Grotesque Extended — confirmed at concept presentation. Medium-to-bold weight, all caps, deliberate tracking.
 - Also exploring gothic and art deco typefaces — still open
 
 ### Colour
 Restrained, material-adjacent. Near-neutrals, low contrast. No brights. Not pure black/white — some warmth or material quality. Monochrome direction.
 
-### Finish & Materiality — ⚠️ UNRESOLVED
-This is a blocker for final packaging artwork. Two competing directions:
-- **Matte/satin** with hot-stamping or debossing ← brief default
-- **Chrome/reflective** ← Anh has been considering this
-
-> **Action required:** Anh to confirm finish direction before packaging artwork begins.
+### Finish & Materiality
+**Chrome/reflective** is the confirmed primary packaging direction — polished aluminium or chrome. Not decorative; a deliberate choice that communicates precision and industrial cool, subverting the soft/matte conventions of traditional beauty packaging. Cold reflective surfaces must be paired with warm secondary elements in brand imagery to keep the brand human and liveable.
 
 ---
 
@@ -56,7 +51,6 @@ Precise, confident, uncluttered. States rather than suggests. No exclamation mar
 
 | Item | Status |
 |------|--------|
-| Finish direction (chrome vs. matte) | ⚠️ Unresolved — client to confirm |
 | Supplier dielines + confirmed dimensions | Outstanding |
 | Final ingredient list (regulatory copy) | Outstanding |
 | Brand name confirmed in writing | Outstanding |
@@ -84,9 +78,9 @@ Precise, confident, uncluttered. States rather than suggests. No exclamation mar
 
 ## 3 — Finish & Materiality
 
-- [ ] Is the chrome vs. matte tension a genuine open question from Anh's side, or has she already made a decision and you haven't locked it in writing?
-- [ ] Has she seen physical samples of both finishes, or is she basing her preference on digital references only?
-- [ ] What is Anh's actual primary concern: aesthetics, cost, or sustainability / Mecca compliance?
+- [ ] Chrome is confirmed — but has Anh seen physical samples, or is her preference based on digital references only?
+- [ ] Has the sustainability implication of chrome/reflective been discussed with Anh in the context of Mecca's requirements? Is there a position locked in?
+- [ ] What warm secondary elements are planned to balance the cold reflective surface in brand imagery and collateral?
 
 ## 4 — Typography
 

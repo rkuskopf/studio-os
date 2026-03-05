@@ -59,7 +59,7 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 - [x] Creative brief developed (v1.0 — pending client sign-off)
 - [x] Brand strategy synthesis document produced
 - [ ] Creative brief signed off by client — v5 sent but brief is still evolving; previous version sent was too rambling. Needs a cleaner version before resending.
-- [ ] Resolve chrome vs. matte/satin materiality question with Anh — **blocker**
+- [x] Finish confirmed: **chrome/reflective** — not matte/satin
 - [ ] Confirm packaging supplier + receive dielines, dimensions, capacity — **blocker**
 - [ ] Receive final ingredient list + regulatory copy — **outstanding**
 - [ ] Receive confirmed pricing (retail + wholesale) — **outstanding**
@@ -80,11 +80,11 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 | Item | Status |
 |------|--------|
 | Supplier dielines + confirmed dimensions | Open |
-| Tube shape, finish, capacity (3ml / 4ml / 5ml) | Open |
+| Tube shape, capacity (3ml / 4ml / 5ml) | Open |
 | Secondary packaging (vacuum foil pouch) confirmed | Open |
 | Final ingredient list (regulatory-approved) | Open |
 | Brand name confirmed in writing | Open |
-| Sustainability position | Open |
+| Sustainability position | Resolved — Mar 3 (avoid clear plastic; transition to sustainable packaging as brand scales) |
 | Retail + wholesale pricing | Open |
 
 > Packaging artwork will not commence until supplier dielines, final component dimensions, confirmed capacity, and ingredient/regulatory information have been received. Delays extend the timeline accordingly.
@@ -104,17 +104,15 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 **Visual references:** Alaïa, Prada, retaW — high-contrast, editorial, considered.
 
 **Typography:**
-- Primary: Aktiv Grotesque (current working choice)
+- Primary: Aktiv Grotesque Extended — confirmed at concept presentation. Medium-to-bold weight, all caps, deliberate tracking.
 - Also exploring: gothic and art deco typefaces — still open
-- Secondary: Mono or typewriter-adjacent for functional text (ingredients, regulatory)
 
 **Colour:** Restrained, material-adjacent. Near-neutrals with considered accent. No brights. Not pure black/white — some warmth or material quality should be present. Direction: monochrome, low contrast.
 
-**Finish & Materiality — UNRESOLVED:**
-- Brief specifies matte/satin, hot-stamping or debossing
-- Anh has been considering reflective chrome options — currently being tested in 3D ideation
-- This is a fundamental contradiction requiring client resolution before artwork can proceed
-- Chrome/reflective is not ruled out, but needs to be a deliberate decision, not a drift
+**Finish & Materiality:**
+- **Chrome/reflective** is the confirmed primary packaging direction — polished aluminium or chrome
+- Not decorative; deliberate choice that communicates precision and industrial cool, subverting the soft/matte conventions of traditional beauty packaging
+- Cold reflective surfaces to be balanced with warm secondary elements in brand imagery
 
 **Mark — current status: PRE-CONCEPT (no directions developed yet)**
 - Target: rapid-concept session via Midjourney before Friday presentation to Anh
