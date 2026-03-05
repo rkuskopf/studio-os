@@ -3,7 +3,7 @@
 **Client:** Anh Tran
 **Studio:** kspf.studio
 **Asana Project:** 1213237592487953
-**Status:** Active — Week 2 (identity + packaging concepts in parallel)
+**Status:** Active — Week 2 (rapid concept/ideation phase, mark direction being tested in 3D)
 **Deadline:** 20 March 2026 · Phase 1: 06 March · Phase 2: 20 March
 
 ---
@@ -103,17 +103,27 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 **Visual references:** Alaïa, Prada, retaW — high-contrast, editorial, considered.
 
 **Typography:**
-- Primary: Structured sans-serif, medium-to-bold weight, all-caps lockups preferred, deliberate tracking
+- Primary: Aktiv Grotesque (current working choice)
+- Also exploring: gothic and art deco typefaces — still open
 - Secondary: Mono or typewriter-adjacent for functional text (ingredients, regulatory)
-- Current candidates: Aktiv Grotesk Extended, Hiragino Kaku Gothic ProN
 
 **Colour:** Restrained, material-adjacent. Near-neutrals with considered accent. No brights. Not pure black/white — some warmth or material quality should be present. Direction: monochrome, low contrast.
 
 **Finish & Materiality — UNRESOLVED:**
 - Brief specifies matte/satin, hot-stamping or debossing
-- Anh has been considering reflective chrome options
+- Anh has been considering reflective chrome options — currently being tested in 3D ideation
 - This is a fundamental contradiction requiring client resolution before artwork can proceed
 - Chrome/reflective is not ruled out, but needs to be a deliberate decision, not a drift
+
+**Mark — current direction:**
+- Concept: hot-pressed onto the tube — stamp or crest engraved quality (like a wax seal)
+- Two style routes being weighed:
+  - **Ancient/stone** — more raw, archaic mark quality
+  - **Regal/Victorian** — more structured, heritage engraving feel
+- Anh's preference: SRA SRA mark (old-school atelier vibe, organic) and Loewe anagram — she prefers organic over structured engraving
+- This atelier/organic lean is where the "atelier" theme originated
+- Public domain assets being explored for the Victorian route
+- AI tools (Firefly, potentially Midjourney) being used for rapid 3D concept testing
 
 **Tone of voice:** Precise, confident, uncluttered. States rather than suggests. No exclamation marks. No wellness clichés ("ritual," "glow," "nourishing"). Warm in the way a trusted expert is warm — not effusive. Specificity over vagueness.
 
@@ -140,16 +150,11 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 
 ## Key Assets
 
-- Meeting notes: https://docs.google.com/document/d/18X5qA58JgCO4wQ6zH7kWzKkCJp1sfdd0CDFnn_mcuPo/
-- Creative brief (v2.0 — current): https://docs.google.com/document/d/1wtEIEOPXYHuHdXflzWrB8P-nTeUqNaYhpFtsMdOkvEA/edit
-- Creative brief (v1.0 — archived): https://docs.google.com/document/d/1xI8XLSHW9z6nDWnJZFiaFJVx71cQ030xQAGsDsWeJQc/edit
-- Scope + contract (v2.0 — current): https://docs.google.com/document/d/1N_9v4cKI3_nb9vSC46sexOx7qq_YcEC8-7Lbshef0ok/edit
-- Scope + contract (v1.0 — archived): https://docs.google.com/document/d/17Ccu3mWNI6nqpS5emHfZCa8ri7bQN7osCUKzVlcSj6c/edit
-- Timeline doc: https://docs.google.com/document/d/18SWRkCzrBNT1ejJNftuMMohtjljDavg3hz5fkZVIVhk/edit
-- Design notes: https://docs.google.com/document/d/13zKWob84Uf9JOsQtpqRNUxWjoNopne1Wa1iFEGGEp3k/edit
-- Design proposal (PDF): Alt__Cosmetics_Design_Proposal__kspf_studio.pdf
-- Client folder (Drive): https://drive.google.com/drive/folders/1FdbcG_3dQGD7A5c00orFDFZ-Jl3-t_5L
-- Onboarding [Final for client] folder: https://drive.google.com/drive/folders/1Jqd77iqU2USKZK1QMKyLwE9Sc5tWjxtF
+- **Client folder (Drive — source of truth for all docs):** https://drive.google.com/drive/folders/1Jqd77iqU2USKZK1QMKyLwE9Sc5tWjxtF
+- **Creative brief (v5 — current):** https://docs.google.com/document/d/1AG2q65K26iMXyRqv_5_GSdLbEMgSan5Y/edit
+- **Identity process log (internal — not client-facing):** https://docs.google.com/presentation/d/1RS7Gn8_xeHoCeaIE5_MF6wHlUXScHfZAw66fyqApn1s/edit
+
+> **Note on document history:** The creative brief went through v1–v5 with Claude chat assistance and accumulated errors along the way — stale info was copied forward and compounded across versions. v5 is the most accurate version and should be treated as the reset point. Do not rely on older versions or earlier repo content for brief details. When in doubt, the Drive folder and v5 brief are the source of truth.
 
 ---
 
