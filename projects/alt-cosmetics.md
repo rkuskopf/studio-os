@@ -4,7 +4,7 @@
 **Studio:** kspf.studio
 **Asana Project:** 1213237592487953
 **Status:** Active — Week 2 (rapid concept/ideation phase, mark direction being tested in 3D)
-**Deadline:** 20 March 2026 · Phase 1: 13 March · Phase 2: 20 March
+**Deadline:** 20 March 2026 · Phase 1: 06 March · Phase 2: 20 March
 
 ---
 
