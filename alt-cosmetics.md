@@ -58,7 +58,12 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 - [x] Strategy session (completed 25 Feb)
 - [x] Creative brief developed (v1.0 — pending client sign-off)
 - [x] Brand strategy synthesis document produced
-- [ ] Creative brief signed off by client — v5 sent but brief is still evolving; previous version sent was too rambling. Needs a cleaner version before resending.
+- [ ] Creative brief signed off by client — v5 is overwritten and unclear, not sendable. Needs a full rewrite workshop as a dedicated session. Do not patch it — start fresh.
+- [ ] Sort scattered reference images into Direction A / Direction B folders — use Cowork
+- [ ] Identify Van der Weyden serif via WhatTheFont
+- [ ] Locate fonts: ABC Favorit Condensed (Adobe Fonts), Söhne Schmal (Adobe Fonts), Neue Haas Grotesk Display (Adobe Fonts), Suisse Int'l Mono (try Fontshare), Van der Weyden serif (pending ID)
+- [ ] Mark concept development — two directions (ancient/carved + Victorian/regal), four build processes (see Mark section above)
+- [ ] Bulk download Pinterest reference boards — Pinloader Chrome extension or equivalent
 - [ ] Resolve chrome vs. matte/satin materiality question with Anh — **blocker**
 - [ ] Confirm packaging supplier + receive dielines, dimensions, capacity — **blocker**
 - [ ] Receive final ingredient list + regulatory copy — **outstanding**
@@ -117,12 +122,22 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 
 **Mark — current direction:**
 - Concept: hot-pressed onto the tube — stamp or crest engraved quality (like a wax seal)
-- Two style routes being weighed:
-  - **Ancient/stone** — more raw, archaic mark quality
-  - **Regal/Victorian** — more structured, heritage engraving feel
-- Anh's preference: SRA SRA mark (old-school atelier vibe, organic) and Loewe anagram — she prefers organic over structured engraving
-- This atelier/organic lean is where the "atelier" theme originated
-- Public domain assets being explored for the Victorian route
+- Oval cartouche with carved/incised quality is confirmed structural territory for both directions
+- Two aesthetic directions being developed for presentation to Anh:
+  - **Direction A — Ancient / carved / archaeological** — raw, primitive, stone-carved quality. Like Egyptian scarab seals, ancient intaglio gems, worn stone objects. Surface feeling and register defines this direction, not legibility.
+  - **Direction B — Victorian / regal / art deco** — fine line engraving, heritage, structured ornament. Like copperplate silversmith marks, Victorian crests, art deco medallions. Aesthetic register defines it.
+- **Important:** Legibility (abstract vs readable letterforms) is an independent axis from aesthetic direction. Both Direction A and Direction B can be abstract or have readable A-L-T letterforms. Do not conflate these two decisions.
+- Anh's references: SRA SRA mark (old-school atelier vibe, organic) and Loewe anagram — abstract dissolved forms. But legible is also on the table. Don't resolve this — present both.
+- Both directions need to be developed as concepts to present to Anh before resolution.
+- Four build processes identified:
+  1. Photoshop collage — layer Pinterest/MET reference images using Multiply blend mode + Bevel & Emboss to simulate engraved surface
+  2. Illustrator vectorisation — Image Trace MET/MJ outputs, clean with Simplify, collage vector elements
+  3. Hand drawings — process log has loose drawings; bring into Illustrator and trace
+  4. MJ paired prompts — one image into Image Prompts for structure, one into Style References for surface quality
+- MJ outputs worth keeping from 06 Mar session:
+  - Figure-8 oval from flat graphic batch — clean structure, right proportions
+  - Teal monogram oval — right letterform density and border weight
+  - Stone spiral ovals — surface quality reference only, not mark structure
 - AI tools (Firefly, Midjourney) being used for rapid 2D logo mark ideation — generating lots of directions to pick from before committing to anything. 3D tube mockups are a separate, later step once mark direction is confirmed.
 
 **Tone of voice:** Precise, confident, uncluttered. States rather than suggests. No exclamation marks. No wellness clichés ("ritual," "glow," "nourishing"). Warm in the way a trusted expert is warm — not effusive. Specificity over vagueness.
@@ -154,7 +169,7 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 - **Creative brief (v5 — current):** https://docs.google.com/document/d/1AG2q65K26iMXyRqv_5_GSdLbEMgSan5Y/edit
 - **Identity process log (internal — not client-facing):** https://docs.google.com/presentation/d/1RS7Gn8_xeHoCeaIE5_MF6wHlUXScHfZAw66fyqApn1s/edit
 
-> **Note on document history:** The creative brief went through v1–v5 with Claude chat assistance and accumulated errors along the way — stale info was copied forward and compounded across versions. v5 is the most accurate version and should be treated as the reset point. Do not rely on older versions or earlier repo content for brief details. When in doubt, the Drive folder and v5 brief are the source of truth.
+> **Note on document history:** The creative brief went through v1–v5 with Claude chat assistance and accumulated errors along the way — stale info was copied forward and compounded across versions. v5 is the most accurate version but is overwritten and unclear — not currently sendable. Needs a full rewrite workshop as a dedicated session (not a patch job). Do not rely on older versions or earlier repo content for brief details. When in doubt, the Drive folder and v5 brief are the source of truth.
 
 ---
 
