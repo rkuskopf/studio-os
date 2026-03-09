@@ -18,7 +18,7 @@
 - **PM:** Asana
 - **Calendar/Email:** Google (studio@kspf.au)
 - **Design:** Figma
-- **Web:** Cargo, Squarespace custom CSS, GitHub repos
+- **Web:** Custom HTML/CSS/JS, Shopify, Cargo, Squarespace custom CSS, GitHub repos
 - **Finance:** Currently exploring alternatives to MYOB
 - **Business support:** Holmesglen Self Employment Assistance (David Carnegie)
 
