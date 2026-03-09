@@ -46,28 +46,28 @@ Groups 4A–4C only. Do not run these until a mark is confirmed and redrawn in I
 
 ## GROUP A — Direction A: Ancient / Carved / Archaeological
 
-*Goal: raw, stone-carved quality. Ancient intaglio register — something found not made. Flat incised line work, oval form, worn edges. All flat, black on white.*
+*Goal: raw, stone-carved quality. Ancient intaglio register — something found not made. Flat incised line work, oval form, worn edges. Small classical illustrations welcome (botanical, bird, serpent, shell, profile) — just not insects. All flat, black on white.*
 
-> **If you're getting bugs:** the sref image is the problem, not the prompt. If you're using the green scarab gem as a reference, MJ will keep rendering beetles regardless of --no exclusions. **Use the Greek meander coin image as your sref instead** — it gives you the same worn ancient quality without a creature as the subject.
+> **If you're getting bugs:** the sref image is the problem. If you're using the green scarab gem as a reference, MJ will keep rendering beetles. **Use the Greek meander coin image as your sref instead.**
 
-**A1 — Intaglio oval seal** *(anchor prompt — run first)*
+**A1 — Botanical sprig** *(good starting point)*
 ```
-flat 2D logo mark, black on white, oval form, incised line work, archaic carved quality, worn primitive mark, ancient seal register, pure abstract geometric symbol, no figurative subject, non-representational, hand-cut character, beauty brand identity --sw 100 --ar 1:1 --style raw --v 6.1 --chaos 25 --no insect, bug, beetle, scarab, legs, antennae, wings, animal, creature, face, figurative, body, realistic, artifact photograph, 3D rendering, photographic, shading, drop shadow, embossed, raised, dimensional, modern design, clean geometry, modern minimalism, celtic, knotwork
-```
-
-**A2 — Worn incised mark**
-```
-flat 2D logo mark, black on white, incised line quality, worn abstract mark, primitive carved geometric character, archaic non-figurative symbol, raw hand-cut feel, beauty brand, oval or irregular form, ancient authority, no creature no animal --sw 100 --ar 1:1 --style raw --v 6.1 --chaos 25 --no insect, bug, beetle, scarab, legs, antennae, wings, animal, creature, face, figurative, realistic, artifact photograph, 3D rendering, photographic, shading, drop shadow, embossed, raised, dimensional, modern design, clean geometry, celtic, knotwork
+flat 2D logo mark, black on white, ancient intaglio oval seal, small botanical sprig engraved at centre, olive branch or laurel, incised line work, archaic carved quality, worn primitive mark, classical seal register, beauty brand identity --sw 75 --ar 1:1 --style raw --v 6.1 --chaos 20 --no insect, bug, beetle, scarab, spider, worm, 3D rendering, photographic, shading, drop shadow, embossed, raised, dimensional, modern design, clean geometry, celtic, knotwork
 ```
 
-**A3 — Stamp impression quality**
+**A2 — Bird or serpent**
 ```
-flat 2D logo mark, black on white, stamp impression quality, worn ink mark, primitive pressed geometric symbol, ancient authority, incised carved feel, archaic abstract form, pure mark no creature, beauty brand mark --sw 100 --ar 1:1 --style raw --v 6.1 --chaos 25 --no insect, bug, beetle, scarab, legs, antennae, wings, animal, creature, face, figurative, realistic, artifact photograph, 3D rendering, photographic, shading, drop shadow, embossed, raised, dimensional, modern, celtic, knotwork
+flat 2D logo mark, black on white, ancient intaglio oval seal, small engraved bird or serpent at centre, incised archaic line quality, worn carved mark, classical coin register, primitive elegance, beauty brand --sw 75 --ar 1:1 --style raw --v 6.1 --chaos 20 --no insect, bug, beetle, scarab, spider, worm, 3D rendering, photographic, shading, drop shadow, embossed, raised, dimensional, modern, celtic, knotwork
 ```
 
-**A4 — Abstract / dissolved**
+**A3 — Classical profile or shell**
 ```
-flat 2D logo mark, black on white, abstract ancient geometric symbol, dissolved archaic form, incised carved quality, worn primitive mark, no readable letters, no animal, pure abstract mark, beauty brand --sw 100 --ar 1:1 --style raw --v 6.1 --chaos 25 --no insect, bug, beetle, scarab, legs, antennae, wings, animal, creature, face, figurative, realistic, artifact photograph, 3D rendering, photographic, shading, drop shadow, embossed, raised, dimensional, modern, celtic, knotwork
+flat 2D logo mark, black on white, ancient intaglio oval seal, small engraved classical profile or shell or crescent at centre, archaic incised line work, worn ancient quality, seal register, beauty brand mark --sw 75 --ar 1:1 --style raw --v 6.1 --chaos 20 --no insect, bug, beetle, scarab, spider, worm, 3D rendering, photographic, shading, drop shadow, embossed, raised, dimensional, modern, celtic, knotwork
+```
+
+**A4 — Open / let MJ choose subject**
+```
+flat 2D logo mark, black on white, ancient intaglio oval seal, small engraved classical illustration at centre, worn archaic incised quality, ancient coin or gem seal register, primitive elegance, beauty brand --sw 75 --ar 1:1 --style raw --v 6.1 --chaos 25 --no insect, bug, beetle, scarab, spider, worm, 3D rendering, photographic, shading, drop shadow, embossed, raised, dimensional, modern, celtic, knotwork
 ```
 
 ---
