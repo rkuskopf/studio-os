@@ -1,6 +1,6 @@
 # ALT. Cosmetics — Midjourney Prompts
-# v5 — Updated 09 March 2026
-# Aligned to three confirmed mark directions: A (Ancient/Carved), B (Victorian/Script), C (Architectural/Art Deco/SRA SRA)
+# v6 — Updated 09 March 2026
+# Aligned to four directions: A (Ancient/Carved), B (Victorian/Script), C (Architectural/Art Deco/SRA SRA), D (Ancient Medallion/Meander Field)
 
 *Copy-paste ready.*
 
@@ -127,6 +127,36 @@ logo mark design, geometric monogram, letters sharing strokes, unified flat grap
 ```
 logo mark design, abstract art deco oval mark, dissolved geometric elements inside formal cartouche frame, no readable letters, architectural composition, double ring border, beauty brand, flat 2D, black on white, structured abstract quality --sref [PASTE_SREF_URL_HERE] --sw 100 --ar 1:1 --style raw --v 6.1 --chaos 25 --no gradients, shading, drop shadow, 3D rendering, photographic, embossed, raised, dimensional, calligraphy, script, celtic, knotwork
 ```
+
+---
+
+## GROUP D — Direction D: Ancient Medallion / Meander Field with Text Reserve
+
+*Goal: ancient coin or seal composition where decorative ornamental field (meander, Greek key, geometric pattern) fills the outer area, with a clear blank centre zone reserved for the wordmark. Reference: Greek meander coin — dense geometric surround, open centre. The text sits in the cleared space; MJ won't render the actual word, but the composition should show the reserved zone clearly.*
+
+> **Drag the Greek coin image directly into Style References before running these.** It's the most direct way to communicate this specific compositional structure.
+
+**D1 — Meander field, open centre** *(anchor prompt — run first)*
+```
+flat 2D logo mark, black on white, oval coin form, dense meander pattern fills outer field, Greek key geometric ornament surrounds central blank zone, open centre cartouche reserved for text, ancient coin register, incised line quality, worn archaic mark, beauty brand --sref [DRAG_GREEK_COIN_IMAGE_HERE] --sw 100 --ar 1:1 --style raw --v 6.1 --chaos 20 --no insect, creature, figurative, 3D rendering, photographic, shading, drop shadow, embossed, raised, dimensional, modern design, text, letterforms, letters
+```
+
+**D2 — Geometric field, oval reserve**
+```
+flat 2D logo mark, black on white, oval medallion form, geometric ornamental pattern fills surrounding field, blank oval cartouche at centre cleared for text, dense pattern surround with open middle, ancient authority, incised quality, beauty brand mark --sref [DRAG_GREEK_COIN_IMAGE_HERE] --sw 100 --ar 1:1 --style raw --v 6.1 --chaos 20 --no insect, creature, figurative, 3D rendering, photographic, shading, drop shadow, embossed, raised, dimensional, modern, text, letterforms
+```
+
+**D3 — Rosette centre ornament, text ring**
+```
+flat 2D logo mark, black on white, medallion composition, small rosette or floral ornament at centre, surrounding ring of geometric meander fills outer field, open zone around centre ornament where text would ring, ancient coin register, worn incised quality, beauty brand --sref [DRAG_GREEK_COIN_IMAGE_HERE] --sw 100 --ar 1:1 --style raw --v 6.1 --chaos 20 --no insect, creature, figurative, 3D rendering, photographic, shading, drop shadow, embossed, raised, dimensional, modern, text
+```
+
+**D4 — Abstract / dissolved version**
+```
+flat 2D logo mark, black on white, ancient medallion form, abstract ornamental surround fills outer field, blank cleared centre zone, no readable letters, pure mark quality, dense geometric field with open middle, archaic beauty brand --sref [DRAG_GREEK_COIN_IMAGE_HERE] --sw 100 --ar 1:1 --style raw --v 6.1 --chaos 25 --no insect, creature, figurative, 3D rendering, photographic, shading, drop shadow, embossed, raised, dimensional, modern, text
+```
+
+> **After MJ:** The centre will be blank or near-blank in the output. Screenshot the best result, import into Illustrator at 30% opacity, and place "ALT." in Aktiv Grotesque into that cleared zone. The ornamental field is what you're assessing — does it feel right around the text?
 
 ---
 
