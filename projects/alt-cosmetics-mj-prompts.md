@@ -1,20 +1,26 @@
 # ALT. Cosmetics — Midjourney Prompts
-# v3 — Updated 09 March 2026
+# v4 — Updated 09 March 2026
 # Aligned to three confirmed mark directions: A (Ancient/Carved), B (Victorian/Script), C (Architectural/Art Deco/SRA SRA)
 
 *Copy-paste ready.*
 
 ---
 
-## How to use image references (`--sref`)
+## How to use image references (web UI)
 
-MJ style references are more reliable than text descriptions for anchoring visual style. Use them.
+The MJ web UI (midjourney.com/imagine) has three drop zones in the prompt bar:
 
-**Pinterest:** Right-click any pin image → "Open image in new tab" → copy the URL (starts with `i.pinimg.com/originals/...`). Paste directly into the `--sref` field. Board URLs don't work — individual pin image URLs only.
+- **Image Prompts** — influences composition and elements. Use sparingly for marks.
+- **Style References** ← use this one. Drag reference images directly here. Controls aesthetic/visual style.
+- **Character References** — likeness matching. Not relevant for brand marks.
 
-**Figma moodboard:** Export your moodboard frame as PNG → drag into MJ chat → MJ returns a CDN URL (starts with `cdn.discordapp.com` or `media.discordapp.net`) → use that URL in `--sref` for all future prompts.
+**Drag images straight into Style References** — no URL wrangling needed. Multiple images can be dropped in; MJ blends them.
 
-**Google Drive:** Set the file to "anyone with link can view" → format the URL as: `https://drive.google.com/uc?id=FILE_ID` (replace FILE_ID with the ID from your share link).
+**MJ Moodboards (left sidebar → "Moodboards"):** Build a moodboard inside MJ from any images you've generated or uploaded. You can then attach it directly to a prompt via Style References. This is the closest thing to "linking a moodboard" — keep one moodboard per direction (A, B, C).
+
+**Pinterest:** Individual pin images work — right-click a pin → "Open image in new tab" → drag that tab's image into the Style References zone. Board URLs still don't work.
+
+**Figma moodboard:** Export as PNG → drag into Style References. Simplest path.
 
 **`--sw` values:**
 - `--sw 100` — style reference has strong influence (recommended for mark ideation)
