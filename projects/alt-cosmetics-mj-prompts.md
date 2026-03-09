@@ -1,23 +1,104 @@
 # ALT. Cosmetics — Midjourney Prompts
-*Copy-paste ready. Current priority is GROUP 2 (mark/crest direction) — run those first to establish a logo direction. Wordmarks and packaging mockups come after.*
+# v2 — Updated 09 March 2026
+# Aligned to three confirmed mark directions: A (Ancient/Carved), B (Victorian/Script), C (Architectural/Art Deco/SRA SRA)
+
+*Copy-paste ready. Run GROUP A, B, and C in parallel to generate wide coverage across all three directions before committing to any one.*
 
 **Workflow:**
-1. Run Group 2 to generate lots of 2D mark directions → pick strongest 1–2
-2. Run Group 1 to explore typographic lockups alongside
-3. Groups 3–4 (3D packaging mockups) come later, once mark is confirmed
+1. Run Groups A, B, C to generate 2D mark directions across all three territories → pick strongest 1–2 per direction
+2. Run Group 1 (wordmark) to explore typographic lockups alongside
+3. Groups 4–5 (3D chrome tube mockups) come later, once mark is confirmed — chrome finish only
 
 ---
 
-## GROUP 1 — Typographic Wordmark
+## GROUP A — Direction A: Ancient / Carved / Archaeological
 
-**1A — Extended, wide tracking (primary direction)**
+*Goal: raw, stone-carved quality. Think Egyptian scarab seal, ancient intaglio gem, something found not made. Incised into the surface. All flat, black on white — no 3D, no gradients.*
+
+**A1 — Scarab / intaglio seal**
+```
+logo mark design, ancient carved seal, intaglio gem quality, Egyptian scarab oval, incised stone mark, archaic symbol, primitive elegance, flat 2D, black on white, worn surface quality, beauty brand identity, no modern design --ar 1:1 --style raw --v 6.1 --no gradients, shadows, clean geometry, modern minimalism, celtic, knotwork
+```
+
+**A2 — Stone tablet fragment**
+```
+brand mark design, ancient stone tablet inscription, carved letterform fragment, archaeological artefact quality, raw incised mark, pre-modern seal, organic irregular edges, flat 2D, black on white, primitive hand-cut quality, luxury beauty --ar 1:1 --style raw --v 6.1 --no modern design, gradients, shadows, clean geometry, celtic, knotwork
+```
+
+**A3 — Wax seal, archaeological register**
+```
+logo mark design, ancient wax seal impression, worn stamp quality, archaic carved symbol, stone or clay pressed mark, beauty brand, flat 2D, black on white, incised texture, looks like it could be 3000 years old, primitive authority --ar 1:1 --style raw --v 6.1 --no gradients, 3D, shadows, modern, celtic, knotwork
+```
+
+**A4 — Abstract / dissolved (legibility axis: abstract end)**
+```
+logo mark design, ancient carved abstract symbol, dissolved letterform, incised stone surface, archaeological fragment, beauty brand mark, flat 2D, black on white, worn, primitive, no readable letters, pure mark quality --ar 1:1 --style raw --v 6.1 --no gradients, shadows, modern, celtic, knotwork
+```
+
+---
+
+## GROUP B — Direction B: Victorian / Script / Medieval
+
+*Goal: ornate calligraphic construction, fine line, Victorian penmanship register. Mauclot monogram sheet is the primary reference — interlocking looped letterforms, weight variation, fluid curves. NOT architectural, NOT geometric. Decorative but considered.*
+
+**B1 — Victorian monogram, Mauclot register**
+```
+logo mark design, Victorian monogram, calligraphic interlocking letterforms, Mauclot penmanship style, ornate swash construction, weight variation, fluid curves, heritage script quality, beauty brand, flat 2D, black on white, fine line, no geometric shapes --ar 1:1 --style raw --v 6.1 --no gradients, shadows, geometric, modern, celtic, knotwork
+```
+
+**B2 — Medieval manuscript initial**
+```
+brand mark design, medieval illuminated manuscript initial, ornate calligraphic letter, fine line decorative construction, heritage penmanship register, beauty brand identity, flat 2D, black on white, fluid stroke weight, historically rooted --ar 1:1 --style raw --v 6.1 --no gradients, shadows, geometric shapes, modern minimalism, celtic, knotwork
+```
+
+**B3 — Victorian wax seal, script interior**
+```
+logo mark design, Victorian style wax seal, calligraphic script interior, ornate swash letterforms inside oval frame, fine line quality, heritage beauty brand, flat 2D, black on white, penmanship tradition, not geometric --ar 1:1 --style raw --v 6.1 --no gradients, shadows, art deco, geometric construction, celtic, knotwork
+```
+
+**B4 — Abstract / dissolved (legibility axis: abstract end)**
+```
+logo mark design, Victorian calligraphic abstract mark, dissolved ornate letterform, fine line swash construction, beauty brand, flat 2D, black on white, no readable letters, pure calligraphic mark quality, Victorian penmanship register --ar 1:1 --style raw --v 6.1 --no gradients, shadows, geometric, modern, celtic, knotwork
+```
+
+---
+
+## GROUP C — Direction C: Architectural / Art Deco / SRA SRA
+
+*Goal: formal oval cartouche, letters or elements positioned as separate structured elements within a frame. SRA SRA territory — letters at compass points inside a double-ring oval with ornamental centrepiece. Art deco lineage. Also: geometric shared-stroke monogram construction.*
+
+**C1 — SRA SRA oval cartouche**
+```
+logo mark design, formal oval cartouche, letters positioned at compass points inside double-ring border, architectural composition, ornamental centrepiece, SRA SRA register, art deco oval seal, beauty brand, flat 2D, black on white, structured, geometric --ar 1:1 --style raw --v 6.1 --no gradients, shadows, calligraphy, script, celtic, knotwork
+```
+
+**C2 — Art deco architectural seal**
+```
+brand mark design, art deco oval seal, formal architectural frame, letters as positioned elements, double ring border, geometric interior centrepiece, luxury beauty brand, flat 2D, black on white, structured composition, authoritative --ar 1:1 --style raw --v 6.1 --no gradients, shadows, calligraphy, script, celtic, knotwork
+```
+
+**C3 — Geometric shared-stroke monogram**
+```
+logo mark design, geometric monogram, letters sharing strokes, unified flat graphic form, single consistent line weight, high contrast, no ornament, no container, pure letterform architecture, art deco Bauhaus lineage, beauty brand, black on white, flat 2D --ar 1:1 --style raw --v 6.1 --no gradients, shadows, calligraphy, ornament, frame, oval, celtic, knotwork
+```
+
+**C4 — Abstract / dissolved (legibility axis: abstract end)**
+```
+logo mark design, abstract art deco oval mark, dissolved geometric elements inside formal cartouche frame, no readable letters, architectural composition, double ring border, beauty brand, flat 2D, black on white, structured abstract quality --ar 1:1 --style raw --v 6.1 --no gradients, shadows, calligraphy, script, celtic, knotwork
+```
+
+---
+
+## GROUP 1 — Typographic Wordmark (run alongside mark groups)
+
+**1A — Extended, wide tracking**
 ```
 typographic logo design, wordmark only, text "ALT.", extended sans-serif, all caps, wide letter-spacing, editorial fashion brand, monochrome black on white, flat 2D, no shadows, no gradients, restrained minimal, luxury beauty, Prada-adjacent --ar 3:1 --style raw --v 6.1 --no decorative elements, illustration, icons
 ```
 
-**1B — Lighter weight, more air**
+**1B — The period as a design element**
 ```
-typographic logo design, wordmark only, text "ALT.", light weight extended sans-serif, all caps, extreme letter-spacing, editorial minimalism, monochrome, white background, flat, cosmetics brand, ifykyk quiet luxury --ar 3:1 --style raw --v 6.1 --no shadows, gradients, ornament
+typographic logo design, wordmark "ALT" with oversized full stop period mark, extended sans-serif, all caps, wide tracking, the period anchors the composition, editorial, monochrome, minimal luxury beauty brand, flat --ar 3:1 --style raw --v 6.1 --no icons, illustration, gradients
 ```
 
 **1C — Bold, high contrast**
@@ -25,91 +106,54 @@ typographic logo design, wordmark only, text "ALT.", light weight extended sans-
 typographic logo design, wordmark only, text "ALT.", bold condensed sans-serif, all caps, tight tracking, stark black on white, fashion-editorial, high contrast, luxury cosmetics, Alaïa-adjacent, flat 2D --ar 3:1 --style raw --v 6.1 --no gradients, shadows, decoration
 ```
 
-**1D — The period as a design element**
-```
-typographic logo design, wordmark "ALT" with oversized full stop period mark, extended sans-serif, all caps, wide tracking, the period anchors the composition, editorial, monochrome, minimal luxury beauty brand, flat --ar 3:1 --style raw --v 6.1 --no icons, illustration, gradients
-```
-
 ---
 
-## GROUP 2 — Mark / Crest (START HERE — current priority)
+## GROUP 4 — 3D Chrome Tube Mockups (AFTER mark is confirmed — chrome only)
 
-*Goal: generate many 2D logo mark directions. All should feel hot-pressed or stamped — like a seal or crest engraved into a surface. Flat, black on white. No gradients, no 3D.*
+*Only run these once a mark direction has been chosen and refined in Illustrator. These are presentation/context renders, not mark development.*
 
-**2A — Organic atelier mark (SRA SRA / Loewe direction)**
+**4A — Chrome tube, minimal**
 ```
-logo mark design, organic intertwined letterforms, atelier stamp quality, hand-pressed seal, old-world craftsmanship, cosmetics brand, black on white, flat 2D, elegant not ornate, no structured grid, fluid lines --ar 1:1 --style raw --v 6.1 --no gradients, shadows, 3D, geometric construction
-```
-
-**2B — Organic atelier mark, looser**
-```
-brand mark design, abstract organic stamp, loose fluid letterform, wax seal quality, artisan atelier, beauty brand, monochrome, flat vector, black on white, quiet luxury, not geometric, handcrafted feel --ar 1:1 --style raw --v 6.1 --no gradients, shadows, mechanical shapes
+cosmetic serum tube product mockup, chrome metallic finish, minimalist label, "ALT." wordmark in white hot-stamp quality, all caps extended sans-serif, white studio background, editorial beauty photography, luxury, clean, high contrast, product shot --ar 2:3 --style raw --v 6.1 --no busy background, props, flowers, matte finish
 ```
 
-**2C — Ancient/stone route**
+**4B — Chrome with secondary packaging**
 ```
-logo mark design, archaic symbol, ancient stone carving quality, raw mark, pre-modern seal, organic irregular edges, beauty brand identity, black on white, flat 2D, hand-cut quality, primitive elegance --ar 1:1 --style raw --v 6.1 --no modern design, gradients, shadows, clean geometry
-```
-
-**2D — Regal/Victorian route**
-```
-logo mark design, Victorian crest style, medallion seal, engraved heritage mark, oval or arch frame, fine line detail, luxury cosmetics brand, black on white, flat 2D, restrained ornament, not busy --ar 1:1 --style raw --v 6.1 --no colour, gradients, shadows, modern minimalism
+luxury cosmetics product flatlay, chrome serum tube and minimal outer packaging, silver and white, "ALT." wordmark, editorial fashion photography, clean white background, considered composition, premium beauty brand, reflective chrome --ar 4:5 --style raw --v 6.1 --no clutter, flowers, props, matte finish
 ```
 
-**2E — Hot-press stamp quality, letterform-based**
+**4C — Chrome, contextual counter shot**
 ```
-brand mark design, single letterform stamp, embossed seal quality, cosmetics brand, organic not geometric, black on white, flat, looks like it would be hot-foil pressed onto a tube, quiet luxury, atelier quality --ar 1:1 --style raw --v 6.1 --no gradients, 3D, shadows, mechanical feel
-```
-
-**2F — Crest with organic inner mark**
-```
-logo crest design, simple oval or arch container, organic mark inside, no illustration, abstract inner element, engraved quality, luxury beauty brand, black on white, flat, restrained, stamp-like --ar 1:1 --style raw --v 6.1 --no faces, flowers, crests with animals, gradients, shadows
-```
-
----
-
-## GROUP 3 — In-Context Packaging / 3D Mockups (do this after mark is confirmed — chrome direction)
-
-**3A — Chrome tube mockup**
-```
-cosmetic serum tube product mockup, minimalist label, chrome metallic finish, "ALT." wordmark in white, all caps extended sans-serif, white studio background, editorial beauty photography, luxury, clean, high contrast, product shot --ar 2:3 --style raw --v 6.1 --no busy background, props, flowers
-```
-
-**3B — Chrome with secondary packaging**
-```
-luxury cosmetics product flatlay, chrome serum tube and minimal outer packaging, white and silver, "ALT." wordmark, editorial fashion photography, clean white background, considered composition, premium beauty brand --ar 4:5 --style raw --v 6.1 --no clutter, flowers, props
-```
-
----
-
-## GROUP 4 — In-Context Packaging / 3D Mockups (after mark confirmed — matte/satin direction)
-
-**4A — Matte tube mockup**
-```
-cosmetic serum tube product mockup, matte white finish, debossed "ALT." wordmark, all caps extended sans-serif, white studio background, editorial luxury beauty, tactile quality, premium, clean --ar 2:3 --style raw --v 6.1 --no chrome, metallic, busy background
-```
-
-**4B — Matte with foil detail**
-```
-luxury cosmetics packaging, matte white serum tube, minimal hot-foil stamped wordmark "ALT.", editorial beauty photography, clean white background, quiet luxury, tactile, high-end cosmetics, premium --ar 2:3 --style raw --v 6.1 --no chrome, gradients, props
+luxury cosmetics chrome serum tube on bathroom counter, editorial beauty photography, warm neutral stone surface, "ALT." wordmark, reflective chrome tube, white studio, morning light quality, product photography --ar 4:5 --style raw --v 6.1 --no flowers, props, clutter, matte finish
 ```
 
 ---
 
 ## Variation tips
 
-If a result is close but not quite right, use `--seed [number from that image]` to stay in that neighbourhood and add/remove descriptors.
+If a result is close but not quite right, use `--seed [number from that image]` to stay in that neighbourhood.
 
-To push more editorial: add `Japanese cosmetics brand aesthetic` or `Seoul beauty editorial`
-To push more clinical restraint: add `Swiss graphic design, Basel school`
-To push warmer/tactile: add `linen, paper, material quality`
+**To push Direction A further:** add `ancient Egyptian intaglio` or `pre-Columbian seal` or `Mesopotamian cylinder seal`
+**To push Direction B further:** add `copperplate engraving` or `Victorian penmanship` or `Spencerian script`
+**To push Direction C further:** add `art deco medallion` or `Bauhaus monogram` or `constructivist emblem`
+**To push chrome materiality in mockups:** add `polished aluminium` or `mirror finish` or `chrome cosmetics`
+**To warm up any result:** add `warm lighting` or `linen texture background` or `stone surface`
 
 ---
 
-## After Midjourney — Figma steps
+## Image Prompt pairings (for structure + surface quality simultaneously)
 
-1. Screenshot 2–3 strongest directions
-2. Import as reference layer, opacity ~30%
-3. Redraw letterforms from scratch using rectangles/paths — don't trace
-4. Test at small sizes (20px) — if it breaks, it's not working
+Use `--iw 1.5` when images should strongly guide structure.
+Use `--iw 0.5` when text prompt should dominate and image is just surface/mood reference.
+
+Paste Pinterest image URLs directly into MJ Image Prompts field — no download needed.
+
+---
+
+## After Midjourney — Illustrator steps
+
+1. Screenshot 2–3 strongest results per direction
+2. Import as reference layer in Illustrator, opacity ~30%
+3. Redraw from scratch using rectangles/paths — do not trace
+4. Test at small sizes (20px) — if it breaks it's not working
 5. Present as 3 distinct directions, not variations of one

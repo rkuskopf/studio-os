@@ -59,7 +59,7 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 - [x] Creative brief developed (v1.0 — pending client sign-off)
 - [x] Brand strategy synthesis document produced
 - [ ] Creative brief signed off by client — v5 sent but brief is still evolving; previous version sent was too rambling. Needs a cleaner version before resending.
-- [ ] Resolve chrome vs. matte/satin materiality question with Anh — **blocker**
+- [x] Finish & Materiality confirmed — chrome. No longer a blocker.
 - [ ] Confirm packaging supplier + receive dielines, dimensions, capacity — **blocker**
 - [ ] Receive final ingredient list + regulatory copy — **outstanding**
 - [ ] Receive confirmed pricing (retail + wholesale) — **outstanding**
@@ -105,25 +105,23 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 **Typography:**
 - Primary: Aktiv Grotesque (current working choice)
 - Also exploring: gothic and art deco typefaces — still open
-- Secondary: Mono or typewriter-adjacent for functional text (ingredients, regulatory)
+- Secondary typeface: mono/typewriter direction rejected by Anh at March 3 concept presentation. Direction TBD — not mono. Required for functional text (ingredients, regulatory).
 
 **Colour:** Restrained, material-adjacent. Near-neutrals with considered accent. No brights. Not pure black/white — some warmth or material quality should be present. Direction: monochrome, low contrast.
 
-**Finish & Materiality — UNRESOLVED:**
-- Brief specifies matte/satin, hot-stamping or debossing
-- Anh has been considering reflective chrome options — currently being tested in 3D ideation
-- This is a fundamental contradiction requiring client resolution before artwork can proceed
-- Chrome/reflective is not ruled out, but needs to be a deliberate decision, not a drift
+**Finish & Materiality — CONFIRMED:**
+- Primary packaging: reflective chrome. Confirmed. Not under discussion.
+- Application method: hot-stamping, debossing, or engraving onto the chrome tube surface.
+- Material balancing required in brand imagery: pair chrome with warm secondary elements (low-tone neutrals, natural textures, organic forms) to ensure the brand remains liveable alongside its harder material choices.
 
 **Mark — current direction:**
-- Concept: hot-pressed onto the tube — stamp or crest engraved quality (like a wax seal)
-- Two style routes being weighed:
-  - **Ancient/stone** — more raw, archaic mark quality
-  - **Regal/Victorian** — more structured, heritage engraving feel
-- Anh's preference: SRA SRA mark (old-school atelier vibe, organic) and Loewe anagram — she prefers organic over structured engraving
-- This atelier/organic lean is where the "atelier" theme originated
-- Public domain assets being explored for the Victorian route
-- AI tools (Firefly, Midjourney) being used for rapid 2D logo mark ideation — generating lots of directions to pick from before committing to anything. 3D tube mockups are a separate, later step once mark direction is confirmed.
+- Concept: hot-pressed onto the tube — engraved, stamped, or debossed quality
+- Three directions in active development:
+  - **Direction A — Ancient / Carved / Archaeological** — raw, primitive, worn-into-stone quality. Egyptian scarab seals, ancient intaglio gems, stone objects. Incised, not raised. Surface feeling and register defines this direction.
+  - **Direction B — Victorian / Script / Medieval** — fine line heritage script quality. Ornate calligraphic letterforms, swash construction, Victorian penmanship register. Mauclot monogram sheet is the primary reference — interlocking looped letterforms with weight variation and fluid curves. Decorative, historically rooted.
+  - **Direction C — Architectural / Art Deco / SRA SRA** — formal oval cartouche with letters or elements positioned within a structured frame. SRA SRA is the primary reference: letters at compass points inside a double-ring architectural oval with ornamental centrepiece. Art deco lineage — geometric, structured, authoritative. Also encompasses geometric shared-stroke monogram construction (MB monogram, DR embossed mark territory).
+- Legibility vs abstraction is NOT a direction — it is an independent axis applying to all three. Each direction could produce a readable A-L-T mark or a dissolved abstract form. Decision deferred to concept presentation with Anh.
+- AI tools (Firefly, Midjourney) being used for rapid 2D logo mark ideation — structure and surface quality reference only, not final assets. 3D tube mockups are a separate, later step once mark direction is confirmed.
 
 **Tone of voice:** Precise, confident, uncluttered. States rather than suggests. No exclamation marks. No wellness clichés ("ritual," "glow," "nourishing"). Warm in the way a trusted expert is warm — not effusive. Specificity over vagueness.
 
