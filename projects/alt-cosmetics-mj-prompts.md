@@ -48,26 +48,26 @@ Groups 4A–4C only. Do not run these until a mark is confirmed and redrawn in I
 
 *Goal: raw, stone-carved quality. Ancient intaglio register — something found not made. Flat incised line work, oval form, worn edges. All flat, black on white.*
 
-> **Why it was generating literal scarabs:** naming specific objects (scarab, stone tablet, wax seal) caused MJ to render those things as photo-realistic artifacts. These prompts describe the **mark quality and output format** instead — not the reference material.
+> **If you're getting bugs:** the sref image is the problem, not the prompt. If you're using the green scarab gem as a reference, MJ will keep rendering beetles regardless of --no exclusions. **Use the Greek meander coin image as your sref instead** — it gives you the same worn ancient quality without a creature as the subject.
 
 **A1 — Intaglio oval seal** *(anchor prompt — run first)*
 ```
-flat 2D logo mark, black on white, oval form, incised line work, archaic carved quality, worn primitive mark, ancient seal register, abstract symbol, hand-cut character, beauty brand identity, pure graphic mark --sref [PASTE_SREF_URL_HERE] --sw 100 --ar 1:1 --style raw --v 6.1 --chaos 25 --no insect, beetle, scarab, creature, figurative, realistic, artifact photograph, 3D rendering, photographic, shading, drop shadow, embossed, raised, dimensional, modern design, clean geometry, modern minimalism, celtic, knotwork
+flat 2D logo mark, black on white, oval form, incised line work, archaic carved quality, worn primitive mark, ancient seal register, pure abstract geometric symbol, no figurative subject, non-representational, hand-cut character, beauty brand identity --sw 100 --ar 1:1 --style raw --v 6.1 --chaos 25 --no insect, bug, beetle, scarab, legs, antennae, wings, animal, creature, face, figurative, body, realistic, artifact photograph, 3D rendering, photographic, shading, drop shadow, embossed, raised, dimensional, modern design, clean geometry, modern minimalism, celtic, knotwork
 ```
 
 **A2 — Worn incised mark**
 ```
-flat 2D logo mark, black on white, incised line quality, worn abstract mark, primitive carved character, archaic symbol, raw hand-cut feel, beauty brand, oval or irregular form, ancient authority --sref [PASTE_SREF_URL_HERE] --sw 100 --ar 1:1 --style raw --v 6.1 --chaos 25 --no insect, beetle, scarab, creature, figurative, realistic, artifact photograph, 3D rendering, photographic, shading, drop shadow, embossed, raised, dimensional, modern design, clean geometry, celtic, knotwork
+flat 2D logo mark, black on white, incised line quality, worn abstract mark, primitive carved geometric character, archaic non-figurative symbol, raw hand-cut feel, beauty brand, oval or irregular form, ancient authority, no creature no animal --sw 100 --ar 1:1 --style raw --v 6.1 --chaos 25 --no insect, bug, beetle, scarab, legs, antennae, wings, animal, creature, face, figurative, realistic, artifact photograph, 3D rendering, photographic, shading, drop shadow, embossed, raised, dimensional, modern design, clean geometry, celtic, knotwork
 ```
 
 **A3 — Stamp impression quality**
 ```
-flat 2D logo mark, black on white, stamp impression quality, worn ink mark, primitive pressed symbol, ancient authority, incised carved feel, archaic abstract form, beauty brand mark, pure graphic --sref [PASTE_SREF_URL_HERE] --sw 100 --ar 1:1 --style raw --v 6.1 --chaos 25 --no insect, beetle, scarab, creature, figurative, realistic, artifact photograph, 3D rendering, photographic, shading, drop shadow, embossed, raised, dimensional, modern, celtic, knotwork
+flat 2D logo mark, black on white, stamp impression quality, worn ink mark, primitive pressed geometric symbol, ancient authority, incised carved feel, archaic abstract form, pure mark no creature, beauty brand mark --sw 100 --ar 1:1 --style raw --v 6.1 --chaos 25 --no insect, bug, beetle, scarab, legs, antennae, wings, animal, creature, face, figurative, realistic, artifact photograph, 3D rendering, photographic, shading, drop shadow, embossed, raised, dimensional, modern, celtic, knotwork
 ```
 
 **A4 — Abstract / dissolved**
 ```
-flat 2D logo mark, black on white, abstract ancient symbol, dissolved archaic letterform, incised carved quality, worn primitive mark, no readable letters, pure mark quality, beauty brand --sref [PASTE_SREF_URL_HERE] --sw 100 --ar 1:1 --style raw --v 6.1 --chaos 25 --no insect, beetle, scarab, creature, figurative, realistic, artifact photograph, 3D rendering, photographic, shading, drop shadow, embossed, raised, dimensional, modern, celtic, knotwork
+flat 2D logo mark, black on white, abstract ancient geometric symbol, dissolved archaic form, incised carved quality, worn primitive mark, no readable letters, no animal, pure abstract mark, beauty brand --sw 100 --ar 1:1 --style raw --v 6.1 --chaos 25 --no insect, bug, beetle, scarab, legs, antennae, wings, animal, creature, face, figurative, realistic, artifact photograph, 3D rendering, photographic, shading, drop shadow, embossed, raised, dimensional, modern, celtic, knotwork
 ```
 
 ---
