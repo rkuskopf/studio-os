@@ -1,17 +1,17 @@
 #!/usr/bin/env node
 
 /**
- * KSPF Brand Monitor — Instagram Hashtag Scraper
+ * KSPF Brand Monitor — Instagram Hashtag Scraper + Bio Extractor
  * 
- * Monitors Instagram hashtags for new brands launching in fashion/beauty/lifestyle.
- * Outputs accounts that look like early-stage brands.
+ * Monitors Instagram hashtags for new brands, then extracts their website URLs.
+ * Outputs accounts with websites ready for auditing.
  * 
  * Usage:
  *   node instagram.js --hashtag melbournebrand
  *   node instagram.js --hashtags "#indiebeauty,#melbournefashion,#newbrand"
+ *   node instagram.js --preset  (use default KSPF hashtags)
  * 
  * Note: Instagram scraping is fragile and against TOS. Use sparingly.
- * Consider this a research tool, not a production scraper.
  */
 
 import puppeteer from 'puppeteer';
@@ -66,17 +66,34 @@ const argv = yargs(hideBin(process.argv))
     type: 'string',
     description: 'Comma-separated list of hashtags'
   })
+  .option('preset', {
+    alias: 'p',
+    type: 'boolean',
+    description: 'Use preset KSPF target hashtags'
+  })
   .option('output', {
     alias: 'o',
     type: 'string',
     default: 'instagram-leads.csv',
     description: 'Output CSV file'
   })
+  .option('websites-only', {
+    alias: 'w',
+    type: 'boolean',
+    default: false,
+    description: 'Only output accounts that have websites'
+  })
   .option('limit', {
     alias: 'l',
     type: 'number',
     default: 20,
     description: 'Max posts to check per hashtag'
+  })
+  .option('extract-bios', {
+    alias: 'e',
+    type: 'boolean',
+    default: true,
+    description: 'Visit each profile to extract bio and website'
   })
   .help()
   .argv;

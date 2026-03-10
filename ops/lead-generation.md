@@ -45,18 +45,38 @@ Who KSPF is going after — solo founders, small creative brands, fashion/beauty
 
 ## Automation Tools
 
-Two tools in `tools/` folder for automated lead discovery:
+Located in `tools/` folder. See `tools/README.md` for full documentation.
 
-### 1. Website Auditor (`tools/website-auditor/`)
-Runs Lighthouse audits on a list of URLs, scores them by UX/accessibility issues, outputs ranked leads.
-
+### Quick Start
 ```bash
 cd tools/website-auditor
 npm install
-node audit.js --input urls.csv --output leads.csv
+node simple-pipeline.js --demo  # Test run
 ```
 
-**Lead scoring weights:**
+### Practical Workflow
+
+1. **Build seed list** (manual, 10-20 mins)
+   - Google: "fashion boutique melbourne" → copy URLs
+   - Instagram: browse #melbournebrand → copy website links from bios
+   - ChatGPT: "List 20 Melbourne indie beauty brands with websites"
+   - Save as CSV: `url,name,category`
+
+2. **Audit sites** (automated)
+   ```bash
+   node simple-pipeline.js --input my-leads.csv
+   ```
+
+3. **Review output** (`leads-ranked.csv`)
+   - Sort by Lead Score (higher = worse site = better lead)
+   - Score 40+ = high priority (serious UX/accessibility issues)
+   - Score 25-40 = medium priority
+
+4. **Personalised outreach**
+   - Reference specific issues from audit
+   - Track in Active Outreach table above
+
+### Lead Score Weights
 - Accessibility: 35% (core strength)
 - Performance: 30% (obvious pain point)
 - Best Practices: 20% (outdated tech)
@@ -64,19 +84,18 @@ node audit.js --input urls.csv --output leads.csv
 
 Higher score = worse site = better lead.
 
-### 2. Brand Monitor (`tools/brand-monitor/`)
-Monitors Instagram hashtags and verifies businesses via ABR lookup.
-
+### Instagram Profile Extractor
+If you have Instagram usernames, extract their website URLs:
 ```bash
 cd tools/brand-monitor
 npm install
-
-# Instagram hashtag scraping
-node instagram.js --hashtags "melbournebrand,indiebeauty"
-
-# ABR business verification
-node abr-check.js --name "Business Name"
+node extract-profiles.js --users "brand1,brand2,brand3"
+# Then audit the output:
+cd ../website-auditor
+node simple-pipeline.js --input ../brand-monitor/websites-to-audit.csv
 ```
+
+> **Note:** Fully automated scraping (Google Maps, Instagram hashtags) is blocked by those platforms. The manual seed list + automated audit workflow is more reliable.
 
 **Default hashtags:** #melbournebrand, #melbournefashion, #melbournebeauty, #indiebeauty, #smallbatchbeauty, #newbrandlaunch, #australianmade
 

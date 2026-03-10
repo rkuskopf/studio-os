@@ -1,11 +1,12 @@
 {
   "name": "kspf-brand-monitor",
   "version": "1.0.0",
-  "description": "Monitor for new brands launching — Instagram hashtags, business registrations",
+  "description": "Monitor for new brands — Instagram hashtags, profile extraction",
   "type": "module",
   "scripts": {
-    "monitor": "node monitor.js",
     "instagram": "node instagram.js",
+    "extract": "node extract-profiles.js",
+    "pipeline": "node pipeline.js",
     "abr": "node abr-check.js"
   },
   "dependencies": {
@@ -13,7 +14,7 @@
     "chalk": "^5.3.0",
     "ora": "^8.0.0",
     "csv-stringify": "^6.4.0",
-    "node-cron": "^3.0.0",
-    "rss-parser": "^3.13.0"
+    "csv-parse": "^5.5.0",
+    "yargs": "^17.7.0"
   }
 }

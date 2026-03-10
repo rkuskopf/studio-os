@@ -1,11 +1,14 @@
 {
-  "name": "kspf-website-auditor",
+  "name": "kspf-lead-tools",
   "version": "1.0.0",
-  "description": "Audit websites for UX/accessibility issues to find potential leads",
+  "description": "Automated lead generation — scrape businesses, audit websites, rank leads",
   "type": "module",
   "scripts": {
     "audit": "node audit.js",
-    "audit:sample": "node audit.js --sample"
+    "scrape": "node scrape-maps.js",
+    "pipeline": "node pipeline.js",
+    "pipeline:test": "node pipeline.js --query 'fashion boutique melbourne' --limit 5 --audit-limit 3",
+    "pipeline:full": "node pipeline.js --preset --limit 10"
   },
   "dependencies": {
     "lighthouse": "^12.0.0",

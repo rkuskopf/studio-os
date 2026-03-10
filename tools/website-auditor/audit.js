@@ -90,8 +90,6 @@ function getAssessment(scores, leadScore) {
  * Run Lighthouse audit on a single URL
  */
 async function auditUrl(browser, url) {
-  const page = await browser.newPage();
-  
   try {
     // Get the browser's WebSocket endpoint for Lighthouse
     const browserWSEndpoint = browser.wsEndpoint();
@@ -108,7 +106,15 @@ async function auditUrl(browser, url) {
         throughputKbps: 1638.4,
         cpuSlowdownMultiplier: 4,
       },
+      maxWaitForLoad: 45000,
     });
+
+    if (!result || !result.lhr || !result.lhr.categories) {
+      return {
+        success: false,
+        error: 'No Lighthouse results returned'
+      };
+    }
 
     const categories = result.lhr.categories;
     
@@ -126,8 +132,6 @@ async function auditUrl(browser, url) {
       success: false,
       error: error.message
     };
-  } finally {
-    await page.close();
   }
 }
 

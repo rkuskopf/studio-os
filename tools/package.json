@@ -1,0 +1,14 @@
+{
+  "name": "kspf-tools",
+  "version": "1.0.0",
+  "description": "KSPF Lead Generation Tools",
+  "type": "module",
+  "scripts": {
+    "maps": "node run.js maps",
+    "instagram": "node run.js instagram",
+    "full": "node run.js full"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0"
+  }
+}

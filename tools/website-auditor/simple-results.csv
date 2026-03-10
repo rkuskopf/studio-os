@@ -1,0 +1,3 @@
+name,url,category,leadScore,performance,accessibility,bestPractices,seo,assessment,auditDate
+HTTPBin,https://httpbin.org,test,25,38,93,93,82,⚡ Medium priority: Slow loading,2026-03-10
+Example,https://example.com,test,4,100,100,93,80,✓ Low priority — site is decent,2026-03-10
