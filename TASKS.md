@@ -38,7 +38,7 @@ Wacom Intuos Pro Small · Model PTH-451/K · S/N 7ECH000251
 
 ## Backlog
 <!-- Not yet scheduled -->
-- [ ] **Automate TASKS.md → GitHub Issues** — research syncing tasks to GitHub Issues (gh CLI, GitHub Actions, or VS Code extension). Route kspf.au-related tasks to `kspf.au` repo automatically.
+- [ ] **Automate TASKS.md → GitHub Issues** — research syncing tasks to GitHub Issues (gh CLI, GitHub Actions, or VS Code extension) and also Asana. Route kspf.au-related tasks to `kspf.au` repo automatically.
 - [ ] Scrape UX case study source material and generate portfolio presentation — see `projects/ux-portfolio.md`
 - [ ] Add UX case studies section to kspf.au
 - [ ] Write AP-REPS retrospective case study
