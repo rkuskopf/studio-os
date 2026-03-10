@@ -1,0 +1,19 @@
+{
+  "name": "kspf-website-auditor",
+  "version": "1.0.0",
+  "description": "Audit websites for UX/accessibility issues to find potential leads",
+  "type": "module",
+  "scripts": {
+    "audit": "node audit.js",
+    "audit:sample": "node audit.js --sample"
+  },
+  "dependencies": {
+    "lighthouse": "^12.0.0",
+    "puppeteer": "^22.0.0",
+    "csv-parse": "^5.5.0",
+    "csv-stringify": "^6.4.0",
+    "chalk": "^5.3.0",
+    "ora": "^8.0.0",
+    "yargs": "^17.7.0"
+  }
+}

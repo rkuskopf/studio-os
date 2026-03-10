@@ -7,6 +7,7 @@ Who KSPF is going after — solo founders, small creative brands, fashion/beauty
 - Early-stage brand or rebrand
 - Cares about craft and visual culture
 - Needs strategy + execution (not just execution)
+- Companies with old sites with UX/ Accessibility issues or outdated tech
 - Budget: $3k–$15k project range
 
 ---
@@ -39,6 +40,51 @@ Who KSPF is going after — solo founders, small creative brands, fashion/beauty
 | Instagram | — | Tied to content calendar |
 | Direct outreach | Not started | Priority for next 90 days |
 | Referrals | Passive | Activate after Alt Cosmetics delivery |
+
+---
+
+## Automation Tools
+
+Two tools in `tools/` folder for automated lead discovery:
+
+### 1. Website Auditor (`tools/website-auditor/`)
+Runs Lighthouse audits on a list of URLs, scores them by UX/accessibility issues, outputs ranked leads.
+
+```bash
+cd tools/website-auditor
+npm install
+node audit.js --input urls.csv --output leads.csv
+```
+
+**Lead scoring weights:**
+- Accessibility: 35% (core strength)
+- Performance: 30% (obvious pain point)
+- Best Practices: 20% (outdated tech)
+- SEO: 15%
+
+Higher score = worse site = better lead.
+
+### 2. Brand Monitor (`tools/brand-monitor/`)
+Monitors Instagram hashtags and verifies businesses via ABR lookup.
+
+```bash
+cd tools/brand-monitor
+npm install
+
+# Instagram hashtag scraping
+node instagram.js --hashtags "melbournebrand,indiebeauty"
+
+# ABR business verification
+node abr-check.js --name "Business Name"
+```
+
+**Default hashtags:** #melbournebrand, #melbournefashion, #melbournebeauty, #indiebeauty, #smallbatchbeauty, #newbrandlaunch, #australianmade
+
+### Workflow
+1. Run Instagram scraper weekly → find new brand accounts
+2. Manually review accounts, extract website URLs
+3. Run websites through auditor → get ranked lead list
+4. Personalise outreach based on specific issues found
 
 ---
 
