@@ -8,6 +8,7 @@
 - [ ] Set up Pinterest business account (studio@kspf.au) + claim kspf.au — see `ops/lead-generation.md` for steps
 - [ ] Build target outreach list (10–15 ideal clients)
 - [ ] Document Alt Cosmetics progress for case study (capture before project wraps)
+- [ ] **Fix lead scraping automation** — scrapers for Yellow Pages, Google Maps not working. See `tools/SCRAPING-TODO.md` for technical debt and next steps.
 - [ ] **Initialise north-star git repo** - create `rkuskopf/north-star` on GitHub, push migrated music workspace
   - Run `git init` in `north-star/`, add `.gitignore` (exclude `.logicx`, `.aif`, `.wav`, `.DS_Store`)
   - See `north-star-migration.md` for full context and next steps
@@ -37,6 +38,7 @@ Wacom Intuos Pro Small · Model PTH-451/K · S/N 7ECH000251
 
 ## Backlog
 <!-- Not yet scheduled -->
+- [ ] **Automate TASKS.md → GitHub Issues** — research syncing tasks to GitHub Issues (gh CLI, GitHub Actions, or VS Code extension). Route kspf.au-related tasks to `kspf.au` repo automatically.
 - [ ] Scrape UX case study source material and generate portfolio presentation — see `projects/ux-portfolio.md`
 - [ ] Add UX case studies section to kspf.au
 - [ ] Write AP-REPS retrospective case study
