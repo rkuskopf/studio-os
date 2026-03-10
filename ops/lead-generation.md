@@ -11,17 +11,15 @@ Who KSPF is going after — solo founders, small creative brands, fashion/beauty
 
 ---
 
-## Active Outreach
-| Name / Studio | Type | Channel | Status | Last Contact |
-|---------------|------|---------|--------|--------------|
-| — | — | — | — | — |
+## Active Tracking
 
----
+**See `leads/_pipeline.md` for the full pipeline, stage definitions, and Asana sync guide.**
+**See `leads/_templates.md` for all outreach email templates.**
 
-## Pipeline
-| Lead | Source | Stage | Notes |
-|------|--------|-------|-------|
-| Anh (Alt Cosmetics) | Direct | Active client | Referral potential when project wraps |
+Quick summary of what's in those files:
+- Pipeline with stages: Identified → Researched → Outreach Sent → Replied → In Conversation → Proposal → Won / Lost
+- Asana sync: each lead = one task in the **Lead Generation** Asana project, moved between sections to match stage
+- Templates: warm+specific for cold outreach, direct+brief for warm/referral outreach
 
 ---
 

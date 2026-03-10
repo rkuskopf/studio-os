@@ -23,14 +23,16 @@ It is designed to be read by AI assistants. When you are given access to this re
 |------|-----------------|
 | `README.md` | This file. Repo overview and navigation guide. |
 | `CLAUDE.md` | Core memory file — who Rowan is, key people, all projects, terms, daily structure, and preferences. **Start here.** |
-| `company.md` | Studio profile — KSPF name, services, tools/stack, Asana projects, daily rhythm, finance context. |
-| `glossary.md` | Plain-English definitions for all studio shorthand, project names, calendar block names, client nicknames, and brand terms. |
+| `ops/company.md` | Studio profile — KSPF name, services, tools/stack, Asana projects, daily rhythm, finance context. |
+| `ops/glossary.md` | Plain-English definitions for all studio shorthand, project names, calendar block names, client nicknames, and brand terms. |
 | `TASKS.md` | Current task board — In Progress, Up Next, Backlog, Waiting/Blocked, Done. |
 | `alt-cosmetics.md` | Full project file for the Alt Cosmetics branding job (client: Anh Tran). Scope, timeline, tasks, creative direction, blockers, assets, and notes. |
-| `anh.md` | Profile for Anh — the Alt Cosmetics client. Background, product brief, brand direction, deadline, and meeting notes links. |
-| `david-carnegie.md` | Profile for David Carnegie — Rowan's business mentor at Holmesglen. What he asks for in finance check-ins. |
-| `lead-generation.md` | Lead gen strategy — target client profile, active outreach, pipeline, channels, Pinterest setup guide, and 90-day plan. |
-| `alt-cosmetics-mj-prompts.md` | Midjourney prompts used for Alt Cosmetics logo mark ideation. |
+| `people/anh.md` | Profile for Anh — the Alt Cosmetics client. Background, product brief, brand direction, deadline, and meeting notes links. |
+| `people/david-carnegie.md` | Profile for David Carnegie — Rowan's business mentor at Holmesglen. What he asks for in finance check-ins. |
+| `ops/lead-generation.md` | Lead gen strategy — target client profile, channels, Pinterest setup guide, and 90-day plan. |
+| `leads/_pipeline.md` | Live lead tracker — stages, Asana sync guide, outreach target list, referral sources. |
+| `leads/_templates.md` | Outreach email templates — cold (warm/specific) and warm (direct/brief). |
+| `projects/alt-cosmetics-mj-prompts.md` | Midjourney prompts used for Alt Cosmetics logo mark ideation. |
 | `dashboard.html` | A simple HTML dashboard page for the studio OS (visual overview). |
 
 ---
@@ -43,4 +45,4 @@ It is designed to be read by AI assistants. When you are given access to this re
 - **Email:** studio@kspf.au
 - **Website:** kspf.au
 
-For full context, read `CLAUDE.md` and `company.md`.
+For full context, read `CLAUDE.md` and `ops/company.md`.
