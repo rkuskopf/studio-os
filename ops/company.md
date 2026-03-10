@@ -35,6 +35,8 @@
 | Personal Admin | Personal tasks |
 | Engine | Skill building (Askable cert) |
 
+
+<!--
 ## Daily Rhythm
 - 6:30am — Gym (Mon/Wed/Fri)
 - 8:00–9:30am Mon — Sprint Planning
@@ -44,8 +46,11 @@
 - 2:00–5:00 — Deep Focus
 - 4:00–5:00 — Music Practice
 
+this needs to be revised - create a task looking at optimising schedule
+-->
+
 ## Finance Check-ins
-With David Carnegie via Webex — recurring sessions to review KSPF financials.
+With David Carnegie via Webex — recurring sessions to review KSPF financials. <!-- David is my business mentor. we have a meeting every 3 months to talk about progress and finances. see example of his post meeting reports .-->
 
 ## Music
 Music production is a serious parallel pursuit (likely tied to "Copenhagen" sonic identity / North Star vision). Daily practice block.
