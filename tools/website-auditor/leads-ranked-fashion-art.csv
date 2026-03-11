@@ -1,0 +1,13 @@
+name,url,category,leadScore,priority,responseTime,platform,topIssues,notes
+"Alpha60","https://www.alpha60.com.au","fashion","0","❌ Error","N/A","N/A","getaddrinfo EAI_AGAIN www.alpha60.com.au",""
+"Kuwaii","https://kuwaii.com.au","fashion","0","❌ Error","N/A","N/A","getaddrinfo EAI_AGAIN kuwaii.com.au",""
+"FME Apparel","https://www.fmeapparel.com.au","fashion","0","❌ Error","N/A","N/A","getaddrinfo EAI_AGAIN www.fmeapparel.com.au",""
+"Vow Studio","https://vowstudio.com.au","fashion","0","❌ Error","N/A","N/A","getaddrinfo EAI_AGAIN vowstudio.com.au",""
+"Sister Studios","https://sisterstudios.com.au","fashion","0","❌ Error","N/A","N/A","getaddrinfo EAI_AGAIN sisterstudios.com.au",""
+"Ngali","https://ngali.com.au","fashion","0","❌ Error","N/A","N/A","getaddrinfo EAI_AGAIN ngali.com.au",""
+"Caves Collect","https://cavescollect.com","fashion","0","❌ Error","N/A","N/A","getaddrinfo EAI_AGAIN cavescollect.com",""
+"Style Magazines","https://stylemagazines.com.au","media","0","❌ Error","N/A","N/A","getaddrinfo EAI_AGAIN stylemagazines.com.au",""
+"No Vacancy","https://www.no-vacancy.com.au","gallery","0","❌ Error","N/A","N/A","getaddrinfo EAI_AGAIN www.no-vacancy.com.au",""
+"Outré Gallery","https://www.outregallery.com","gallery","0","❌ Error","N/A","N/A","getaddrinfo EAI_AGAIN www.outregallery.com",""
+"Blindside","https://blindside.org.au","gallery","0","❌ Error","N/A","N/A","getaddrinfo EAI_AGAIN blindside.org.au",""
+"Seventh Gallery","https://seventhgallery.org","gallery","0","❌ Error","N/A","N/A","getaddrinfo EAI_AGAIN seventhgallery.org",""

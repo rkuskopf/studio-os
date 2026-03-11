@@ -13,9 +13,9 @@ This replaces the broken Google/Maps scrapers. No external tools, no API keys, n
 Invoke with `/lead-finder` then specify a category (and optionally a count):
 
 ```
-/lead-finder beauty salons
-/lead-finder florists 30
-/lead-finder yoga studios fitzroy
+/lead-finder fashion brands
+/lead-finder art organisations
+/lead-finder digital agencies with potential "project spill over"
 ```
 
 ## Existing Lead Sheets (check for duplicates)

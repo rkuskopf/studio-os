@@ -23,6 +23,34 @@ Who KSPF is going after — solo founders, small creative brands, fashion/beauty
 | Lead | Source | Stage | Notes |
 |------|--------|-------|-------|
 | Anh (Alt Cosmetics) | Direct | Active client | Referral potential when project wraps |
+| Style Magazines | Web research | To audit | stylemagazines.com.au — flagged by Rowan |
+
+---
+
+## Seed Lists Generated
+
+### Fashion & Art Organisations (March 2026)
+CSV: `tools/website-auditor/fashion-art-leads.csv`
+**To audit:** `cd tools/website-auditor && node simple-pipeline.js --input fashion-art-leads.csv`
+
+| Name | URL | Category |
+|------|-----|----------|
+| Alpha60 | alpha60.com.au | fashion |
+| Kuwaii | kuwaii.com.au | fashion |
+| FME Apparel | fmeapparel.com.au | fashion |
+| Vow Studio | vowstudio.com.au | fashion |
+| Sister Studios | sisterstudios.com.au | fashion |
+| Ngali | ngali.com.au | fashion |
+| Caves Collect | cavescollect.com | fashion |
+| Style Magazines | stylemagazines.com.au | media |
+| No Vacancy | no-vacancy.com.au | gallery |
+| Outré Gallery | outregallery.com | gallery |
+| Blindside | blindside.org.au | gallery |
+| Seventh Gallery | seventhgallery.org | gallery |
+
+> ⚠️ Cross-check against existing sheets before outreach:
+> - [Built with leads](https://docs.google.com/spreadsheets/d/12WwcUV2G96sDgt7pAN39rb7jjJoZK3-Imqzbq9N9VZ4/)
+> - [Potential leads](https://docs.google.com/spreadsheets/d/1X8Fjp5vqiCmtBgS9l1yvDI_GpG6JoT0sAIXNERvCLWw/)
 
 ---
 
