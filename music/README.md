@@ -1,7 +1,7 @@
 # Slowtides — Music Business
 
-**Status:** Transitioning from hobby to formal business
-**Repo:** `rkuskopf/north-star` (in progress — see `north-star-migration.md`)
+**Status:** Active — transitioning from hobby to formal business
+**Repo:** `rkuskopf/north-star` (separate repo — see `north-star-migration.md` for migration status)
 **Genre / Identity:** Ambient / cinematic electronic — working sound identity developed
 **Focus project:** Midnight (Arrangement 4 in progress)
 

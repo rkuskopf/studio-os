@@ -29,7 +29,8 @@ It is designed to be read by AI assistants. When you are given access to this re
 | File | What it contains |
 |------|-----------------|
 | `README.md` | This file. Repo overview and navigation guide. |
-| `CLAUDE.md` | Core memory file — who Rowan is, key people, all projects, terms, daily structure, and preferences. **Start here.** |
+| `PLAN.md` | **Strategic plan — start here for the big picture.** Three-month roadmap, how every tool connects (Figma, Asana, Google, GitHub), what to do this week. |
+| `CLAUDE.md` | Core memory file — who Rowan is, key people, all projects, terms, daily structure, and preferences. |
 | `TASKS.md` | Current task board — In Progress, Up Next, Backlog, Waiting/Blocked, Done. |
 | `SKILLS.md` | Claude slash commands available + recommended skills to install. |
 

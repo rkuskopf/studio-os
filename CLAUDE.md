@@ -39,8 +39,8 @@ The studio-os manages three life/business streams. See `ops/infrastructure.md` f
 | Name | What | Status |
 |------|------|--------|
 | **Slowtides** | Music business identity. Formerly "North Star". See `music/README.md`. | Active |
-| **Midnight** | Priority song — Arrangement 4 in progress. See `rkuskopf/north-star` (pending). | In progress |
-| **north-star repo** | GitHub repo for Slowtides — not yet initialised. See `north-star-migration.md`. | Pending |
+| **Midnight** | Priority song — Arrangement 4 in progress. See `rkuskopf/north-star` repo. | In progress |
+| **north-star repo** | GitHub repo for Slowtides — exists as `rkuskopf/north-star`. See `north-star-migration.md`. | Active |
 
 ### Stream 3 — Personal
 | Name | What | Status |

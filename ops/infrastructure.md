@@ -9,7 +9,7 @@ A clear definition of how GitHub's tools are used in studio-os, and which tool i
 | Stream | Repo | Asana Project | Source of Truth |
 |--------|------|---------------|----------------|
 | **Business (KSPF)** | `rkuskopf/studio-os` | KSPF projects (CEO work, Lead Gen, kspf.au, etc.) | GitHub (`TASKS.md` + Issues) |
-| **Music (Slowtides)** | `rkuskopf/north-star` *(not yet created)* | Slowtides Asana project *(to be created)* | GitHub (`north-star` repo) |
+| **Music (Slowtides)** | `rkuskopf/north-star` | Slowtides Asana project *(to be created — see Plan)* | `north-star` repo |
 | **Personal** | `rkuskopf/studio-os` (personal/ folder) | Personal Admin Asana project | This repo (`personal/README.md`) |
 
 ---
