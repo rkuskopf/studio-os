@@ -4,14 +4,17 @@
 - [ ] **Set up Pinterest business account (studio@kspf.au) + claim kspf.au — see `ops/lead-generation.md` for steps**
 - [ ] **Build target outreach list (10–15 ideal clients)**
 - [ ] Audit ALT. Cosmetics to understand the halucinations and inconsistiencies (particularly in the creative brief). No one should have access to a creative brief below V5.1. We need to put together a quesitonaire to get to the bottom of all unknowns and create a report for what needs to be done
-- [ ] **Automate TASKS.md → GitHub Issues** - — research syncing tasks to GitHub Issues (gh CLI, GitHub Actions, or VS Code extension) and also Asana. Route kspf.au-related tasks to `kspf.au` repo automatically.
-- [x] **Gmail draft sync for lead pipeline** — add Gmail API integration to `full-pipeline.js` so drafted emails appear in Gmail drafts ready to review/send. Requires GWS skill setup (see `SKILLS.md`).
+- [x] **Automate TASKS.md → GitHub Issues** — syncing tasks to GitHub Issues via `tools/sync-tasks-to-github.js`. Routes kspf.au tasks to `kspf.studio-repo` automatically.
+- [x] **Gmail draft sync for lead pipeline** — add Gmail API integration to `full-pipeline.js` so drafted emails appear in Gmail drafts ready to review/send. ✅ Working!
 - [ ] **Askable**
  - [ ] we need to create an askable page in this repo with details on this ongoing income stream. we need to optimise my language when I apply for jobs. we also need to create a workflow for when I receive the job sms, I can drop it in here and it gets services.
  - [ ] Scrape UX case study source material and generate portfolio presentation — see `projects/ux-portfolio.md`. This is to be displayed on my askable researcher profile
 
-
-  
+## Future — Lead Gen & Sales Automation
+- [ ] **CRM dashboard for leads/clients** — central place to track lead status, client updates, project history. Options: Notion database, Airtable, or custom dashboard. Should integrate with pipeline outputs.
+- [ ] **Branding lead scraper** — find businesses that need branding (not just web). Ideas: scrape social media for DIY branding signals, look for businesses with inconsistent visual identity, or new business registrations. Research Instagram/LinkedIn scraping feasibility.
+- [ ] **UX audit pitch template** — deep-dive accessibility/UX audit workflow for pitch decks. Create Lighthouse++ report with screenshots, WCAG checklist, heuristic evaluation. Auto-generate PDF or Notion doc from audit data.
+- [ ] **Pitch deck automation** — template system for different pitch types (web redesign, branding, UX audit). Pull in audit data, screenshots, and talking points automatically.
 
 ## In Progress
 
