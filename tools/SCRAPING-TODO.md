@@ -1,67 +1,55 @@
-# Lead Scraping Automation — Technical Debt
+# Lead Scraping Automation — Technical Notes
 
-## Status: Needs Work
+## Status: Resolved (use Claude-based approach)
 
-The automated scrapers for Google Maps, Google Search, and Yellow Pages are currently **not working** due to:
-1. Changed HTML markup / selectors
-2. Bot detection / blocking
-3. JavaScript-heavy pages that don't render properly
+The automated scrapers for Google Maps, Google Search, and Yellow Pages are **not working** and not worth maintaining. Use the Claude slash command instead.
 
-## What Works Now
-- `simple-pipeline.js` — audits a manually-curated list of URLs ✅
-- `extract-profiles.js` — extracts websites from Instagram usernames (fragile but works sometimes)
+**✅ Recommended approach:** Use the `/lead-finder` slash command in Claude Code. It uses Claude's built-in web search to find Melbourne businesses and outputs a CSV ready for auditing. No scraping, no bot-blocking, no selector maintenance.
 
-## What Needs Fixing
+```
+# In a Claude Code session:
+/lead-finder beauty salons
+/lead-finder yoga studios fitzroy 30
 
-### 1. Yellow Pages Scraper (`scrape-yellowpages.js`)
-- **Issue:** Selectors are outdated, finds 0 results
-- **Fix needed:** Inspect current yellowpages.com.au markup, update selectors
-- **Test URL:** https://www.yellowpages.com.au/find/florists/melbourne-vic
+# Then audit the results:
+cd tools/website-auditor
+node simple-pipeline.js --input leads.csv
+```
 
-### 2. Google Maps Scraper (`scrape-maps.js`)
-- **Issue:** Can't extract website URLs from business pages
-- **Fix needed:** Google Maps markup changes frequently; may need Playwright instead of Puppeteer
-- **Alternative:** Use Google Places API (requires API key, has costs)
+---
 
-### 3. Google Search Scraper (`scrape-google.js`)
-- **Issue:** Gets blocked or returns 0 results
-- **Fix needed:** Better bot evasion, or use SerpAPI/ScraperAPI (paid)
+## What Works
 
-## Alternative Approaches to Explore
+| Tool | Status | Notes |
+|------|--------|-------|
+| `simple-pipeline.js` | ✅ Working | Audits a URL list with Lighthouse |
+| `/lead-finder` slash command | ✅ Working | Claude web search → CSV |
+| `claude-lead-finder.js` | ✅ Working | Manual version: generates prompts, parses responses |
+| `extract-profiles.js` | ⚠️ Fragile | Extracts websites from Instagram usernames |
 
-### A. Claude Web Search Integration
-Use Claude's web search capability to find businesses, then extract URLs from the response.
-- Pros: No scraping needed, handles markup changes automatically
-- Cons: Rate limits, less structured output
+## What's Broken (not maintained)
 
-### B. Paid APIs
-- **Google Places API** — $17 per 1000 requests, reliable
-- **SerpAPI** — $50/mo, handles Google scraping
-- **Apify** — pre-built scrapers for Yellow Pages, Instagram, etc.
+| Tool | Issue |
+|------|-------|
+| `scrape-maps.js` | Google Maps markup changes; bot detection |
+| `scrape-google.js` | Gets blocked; returns 0 results |
+| `scrape-yellowpages.js` | Selectors outdated; finds 0 results |
 
-### C. Browser Extension Approach
-Build a simple Chrome extension that:
-1. User browses Google Maps / Yellow Pages normally
-2. Extension extracts business URLs from the page
-3. Exports to CSV for auditing
+These files are kept for reference but should not be relied on.
 
-### D. Manual + AI Hybrid
-1. Ask Claude/ChatGPT: "List 30 Melbourne beauty salons with their website URLs"
-2. Claude searches and returns structured data
-3. Pipe into the auditor
+---
 
-## Tasks
+## If Claude-Based Search Isn't Enough
 
-- [ ] Debug Yellow Pages scraper — inspect current markup
-- [ ] Test Playwright instead of Puppeteer for Google Maps
-- [ ] Research Google Places API pricing for KSPF volume
-- [ ] Build Claude-assisted lead finder (see `claude-lead-finder.js`)
-- [ ] Consider Apify for reliable scraping
-- [ ] **Automate tasks → GitHub Issues** — research syncing TASKS.md to GitHub Issues (gh CLI, GitHub Actions, or VS Code extension). Route kspf.au-related tasks to that repo automatically.
+If you need higher volume or more structured data:
+
+- **Google Places API** — $17 per 1,000 requests. Reliable, structured. Worth it for > 100 leads/month.
+- **SerpAPI** — $50/mo. Handles Google scraping reliably.
+- **Apify** — Pre-built scrapers for Yellow Pages, Instagram, etc.
+- **Browser Use skill** — Install the `browser-use/claude-skill` to give Claude a real browser that navigates Google Maps like a human. No selector maintenance. See `SKILLS.md`.
+
+---
 
 ## Notes
 
-Scraping is an arms race. Sites constantly update their markup and bot detection. For a solo studio, the ROI on maintaining scrapers may be low compared to:
-1. Manual research (10-20 mins/week)
-2. Paid APIs when needed
-3. AI-assisted research
+Scraping is an arms race. For a solo studio the ROI on maintaining custom scrapers is low. The Claude-assisted approach (web search → CSV → Lighthouse audit) covers the full workflow without any infrastructure to maintain.
