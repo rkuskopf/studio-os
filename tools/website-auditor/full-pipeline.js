@@ -49,6 +49,25 @@ async function sleep(ms) {
   return new Promise(r => setTimeout(r, ms + Math.random() * 500));
 }
 
+// Quick check that a URL actually responds before we spend time auditing it
+async function validateUrl(url) {
+  const controller = new AbortController();
+  const id = setTimeout(() => controller.abort(), 8000);
+  try {
+    const res = await fetch(url, {
+      method: 'HEAD',
+      signal: controller.signal,
+      redirect: 'follow',
+      headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36' }
+    });
+    return res.status < 400;
+  } catch {
+    return false;
+  } finally {
+    clearTimeout(id);
+  }
+}
+
 // ============================================
 // STEP 1: Scrape leads from Google Maps
 // ============================================
@@ -212,15 +231,26 @@ async function extractContactInfo(leads) {
       
       let contactInfo = await extractEmailsFromPage(page);
       
-      // If no email found, try /contact page
+      // If no email found, try /contact page — but keep homepage content for personalisation
       if (!contactInfo.email) {
+        const homepageContent = {
+          pageTitle: contactInfo.pageTitle,
+          h1Text: contactInfo.h1Text,
+          metaDescription: contactInfo.metaDescription,
+          heroText: contactInfo.heroText,
+          instagram: contactInfo.instagram,
+          contactForm: contactInfo.contactForm,
+        };
         const contactUrls = ['/contact', '/contact-us', '/about', '/about-us'];
         for (const path of contactUrls) {
           try {
             const contactUrl = new URL(path, lead.url).href;
             await page.goto(contactUrl, { waitUntil: 'domcontentloaded', timeout: 10000 });
-            contactInfo = await extractEmailsFromPage(page);
-            if (contactInfo.email) break;
+            const pageInfo = await extractEmailsFromPage(page);
+            if (pageInfo.email) {
+              contactInfo = { ...pageInfo, ...homepageContent, email: pageInfo.email };
+              break;
+            }
           } catch {}
         }
       }
@@ -232,6 +262,12 @@ async function extractContactInfo(leads) {
       if (!lead.instagram && contactInfo.instagram) {
         lead.instagram = contactInfo.instagram;
       }
+
+      // Store site-specific content for email personalisation
+      lead.pageTitle = contactInfo.pageTitle || '';
+      lead.h1Text = contactInfo.h1Text || '';
+      lead.metaDescription = contactInfo.metaDescription || '';
+      lead.heroText = contactInfo.heroText || '';
 
       await page.close();
 
@@ -258,22 +294,22 @@ async function extractContactInfo(leads) {
 
 async function extractEmailsFromPage(page) {
   return await page.evaluate(() => {
-    const result = { email: '', contactForm: '', instagram: '' };
+    const result = { email: '', contactForm: '', instagram: '', pageTitle: '', h1Text: '', metaDescription: '', heroText: '' };
     const html = document.body.innerHTML;
     
     // Find emails with regex
     const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g;
     const emails = html.match(emailRegex) || [];
     
-    // Filter out common non-contact emails
+    // Filter out common non-contact emails and false positives
     const validEmails = emails.filter(e => 
-      !e.includes('example.com') &&
+      !e.match(/[.@]example\.com$/i) &&
       !e.includes('wordpress') &&
       !e.includes('wixpress') &&
       !e.includes('squarespace') &&
       !e.includes('sentry.io') &&
-      !e.includes('.png') &&
-      !e.includes('.jpg')
+      !e.match(/\.(png|jpg|jpeg|webp|gif|svg|ico)$/i) &&
+      !e.match(/^(youremail|placeholder|noreply|no-reply|donotreply)@/i)
     );
     
     if (validEmails.length > 0) {
@@ -288,19 +324,26 @@ async function extractEmailsFromPage(page) {
       result.email = preferred || validEmails[0];
     }
 
-    // Look for mailto links
+    // Look for mailto links (most reliable source)
     const mailtoLinks = document.querySelectorAll('a[href^="mailto:"]');
     if (mailtoLinks.length > 0) {
       const mailto = mailtoLinks[0].href.replace('mailto:', '').split('?')[0];
-      if (mailto && !result.email) result.email = mailto;
+      if (
+        mailto &&
+        mailto.includes('@') &&
+        !mailto.match(/\.(png|jpg|jpeg|webp|gif|svg|ico)$/i) &&
+        !mailto.match(/^(youremail|placeholder|noreply|no-reply|donotreply)@/i) &&
+        !mailto.match(/[.@]example\.com$/i)
+      ) {
+        result.email = mailto;
+      }
     }
 
     // Look for contact form
     const forms = document.querySelectorAll('form');
     for (const form of forms) {
-      const action = form.action || '';
-      const html = form.innerHTML.toLowerCase();
-      if (html.includes('email') || html.includes('message') || html.includes('contact')) {
+      const formHtml = form.innerHTML.toLowerCase();
+      if (formHtml.includes('email') || formHtml.includes('message') || formHtml.includes('contact')) {
         result.contactForm = window.location.href;
         break;
       }
@@ -311,6 +354,19 @@ async function extractEmailsFromPage(page) {
     if (igLinks.length > 0) {
       result.instagram = igLinks[0].href;
     }
+
+    // Site-specific content for email personalisation
+    result.pageTitle = document.title?.trim() || '';
+    result.h1Text = document.querySelector('h1')?.textContent?.trim() || '';
+    result.metaDescription = document.querySelector('meta[name="description"]')?.getAttribute('content')?.trim() || '';
+
+    // First meaningful paragraph — often hero/tagline text
+    const paragraphs = Array.from(document.querySelectorAll('p'));
+    const heroP = paragraphs.find(p => {
+      const text = p.textContent.trim();
+      return text.length > 20 && text.length < 300;
+    });
+    result.heroText = heroP?.textContent?.trim() || '';
 
     return result;
   });
@@ -375,6 +431,30 @@ async function auditWebsites(leads) {
   return results.sort((a, b) => b.leadScore - a.leadScore);
 }
 
+// Build a personalised email opener using content scraped from the site
+function buildEmailOpener(lead) {
+  const cleanCategory = (lead.category && !['builtwith', 'builtwith_export', 'potential_lead'].includes(lead.category))
+    ? lead.category
+    : '';
+
+  if (lead.h1Text && lead.h1Text !== lead.name && lead.h1Text.length > 5 && lead.h1Text.length < 100) {
+    return `I came across ${lead.name} and noticed the line "${lead.h1Text}" — really like the direction.`;
+  }
+  if (lead.metaDescription && lead.metaDescription.length > 20 && lead.metaDescription.length < 200) {
+    return `I came across ${lead.name} while browsing ${cleanCategory || 'Melbourne businesses'} — ${lead.metaDescription.split('.')[0].trim()}.`;
+  }
+  return `I came across ${lead.name} while browsing ${cleanCategory || 'Melbourne businesses'} online and liked what I saw.`;
+}
+
+// Convert Lighthouse audit output to plain-English issue descriptions
+function humaniseIssue(firstIssue) {
+  return firstIssue
+    .replace(/accessibility issues \(\d+\/100\)/, 'some accessibility gaps — things like contrast ratios and button sizing that affect usability')
+    .replace(/slow loading \(\d+\/100 performance\)/, 'slow load times — can hurt both conversions and rankings')
+    .replace(/SEO problems \(\d+\/100\)/, 'limited search visibility, which makes it harder for new customers to find you')
+    .replace(/technical issues \(\d+\/100 best practices\)/, 'a few technical flags that modern browsers pick up — usually straightforward to fix');
+}
+
 // ============================================
 // STEP 4: Generate outreach emails
 // ============================================
@@ -389,6 +469,9 @@ function generateOutreachEmails(leads) {
   for (const lead of contactableLeads.slice(0, topN)) { // Top N contactable leads
     const issues = lead.issues || 'some areas for improvement';
     const firstIssue = issues.split(';')[0];
+
+    const issueText = humaniseIssue(firstIssue);
+    const opener = buildEmailOpener(lead);
     
     // Determine contact method
     let contactMethod = 'unknown';
@@ -413,22 +496,24 @@ function generateOutreachEmails(leads) {
       subject: `Quick thought on ${lead.name}'s website`,
       body: `Hi there,
 
-I came across ${lead.name} while looking at ${lead.category || 'independent businesses'} in Melbourne and really like what you're doing.
+${opener}
 
-I noticed your website might have ${firstIssue} — not a criticism, just something I spotted as a web designer.
+I noticed your site has ${issueText}. Just something I spotted — I look at a lot of sites.
 
-I run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.
+I run a small creative studio (kspf.au) that works with independent Melbourne businesses on branding and web. Would you be open to a quick chat? Happy to share a few thoughts, no pressure.
 
 Cheers,
 Rowan
-KSPF Design Studio
+KSPF Studio
 kspf.au`,
       lead: {
         name: lead.name,
         url: lead.url,
         leadScore: lead.leadScore,
         issues: lead.issues,
-        phone: lead.phone
+        phone: lead.phone,
+        h1Text: lead.h1Text || '',
+        metaDescription: lead.metaDescription || ''
       }
     };
 
@@ -437,6 +522,7 @@ kspf.au`,
     console.log(chalk.bold(`\n📧 ${lead.name}`));
     console.log(chalk.gray(`   Lead score: ${lead.leadScore} | Issues: ${lead.issues}`));
     console.log(chalk.cyan(`   Contact: ${contactMethod} → ${contactValue}`));
+    if (lead.h1Text) console.log(chalk.gray(`   H1: "${lead.h1Text}"`));
   }
 
   // Report on non-contactable leads
@@ -482,6 +568,27 @@ async function main() {
   writeFileSync(leadsFile, stringify(leads, { header: true }));
   console.log(chalk.gray(`\nSaved ${leads.length} leads to ${leadsFile}`));
 
+  // Validate URLs — skip sites that don't respond (broken links score 100 and are useless)
+  console.log(chalk.bold.blue('\n🔗 Validating URLs\n'));
+  const reachableLeads = [];
+  for (const lead of leads) {
+    const spinner = ora(`Checking ${lead.url}`).start();
+    const ok = await validateUrl(lead.url);
+    if (ok) {
+      reachableLeads.push(lead);
+      spinner.succeed(chalk.gray(lead.url));
+    } else {
+      spinner.fail(chalk.yellow(`${lead.url} — not reachable, skipping`));
+    }
+  }
+  console.log(chalk.green(`\n${reachableLeads.length} / ${leads.length} URLs reachable\n`));
+  leads = reachableLeads;
+
+  if (leads.length === 0) {
+    console.log(chalk.red('\nNo reachable URLs found. Check your lead source.\n'));
+    return;
+  }
+
   // Step 2: Extract contact info from websites
   const leadsWithContacts = await extractContactInfo(leads);
 
@@ -495,18 +602,21 @@ async function main() {
   const leadsWithEmails = auditedLeads.map(lead => {
     const issues = lead.issues || 'some areas for improvement';
     const firstIssue = issues.split(';')[0];
-    
+
+    const issueText = humaniseIssue(firstIssue);
+    const opener = buildEmailOpener(lead);
+
     const emailDraft = `Hi there,
 
-I came across ${lead.name} while looking at ${lead.category || 'independent businesses'} in Melbourne and really like what you're doing.
+${opener}
 
-I noticed your website might have ${firstIssue} — not a criticism, just something I spotted as a web designer.
+I noticed your site has ${issueText}. Just something I spotted — I look at a lot of sites.
 
-I run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.
+I run a small creative studio (kspf.au) that works with independent Melbourne businesses on branding and web. Would you be open to a quick chat? Happy to share a few thoughts, no pressure.
 
 Cheers,
 Rowan
-KSPF Design Studio
+KSPF Studio
 kspf.au`;
 
     return {
