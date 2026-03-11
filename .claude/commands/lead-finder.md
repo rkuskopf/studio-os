@@ -18,13 +18,24 @@ Invoke with `/lead-finder` then specify a category (and optionally a count):
 /lead-finder yoga studios fitzroy
 ```
 
+## Existing Lead Sheets (check for duplicates)
+
+Two Google Sheets already contain leads. Always cross-reference against these before outputting new ones:
+
+- **Sheet 1:** https://docs.google.com/spreadsheets/d/12WwcUV2G96sDgt7pAN39rb7jjJoZK3-Imqzbq9N9VZ4/edit?gid=0#gid=0
+- **Sheet 2:** https://docs.google.com/spreadsheets/d/1X8Fjp5vqiCmtBgS9l1yvDI_GpG6JoT0sAIXNERvCLWw/edit?gid=1661990518#gid=1661990518
+
+If the GWS (Google Workspace) MCP is available, read both sheets at the start and build a list of existing domains/URLs to exclude. If GWS is not available, ask Rowan to paste the existing business names or URLs so you can deduplicate manually.
+
 ## Steps Claude will follow
 
 1. Ask (if not provided): what category of business? what suburb or area? how many leads (default 20)?
-2. Use web search to find independent Melbourne businesses in that category that have their own websites
-3. Filter out: chains, franchises, large brands, social-media-only businesses, directories
-4. For each business found, extract: business name, website URL, brief description
-5. Output a CSV-ready list in this exact format (one per line):
+2. **Check existing sheets** — read Sheet 1 and Sheet 2 (via GWS MCP if available) and note existing business names/domains to avoid
+3. Use web search to find independent Melbourne businesses in that category that have their own websites
+4. Filter out: chains, franchises, large brands, social-media-only businesses, directories
+5. **Deduplicate** — remove any business already in Sheet 1 or Sheet 2 (match by domain or business name)
+6. For each new lead found, extract: business name, website URL, brief description
+7. Output a CSV-ready list in this exact format (one per line):
 
 ```
 url,name,category
@@ -32,8 +43,8 @@ https://www.example.com.au,Example Business,beauty
 https://www.another.com.au,Another Business,beauty
 ```
 
-6. Also output a quick summary:
-   - How many businesses found
+8. Also output a quick summary:
+   - How many businesses found vs how many were filtered as duplicates
    - Any that look especially promising (Instagram-heavy but weak web presence, obvious outdated design)
    - Suggested next step: `node tools/website-auditor/simple-pipeline.js --input leads.csv`
 
@@ -43,6 +54,7 @@ https://www.another.com.au,Another Business,beauty
 - Prefer independent, locally-owned businesses over chains
 - Melbourne focus unless asked otherwise
 - If web search returns sparse results for a niche, broaden to "Melbourne inner suburbs" or suggest adjacent categories
+- Never output a lead that already exists in Sheet 1 or Sheet 2
 
 ## Context
 

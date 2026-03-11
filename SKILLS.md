@@ -15,7 +15,7 @@ These are custom slash commands in `.claude/commands/`. Invoke them in any Claud
 | `/client-update` | Drafts a client progress email in KSPF tone |
 | `/finance-prep` | Walks through David Carnegie's 6 finance metrics before a Webex check-in |
 | `/new-project` | Sets up a new project file + adds tasks + updates CLAUDE.md |
-| `/lead-finder` | **New** — Uses web search to find Melbourne business leads (replaces broken Google scraper) |
+| `/lead-finder` | **New** — Uses web search to find Melbourne business leads, deduplicates against two existing lead sheets (replaces broken Google scraper) |
 
 ---
 
