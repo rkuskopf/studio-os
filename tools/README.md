@@ -1,88 +1,66 @@
 # KSPF Lead Generation Tools
 
-Automated pipeline for finding and qualifying leads for KSPF studio.
+Automated pipeline for finding, auditing, and reaching out to leads for KSPF studio.
 
-## Quick Start
-
-```bash
-# Install dependencies
-cd tools/website-auditor && npm install
-cd ../brand-monitor && npm install
-
-# Run a demo audit
-cd ../website-auditor
-node simple-pipeline.js --demo
-```
-
-## The Practical Workflow
-
-**Reality check:** Google Maps and Instagram actively block automated scraping. The most reliable workflow is:
-
-1. **Manually build a seed list** (10-20 mins)
-2. **Automatically audit those sites** (runs in background)
-3. **Review ranked leads** (5 mins)
-4. **Personalised outreach** based on specific issues found
-
-### Step 1: Build Your Seed List
-
-Create a CSV file `my-leads.csv`:
-```csv
-url,name,category
-https://www.example-salon.com.au,Example Salon,beauty
-https://www.example-florist.com.au,Example Florist,florist
-```
-
-**Where to find URLs:**
-- Google search: "fashion boutique melbourne" → copy URLs
-- Instagram: browse #melbournebrand, click profiles, copy website links
-- Yellow Pages / TrueLocal (browse, don't scrape)
-- Ask ChatGPT: "List 20 Melbourne indie beauty brands with websites"
-- Shopping centre websites (tenant lists)
-
-### Step 2: Audit the Sites
+## Quick Start (Full Automation)
 
 ```bash
 cd tools/website-auditor
-node simple-pipeline.js --input my-leads.csv
+npm install
+
+# Run full pipeline: scrape → extract contacts → audit → draft emails
+node full-pipeline.js --query "fashion brand melbourne" --limit 10
 ```
 
-This runs Lighthouse audits and outputs `leads-ranked.csv` with:
-- **Lead Score** (0-100) — higher = worse site = better lead
-- Performance, Accessibility, Best Practices, SEO scores
-- Assessment summary
-
-### Step 3: Review & Outreach
-
-Open the CSV, sort by leadScore. Top leads have the worst sites — real pain points you can solve.
-
-Research each before outreach:
-- Check their Instagram (follower count, activity)
-- Read their About page
-- Note specific issues from the audit
+**Output files:**
+- `pipeline-audited.csv` — leads ranked by opportunity, with contact info + email drafts
+- `pipeline-emails.json` — ready-to-send email drafts
 
 ---
 
-## Commands Reference
+## What's Available
 
-### Simple Pipeline (recommended)
+### 1. Full Pipeline (recommended) ⭐
+Scrapes Google Maps, extracts contact info, audits each site, drafts personalised outreach emails.
+
 ```bash
-node simple-pipeline.js --demo              # Test with sample businesses
-node simple-pipeline.js --input urls.csv    # Audit your list
-node simple-pipeline.js --input urls.csv --limit 10  # First 10 only
+# Fresh scrape + full pipeline
+node full-pipeline.js --query "architect melbourne" --limit 15
+
+# Use existing leads
+node full-pipeline.js --input my-leads.csv
 ```
 
-### Direct Auditor
+### 2. Google Maps Scraper (standalone)
+Just scrape businesses without auditing:
+
 ```bash
-node audit.js --input urls.csv --output results.csv
+node scrape-maps-v2.js --query "art gallery melbourne" --limit 20
+# Output: maps-leads-v2.csv
 ```
 
-### Instagram Profile Extractor
-If you have Instagram usernames, extract their website URLs:
+### 3. Simple Pipeline (audit only)
+Audit a list of URLs you already have:
+
 ```bash
-cd ../brand-monitor
-node extract-profiles.js --users "brand1,brand2,brand3"
-# Outputs: websites-to-audit.csv
+node simple-pipeline.js --input urls.csv
+# Output: leads-ranked.csv
 ```
+
+### 4. Claude `/lead-finder` Command
+In Claude Code, use the slash command for AI-assisted lead finding:
+```
+/lead-finder digital agencies melbourne
+```
+
+---
+
+## The Workflow
+
+1. **Run the pipeline** with your target niche
+2. **Review `pipeline-audited.csv`** — sorted by lead score (worst sites = best opportunities)
+3. **Copy email drafts** from the CSV or `pipeline-emails.json`
+4. **Send outreach** — personalised with specific issues found
 
 ---
 
@@ -116,19 +94,40 @@ Weighted toward issues KSPF can solve:
 
 ---
 
+## Task Management
+
+### Sync TASKS.md → GitHub Issues
+
+```bash
+# Preview what would be created
+node tools/sync-tasks-to-github.js
+
+# Create the issues
+node tools/sync-tasks-to-github.js --create
+```
+
+Routes tasks automatically:
+- Tasks mentioning "kspf.au" → `rkuskopf/kspf.studio-repo`
+- All others → `rkuskopf/studio-os`
+
+Requires GitHub CLI: `brew install gh && gh auth login`
+
+---
+
 ## Files
 
 ```
 tools/
 ├── README.md
+├── sync-tasks-to-github.js   # ⭐ Sync TASKS.md → GitHub Issues
 ├── package.json
 ├── run.js                    # Master runner (maps/instagram commands)
 ├── website-auditor/
-│   ├── simple-pipeline.js    # ⭐ Main tool — audit a list of URLs
+│   ├── full-pipeline.js      # ⭐ Full pipeline — scrape → audit → email
+│   ├── simple-pipeline.js    # Audit a list of URLs
+│   ├── scrape-maps-v2.js     # Google Maps scraper (stealth)
 │   ├── audit.js              # Core Lighthouse auditor
-│   ├── scrape-maps.js        # Google Maps (often blocked)
-│   ├── scrape-google.js      # Google Search (often blocked)
-│   └── leads-ranked.csv      # Output
+│   └── pipeline-audited.csv  # Output
 └── brand-monitor/
     ├── instagram.js          # Instagram hashtag scraper (fragile)
     ├── extract-profiles.js   # Profile → website extractor

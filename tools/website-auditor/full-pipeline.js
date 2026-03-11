@@ -481,9 +481,35 @@ async function main() {
   // Step 3: Audit websites
   const auditedLeads = await auditWebsites(leadsWithContacts);
 
-  // Save audited leads
+  // Save audited leads with email drafts included
   const auditedFile = `${outputDir}/pipeline-audited.csv`;
-  writeFileSync(auditedFile, stringify(auditedLeads, { header: true }));
+  
+  // Add email draft to each lead for easy copy/paste
+  const leadsWithEmails = auditedLeads.map(lead => {
+    const issues = lead.issues || 'some areas for improvement';
+    const firstIssue = issues.split(';')[0];
+    
+    const emailDraft = `Hi there,
+
+I came across ${lead.name} while looking at ${lead.category || 'independent businesses'} in Melbourne and really like what you're doing.
+
+I noticed your website might have ${firstIssue} — not a criticism, just something I spotted as a web designer.
+
+I run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.
+
+Cheers,
+Rowan
+KSPF Design Studio
+kspf.au`;
+
+    return {
+      ...lead,
+      emailSubject: `Quick thought on ${lead.name}'s website`,
+      emailDraft: emailDraft.replace(/\n/g, '\\n') // Escape newlines for CSV
+    };
+  });
+  
+  writeFileSync(auditedFile, stringify(leadsWithEmails, { header: true }));
   console.log(chalk.gray(`\nSaved audited leads to ${auditedFile}`));
 
   // Step 4: Generate emails

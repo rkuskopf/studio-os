@@ -5,6 +5,7 @@
 - [ ] **Build target outreach list (10–15 ideal clients)**
 - [ ] Audit ALT. Cosmetics to understand the halucinations and inconsistiencies (particularly in the creative brief). No one should have access to a creative brief below V5.1. We need to put together a quesitonaire to get to the bottom of all unknowns and create a report for what needs to be done
 - [ ] **Automate TASKS.md → GitHub Issues** - — research syncing tasks to GitHub Issues (gh CLI, GitHub Actions, or VS Code extension) and also Asana. Route kspf.au-related tasks to `kspf.au` repo automatically.
+- [ ] **Gmail draft sync for lead pipeline** — add Gmail API integration to `full-pipeline.js` so drafted emails appear in Gmail drafts ready to review/send. Requires GWS skill setup (see `SKILLS.md`).
 - [ ] **Askable**
  - [ ] we need to create an askable page in this repo with details on this ongoing income stream. we need to optimise my language when I apply for jobs. we also need to create a workflow for when I receive the job sms, I can drop it in here and it gets services.
  - [ ] Scrape UX case study source material and generate portfolio presentation — see `projects/ux-portfolio.md`. This is to be displayed on my askable researcher profile
