@@ -1,17 +1,137 @@
 [
   {
-    "to": "",
-    "toName": "dot COMME",
-    "contactMethod": "instagram_dm",
-    "contactValue": "https://www.instagram.com/dotcomme",
-    "instagram": "https://www.instagram.com/dotcomme",
-    "subject": "Quick thought on dot COMME's website",
-    "body": "Hi there,\n\nI came across dot COMME while looking at Clothing store in Melbourne and really like what you're doing.\n\nI noticed your website might have slow loading (0/100 performance) — not a criticism, just something I spotted as a web designer.\n\nI run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.\n\nCheers,\nRowan\nKSPF Design Studio\nkspf.au",
+    "to": "info@tapsy.com.au",
+    "toName": "tapsylocksmith.com.au",
+    "contactMethod": "email",
+    "contactValue": "info@tapsy.com.au",
+    "instagram": "https://instagram.com/taptaptapsy",
+    "subject": "Quick thought on tapsylocksmith.com.au's website",
+    "body": "Hi there,\n\nI came across tapsylocksmith.com.au while looking at builtwith in Melbourne and really like what you're doing.\n\nI noticed your website might have accessibility issues (59/100) — not a criticism, just something I spotted as a web designer.\n\nI run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.\n\nCheers,\nRowan\nKSPF Design Studio\nkspf.au",
     "lead": {
-      "name": "dot COMME",
-      "url": "http://www.dotcomme.net/",
-      "leadScore": 45,
-      "issues": "slow loading (0/100 performance); technical issues (41/100 best practices)"
+      "name": "tapsylocksmith.com.au",
+      "url": "https://tapsylocksmith.com.au",
+      "leadScore": 47,
+      "issues": "accessibility issues (59/100); slow loading (37/100 performance); SEO problems (67/100); technical issues (50/100 best practices)"
+    }
+  },
+  {
+    "to": "",
+    "toName": "malikasuniverse.com",
+    "contactMethod": "contact_form",
+    "contactValue": "https://malikasuniverse.com/about-us",
+    "instagram": "",
+    "subject": "Quick thought on malikasuniverse.com's website",
+    "body": "Hi there,\n\nI came across malikasuniverse.com while looking at builtwith in Melbourne and really like what you're doing.\n\nI noticed your website might have accessibility issues (65/100) — not a criticism, just something I spotted as a web designer.\n\nI run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.\n\nCheers,\nRowan\nKSPF Design Studio\nkspf.au",
+    "lead": {
+      "name": "malikasuniverse.com",
+      "url": "https://malikasuniverse.com",
+      "leadScore": 35,
+      "issues": "accessibility issues (65/100); slow loading (45/100 performance); technical issues (57/100 best practices)"
+    }
+  },
+  {
+    "to": "",
+    "toName": "fourcornersrugs.com",
+    "contactMethod": "instagram_dm",
+    "contactValue": "https://www.instagram.com/fourcornersrugs?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    "instagram": "https://www.instagram.com/fourcornersrugs?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    "subject": "Quick thought on fourcornersrugs.com's website",
+    "body": "Hi there,\n\nI came across fourcornersrugs.com while looking at builtwith in Melbourne and really like what you're doing.\n\nI noticed your website might have slow loading (42/100 performance) — not a criticism, just something I spotted as a web designer.\n\nI run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.\n\nCheers,\nRowan\nKSPF Design Studio\nkspf.au",
+    "lead": {
+      "name": "fourcornersrugs.com",
+      "url": "https://fourcornersrugs.com",
+      "leadScore": 33,
+      "issues": "slow loading (42/100 performance); technical issues (61/100 best practices)"
+    }
+  },
+  {
+    "to": "info@timberoakfloors.com.au",
+    "toName": "timberoakfloors.com.au",
+    "contactMethod": "email",
+    "contactValue": "info@timberoakfloors.com.au",
+    "instagram": "https://www.instagram.com/timberoakfloors/",
+    "subject": "Quick thought on timberoakfloors.com.au's website",
+    "body": "Hi there,\n\nI came across timberoakfloors.com.au while looking at builtwith in Melbourne and really like what you're doing.\n\nI noticed your website might have accessibility issues (77/100) — not a criticism, just something I spotted as a web designer.\n\nI run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.\n\nCheers,\nRowan\nKSPF Design Studio\nkspf.au",
+    "lead": {
+      "name": "timberoakfloors.com.au",
+      "url": "https://timberoakfloors.com.au",
+      "leadScore": 33,
+      "issues": "accessibility issues (77/100); slow loading (39/100 performance); SEO problems (77/100); technical issues (75/100 best practices)"
+    }
+  },
+  {
+    "to": "",
+    "toName": "abovebyronprinting.com.au",
+    "contactMethod": "instagram_dm",
+    "contactValue": "http://instagram.com/abovebyronprinting",
+    "instagram": "http://instagram.com/abovebyronprinting",
+    "subject": "Quick thought on abovebyronprinting.com.au's website",
+    "body": "Hi there,\n\nI came across abovebyronprinting.com.au while looking at builtwith in Melbourne and really like what you're doing.\n\nI noticed your website might have slow loading (48/100 performance) — not a criticism, just something I spotted as a web designer.\n\nI run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.\n\nCheers,\nRowan\nKSPF Design Studio\nkspf.au",
+    "lead": {
+      "name": "abovebyronprinting.com.au",
+      "url": "https://abovebyronprinting.com.au",
+      "leadScore": 32,
+      "issues": "slow loading (48/100 performance); SEO problems (77/100); technical issues (61/100 best practices)"
+    }
+  },
+  {
+    "to": "",
+    "toName": "Ngali",
+    "contactMethod": "instagram_dm",
+    "contactValue": "https://www.instagram.com/ngali_australia/",
+    "instagram": "https://www.instagram.com/ngali_australia/",
+    "subject": "Quick thought on Ngali's website",
+    "body": "Hi there,\n\nI came across Ngali while looking at fashion in Melbourne and really like what you're doing.\n\nI noticed your website might have accessibility issues (75/100) — not a criticism, just something I spotted as a web designer.\n\nI run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.\n\nCheers,\nRowan\nKSPF Design Studio\nkspf.au",
+    "lead": {
+      "name": "Ngali",
+      "url": "https://ngali.com.au",
+      "leadScore": 32,
+      "issues": "accessibility issues (75/100); technical issues (57/100 best practices)"
+    }
+  },
+  {
+    "to": "",
+    "toName": "concordaerospace.com",
+    "contactMethod": "instagram_dm",
+    "contactValue": "https://www.instagram.com/concord_aerospace",
+    "instagram": "https://www.instagram.com/concord_aerospace",
+    "subject": "Quick thought on concordaerospace.com's website",
+    "body": "Hi there,\n\nI came across concordaerospace.com while looking at builtwith in Melbourne and really like what you're doing.\n\nI noticed your website might have slow loading (36/100 performance) — not a criticism, just something I spotted as a web designer.\n\nI run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.\n\nCheers,\nRowan\nKSPF Design Studio\nkspf.au",
+    "lead": {
+      "name": "concordaerospace.com",
+      "url": "https://concordaerospace.com",
+      "leadScore": 31,
+      "issues": "slow loading (36/100 performance); technical issues (46/100 best practices)"
+    }
+  },
+  {
+    "to": "",
+    "toName": "jubileest.com.au",
+    "contactMethod": "contact_form",
+    "contactValue": "https://jubileest.com.au/about-us",
+    "instagram": "",
+    "subject": "Quick thought on jubileest.com.au's website",
+    "body": "Hi there,\n\nI came across jubileest.com.au while looking at builtwith in Melbourne and really like what you're doing.\n\nI noticed your website might have accessibility issues (74/100) — not a criticism, just something I spotted as a web designer.\n\nI run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.\n\nCheers,\nRowan\nKSPF Design Studio\nkspf.au",
+    "lead": {
+      "name": "jubileest.com.au",
+      "url": "https://jubileest.com.au",
+      "leadScore": 31,
+      "issues": "accessibility issues (74/100); SEO problems (77/100); technical issues (57/100 best practices)"
+    }
+  },
+  {
+    "to": "info@mimzon.com",
+    "toName": "glamhair.com.au",
+    "contactMethod": "email",
+    "contactValue": "info@mimzon.com",
+    "instagram": "https://instagram.com/glam_hair_au",
+    "subject": "Quick thought on glamhair.com.au's website",
+    "body": "Hi there,\n\nI came across glamhair.com.au while looking at builtwith in Melbourne and really like what you're doing.\n\nI noticed your website might have accessibility issues (78/100) — not a criticism, just something I spotted as a web designer.\n\nI run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.\n\nCheers,\nRowan\nKSPF Design Studio\nkspf.au",
+    "lead": {
+      "name": "glamhair.com.au",
+      "url": "https://glamhair.com.au",
+      "leadScore": 30,
+      "issues": "accessibility issues (78/100); technical issues (61/100 best practices)"
     }
   },
   {
@@ -21,102 +141,162 @@
     "contactValue": "contact@kuwaii.com.au",
     "instagram": "https://www.instagram.com/kuwaii/",
     "subject": "Quick thought on Kuwaii's website",
-    "body": "Hi there,\n\nI came across Kuwaii while looking at Women's clothing store in Melbourne and really like what you're doing.\n\nI noticed your website might have technical issues (45/100 best practices) — not a criticism, just something I spotted as a web designer.\n\nI run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.\n\nCheers,\nRowan\nKSPF Design Studio\nkspf.au",
+    "body": "Hi there,\n\nI came across Kuwaii while looking at fashion in Melbourne and really like what you're doing.\n\nI noticed your website might have technical issues (61/100 best practices) — not a criticism, just something I spotted as a web designer.\n\nI run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.\n\nCheers,\nRowan\nKSPF Design Studio\nkspf.au",
     "lead": {
       "name": "Kuwaii",
-      "url": "http://kuwaii.com.au/",
-      "leadScore": 33,
-      "issues": "technical issues (45/100 best practices)"
-    }
-  },
-  {
-    "to": "shop@alpha60.com.au",
-    "toName": "ALPHA60 Flinders Lane",
-    "contactMethod": "email",
-    "contactValue": "shop@alpha60.com.au",
-    "instagram": "https://www.instagram.com/alpha60thelabel",
-    "subject": "Quick thought on ALPHA60 Flinders Lane's website",
-    "body": "Hi there,\n\nI came across ALPHA60 Flinders Lane while looking at Clothing store in Melbourne and really like what you're doing.\n\nI noticed your website might have accessibility issues (79/100) — not a criticism, just something I spotted as a web designer.\n\nI run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.\n\nCheers,\nRowan\nKSPF Design Studio\nkspf.au",
-    "lead": {
-      "name": "ALPHA60 Flinders Lane",
-      "url": "http://www.alpha60.com.au/",
-      "leadScore": 33,
-      "issues": "accessibility issues (79/100); technical issues (45/100 best practices)"
-    }
-  },
-  {
-    "to": "shop@perksandmini.com",
-    "toName": "P.A.M. Store Melbourne",
-    "contactMethod": "email",
-    "contactValue": "shop@perksandmini.com",
-    "instagram": "https://www.instagram.com/perksandmini/",
-    "subject": "Quick thought on P.A.M. Store Melbourne's website",
-    "body": "Hi there,\n\nI came across P.A.M. Store Melbourne while looking at Clothing store in Melbourne and really like what you're doing.\n\nI noticed your website might have technical issues (61/100 best practices) — not a criticism, just something I spotted as a web designer.\n\nI run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.\n\nCheers,\nRowan\nKSPF Design Studio\nkspf.au",
-    "lead": {
-      "name": "P.A.M. Store Melbourne",
-      "url": "https://perksandmini.com/",
-      "leadScore": 29,
+      "url": "https://kuwaii.com.au",
+      "leadScore": 30,
       "issues": "technical issues (61/100 best practices)"
     }
   },
   {
     "to": "",
-    "toName": "Le Style Boutique",
+    "toName": "hellobleach.com",
     "contactMethod": "instagram_dm",
-    "contactValue": "https://www.instagram.com/lestyleboutique/",
-    "instagram": "https://www.instagram.com/lestyleboutique/",
-    "subject": "Quick thought on Le Style Boutique's website",
-    "body": "Hi there,\n\nI came across Le Style Boutique while looking at Clothing store in Melbourne and really like what you're doing.\n\nI noticed your website might have technical issues (41/100 best practices) — not a criticism, just something I spotted as a web designer.\n\nI run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.\n\nCheers,\nRowan\nKSPF Design Studio\nkspf.au",
+    "contactValue": "https://www.instagram.com/hello.bleach/",
+    "instagram": "https://www.instagram.com/hello.bleach/",
+    "subject": "Quick thought on hellobleach.com's website",
+    "body": "Hi there,\n\nI came across hellobleach.com while looking at builtwith in Melbourne and really like what you're doing.\n\nI noticed your website might have technical issues (54/100 best practices) — not a criticism, just something I spotted as a web designer.\n\nI run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.\n\nCheers,\nRowan\nKSPF Design Studio\nkspf.au",
     "lead": {
-      "name": "Le Style Boutique",
-      "url": "http://www.lestyle.com.au/",
+      "name": "hellobleach.com",
+      "url": "https://hellobleach.com",
       "leadScore": 29,
-      "issues": "technical issues (41/100 best practices)"
+      "issues": "technical issues (54/100 best practices)"
     }
   },
   {
-    "to": "",
-    "toName": "Lana Berg",
-    "contactMethod": "instagram_dm",
-    "contactValue": "https://www.instagram.com/lanaberg_fashion/",
-    "instagram": "https://www.instagram.com/lanaberg_fashion/",
-    "subject": "Quick thought on Lana Berg's website",
-    "body": "Hi there,\n\nI came across Lana Berg while looking at Clothing store in Melbourne and really like what you're doing.\n\nI noticed your website might have technical issues (41/100 best practices) — not a criticism, just something I spotted as a web designer.\n\nI run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.\n\nCheers,\nRowan\nKSPF Design Studio\nkspf.au",
+    "to": "customerservice@dinosaurdesigns.com.au",
+    "toName": "Dinosaur Designs",
+    "contactMethod": "email",
+    "contactValue": "customerservice@dinosaurdesigns.com.au",
+    "instagram": "https://www.instagram.com/dinosaur_designs/",
+    "subject": "Quick thought on Dinosaur Designs's website",
+    "body": "Hi there,\n\nI came across Dinosaur Designs while looking at potential_lead in Melbourne and really like what you're doing.\n\nI noticed your website might have technical issues (54/100 best practices) — not a criticism, just something I spotted as a web designer.\n\nI run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.\n\nCheers,\nRowan\nKSPF Design Studio\nkspf.au",
     "lead": {
-      "name": "Lana Berg",
-      "url": "http://www.lanaberg.com.au/",
-      "leadScore": 26,
-      "issues": "technical issues (41/100 best practices)"
+      "name": "Dinosaur Designs",
+      "url": "https://dinosaurdesigns.com.au",
+      "leadScore": 29,
+      "issues": "technical issues (54/100 best practices)"
     }
   },
   {
-    "to": "",
-    "toName": "rpmmelbourne",
-    "contactMethod": "instagram_dm",
-    "contactValue": "https://www.instagram.com/rpmmelbourne_/",
-    "instagram": "https://www.instagram.com/rpmmelbourne_/",
-    "subject": "Quick thought on rpmmelbourne's website",
-    "body": "Hi there,\n\nI came across rpmmelbourne while looking at Clothing store in Melbourne and really like what you're doing.\n\nI noticed your website might have technical issues (45/100 best practices) — not a criticism, just something I spotted as a web designer.\n\nI run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.\n\nCheers,\nRowan\nKSPF Design Studio\nkspf.au",
+    "to": "shop@alpha60.com.au",
+    "toName": "Alpha60",
+    "contactMethod": "email",
+    "contactValue": "shop@alpha60.com.au",
+    "instagram": "https://www.instagram.com/alpha60thelabel",
+    "subject": "Quick thought on Alpha60's website",
+    "body": "Hi there,\n\nI came across Alpha60 while looking at fashion in Melbourne and really like what you're doing.\n\nI noticed your website might have accessibility issues (79/100) — not a criticism, just something I spotted as a web designer.\n\nI run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.\n\nCheers,\nRowan\nKSPF Design Studio\nkspf.au",
     "lead": {
-      "name": "rpmmelbourne",
-      "url": "http://www.rpmmelbourne.com.au/",
-      "leadScore": 26,
-      "issues": "technical issues (45/100 best practices)"
+      "name": "Alpha60",
+      "url": "https://www.alpha60.com.au",
+      "leadScore": 29,
+      "issues": "accessibility issues (79/100); technical issues (61/100 best practices)"
     }
   },
   {
-    "to": "",
-    "toName": "Swensk",
-    "contactMethod": "contact_form",
-    "contactValue": "https://swensk.com/about-us",
-    "instagram": "",
-    "subject": "Quick thought on Swensk's website",
-    "body": "Hi there,\n\nI came across Swensk while looking at Clothing store in Melbourne and really like what you're doing.\n\nI noticed your website might have technical issues (57/100 best practices) — not a criticism, just something I spotted as a web designer.\n\nI run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.\n\nCheers,\nRowan\nKSPF Design Studio\nkspf.au",
+    "to": "contact@agedcareandmedical.com.au",
+    "toName": "agedcareandmedical.com.au",
+    "contactMethod": "email",
+    "contactValue": "contact@agedcareandmedical.com.au",
+    "instagram": "https://www.instagram.com/agedcareandmedical/",
+    "subject": "Quick thought on agedcareandmedical.com.au's website",
+    "body": "Hi there,\n\nI came across agedcareandmedical.com.au while looking at builtwith in Melbourne and really like what you're doing.\n\nI noticed your website might have technical issues (57/100 best practices) — not a criticism, just something I spotted as a web designer.\n\nI run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.\n\nCheers,\nRowan\nKSPF Design Studio\nkspf.au",
     "lead": {
-      "name": "Swensk",
-      "url": "https://swensk.com/",
-      "leadScore": 14,
+      "name": "agedcareandmedical.com.au",
+      "url": "https://agedcareandmedical.com.au",
+      "leadScore": 28,
       "issues": "technical issues (57/100 best practices)"
+    }
+  },
+  {
+    "to": "support@slick.com.au",
+    "toName": "slick.com.au",
+    "contactMethod": "email",
+    "contactValue": "support@slick.com.au",
+    "instagram": "",
+    "subject": "Quick thought on slick.com.au's website",
+    "body": "Hi there,\n\nI came across slick.com.au while looking at builtwith in Melbourne and really like what you're doing.\n\nI noticed your website might have technical issues (61/100 best practices) — not a criticism, just something I spotted as a web designer.\n\nI run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.\n\nCheers,\nRowan\nKSPF Design Studio\nkspf.au",
+    "lead": {
+      "name": "slick.com.au",
+      "url": "https://slick.com.au",
+      "leadScore": 28,
+      "issues": "technical issues (61/100 best practices)"
+    }
+  },
+  {
+    "to": "info@fabricoz.com.au",
+    "toName": "fabricoz.com.au",
+    "contactMethod": "email",
+    "contactValue": "info@fabricoz.com.au",
+    "instagram": "https://www.instagram.com/fabricoz.com.au/",
+    "subject": "Quick thought on fabricoz.com.au's website",
+    "body": "Hi there,\n\nI came across fabricoz.com.au while looking at builtwith in Melbourne and really like what you're doing.\n\nI noticed your website might have accessibility issues (76/100) — not a criticism, just something I spotted as a web designer.\n\nI run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.\n\nCheers,\nRowan\nKSPF Design Studio\nkspf.au",
+    "lead": {
+      "name": "fabricoz.com.au",
+      "url": "https://fabricoz.com.au",
+      "leadScore": 28,
+      "issues": "accessibility issues (76/100); slow loading (38/100 performance); technical issues (75/100 best practices)"
+    }
+  },
+  {
+    "to": "youremail@email.com",
+    "toName": "kingkongsportswear.com.au",
+    "contactMethod": "email",
+    "contactValue": "youremail@email.com",
+    "instagram": "",
+    "subject": "Quick thought on kingkongsportswear.com.au's website",
+    "body": "Hi there,\n\nI came across kingkongsportswear.com.au while looking at builtwith in Melbourne and really like what you're doing.\n\nI noticed your website might have technical issues (61/100 best practices) — not a criticism, just something I spotted as a web designer.\n\nI run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.\n\nCheers,\nRowan\nKSPF Design Studio\nkspf.au",
+    "lead": {
+      "name": "kingkongsportswear.com.au",
+      "url": "https://kingkongsportswear.com.au",
+      "leadScore": 27,
+      "issues": "technical issues (61/100 best practices)"
+    }
+  },
+  {
+    "to": "Hero-1ch2-png_580x@2x.webp",
+    "toName": "alberts.com.au",
+    "contactMethod": "email",
+    "contactValue": "Hero-1ch2-png_580x@2x.webp",
+    "instagram": "",
+    "subject": "Quick thought on alberts.com.au's website",
+    "body": "Hi there,\n\nI came across alberts.com.au while looking at builtwith in Melbourne and really like what you're doing.\n\nI noticed your website might have technical issues (71/100 best practices) — not a criticism, just something I spotted as a web designer.\n\nI run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.\n\nCheers,\nRowan\nKSPF Design Studio\nkspf.au",
+    "lead": {
+      "name": "alberts.com.au",
+      "url": "https://alberts.com.au",
+      "leadScore": 26,
+      "issues": "technical issues (71/100 best practices)"
+    }
+  },
+  {
+    "to": "info@gramercycouture.com",
+    "toName": "gramercycouture.com",
+    "contactMethod": "email",
+    "contactValue": "info@gramercycouture.com",
+    "instagram": "",
+    "subject": "Quick thought on gramercycouture.com's website",
+    "body": "Hi there,\n\nI came across gramercycouture.com while looking at builtwith in Melbourne and really like what you're doing.\n\nI noticed your website might have technical issues (57/100 best practices) — not a criticism, just something I spotted as a web designer.\n\nI run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.\n\nCheers,\nRowan\nKSPF Design Studio\nkspf.au",
+    "lead": {
+      "name": "gramercycouture.com",
+      "url": "https://gramercycouture.com",
+      "leadScore": 26,
+      "issues": "technical issues (57/100 best practices)"
+    }
+  },
+  {
+    "to": "admin@windowmotor.com.au",
+    "toName": "windowmotor.com.au",
+    "contactMethod": "email",
+    "contactValue": "admin@windowmotor.com.au",
+    "instagram": "https://www.instagram.com/WINDOWMOTOR.COM.AU",
+    "subject": "Quick thought on windowmotor.com.au's website",
+    "body": "Hi there,\n\nI came across windowmotor.com.au while looking at builtwith in Melbourne and really like what you're doing.\n\nI noticed your website might have technical issues (61/100 best practices) — not a criticism, just something I spotted as a web designer.\n\nI run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.\n\nCheers,\nRowan\nKSPF Design Studio\nkspf.au",
+    "lead": {
+      "name": "windowmotor.com.au",
+      "url": "https://windowmotor.com.au",
+      "leadScore": 25,
+      "issues": "technical issues (61/100 best practices)"
     }
   }
 ]
