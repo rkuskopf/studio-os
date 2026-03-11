@@ -138,6 +138,7 @@ npx skills add https://github.com/coleam00/excalidraw-diagram-skill --skill exca
 | Google Drive integration | ❌ Not set up | Install GWS skill (see above) |
 | Google Maps scraping | ❌ Broken | Use `/lead-finder` instead |
 | Google Search scraping | ❌ Broken | Use `/lead-finder` instead |
+| Gmail draft sync | ✅ Working | `full-pipeline.js` Step 5 — see `gmail-draft.js --setup` |
 | TASKS.md → GitHub Issues | ❌ Not set up | See below |
 
 ---
