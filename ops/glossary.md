@@ -7,7 +7,8 @@
 | Alt Cosmetics | Working name for Anh's cosmetics brand |
 | AP-REPS | Previous client — artist booking/management, Squarespace site |
 | Bally Cara | Past pitch — marked complete Feb 2026 |
-| North Star | Asana project for long-range vision + strategic thinking |
+| Slowtides | Rowan's music business identity. Repo: `rkuskopf/north-star`. Formerly called "North Star" internally |
+| North Star | Legacy name for the music/vision stream — now called Slowtides |
 | Engine | Asana project for skill-building and certifications |
 | Fuel | Quick cash flow / gigs project. Side income work |
 

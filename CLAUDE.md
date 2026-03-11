@@ -10,7 +10,19 @@ Rowan Kuskopf. Creative studio founder / director. Studio: KSPF (kspf.au). Email
 | **David Carnegie** | Business trainer/mentor at Holmesglen. Runs finance check-in sessions via Webex. |
 | **Lulu** | Unknown — referenced in old tasks ("send progress update to Lulu", "respond to Lulu"). Likely a client or collaborator, context unclear. |
 
+## Three Streams
+
+The studio-os manages three life/business streams. See `ops/infrastructure.md` for the source-of-truth map.
+
+| Stream | What | Repo |
+|--------|------|------|
+| **Stream 1: KSPF** | Design business — client work, lead gen, studio ops | `rkuskopf/studio-os` |
+| **Stream 2: Slowtides** | Music business — production, releases, practice | `rkuskopf/north-star` *(pending)* |
+| **Stream 3: Personal** | Wellness, health, personal development | `personal/README.md` in this repo |
+
 ## Projects
+
+### Stream 1 — KSPF (Design Business)
 | Name | What | Status |
 |------|------|--------|
 | **Branding: Alt Cosmetics** | Brand identity for Anh's cosmetics product. Chrome packaging, "whisper don't shout" positioning, ~20 March deadline. | Active |
@@ -21,14 +33,27 @@ Rowan Kuskopf. Creative studio founder / director. Studio: KSPF (kspf.au). Email
 | **CEO work** | Studio leadership / business ops tasks. | Ongoing |
 | **Financial plan** | Budget, outgoings, loan exploration. | Ongoing |
 | **Lead Generation** | New client acquisition. | Ongoing |
-| **North Star** | Vision / long-range strategic thinking. | Ongoing |
 | **Content calendar** | Social media content planning. | Ongoing |
-| **Personal Admin** | Personal admin tasks. | Ongoing |
+
+### Stream 2 — Slowtides (Music Business)
+| Name | What | Status |
+|------|------|--------|
+| **Slowtides** | Music business identity. Formerly "North Star". See `music/README.md`. | Active |
+| **Midnight** | Priority song — Arrangement 4 in progress. See `rkuskopf/north-star` (pending). | In progress |
+| **north-star repo** | GitHub repo for Slowtides — not yet initialised. See `north-star-migration.md`. | Pending |
+
+### Stream 3 — Personal
+| Name | What | Status |
+|------|------|--------|
+| **Personal Admin** | Personal tasks, life ops. See `personal/README.md`. | Ongoing |
+| **Health / Gym** | Gym routine (Mon/Wed/Fri), flat-foot support, meal plan. | Ongoing |
 
 ## Terms
 | Term | Meaning |
 |------|---------|
 | **KSPF** | Rowan's creative studio. kspf.au |
+| **Slowtides** | Rowan's music business identity. Repo: `rkuskopf/north-star` (pending). Formerly called "North Star" internally. |
+| **North Star** | Legacy name for the music/vision stream — now called Slowtides |
 | **Fuel** | Calendar block / Asana project = quick cash flow gigs. Side income work. |
 | **CEO work** | Strategic/business-owner tasks, not delivery work |
 | **Deep Focus** | Daily 2–5pm time block for concentrated work |
