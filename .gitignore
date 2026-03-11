@@ -1,0 +1,32 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Generated output files (not source — don't commit scraping results)
+tools/website-auditor/leads-ranked.csv
+tools/website-auditor/simple-results.csv
+tools/website-auditor/test-leads.csv
+tools/website-auditor/test-simple.csv
+tools/website-auditor/maps-leads.csv
+tools/website-auditor/google-leads.csv
+tools/website-auditor/claude-leads.csv
+tools/website-auditor/final-leads.csv
+tools/website-auditor/pipeline-scraped.csv
+tools/website-auditor/claude-prompts.txt
+tools/brand-monitor/final-instagram-leads.csv
+tools/brand-monitor/instagram-leads.csv
+tools/brand-monitor/websites-to-audit.csv
+
+# Claude worktrees (runtime state)
+.claude/worktrees/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo

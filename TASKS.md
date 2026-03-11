@@ -21,7 +21,8 @@
 
 
 
-- [ ] **Fix lead scraping automation** - — scrapers for Yellow Pages, Google Maps not working. See `tools/SCRAPING-TODO.md` for technical debt and next steps.
+- [x] **Fix lead scraping automation** — replaced broken Google/Maps scrapers with `/lead-finder` Claude slash command. See `tools/SCRAPING-TODO.md` and `SKILLS.md`.
+- [ ] **Set up Google Workspace (GWS) skill** — install `@googleworkspace/cli` to give Claude direct access to Drive, Gmail, Calendar, Sheets. See `SKILLS.md` for instructions.
 
 
 ## Backlog
