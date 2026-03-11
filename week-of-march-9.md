@@ -1,10 +1,10 @@
 # Week of March 9 — KSPF
 
 _Last updated: Mon 9 Mar 2026_
-
+**I think this is all wrong**
 ---
 
-## 🔴 Critical / Overdue
+## 🔴 Critical / 
 
 | Task | Project | Due | Status |
 |------|---------|-----|--------|
@@ -15,16 +15,6 @@ _Last updated: Mon 9 Mar 2026_
 **Alt Cosmetics deadline is ~20 March.** Friday 13 Mar is when identity needs to be ready. Drive shows active directions in progress (Direction 1: Current, sans, logo mark, March 3rd meeting assets). This is where your Deep Focus time this week needs to go.
 
 ---
-
-## 📅 Week Structure
-
-| Day | Calendar blocks | Suggested focus |
-|-----|----------------|-----------------|
-| **Mon** | Weekly Planning 8:30, Fuel/CEO 9:45–11:35, Deep Focus 2–5, Music 4–5 | Send Style Magazine email · Update Alt Cosmetics Asana · Deep Focus: Alt Identity |
-| **Tue** | Gym 6:30, Work 9–10, Deep Focus 2–5, Music 4–5 | Deep Focus: Alt Identity continued |
-| **Wed** | Work 9–10, Deep Focus 2–5, Music 4–5 | Deep Focus: Alt Identity continued |
-| **Thu** | Gym 6:30, Deep Focus 2–5, Music 4–5 | Deep Focus: Alt Identity — final push + review |
-| **Fri** | Deep Focus 2–5, Music 4–5 | **Alt Identity due** · Follow up ESS BEE warm lead |
 
 ---
 
@@ -43,11 +33,9 @@ _Last updated: Mon 9 Mar 2026_
 - [ ] Concept Projects
 - [ ] Connect Pinterest for SEO
 
-### Engine
-- [ ] Askable Certification
 
-### Fuel
-- [ ] Instagram lead generation
+
+
 
 ### Financial Plan
 - [ ] Personal budget
