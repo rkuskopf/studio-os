@@ -13,7 +13,8 @@
  * Usage:
  *   node full-pipeline.js --query "fashion brand melbourne" --limit 10
  *   node full-pipeline.js --input existing-leads.csv
- *   node full-pipeline.js --query "..." --no-gmail   (skip Gmail sync)
+ *   node full-pipeline.js --input leads.csv --top 20    (only draft emails for top 20)
+ *   node full-pipeline.js --query "..." --no-gmail      (skip Gmail sync)
  */
 
 import puppeteerExtra from 'puppeteer-extra';
@@ -39,6 +40,7 @@ const getArg = (name) => {
 const query = getArg('query');
 const inputFile = getArg('input');
 const limit = parseInt(getArg('limit') || '10');
+const topN = parseInt(getArg('top') || '20'); // Only draft emails for top N leads
 const skipScrape = !!inputFile;
 const skipGmail = args.includes('--no-gmail');
 const outputDir = '.';
@@ -384,7 +386,7 @@ function generateOutreachEmails(leads) {
   // Only draft emails for leads with contact info
   const contactableLeads = leads.filter(l => l.email || l.instagram || l.contactFormUrl);
   
-  for (const lead of contactableLeads.slice(0, 10)) { // Top 10 contactable leads
+  for (const lead of contactableLeads.slice(0, topN)) { // Top N contactable leads
     const issues = lead.issues || 'some areas for improvement';
     const firstIssue = issues.split(';')[0];
     
