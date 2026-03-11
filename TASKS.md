@@ -39,7 +39,7 @@
 
 
 - [x] **Fix lead scraping automation** — replaced broken Google/Maps scrapers with `/lead-finder` Claude slash command. See `tools/SCRAPING-TODO.md` and `SKILLS.md`.
-- [ ] **Set up Google Workspace (GWS) skill** — install `@googleworkspace/cli` to give Claude direct access to Drive, Gmail, Calendar, Sheets. See `SKILLS.md` for instructions.
+- [x] **Set up Google Workspace (GWS) skill** — installed `@googleworkspace/cli`; MCP server configured in `.claude/settings.json`. Run `gws auth login` then `gws mcp -s drive,gmail,calendar,sheets,docs` to activate. See `SKILLS.md`.
 
 
 ## Backlog

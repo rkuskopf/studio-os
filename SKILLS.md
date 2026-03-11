@@ -17,13 +17,19 @@ These are custom slash commands in `.claude/commands/`. Invoke them in any Claud
 | `/new-project` | Sets up a new project file + adds tasks + updates CLAUDE.md |
 | `/lead-finder` | **New** — Uses web search to find Melbourne business leads, deduplicates against two existing lead sheets (replaces broken Google scraper) |
 
+### MCP Servers
+
+| Server | Services | How to start |
+|--------|----------|--------------|
+| `googleworkspace` (`gws`) | Drive, Gmail, Calendar, Sheets, Docs | `gws mcp -s drive,gmail,calendar,sheets,docs` (requires `npm install -g @googleworkspace/cli` and OAuth credentials) |
+
 ---
 
 ## Recommended Skills to Add
 
 These are third-party Claude Code skills from the wider ecosystem. Install them once and they're available in every session.
 
-### 1. Google Workspace (GWS) — Priority: High
+### 1. Google Workspace (GWS) — ✅ Installed
 
 **Why it matters for KSPF:** The Google Drive automations that were attempted previously (syncing week plans, reading Drive files) didn't work because Claude didn't have direct API access to Google. This skill fixes that.
 
@@ -34,11 +40,13 @@ These are third-party Claude Code skills from the wider ecosystem. Install them 
 - Read/update Google Docs (briefs, proposals)
 - Check Drive for recently modified files without manual browsing
 
-**Install:**
+**Installed via:**
 ```bash
 npm install -g @googleworkspace/cli
 gws mcp -s drive,gmail,calendar,sheets,docs
 ```
+
+**MCP config** (`.claude/settings.json`): `mcpServers.googleworkspace` is configured. Run `gws auth login` once to authorise your Google account, then start the MCP server with the command above before each session (or add it to your shell startup).
 
 **In Claude:** Once the MCP server is running, Claude can call Drive/Gmail/Sheets APIs directly in conversation.
 
@@ -135,7 +143,7 @@ npx skills add https://github.com/coleam00/excalidraw-diagram-skill --skill exca
 | New project setup | ✅ Working | `/new-project` slash command |
 | Lead finding | ✅ Working | `/lead-finder` slash command (web search) |
 | Website auditing | ✅ Working | `tools/website-auditor/simple-pipeline.js` |
-| Google Drive integration | ❌ Not set up | Install GWS skill (see above) |
+| Google Drive integration | ✅ Configured | GWS MCP server — run `gws mcp -s drive,gmail,calendar,sheets,docs` |
 | Google Maps scraping | ❌ Broken | Use `/lead-finder` instead |
 | Google Search scraping | ❌ Broken | Use `/lead-finder` instead |
 | Gmail draft sync | ✅ Working | `full-pipeline.js` Step 5 — see `gmail-draft.js --setup` |
@@ -165,9 +173,10 @@ done
 ## Installing Skills: Quick Reference
 
 ```bash
-# Google Workspace (recommended first)
+# Google Workspace (installed — run once to authenticate, then start server)
 npm install -g @googleworkspace/cli
-gws mcp -s drive,gmail,calendar,sheets
+gws auth login
+gws mcp -s drive,gmail,calendar,sheets,docs
 
 # Browser Use
 npx skills add browser-use/claude-skill
