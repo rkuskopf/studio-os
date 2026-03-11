@@ -233,6 +233,11 @@ async function extractContactInfo(leads) {
         lead.instagram = contactInfo.instagram;
       }
 
+      // Store scraped content for email personalisation
+      lead.siteTitle = contactInfo.siteTitle || '';
+      lead.siteDescription = contactInfo.siteDescription || '';
+      lead.heroHeading = contactInfo.heroHeading || '';
+
       await page.close();
 
       if (lead.email) {
@@ -258,7 +263,7 @@ async function extractContactInfo(leads) {
 
 async function extractEmailsFromPage(page) {
   return await page.evaluate(() => {
-    const result = { email: '', contactForm: '', instagram: '' };
+    const result = { email: '', contactForm: '', instagram: '', siteTitle: '', siteDescription: '', heroHeading: '' };
     const html = document.body.innerHTML;
     
     // Find emails with regex
@@ -310,6 +315,34 @@ async function extractEmailsFromPage(page) {
     const igLinks = document.querySelectorAll('a[href*="instagram.com"]');
     if (igLinks.length > 0) {
       result.instagram = igLinks[0].href;
+    }
+
+    // --- Scrape site content for email personalisation ---
+
+    // Page title (strip site name suffix if present, e.g. "Hero Copy | Business Name")
+    result.siteTitle = (document.title || '').split(/[\|–—\-]/)[0].trim().substring(0, 120);
+
+    // Meta description
+    result.siteDescription = (document.querySelector('meta[name="description"]')?.content || '').trim().substring(0, 200);
+
+    // Primary heading (h1) — often the brand tagline on a homepage
+    const h1 = document.querySelector('h1');
+    if (h1) {
+      result.heroHeading = h1.textContent?.trim().substring(0, 120) || '';
+    }
+
+    // If still no description, grab the first meaningful paragraph from main content
+    if (!result.siteDescription) {
+      const MIN_PARA_LENGTH = 40;
+      const MAX_PARA_LENGTH = 300;
+      const candidates = document.querySelectorAll('main p, [class*="hero"] p, [class*="banner"] p, [class*="intro"] p, section p, p');
+      for (const p of candidates) {
+        const text = (p.textContent || '').trim();
+        if (text.length > MIN_PARA_LENGTH && text.length < MAX_PARA_LENGTH && !text.includes('@') && !text.includes('cookie')) {
+          result.siteDescription = text.substring(0, 200);
+          break;
+        }
+      }
     }
 
     return result;
@@ -376,6 +409,58 @@ async function auditWebsites(leads) {
 }
 
 // ============================================
+// EMAIL BODY BUILDER — shared by Step 4 and CSV
+// ============================================
+
+/**
+ * Build a personalised outreach email body for a lead.
+ * Uses scraped site content (siteDescription, heroHeading) so each email
+ * references something specific about the business rather than being generic.
+ */
+function buildEmailBody(lead) {
+  const issues = lead.issues || 'some areas for improvement';
+  const firstIssue = issues.split(';')[0].trim();
+
+  // Fix "builtwith" (Shopify scrape artefact) or empty category
+  const rawCategory = (lead.category || '').toLowerCase().trim();
+  const category = (rawCategory && rawCategory !== 'builtwith')
+    ? lead.category
+    : 'small Melbourne businesses';
+
+  // Lowercase first character and strip trailing period — used for inline sentence fragments
+  const sentenceFragment = (str) => str.charAt(0).toLowerCase() + str.slice(1).replace(/\.$/, '');
+
+  // Build a specific sentence about what the business does, using scraped content
+  let specificLine = '';
+  const desc = (lead.siteDescription || '').trim();
+  const heading = (lead.heroHeading || '').trim();
+  const title = (lead.siteTitle || '').trim();
+
+  if (desc && desc.length > 20) {
+    // Use meta description — usually the best one-liner about the business
+    specificLine = `\n\nI had a look at your site — ${sentenceFragment(desc)}.`;
+  } else if (heading && heading.length > 5 && heading.toLowerCase() !== (lead.name || '').toLowerCase()) {
+    // Use h1 if it's not just the business name
+    specificLine = `\n\nI noticed your headline — "${heading}" — and it caught my attention.`;
+  } else if (title && title.length > 5 && title.toLowerCase() !== (lead.name || '').toLowerCase()) {
+    specificLine = `\n\nI had a look at your site — ${sentenceFragment(title)}.`;
+  }
+
+  return `Hi there,
+
+I came across ${lead.name} while looking at ${category} in Melbourne and really like what you're doing.${specificLine}
+
+I noticed your website might have ${firstIssue} — not a criticism, just something I spotted as a web designer.
+
+I run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.
+
+Cheers,
+Rowan
+KSPF Design Studio
+kspf.au`;
+}
+
+// ============================================
 // STEP 4: Generate outreach emails
 // ============================================
 function generateOutreachEmails(leads) {
@@ -387,9 +472,6 @@ function generateOutreachEmails(leads) {
   const contactableLeads = leads.filter(l => l.email || l.instagram || l.contactFormUrl);
   
   for (const lead of contactableLeads.slice(0, topN)) { // Top N contactable leads
-    const issues = lead.issues || 'some areas for improvement';
-    const firstIssue = issues.split(';')[0];
-    
     // Determine contact method
     let contactMethod = 'unknown';
     let contactValue = '';
@@ -411,18 +493,7 @@ function generateOutreachEmails(leads) {
       contactValue: contactValue,
       instagram: lead.instagram || '',
       subject: `Quick thought on ${lead.name}'s website`,
-      body: `Hi there,
-
-I came across ${lead.name} while looking at ${lead.category || 'independent businesses'} in Melbourne and really like what you're doing.
-
-I noticed your website might have ${firstIssue} — not a criticism, just something I spotted as a web designer.
-
-I run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.
-
-Cheers,
-Rowan
-KSPF Design Studio
-kspf.au`,
+      body: buildEmailBody(lead),
       lead: {
         name: lead.name,
         url: lead.url,
@@ -488,31 +559,24 @@ async function main() {
   // Step 3: Audit websites
   const auditedLeads = await auditWebsites(leadsWithContacts);
 
+  // Filter out dead/unreachable sites: all Lighthouse scores 0 means the URL didn't load
+  const liveLeads = auditedLeads.filter(l => {
+    const allZero = l.accessibility === 0 && l.performance === 0 && l.seo === 0 && l.bestPractices === 0;
+    return !allZero;
+  });
+  if (liveLeads.length < auditedLeads.length) {
+    console.log(chalk.yellow(`\n⚠️  Skipped ${auditedLeads.length - liveLeads.length} unreachable site(s) with all-zero scores`));
+  }
+
   // Save audited leads with email drafts included
   const auditedFile = `${outputDir}/pipeline-audited.csv`;
   
   // Add email draft to each lead for easy copy/paste
-  const leadsWithEmails = auditedLeads.map(lead => {
-    const issues = lead.issues || 'some areas for improvement';
-    const firstIssue = issues.split(';')[0];
-    
-    const emailDraft = `Hi there,
-
-I came across ${lead.name} while looking at ${lead.category || 'independent businesses'} in Melbourne and really like what you're doing.
-
-I noticed your website might have ${firstIssue} — not a criticism, just something I spotted as a web designer.
-
-I run a small design studio (kspf.au) and work with independent Melbourne businesses on exactly this kind of thing. Would you be open to a quick chat about it? No pressure, happy to share some thoughts either way.
-
-Cheers,
-Rowan
-KSPF Design Studio
-kspf.au`;
-
+  const leadsWithEmails = liveLeads.map(lead => {
     return {
       ...lead,
       emailSubject: `Quick thought on ${lead.name}'s website`,
-      emailDraft: emailDraft.replace(/\n/g, '\\n') // Escape newlines for CSV
+      emailDraft: buildEmailBody(lead).replace(/\n/g, '\\n') // Escape newlines for CSV
     };
   });
   
@@ -520,7 +584,7 @@ kspf.au`;
   console.log(chalk.gray(`\nSaved audited leads to ${auditedFile}`));
 
   // Step 4: Generate emails
-  const emails = generateOutreachEmails(auditedLeads);
+  const emails = generateOutreachEmails(liveLeads);
 
   // Save emails
   const emailsFile = `${outputDir}/pipeline-emails.json`;
@@ -558,9 +622,10 @@ kspf.au`;
   console.log(chalk.bold.magenta('📊 PIPELINE COMPLETE\n'));
   console.log(`  Leads found:     ${leads.length}`);
   console.log(`  Leads audited:   ${auditedLeads.length}`);
+  console.log(`  Live leads:      ${liveLeads.length}`);
   console.log(`  Emails drafted:  ${emails.length}`);
   console.log(`\n  ${chalk.cyan('Top 3 leads:')}`);
-  auditedLeads.slice(0, 3).forEach((l, i) => {
+  liveLeads.slice(0, 3).forEach((l, i) => {
     console.log(`    ${i + 1}. ${l.name} (score: ${l.leadScore})`);
     console.log(chalk.gray(`       ${l.url}`));
     console.log(chalk.gray(`       ${l.issues}\n`));
