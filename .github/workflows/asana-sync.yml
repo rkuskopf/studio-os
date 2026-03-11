@@ -1,0 +1,75 @@
+name: Asana ↔ GitHub Sync
+
+on:
+  schedule:
+    # Daily at 6 AM AEDT (UTC+11, Australian Eastern Daylight Time) = 7 PM UTC previous day
+    # In AEST (UTC+10, winter), this runs at 5 AM — adjust cron to '0 20 * * *' for 6 AM AEST
+    - cron: '0 19 * * *'
+  workflow_dispatch:
+    inputs:
+      direction:
+        description: 'Sync direction'
+        required: false
+        default: 'both'
+        type: choice
+        options:
+          - both
+          - asana-to-gh
+          - gh-to-asana
+          - cross-repo
+      project:
+        description: 'Asana project name or GID (leave blank for all)'
+        required: false
+        default: ''
+      dry_run:
+        description: 'Dry run (preview only, no changes)'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  sync:
+    name: Sync
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup GitHub CLI auth
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
+
+      - name: Build sync arguments
+        id: args
+        run: |
+          ARGS=""
+          DIRECTION="${{ inputs.direction || 'both' }}"
+          PROJECT="${{ inputs.project }}"
+          DRY_RUN="${{ inputs.dry_run }}"
+
+          if [ "$DRY_RUN" != "true" ]; then
+            ARGS="$ARGS --sync"
+          fi
+
+          ARGS="$ARGS --direction $DIRECTION"
+
+          if [ -n "$PROJECT" ]; then
+            ARGS="$ARGS --project \"$PROJECT\""
+          fi
+
+          echo "args=$ARGS" >> "$GITHUB_OUTPUT"
+
+      - name: Run sync
+        working-directory: tools
+        env:
+          ASANA_PAT: ${{ secrets.ASANA_PAT }}
+          GITHUB_REPO: rkuskopf/studio-os
+        run: node sync-asana-github.js ${{ steps.args.outputs.args }}

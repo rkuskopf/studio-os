@@ -6,7 +6,15 @@
   "scripts": {
     "maps": "node run.js maps",
     "instagram": "node run.js instagram",
-    "full": "node run.js full"
+    "full": "node run.js full",
+    "sync": "node sync-asana-github.js",
+    "sync:dry": "node sync-asana-github.js",
+    "sync:live": "node sync-asana-github.js --sync",
+    "sync:asana-to-gh": "node sync-asana-github.js --direction asana-to-gh",
+    "sync:gh-to-asana": "node sync-asana-github.js --direction gh-to-asana",
+    "sync:cross-repo": "node sync-asana-github.js --direction cross-repo",
+    "tasks": "node sync-tasks-to-github.js",
+    "tasks:create": "node sync-tasks-to-github.js --create"
   },
   "dependencies": {
     "chalk": "^5.3.0"
