@@ -5,12 +5,16 @@
  * 
  * Automated workflow:
  * 1. Scrape leads from Google Maps (or use existing CSV)
- * 2. Audit each website with Lighthouse
- * 3. Generate personalised outreach emails for top leads
+ * 2. Extract contact info from each website
+ * 3. Audit each website with Lighthouse
+ * 4. Generate personalised outreach emails for top leads
+ * 5. Sync email drafts to Gmail (requires Gmail API credentials — see gmail-draft.js)
  * 
  * Usage:
  *   node full-pipeline.js --query "fashion brand melbourne" --limit 10
  *   node full-pipeline.js --input existing-leads.csv
+ *   node full-pipeline.js --input leads.csv --top 20    (only draft emails for top 20)
+ *   node full-pipeline.js --query "..." --no-gmail      (skip Gmail sync)
  */
 
 import puppeteerExtra from 'puppeteer-extra';
@@ -22,6 +26,7 @@ import { parse } from 'csv-parse/sync';
 import { writeFileSync, readFileSync, existsSync } from 'fs';
 import chalk from 'chalk';
 import ora from 'ora';
+import { createGmailDrafts, printSetupInstructions } from './gmail-draft.js';
 
 puppeteerExtra.use(StealthPlugin());
 
@@ -35,7 +40,9 @@ const getArg = (name) => {
 const query = getArg('query');
 const inputFile = getArg('input');
 const limit = parseInt(getArg('limit') || '10');
+const topN = parseInt(getArg('top') || '20'); // Only draft emails for top N leads
 const skipScrape = !!inputFile;
+const skipGmail = args.includes('--no-gmail');
 const outputDir = '.';
 
 async function sleep(ms) {
@@ -379,7 +386,7 @@ function generateOutreachEmails(leads) {
   // Only draft emails for leads with contact info
   const contactableLeads = leads.filter(l => l.email || l.instagram || l.contactFormUrl);
   
-  for (const lead of contactableLeads.slice(0, 10)) { // Top 10 contactable leads
+  for (const lead of contactableLeads.slice(0, topN)) { // Top N contactable leads
     const issues = lead.issues || 'some areas for improvement';
     const firstIssue = issues.split(';')[0];
     
@@ -520,6 +527,32 @@ kspf.au`;
   writeFileSync(emailsFile, JSON.stringify(emails, null, 2));
   console.log(chalk.gray(`Saved ${emails.length} draft emails to ${emailsFile}`));
 
+  // Step 5: Sync drafts to Gmail
+  console.log(chalk.bold.blue('\n📬 STEP 5: Syncing to Gmail Drafts\n'));
+  if (skipGmail) {
+    console.log(chalk.gray('  Skipped (--no-gmail flag set)'));
+  } else {
+    const emailDrafts = emails.filter(e => e.to);
+    if (emailDrafts.length === 0) {
+      console.log(chalk.yellow('  No email addresses found — drafts skipped'));
+    } else {
+      const result = await createGmailDrafts(emailDrafts);
+      if (!result.configured) {
+        printSetupInstructions();
+      } else {
+        if (result.created > 0) {
+          console.log(chalk.green(`  ✅ ${result.created} draft(s) created in Gmail`));
+        }
+        if (result.failed > 0) {
+          console.log(chalk.red(`  ✗ ${result.failed} draft(s) failed`));
+        }
+        if (result.skipped > 0) {
+          console.log(chalk.gray(`  ${result.skipped} lead(s) had no email address — skipped`));
+        }
+      }
+    }
+  }
+
   // Summary
   console.log(chalk.bold.magenta('\n━'.repeat(50)));
   console.log(chalk.bold.magenta('📊 PIPELINE COMPLETE\n'));
@@ -536,7 +569,12 @@ kspf.au`;
   console.log(chalk.bold('\n📁 Output files:'));
   console.log(`  ${leadsFile} — raw leads`);
   console.log(`  ${auditedFile} — audited & ranked`);
-  console.log(`  ${emailsFile} — draft emails\n`);
+  console.log(`  ${emailsFile} — draft emails`);
+  if (!skipGmail) {
+    console.log(chalk.gray('  Gmail Drafts — check your inbox to review and send\n'));
+  } else {
+    console.log();
+  }
 }
 
 main().catch(console.error);
