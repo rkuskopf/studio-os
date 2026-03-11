@@ -21,6 +21,10 @@ on:
         description: 'Asana project name or GID (leave blank for all)'
         required: false
         default: ''
+      target_project:
+        description: 'Target Asana project for GitHub→Asana sync (default: Engine)'
+        required: false
+        default: 'Engine'
       dry_run:
         description: 'Dry run (preview only, no changes)'
         required: false
@@ -53,6 +57,7 @@ jobs:
           ARGS=""
           DIRECTION="${{ inputs.direction || 'both' }}"
           PROJECT="${{ inputs.project }}"
+          TARGET_PROJECT="${{ inputs.target_project || 'Engine' }}"
           DRY_RUN="${{ inputs.dry_run }}"
 
           if [ "$DRY_RUN" != "true" ]; then
@@ -63,6 +68,10 @@ jobs:
 
           if [ -n "$PROJECT" ]; then
             ARGS="$ARGS --project \"$PROJECT\""
+          fi
+
+          if [ -n "$TARGET_PROJECT" ]; then
+            ARGS="$ARGS --target-project \"$TARGET_PROJECT\""
           fi
 
           echo "args=$ARGS" >> "$GITHUB_OUTPUT"

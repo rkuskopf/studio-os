@@ -13,6 +13,7 @@
  *   node sync-asana-github.js --direction gh-to-asana   # One direction only
  *   node sync-asana-github.js --direction cross-repo    # Cross-repo mirror only
  *   node sync-asana-github.js --project "Studio OS"     # Specific Asana project (name or GID)
+ *   node sync-asana-github.js --target-project "Engine" # Where GitHub issues go in Asana
  *
  * Required env vars:
  *   ASANA_PAT       — Asana Personal Access Token
@@ -22,6 +23,7 @@
  *   ASANA_WORKSPACE — Asana workspace GID (auto-detected from first workspace if not set)
  *   GITHUB_REPO     — Default GitHub repo (default: rkuskopf/studio-os)
  *   SYNC_LABEL      — GitHub label applied to Asana-synced issues (default: asana-sync)
+ *   ASANA_TARGET_PROJECT — Default project for GitHub → Asana sync (name or GID)
  */
 
 import { execSync } from 'child_process';
@@ -61,6 +63,9 @@ const directionArg = args.includes('--direction')
 const projectFilter = args.includes('--project')
   ? args[args.indexOf('--project') + 1]
   : null;
+const targetProjectFilter = args.includes('--target-project')
+  ? args[args.indexOf('--target-project') + 1]
+  : process.env.ASANA_TARGET_PROJECT || null;
 
 // ─── Utilities ────────────────────────────────────────────────────────────────
 
@@ -372,8 +377,24 @@ async function syncGhToAsana(projects, repo) {
     `  ${nativeIssues.length} GitHub-native issues (skipping ${skippedCount} already linked to Asana)\n`
   );
 
-  // Use the first active project as the target for new tasks
-  const targetProject = projects.find(p => !p.archived) ?? projects[0];
+  // Find target project: use --target-project flag, env var, or fall back to first active project
+  let targetProject;
+  if (targetProjectFilter) {
+    // Try to match by name or GID
+    targetProject = projects.find(p => 
+      p.name.toLowerCase() === targetProjectFilter.toLowerCase() ||
+      p.gid === targetProjectFilter
+    );
+    if (!targetProject) {
+      console.log(`  ⚠️   Target project "${targetProjectFilter}" not found. Available projects:`);
+      projects.forEach(p => console.log(`       - ${p.name} (${p.gid})`));
+      console.log();
+      return { created: 0, updated: 0, skipped: 0 };
+    }
+  } else {
+    targetProject = projects.find(p => !p.archived) ?? projects[0];
+  }
+  
   if (!targetProject) {
     console.log('  ⚠️   No active Asana project — nothing to sync into\n');
     return { created: 0, updated: 0, skipped: 0 };
