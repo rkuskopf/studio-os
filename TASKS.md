@@ -6,6 +6,12 @@
 - [ ] Audit ALT. Cosmetics to understand the halucinations and inconsistiencies (particularly in the creative brief). No one should have access to a creative brief below V5.1. We need to put together a quesitonaire to get to the bottom of all unknowns and create a report for what needs to be done
 - [x] **Automate TASKS.md → GitHub Issues** — syncing tasks to GitHub Issues via `tools/sync-tasks-to-github.js`. Routes kspf.au tasks to `kspf.studio-repo` automatically.
 - [x] **Gmail draft sync for lead pipeline** — add Gmail API integration to `full-pipeline.js` so drafted emails appear in Gmail drafts ready to review/send. ✅ Working!
+- [x] **Asana ↔ GitHub two-way sync** — `tools/sync-asana-github.js` syncs tasks/issues between Asana and GitHub. Features:
+  - ✅ Bidirectional sync (Asana → GitHub, GitHub → Asana)
+  - ✅ Label-based routing: GitHub issues with specific labels route to different Asana projects (via `tools/label-routing.json` or `LABEL_ROUTING` env var)
+  - ✅ Subtask support: `--subtasks` flag syncs Asana subtasks as GitHub issues
+  - ✅ Cross-repo mirroring for kspf.au issues
+  - ✅ GitHub Actions workflow: `.github/workflows/asana-sync.yml`
 - [ ] **Askable**
  - [ ] we need to create an askable page in this repo with details on this ongoing income stream. we need to optimise my language when I apply for jobs. we also need to create a workflow for when I receive the job sms, I can drop it in here and it gets services.
  - [ ] Scrape UX case study source material and generate portfolio presentation — see `projects/ux-portfolio.md`. This is to be displayed on my askable researcher profile

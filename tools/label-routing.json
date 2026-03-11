@@ -1,0 +1,8 @@
+{
+  "_comment": "Map GitHub issue labels (lowercase) to Asana project names",
+  "engine": "Engine",
+  "ops": "Operations",
+  "website": "Website",
+  "lead-gen": "Lead Generation",
+  "quick-cash": "Quick cash flow / gigs: Fuel"
+}

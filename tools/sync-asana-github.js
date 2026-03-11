@@ -13,7 +13,13 @@
  *   node sync-asana-github.js --direction gh-to-asana   # One direction only
  *   node sync-asana-github.js --direction cross-repo    # Cross-repo mirror only
  *   node sync-asana-github.js --project "Studio OS"     # Specific Asana project (name or GID)
- *   node sync-asana-github.js --target-project "Engine" # Where GitHub issues go in Asana
+ *   node sync-asana-github.js --target-project "Engine" # Default project for GitHub issues
+ *   node sync-asana-github.js --subtasks                # Include subtasks in sync
+ *
+ * Label-based routing (GitHub → Asana):
+ *   Issues with specific labels are routed to matching Asana projects.
+ *   Configure via label-routing.json or LABEL_ROUTING env var:
+ *     { "engine": "Engine", "ops": "Operations", "website": "Website" }
  *
  * Required env vars:
  *   ASANA_PAT       — Asana Personal Access Token
@@ -24,10 +30,11 @@
  *   GITHUB_REPO     — Default GitHub repo (default: rkuskopf/studio-os)
  *   SYNC_LABEL      — GitHub label applied to Asana-synced issues (default: asana-sync)
  *   ASANA_TARGET_PROJECT — Default project for GitHub → Asana sync (name or GID)
+ *   LABEL_ROUTING   — JSON map of GitHub labels to Asana project names (optional)
  */
 
 import { execSync } from 'child_process';
-import { writeFileSync, unlinkSync } from 'fs';
+import { writeFileSync, unlinkSync, readFileSync, existsSync } from 'fs';
 import { tmpdir } from 'os';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
@@ -48,15 +55,53 @@ const CONFIG = {
   maxRetries: 3,
 };
 
+// ─── Label-to-Project Routing ─────────────────────────────────────────────────
+// Map GitHub labels (lowercase) to Asana project names
+// Configure via label-routing.json or LABEL_ROUTING env var
+
+function loadLabelRouting() {
+  // Try env var first (JSON string)
+  if (process.env.LABEL_ROUTING) {
+    try {
+      return JSON.parse(process.env.LABEL_ROUTING);
+    } catch (e) {
+      console.warn('⚠️  Invalid LABEL_ROUTING JSON, using defaults');
+    }
+  }
+  
+  // Try local config file
+  const configPath = join(__dirname, 'label-routing.json');
+  if (existsSync(configPath)) {
+    try {
+      return JSON.parse(readFileSync(configPath, 'utf-8'));
+    } catch (e) {
+      console.warn('⚠️  Invalid label-routing.json, using defaults');
+    }
+  }
+  
+  // Default routing (customize for your workflow)
+  return {
+    // 'engine': 'Engine',
+    // 'ops': 'Operations',
+    // 'website': 'Website',
+    // 'lead-gen': 'Lead Generation',
+  };
+}
+
+const LABEL_TO_PROJECT = loadLabelRouting();
+
 // Marker embedded in GitHub issue bodies to track the originating Asana task
 const ASANA_ID_MARKER = '<!-- asana-task-id:';
 // Tag in Asana task notes to indicate the task was created from a GitHub issue
 const GITHUB_ORIGIN_TAG = '[synced-from-github]';
+// Marker for parent task reference (for subtasks synced to GitHub)
+const PARENT_TASK_MARKER = '<!-- parent-task-id:';
 
 // ─── CLI args ─────────────────────────────────────────────────────────────────
 
 const args = process.argv.slice(2);
 const isDryRun = !args.includes('--sync');
+const includeSubtasks = args.includes('--subtasks');
 const directionArg = args.includes('--direction')
   ? args[args.indexOf('--direction') + 1]
   : 'both';
@@ -137,6 +182,20 @@ async function asanaGetTasks(projectGid) {
   );
 }
 
+/** Get subtasks of a task (for --subtasks flag) */
+async function asanaGetSubtasks(taskGid) {
+  return asanaFetch(
+    `/tasks/${taskGid}/subtasks?opt_fields=gid,name,notes,completed,due_on&limit=100`
+  );
+}
+
+/** Create a subtask under a parent task */
+async function asanaCreateSubtask(parentTaskGid, title, notes) {
+  return asanaFetch(`/tasks/${parentTaskGid}/subtasks`, 'POST', {
+    data: { name: title, notes },
+  });
+}
+
 async function asanaCreateTask(projectGid, title, notes) {
   const wsGid = await asanaGetWorkspace();
   return asanaFetch('/tasks', 'POST', {
@@ -186,12 +245,17 @@ function ensureLabel(repo, label) {
 function ghGetIssues(repo) {
   try {
     const out = ghExec(
-      `gh issue list --repo ${repo} --state all --limit 500 --json number,title,body,state,url`
+      `gh issue list --repo ${repo} --state all --limit 500 --json number,title,body,state,url,labels`
     );
     return JSON.parse(out);
   } catch {
     return [];
   }
+}
+
+/** Extract label names from a GitHub issue (lowercase for matching) */
+function getIssueLabels(issue) {
+  return (issue.labels || []).map(l => (l.name || l).toLowerCase());
 }
 
 function ghCreateIssue(repo, title, body, labels = []) {
@@ -242,16 +306,45 @@ function extractGithubNumber(notes) {
   return match ? parseInt(match[1], 10) : null;
 }
 
+/** Extract parent task GID from a GitHub issue body (for subtasks) */
+function extractParentTaskGid(body) {
+  const match = (body || '').match(/<!-- parent-task-id: ([0-9]+) -->/);
+  return match ? match[1] : null;
+}
+
+/**
+ * Determine the target Asana project for a GitHub issue based on its labels.
+ * Returns the first matching project from LABEL_TO_PROJECT, or null if none match.
+ */
+function getProjectForLabels(issueLabels, projects) {
+  for (const label of issueLabels) {
+    const targetProjectName = LABEL_TO_PROJECT[label];
+    if (targetProjectName) {
+      const project = projects.find(p => 
+        p.name.toLowerCase() === targetProjectName.toLowerCase()
+      );
+      if (project) {
+        return { project, matchedLabel: label };
+      }
+    }
+  }
+  return null;
+}
+
 /** Build the GitHub issue body for an Asana task. */
-function buildGhBody(task, projectName) {
+function buildGhBody(task, projectName, parentTaskGid = null) {
   const desc = (task.notes || '').trim();
-  return [
+  const lines = [
     desc,
     '',
     '---',
     `_Synced from Asana · Project: **${projectName}** · Task: ${task.gid}_`,
     `<!-- asana-task-id: ${task.gid} -->`,
-  ].join('\n');
+  ];
+  if (parentTaskGid) {
+    lines.push(`<!-- parent-task-id: ${parentTaskGid} -->`);
+  }
+  return lines.join('\n');
 }
 
 /** Build the Asana task notes footer for a GitHub issue. */
@@ -287,6 +380,9 @@ function needsCrossSync(title, body) {
 
 async function syncAsanaToGh(projects, repo) {
   console.log('\n📥  Asana → GitHub\n');
+  if (includeSubtasks) {
+    console.log('  🔗  Including subtasks\n');
+  }
 
   const issues = ghGetIssues(repo);
   // Build map: asana GID → existing issue
@@ -299,60 +395,80 @@ async function syncAsanaToGh(projects, repo) {
 
   let created = 0, updated = 0, skipped = 0;
 
+  /** Helper to sync a single task (reused for subtasks) */
+  async function syncTask(task, projectName, parentTaskGid = null) {
+    const title = task.name?.trim();
+    if (!title) return;
+
+    // Skip tasks that were created from GitHub (loop guard)
+    if (isGithubDerived(task)) return;
+
+    const existing = gidToIssue.get(task.gid);
+    const body = buildGhBody(task, projectName, parentTaskGid);
+    const prefix = parentTaskGid ? '         ' : '       '; // Extra indent for subtasks
+
+    if (!existing) {
+      if (isDryRun) {
+        const subtaskLabel = parentTaskGid ? '(subtask) ' : '';
+        console.log(`${prefix}🆕  Would create issue: ${subtaskLabel}${title.slice(0, 60)}`);
+      } else {
+        try {
+          ensureLabel(repo, CONFIG.syncLabel);
+          const url = ghCreateIssue(repo, title, body, [CONFIG.syncLabel]);
+          const subtaskLabel = parentTaskGid ? '(subtask) ' : '';
+          console.log(`${prefix}✅  Created: ${subtaskLabel}${title.slice(0, 50)} → ${url}`);
+          created++;
+          // Cross-repo mirror (only for top-level tasks)
+          if (!parentTaskGid && needsCrossSync(title, task.notes)) {
+            const mirrorUrl = ghCreateIssue(CONFIG.crossSyncRepo, title, body, [CONFIG.syncLabel]);
+            console.log(`${prefix}   ↔️   Mirrored to ${CONFIG.crossSyncRepo}: ${mirrorUrl}`);
+          }
+        } catch (err) {
+          console.error(`${prefix}❌  Failed to create "${title.slice(0, 50)}": ${err.message}`);
+        }
+      }
+    } else {
+      const titleChanged = existing.title !== title;
+      const shouldClose = task.completed && existing.state === 'OPEN';
+      const shouldReopen = !task.completed && existing.state === 'CLOSED';
+
+      if (!titleChanged && !shouldClose && !shouldReopen) { skipped++; return; }
+
+      if (isDryRun) {
+        if (titleChanged) console.log(`${prefix}📝  Would update title → "${title.slice(0, 60)}"`);
+        if (shouldClose) console.log(`${prefix}🔒  Would close #${existing.number}`);
+        if (shouldReopen) console.log(`${prefix}🔓  Would reopen #${existing.number}`);
+      } else {
+        try {
+          if (titleChanged) ghUpdateIssue(repo, existing.number, { title });
+          if (shouldClose) ghCloseIssue(repo, existing.number);
+          if (shouldReopen) ghReopenIssue(repo, existing.number);
+          console.log(`${prefix}📝  Updated #${existing.number}: ${title.slice(0, 50)}`);
+          updated++;
+        } catch (err) {
+          console.error(`${prefix}❌  Failed to update #${existing.number}: ${err.message}`);
+        }
+      }
+    }
+  }
+
   for (const project of projects) {
     console.log(`  📂  ${project.name}`);
     const tasks = await asanaGetTasks(project.gid);
     if (!tasks?.length) { console.log(`       (no tasks)\n`); continue; }
 
     for (const task of tasks) {
-      const title = task.name?.trim();
-      if (!title) continue;
-
-      // Skip tasks that were created from GitHub (loop guard)
-      if (isGithubDerived(task)) continue;
-
-      const existing = gidToIssue.get(task.gid);
-      const body = buildGhBody(task, project.name);
-
-      if (!existing) {
-        if (isDryRun) {
-          console.log(`       🆕  Would create issue: ${title.slice(0, 70)}`);
-        } else {
-          try {
-            ensureLabel(repo, CONFIG.syncLabel);
-            const url = ghCreateIssue(repo, title, body, [CONFIG.syncLabel]);
-            console.log(`       ✅  Created: ${title.slice(0, 60)} → ${url}`);
-            created++;
-            // Cross-repo mirror
-            if (needsCrossSync(title, task.notes)) {
-              const mirrorUrl = ghCreateIssue(CONFIG.crossSyncRepo, title, body, [CONFIG.syncLabel]);
-              console.log(`            ↔️   Mirrored to ${CONFIG.crossSyncRepo}: ${mirrorUrl}`);
-            }
-          } catch (err) {
-            console.error(`       ❌  Failed to create "${title.slice(0, 50)}": ${err.message}`);
+      await syncTask(task, project.name);
+      
+      // Sync subtasks if enabled
+      if (includeSubtasks) {
+        try {
+          const subtasks = await asanaGetSubtasks(task.gid);
+          for (const subtask of subtasks || []) {
+            await syncTask(subtask, project.name, task.gid);
           }
-        }
-      } else {
-        const titleChanged = existing.title !== title;
-        const shouldClose = task.completed && existing.state === 'OPEN';
-        const shouldReopen = !task.completed && existing.state === 'CLOSED';
-
-        if (!titleChanged && !shouldClose && !shouldReopen) { skipped++; continue; }
-
-        if (isDryRun) {
-          if (titleChanged) console.log(`       📝  Would update title → "${title.slice(0, 60)}"`);
-          if (shouldClose) console.log(`       🔒  Would close #${existing.number}`);
-          if (shouldReopen) console.log(`       🔓  Would reopen #${existing.number}`);
-        } else {
-          try {
-            if (titleChanged) ghUpdateIssue(repo, existing.number, { title });
-            if (shouldClose) ghCloseIssue(repo, existing.number);
-            if (shouldReopen) ghReopenIssue(repo, existing.number);
-            console.log(`       📝  Updated #${existing.number}: ${title.slice(0, 50)}`);
-            updated++;
-          } catch (err) {
-            console.error(`       ❌  Failed to update #${existing.number}: ${err.message}`);
-          }
+        } catch (err) {
+          console.error(`       ⚠️  Failed to get subtasks for "${task.name?.slice(0, 30)}": ${err.message}`);
         }
       }
     }
@@ -377,72 +493,94 @@ async function syncGhToAsana(projects, repo) {
     `  ${nativeIssues.length} GitHub-native issues (skipping ${skippedCount} already linked to Asana)\n`
   );
 
-  // Find target project: use --target-project flag, env var, or fall back to first active project
-  let targetProject;
+  // Show label routing config if any
+  const labelRoutingKeys = Object.keys(LABEL_TO_PROJECT);
+  if (labelRoutingKeys.length > 0) {
+    console.log('  🏷️   Label routing enabled:');
+    for (const [label, projectName] of Object.entries(LABEL_TO_PROJECT)) {
+      console.log(`       "${label}" → ${projectName}`);
+    }
+    console.log();
+  }
+
+  // Find default target project: use --target-project flag, env var, or fall back to first active project
+  let defaultProject;
   if (targetProjectFilter) {
     // Try to match by name or GID
-    targetProject = projects.find(p => 
+    defaultProject = projects.find(p => 
       p.name.toLowerCase() === targetProjectFilter.toLowerCase() ||
       p.gid === targetProjectFilter
     );
-    if (!targetProject) {
+    if (!defaultProject) {
       console.log(`  ⚠️   Target project "${targetProjectFilter}" not found. Available projects:`);
       projects.forEach(p => console.log(`       - ${p.name} (${p.gid})`));
       console.log();
       return { created: 0, updated: 0, skipped: 0 };
     }
   } else {
-    targetProject = projects.find(p => !p.archived) ?? projects[0];
+    defaultProject = projects.find(p => !p.archived) ?? projects[0];
   }
   
-  if (!targetProject) {
+  if (!defaultProject) {
     console.log('  ⚠️   No active Asana project — nothing to sync into\n');
     return { created: 0, updated: 0, skipped: 0 };
   }
-  console.log(`  Target project: ${targetProject.name}\n`);
+  console.log(`  Default project: ${defaultProject.name}\n`);
 
-  // Build map: github issue number → existing asana task
-  const existingTasks = await asanaGetTasks(targetProject.gid);
-  const numToTask = new Map(
-    (existingTasks || []).flatMap(t => {
-      const num = extractGithubNumber(t.notes);
-      return num ? [[num, t]] : [];
-    })
-  );
+  // Build map: github issue number → existing asana task (across all projects)
+  const numToTask = new Map();
+  for (const project of projects) {
+    const projectTasks = await asanaGetTasks(project.gid);
+    for (const task of projectTasks || []) {
+      const num = extractGithubNumber(task.notes);
+      if (num) {
+        numToTask.set(num, { task, project });
+      }
+    }
+  }
 
   let created = 0, updated = 0, skipped = 0;
+  const projectCounts = {}; // Track issues per project
 
   for (const issue of nativeIssues) {
     const title = issue.title?.trim();
     if (!title) continue;
 
+    // Determine target project: label routing takes priority over default
+    const issueLabels = getIssueLabels(issue);
+    const labelMatch = getProjectForLabels(issueLabels, projects);
+    const targetProject = labelMatch?.project || defaultProject;
+    
     const existing = numToTask.get(issue.number);
     const notes = buildAsanaNotes(issue, repo);
 
     if (!existing) {
       if (isDryRun) {
-        console.log(`  🆕  Would create Asana task: ${title.slice(0, 70)} (from #${issue.number})`);
+        const routeInfo = labelMatch ? ` [via label: ${labelMatch.matchedLabel}]` : '';
+        console.log(`  🆕  Would create in "${targetProject.name}"${routeInfo}: ${title.slice(0, 55)} (#${issue.number})`);
       } else {
         try {
           const task = await asanaCreateTask(targetProject.gid, title, notes);
-          console.log(`  ✅  Created task: ${title.slice(0, 60)} (gid: ${task.gid})`);
+          const routeInfo = labelMatch ? ` [via label: ${labelMatch.matchedLabel}]` : '';
+          console.log(`  ✅  Created in "${targetProject.name}"${routeInfo}: ${title.slice(0, 45)} (gid: ${task.gid})`);
           created++;
+          projectCounts[targetProject.name] = (projectCounts[targetProject.name] || 0) + 1;
         } catch (err) {
           console.error(`  ❌  Failed to create task for #${issue.number}: ${err.message}`);
         }
       }
     } else {
       // Skip tasks that were themselves created from GitHub (avoid double-sync)
-      if (isGithubDerived(existing)) { skipped++; continue; }
+      if (isGithubDerived(existing.task)) { skipped++; continue; }
 
-      const titleChanged = existing.name !== title;
-      const shouldComplete = issue.state === 'CLOSED' && !existing.completed;
-      const shouldReopen = issue.state === 'OPEN' && existing.completed;
+      const titleChanged = existing.task.name !== title;
+      const shouldComplete = issue.state === 'CLOSED' && !existing.task.completed;
+      const shouldReopen = issue.state === 'OPEN' && existing.task.completed;
 
       if (!titleChanged && !shouldComplete && !shouldReopen) { skipped++; continue; }
 
       if (isDryRun) {
-        if (titleChanged) console.log(`  📝  Would update: "${existing.name}" → "${title.slice(0, 60)}"`);
+        if (titleChanged) console.log(`  📝  Would update: "${existing.task.name}" → "${title.slice(0, 60)}"`);
         if (shouldComplete) console.log(`  🔒  Would complete Asana task: "${title.slice(0, 60)}"`);
         if (shouldReopen) console.log(`  🔓  Would re-open Asana task: "${title.slice(0, 60)}"`);
       } else {
@@ -451,13 +589,21 @@ async function syncGhToAsana(projects, repo) {
           if (titleChanged) fields.name = title;
           if (shouldComplete) fields.completed = true;
           if (shouldReopen) fields.completed = false;
-          await asanaUpdateTask(existing.gid, fields);
+          await asanaUpdateTask(existing.task.gid, fields);
           console.log(`  📝  Updated task: ${title.slice(0, 60)}`);
           updated++;
         } catch (err) {
-          console.error(`  ❌  Failed to update task "${existing.name}": ${err.message}`);
+          console.error(`  ❌  Failed to update task "${existing.task.name}": ${err.message}`);
         }
       }
+    }
+  }
+
+  // Show breakdown by project
+  if (!isDryRun && Object.keys(projectCounts).length > 1) {
+    console.log('\n  📊  Created by project:');
+    for (const [name, count] of Object.entries(projectCounts)) {
+      console.log(`       ${name}: ${count}`);
     }
   }
 
@@ -514,6 +660,8 @@ async function main() {
   console.log(`Direction: ${directionArg}`);
   console.log(`Repo:      ${CONFIG.defaultRepo}`);
   if (projectFilter) console.log(`Project:   ${projectFilter}`);
+  if (targetProjectFilter) console.log(`Target:    ${targetProjectFilter}`);
+  if (includeSubtasks) console.log(`Subtasks:  enabled`);
   console.log();
 
   // ── Pre-flight checks ──────────────────────────────────────────────────────

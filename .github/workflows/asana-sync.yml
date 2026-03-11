@@ -25,6 +25,15 @@ on:
         description: 'Target Asana project for GitHub→Asana sync (default: Engine)'
         required: false
         default: 'Engine'
+      subtasks:
+        description: 'Include Asana subtasks in sync'
+        required: false
+        default: false
+        type: boolean
+      label_routing:
+        description: 'Label routing JSON (e.g., {"engine":"Engine","ops":"Operations"})'
+        required: false
+        default: ''
       dry_run:
         description: 'Dry run (preview only, no changes)'
         required: false
@@ -58,6 +67,7 @@ jobs:
           DIRECTION="${{ inputs.direction || 'both' }}"
           PROJECT="${{ inputs.project }}"
           TARGET_PROJECT="${{ inputs.target_project || 'Engine' }}"
+          SUBTASKS="${{ inputs.subtasks }}"
           DRY_RUN="${{ inputs.dry_run }}"
 
           if [ "$DRY_RUN" != "true" ]; then
@@ -74,6 +84,10 @@ jobs:
             ARGS="$ARGS --target-project \"$TARGET_PROJECT\""
           fi
 
+          if [ "$SUBTASKS" == "true" ]; then
+            ARGS="$ARGS --subtasks"
+          fi
+
           echo "args=$ARGS" >> "$GITHUB_OUTPUT"
 
       - name: Run sync
@@ -81,4 +95,5 @@ jobs:
         env:
           ASANA_PAT: ${{ secrets.ASANA_PAT }}
           GITHUB_REPO: rkuskopf/studio-os
+          LABEL_ROUTING: ${{ inputs.label_routing }}
         run: node sync-asana-github.js ${{ steps.args.outputs.args }}
