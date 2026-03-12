@@ -9,6 +9,8 @@
 - [ ] **Write one-page proposal template** — scope, deliverables, timeline, price
 - [ ] **Set up lightweight CRM** — Airtable base or improved tracking in `lead-generation.md`
 - [ ] **Define retainer offering** — monthly brand support, content direction, or web maintenance
+- [ ] **Create `ops/brand-voice.md`** — KSPF Synthetic Brand Bible: tone rules, banned phrases, vocabulary, examples of good vs. bad copy
+- [ ] **Attend Scaling Solo meetup** — Melbourne solopreneur community (free, exactly right for KSPF right now): https://www.meetup.com/scalingsolo/
 
 ### General
 - [ ] **Set up Pinterest business account (studio@kspf.au) + claim kspf.au — see `ops/lead-generation.md` for steps**
