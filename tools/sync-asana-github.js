@@ -96,6 +96,9 @@ const ASANA_ID_MARKER = '<!-- asana-task-id:';
 const GITHUB_ORIGIN_TAG = '[synced-from-github]';
 // Marker for parent task reference (for subtasks synced to GitHub)
 const PARENT_TASK_MARKER = '<!-- parent-task-id:';
+// Markers for sub-issues task list in parent issue body
+const SUBISSUES_MARKER_START = '<!-- sub-issues-start -->';
+const SUBISSUES_MARKER_END = '<!-- sub-issues-end -->';
 
 // ─── CLI args ─────────────────────────────────────────────────────────────────
 
@@ -312,6 +315,31 @@ function extractParentTaskGid(body) {
   return match ? match[1] : null;
 }
 
+/** Extract sub-issues section from a GitHub issue body */
+function extractSubissuesSection(body) {
+  const pattern = new RegExp(`${SUBISSUES_MARKER_START}([\\s\\S]*?)${SUBISSUES_MARKER_END}`);
+  const match = (body || '').match(pattern);
+  return match ? match[1].trim() : '';
+}
+
+/** Build sub-issues task list markdown for a parent issue */
+function buildSubissuesTaskList(subissueNumbers, repo) {
+  if (!subissueNumbers.length) return '';
+  const items = subissueNumbers.map(num => `- [ ] #${num}`).join('\n');
+  return `\n\n### Sub-issues\n\n${SUBISSUES_MARKER_START}\n${items}\n${SUBISSUES_MARKER_END}`;
+}
+
+/** Update parent issue body with sub-issues task list */
+function updateBodyWithSubissues(body, subissueNumbers, repo) {
+  // Remove existing sub-issues section if present
+  const sectionPattern = new RegExp(`\\n*### Sub-issues\\s*\\n*${SUBISSUES_MARKER_START}[\\s\\S]*?${SUBISSUES_MARKER_END}`, 'g');
+  const cleanBody = (body || '').replace(sectionPattern, '').trimEnd();
+  
+  // Add new sub-issues section if we have any
+  if (!subissueNumbers.length) return cleanBody;
+  return cleanBody + buildSubissuesTaskList(subissueNumbers, repo);
+}
+
 /**
  * Determine the target Asana project for a GitHub issue based on its labels.
  * Returns the first matching project from LABEL_TO_PROJECT, or null if none match.
@@ -381,7 +409,7 @@ function needsCrossSync(title, body) {
 async function syncAsanaToGh(projects, repo) {
   console.log('\n📥  Asana → GitHub\n');
   if (includeSubtasks) {
-    console.log('  🔗  Including subtasks\n');
+    console.log('  🔗  Including subtasks (will link as sub-issues)\n');
   }
 
   const issues = ghGetIssues(repo);
@@ -394,18 +422,24 @@ async function syncAsanaToGh(projects, repo) {
   );
 
   let created = 0, updated = 0, skipped = 0;
+  
+  // Track parent task GID → subtask issue numbers for sub-issues linking
+  const parentToSubissues = new Map();
+  // Track newly created issues: asana GID → issue number
+  const newIssueNumbers = new Map();
 
-  /** Helper to sync a single task (reused for subtasks) */
+  /** Helper to sync a single task (returns issue number if created/found) */
   async function syncTask(task, projectName, parentTaskGid = null) {
     const title = task.name?.trim();
-    if (!title) return;
+    if (!title) return null;
 
     // Skip tasks that were created from GitHub (loop guard)
-    if (isGithubDerived(task)) return;
+    if (isGithubDerived(task)) return null;
 
     const existing = gidToIssue.get(task.gid);
     const body = buildGhBody(task, projectName, parentTaskGid);
     const prefix = parentTaskGid ? '         ' : '       '; // Extra indent for subtasks
+    let issueNumber = existing?.number || null;
 
     if (!existing) {
       if (isDryRun) {
@@ -418,6 +452,14 @@ async function syncAsanaToGh(projects, repo) {
           const subtaskLabel = parentTaskGid ? '(subtask) ' : '';
           console.log(`${prefix}✅  Created: ${subtaskLabel}${title.slice(0, 50)} → ${url}`);
           created++;
+          
+          // Extract issue number from URL (format: https://github.com/owner/repo/issues/123)
+          const numMatch = url.match(/\/issues\/(\d+)/);
+          issueNumber = numMatch ? parseInt(numMatch[1], 10) : null;
+          if (issueNumber) {
+            newIssueNumbers.set(task.gid, issueNumber);
+          }
+          
           // Cross-repo mirror (only for top-level tasks)
           if (!parentTaskGid && needsCrossSync(title, task.notes)) {
             const mirrorUrl = ghCreateIssue(CONFIG.crossSyncRepo, title, body, [CONFIG.syncLabel]);
@@ -432,7 +474,7 @@ async function syncAsanaToGh(projects, repo) {
       const shouldClose = task.completed && existing.state === 'OPEN';
       const shouldReopen = !task.completed && existing.state === 'CLOSED';
 
-      if (!titleChanged && !shouldClose && !shouldReopen) { skipped++; return; }
+      if (!titleChanged && !shouldClose && !shouldReopen) { skipped++; return issueNumber; }
 
       if (isDryRun) {
         if (titleChanged) console.log(`${prefix}📝  Would update title → "${title.slice(0, 60)}"`);
@@ -450,8 +492,11 @@ async function syncAsanaToGh(projects, repo) {
         }
       }
     }
+    
+    return issueNumber;
   }
 
+  // First pass: sync all tasks and subtasks, collect parent-subtask relationships
   for (const project of projects) {
     console.log(`  📂  ${project.name}`);
     const tasks = await asanaGetTasks(project.gid);
@@ -464,13 +509,77 @@ async function syncAsanaToGh(projects, repo) {
       if (includeSubtasks) {
         try {
           const subtasks = await asanaGetSubtasks(task.gid);
+          const subtaskIssueNumbers = [];
+          
           for (const subtask of subtasks || []) {
-            await syncTask(subtask, project.name, task.gid);
+            const subtaskIssueNum = await syncTask(subtask, project.name, task.gid);
+            if (subtaskIssueNum) {
+              subtaskIssueNumbers.push(subtaskIssueNum);
+            }
+          }
+          
+          // Store subtask issue numbers for this parent task
+          if (subtaskIssueNumbers.length > 0) {
+            parentToSubissues.set(task.gid, subtaskIssueNumbers);
           }
         } catch (err) {
           console.error(`       ⚠️  Failed to get subtasks for "${task.name?.slice(0, 30)}": ${err.message}`);
         }
       }
+    }
+    console.log();
+  }
+
+  // Second pass: Update parent issues with sub-issues task lists
+  if (includeSubtasks && parentToSubissues.size > 0 && !isDryRun) {
+    console.log('  🔗  Linking sub-issues to parent issues...\n');
+    
+    for (const [parentGid, subtaskNumbers] of parentToSubissues) {
+      const parentIssue = gidToIssue.get(parentGid);
+      if (!parentIssue) {
+        // Parent was just created - need to fetch fresh
+        const freshIssues = ghGetIssues(repo);
+        const fresh = freshIssues.find(i => extractAsanaGid(i.body) === parentGid);
+        if (!fresh) continue;
+        gidToIssue.set(parentGid, fresh);
+      }
+      
+      const issue = gidToIssue.get(parentGid);
+      if (!issue) continue;
+      
+      // Check if sub-issues section needs updating
+      const existingSection = extractSubissuesSection(issue.body);
+      const existingNumbers = existingSection
+        .split('\n')
+        .map(line => {
+          const m = line.match(/#(\d+)/);
+          return m ? parseInt(m[1], 10) : null;
+        })
+        .filter(Boolean);
+      
+      // Check if we need to update (new subtasks added)
+      const newNumbers = subtaskNumbers.filter(n => !existingNumbers.includes(n));
+      if (newNumbers.length === 0) continue;
+      
+      // Merge existing and new subtask numbers
+      const allNumbers = [...new Set([...existingNumbers, ...subtaskNumbers])].sort((a, b) => a - b);
+      const newBody = updateBodyWithSubissues(issue.body, allNumbers, repo);
+      
+      try {
+        ghUpdateIssue(repo, issue.number, { body: newBody });
+        console.log(`       ✅  Linked ${newNumbers.length} sub-issue(s) to #${issue.number}`);
+        updated++;
+      } catch (err) {
+        console.error(`       ❌  Failed to update sub-issues for #${issue.number}: ${err.message}`);
+      }
+    }
+    console.log();
+  } else if (includeSubtasks && parentToSubissues.size > 0 && isDryRun) {
+    console.log('  🔗  Would link sub-issues to parent issues:\n');
+    for (const [parentGid, subtaskNumbers] of parentToSubissues) {
+      const parentIssue = gidToIssue.get(parentGid);
+      const parentNum = parentIssue?.number || '(new)';
+      console.log(`       Would link ${subtaskNumbers.length} sub-issue(s) to #${parentNum}`);
     }
     console.log();
   }
