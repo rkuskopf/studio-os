@@ -1,0 +1,118 @@
+---
+Scale KSPF — Business & Studio OS Growth Plan
+
+You want to grow from a solo operator doing one-off projects into a studio that generates consistent, compounding revenue. The paths below are not mutually exclusive — they layer. Start with the ones that remove the most friction or unlock the most revenue with the least effort.
+
+---
+
+## Context
+
+- **Stage:** Solo operator. Rebuilding and growing. Active client (Alt Cosmetics). Working pipeline (12 leads audited, Gmail draft sync live).
+- **Bottleneck:** Time. One person doing strategy, design, dev, sales, admin.
+- **Goal:** More revenue per hour worked. Repeatable client acquisition. Systems that run without you.
+
+---
+
+## Path A — Raise the Floor (Pricing & Packaging)
+
+The fastest lever. You can do this without acquiring a single new client.
+
+### Tasks:
+1. **Audit current pricing** — what did AP-REPS, Bally Cara, and Alt Cosmetics pay? Where did scope creep happen? Was the value delivered higher than the fee?
+2. **Set new rate card** — define 3 service tiers with fixed pricing:
+   - `Starter` — brand audit + recommendations doc ($1.5–2.5k)
+   - `Core` — brand identity or web build ($5–12k)
+   - `Full` — strategy + identity + web ($15–30k)
+3. **Create a productised "Quick Win" offer** — e.g. a 1-week brand sprint for $2.5k. Low barrier, high margin, creates pipeline.
+4. **Add retainer option to every proposal** — e.g. $800/month for 4hrs of ongoing design/strategy support. Even 2–3 retainers = stability.
+
+---
+
+## Path B — Build the Machine (Lead Gen Automation)
+
+The pipeline tooling already exists. The gap is volume and follow-through.
+
+### Tasks:
+1. **Run the full pipeline weekly** — 30 mins every Monday. Input: new seed list. Output: ranked leads + drafted emails in Gmail. See `ops/lead-generation.md`.
+2. **CRM — track every lead** — use the pipeline CSV or build a simple Notion/Airtable table with columns: `name`, `url`, `contacted_date`, `response`, `status`, `source`.
+3. **Set up a follow-up sequence** — if no reply in 5 days, send one follow-up. Add this to the pipeline scripts or use Google Calendar reminders.
+4. **Add branding/fashion industry scrapers** — expand seed list beyond Melbourne web. Try: AGDA awards finalists, VIVID speakers list, State of Design festival brands, Melbourne Fashion Week exhibitors.
+5. **A/B test outreach copy** — run 2 different email templates in parallel. Track which gets more replies. Iterate.
+
+---
+
+## Path C — Build the Reputation (Portfolio & Visibility)
+
+Visibility compounds. One published case study keeps attracting clients for years.
+
+### Tasks:
+1. **Publish Alt Cosmetics case study on kspf.au** — capture as you go. Don't wait until project is done. Publish a "process preview" post during delivery.
+2. **Write AP-REPS and Bally Cara retrospectives** — even if they're short (500 words + 3 images). They anchor your positioning.
+3. **Add UX case studies section to kspf.au** — the Experience Design section. Even one solid case study changes how inbound leads perceive you.
+4. **Set up Pinterest** — low effort once done. See `ops/lead-generation.md` for the step-by-step. Drives organic discovery for brand/packaging work.
+5. **One LinkedIn post per week** — "Here's what I'm working on and why." No pitching. Just thinking out loud. Builds awareness with potential clients and referrers.
+
+---
+
+## Path D — Build Leverage (Products & Templates)
+
+Things you make once, sell or use repeatedly.
+
+### Tasks:
+1. **Build a brand audit template** — a structured doc you fill out for every new client. Reduces discovery time, creates consistency, feels premium. Can also be sold as a standalone product.
+2. **Create a proposal template** — pull from Alt Cosmetics and AP-REPS. Standardise your deck. Should take 1hr to personalise, not 6.
+3. **Explore Askable as income** — Askable researcher sessions are a reliable income source that doesn't require client acquisition. Optimise your profile, streamline the workflow. See `tasks/askable.md` when created.
+4. **"Concept Projects" for portfolio** — self-initiated design work for imaginary or speculative brands. Demonstrates range and taste without waiting for client work.
+
+---
+
+## Path E — Scale Capacity (Bring in Help)
+
+When the bottleneck is you and there's more work than you can take, bring in support.
+
+### Tasks:
+1. **Identify what only you can do** — strategy, creative direction, client relationships. These stay with you.
+2. **Identify what can be delegated** — production design (final files, asset prep), web dev (Squarespace, Shopify templates), admin (scheduling, invoicing).
+3. **Build a trusted freelancer bench** — find 1–2 junior designers or web devs you can sub to. Test on a low-risk project. Pay properly.
+4. **Document your process** — if someone can't follow your process from written notes, it can't be delegated. Start with the Alt Cosmetics project as a template.
+
+---
+
+## Path F — Scale the Studio OS (This Repo)
+
+The system running your studio should grow with you.
+
+### Tasks:
+1. **Weekly review ritual** — every Monday, run `sprint-plan` skill. Update TASKS.md. Takes 20 mins. Keeps everything current.
+2. **Automate issue → task sync** — ensure all GitHub issues in this repo sync back to Asana. Already partially live. Verify it's catching everything.
+3. **Add a `clients/` folder** — one file per client (like `people/anh.md`). Capture: contact info, project history, retainer status, referral potential.
+4. **Add a `finance/` folder** — track monthly: gross cash in, debtors, cash out, creditors, drawings, COGS. Feeds directly into David Carnegie check-ins.
+5. **Build a `services.md` in `ops/`** — document the current rate card, packages, and proposal templates. Keep it current.
+6. **Add a weekly snapshot file** — like `week-of-march-9.md` but auto-populated via GitHub Actions from TASKS.md and recent commits. Makes the Monday review faster.
+
+---
+
+## Suggested Starting Order
+
+| Priority | Action | Time | Impact |
+|----------|--------|------|--------|
+| 1 | Run pipeline (30 leads, 5 emails drafted) | 30 min | Immediate pipeline |
+| 2 | Write new rate card | 1–2hr | Raises revenue ceiling |
+| 3 | Publish Alt Cosmetics process preview | 2hr | Portfolio momentum |
+| 4 | Set up Pinterest | 1hr | Passive discovery |
+| 5 | Add `clients/` and `finance/` folders to this repo | 1hr | System clarity |
+| 6 | Create brand audit + proposal templates | 3–4hr | Reduces future sales friction |
+| 7 | Build a quick-win productised offer | 2hr | Low-barrier new revenue |
+
+---
+
+## Expected Outcomes
+
+By executing across these paths over 90 days, KSPF should:
+- Have a consistently active pipeline (10–15 warm leads at all times)
+- Have a published portfolio that converts inbound interest
+- Have a pricing structure that reflects the actual value delivered
+- Have the studio OS updated to support tracking, finance, and client ops
+- Have a clearer picture of whether to stay solo or bring in support
+
+---

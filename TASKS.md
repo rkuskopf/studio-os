@@ -1,6 +1,11 @@
 # Tasks
 
 ## Up Next
+- [ ] **Scale KSPF — review `issues/2` for full plan across 6 paths (pricing, lead gen, portfolio, products, capacity, studio OS)**
+- [ ] **Review and finalise rate card** — `ops/services.md` has the draft. Adjust prices based on past project fees (AP-REPS, Bally Cara, Alt Cosmetics). See `issues/2` Path A.
+- [ ] **Run lead pipeline weekly (30 leads, 5 emails)** — 30 min every Monday. See `ops/lead-generation.md`.
+- [ ] **Populate `clients/`** — create individual files for Anh, AP-REPS, and Bally Cara using the template in `clients/README.md`.
+- [ ] **Fill in March 2026 financial data** — update `finance/README.md` with actuals once Alt Cosmetics invoice is settled.
 - [ ] **Set up Pinterest business account (studio@kspf.au) + claim kspf.au — see `ops/lead-generation.md` for steps**
 - [ ] **Build target outreach list (10–15 ideal clients)**
 - [ ] Audit ALT. Cosmetics to understand the halucinations and inconsistiencies (particularly in the creative brief). No one should have access to a creative brief below V5.1. We need to put together a quesitonaire to get to the bottom of all unknowns and create a report for what needs to be done
