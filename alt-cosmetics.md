@@ -153,6 +153,7 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 
 ## Key Assets
 
+- **Branding terminology reference (internal):** [projects/alt-cosmetics-terminology.md](projects/alt-cosmetics-terminology.md) — definitions of logo, wordmark, monogram, cartouche, engraving, intaglio, debossing, seal, crest, coat of arms, and what to call what ALT. is making.
 - **Client folder (Drive — source of truth for all docs):** https://drive.google.com/drive/folders/1Jqd77iqU2USKZK1QMKyLwE9Sc5tWjxtF
 - **Creative brief (v5 — current):** https://docs.google.com/document/d/1AG2q65K26iMXyRqv_5_GSdLbEMgSan5Y/edit
 - **Mark Generation Fri 06 March:** https://drive.google.com/drive/folders/1dOh68ruxMUNK6qbpcvDJgSup4HofqwwJ?usp=drive_link 
