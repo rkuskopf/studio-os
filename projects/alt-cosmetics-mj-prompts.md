@@ -93,6 +93,8 @@ logo mark design, abstract art deco oval mark, dissolved geometric elements insi
 
 *Goal: fluid, nature-inspired letterform construction. Letters woven through or entwined with fine-line botanical elements — stems, tendrils, seedheads, leaf forms. Flowing stroke weight. Neither purely calligraphic nor geometric. Reference: Figma node 24-203. Organic softness as contrast to chrome materiality. All flat, black on white — no 3D, no gradients.*
 
+> **⚠️ Note:** Midjourney struggles with 2D flat letterforms. For Direction D, use **Nano Banana** (primary) and **Adobe Firefly** (secondary) instead. See full production workflow in `projects/alt-cosmetics-concept-1-organic-monogram.md`. Prompts below are kept for reference / fallback only.
+
 **D1 — Botanical monogram, letters and stems entwined**
 ```
 logo mark design, organic botanical monogram, interlocking letterforms entwined with fine-line plant stems and tendrils, fluid organic construction, flowing stroke weight variation, natural curvature, luxury beauty brand, flat 2D, black on white, fine line, delicate, no geometric shapes --ar 1:1 --style raw --v 6.1 --no gradients, shadows, geometric, modern, celtic, knotwork
