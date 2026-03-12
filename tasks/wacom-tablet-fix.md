@@ -1,67 +1,86 @@
 # Wacom Intuos Pro (PTH-451) — Pen Not Working
 
-## Prediction: Yes, very likely fixable ✅
+## Prediction: Still fixable, but the path is a legacy driver ⚠️
 
-The fact that the tablet registers as a trackpad is the key signal — **hardware and USB/Bluetooth connection are fine**. The pen not being recognised is a software/permissions problem, not a hardware failure. This is one of the most common Wacom issues on macOS and has a reliable fix path. Budget 20–30 minutes.
+**Updated diagnosis (March 2026):** The latest Wacom driver says "incompatible with device" — this means Wacom has dropped PTH-451 from their current driver. The PTH-451 (Intuos Pro Medium, ~2013 era) needs a **specific archived driver version** that is new enough to run on your macOS but old enough to still list PTH-451 as supported.
+
+Good news: **drivers are fully uninstalled** — you're starting clean, which is exactly where you want to be.
+
+Budget 30–45 minutes. Achievable.
 
 ---
 
-## Diagnosis
+## Current State
 
-| Symptom | What it means |
-|---------|---------------|
-| Tablet works as trackpad | Hardware connection is fine. Driver is partially loaded. |
-| Pen not recognised | Driver doesn't have Input Monitoring / Accessibility permission — macOS is blocking it. |
-| Old Wacom Center crashes | Old driver is incompatible with your current macOS version. Don't use it. |
-| Recent driver installed but not working | Permissions weren't approved after install (very common post-macOS update). |
+| Item | Status |
+|------|--------|
+| Hardware | ✅ Fine — tablet registered as trackpad at one point, so hardware/USB is OK |
+| Drivers | ✅ Fully uninstalled (clean slate) |
+| Latest Wacom driver | ❌ Says "incompatible with device" — PTH-451 dropped from current drivers |
+| Old driver (wrong model) | ❌ Crashes — was the wrong driver for PTH-451 anyway |
+
+---
+
+## The Real Problem
+
+The PTH-451 is old enough that Wacom has removed it from their current driver. You need an **archived driver** from Wacom's driver history — one that:
+- Still lists PTH-451 / Intuos Pro as a supported device
+- Is compatible with your macOS version
 
 ---
 
 ## Step-by-Step Fix
 
-### Step 1 — Check your macOS version
-Apple menu → About This Mac. Note the version number. You need macOS 10.15+ for current Wacom drivers.
+### Step 1 — Confirm your macOS version
+Apple menu → About This Mac. This determines which archived driver to grab.
 
-### Step 2 — Check Privacy & Security permissions (do this first, before reinstalling)
+### Step 2 — Download the correct archived driver
 
-Go to: **System Settings → Privacy & Security**
+Go to the Wacom driver archive page:
+**[wacom.com/support/product-support/drivers](https://www.wacom.com/support/product-support/drivers)**
 
-Check all three of these sections and make sure the Wacom driver/tablet helper is listed AND enabled:
-- **Input Monitoring** — Wacom Tablet.prefPane or TabletDriver must be toggled ON
-- **Accessibility** — same
-- **Screen Recording** — same (needed for some Wacom features)
+On that page:
+1. Select your product: **Intuos Pro** (PTH series)
+2. Select your OS: macOS + your version
+3. If the current driver still says "incompatible" — look for an **"Older Drivers"** or **"Driver Archive"** link on the same page (Wacom does keep these)
+4. Target driver series: **6.3.45.x** — this was the last major release that included full Intuos Pro (PTH-451) support before Wacom narrowed the supported device list
 
-If Wacom entries are there but toggled off → toggle them on → restart the Mac → test the pen.
+> **Alternative source:** Wacom's archived driver index is at `https://cdn.wacom.com/u/productsupport/drivers/mac/` — you can browse versions directly if the main support page doesn't surface them.
 
-**This alone may fix it without any reinstall.**
+### Step 3 — Install the archived driver
 
-### Step 3 — If permissions look fine or entries are missing: clean reinstall
+1. Open the downloaded `.dmg` and run the installer
+2. During or immediately after install, macOS will prompt for Privacy & Security approval — **do not skip this, approve everything it asks**
+3. If it asks to allow a System Extension (common on Ventura/Sonoma) — approve it
+4. **Restart your Mac**
 
-1. Download the **Wacom Uninstaller** from [wacom.com/support](https://www.wacom.com/support/product-support/drivers)
-2. Run the uninstaller — this removes all Wacom driver files cleanly
-3. **Restart your Mac**
-4. Download the **latest driver for PTH-451** (Intuos Pro Medium) from the Wacom driver page — confirm it matches your macOS version
-5. Install the driver
-6. When macOS prompts for Privacy & Security approval during or after install, approve it — **don't skip this**
-7. If no prompt appears, go manually to System Settings → Privacy & Security → check Input Monitoring and Accessibility as in Step 2
-8. **Restart again**
-9. Open Wacom Center — test the pen
+### Step 4 — Manually confirm permissions (after restart)
 
-### Step 4 — If Wacom Center still crashes or pen still doesn't work
+Go to **System Settings → Privacy & Security** and check:
+- **Input Monitoring** → Wacom Tablet / TabletDriver should be listed and toggled **ON**
+- **Accessibility** → same
+- **General → Login Items & Extensions → Drivers** → Wacom driver extension should be listed and enabled
 
-- Check System Settings → General → Login Items & Extensions → scroll to "Drivers" or "Background Items" — Wacom driver extension should be listed and enabled
-- On macOS Ventura/Sonoma, there may be an additional "System Extension" approval required — look for a notification in Privacy & Security about a blocked system extension from Wacom
-- Approve it, restart, test again
+If any are missing or toggled off → toggle on → restart again → test pen.
+
+### Step 5 — Test
+
+Open **Wacom Center** (installs with the driver), hover the pen 5–10mm above the tablet surface — the cursor should move. If it does, you're done.
 
 ---
 
-## Compatible Driver Version for PTH-451
+## If None of That Works
 
-The PTH-451 (Intuos Pro Medium, ~2013–2016 era) is supported on current drivers. Use the **Wacom Professional Tablet** driver, not the Intuos (consumer) driver. Check [wacom.com](https://www.wacom.com/support/product-support/drivers) and filter by your device and macOS version.
+If even the archived driver says incompatible, or pen still dead after permissions:
+
+- **macOS + driver version mismatch** — the archived driver may predate your macOS. Post your macOS version and we can find a more specific version match.
+- **Try driver 6.3.46.1** — another candidate that was the last to support PTH-451 on Monterey/Ventura before Wacom's next major cut.
+- **Last resort:** Use the tablet as a trackpad-only input device for the logo mark deadline and deal with pen support after.
 
 ---
 
 ## Notes
 - Reported: ~12 March 2026
 - Blocking: Logo mark deliverable
-- Status: Attempting fix
+- Status: Drivers uninstalled — ready to try archived driver install
+- PTH-451 = Intuos Pro Medium (2013). Not the same as current Intuos Pro line.
