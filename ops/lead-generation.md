@@ -15,7 +15,7 @@ Who KSPF is going after — solo founders, small creative brands, fashion/beauty
 ## Active Outreach
 | Name / Studio | Type | Channel | Status | Last Contact |
 |---------------|------|---------|--------|--------------|
-| — | — | — | — | — |
+| Style Media | Digital magazine | Email | Draft ready — not sent | — |
 
 ---
 
@@ -23,7 +23,7 @@ Who KSPF is going after — solo founders, small creative brands, fashion/beauty
 | Lead | Source | Stage | Notes |
 |------|--------|-------|-------|
 | Anh (Alt Cosmetics) | Direct | Active client | Referral potential when project wraps |
-| Style Magazines | Web research | To audit | stylemagazines.com.au — flagged by Rowan |
+| Style Media | Web research | Email drafted | Scroll-lock bug on mobile Safari + perf issues. See `people/style-media.md` |
 
 ---
 
