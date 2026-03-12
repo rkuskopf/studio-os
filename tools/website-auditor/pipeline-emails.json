@@ -1,17 +1,18 @@
 [
   {
     "to": "kiri@stylemedia.com.au",
-    "toName": "Style Magazines",
+    "cc": "charlie@stylemedia.com.au",
+    "toName": "Style Media",
     "contactMethod": "email",
     "contactValue": "kiri@stylemedia.com.au",
     "instagram": "https://www.instagram.com/stylemagazines/",
-    "subject": "Quick thought on Style Magazines's website",
-    "body": "Hi there,\n\nI came across Style Magazines while browsing media — Style Magazine curates the best in fashion, culture, beauty, food, and lifestyle, delivering inspiring stories, guides, and interviews that celebrate creativity and community.\n\nI noticed your site has slow load times — can hurt both conversions and rankings. Just something I spotted — I look at a lot of sites.\n\nI run a small creative studio (kspf.au) that works with independent Melbourne businesses on branding and web. Would you be open to a quick chat? Happy to share a few thoughts, no pressure.\n\nCheers,\nRowan\nKSPF Studio\nkspf.au",
+    "subject": "Bug on Style's mobile site",
+    "body": "Hi Kiri,\n\nHope this doesn't come out of nowhere — I've been a reader for a while and ended up on the Style digital edition recently. Noticed something that bugged me enough to reach out.\n\nThere's a scroll-lock issue on mobile Safari — the page freezes mid-scroll and stops letting you progress through the article. It's the kind of thing that's easy to miss in QA but pretty disorienting when you hit it as a reader.\n\nWhile I was poking around I also noticed the site's loading pretty heavily on mobile — around 39/100 on Google's performance metrics — and there are a few other technical flags (outdated API usage, some missing security headers) that tend to quietly chip away at rankings and reader experience over time. Nothing catastrophic, just worth knowing about.\n\nI run a small studio (kspf.au) that does brand and web work for independent creative businesses. I'm not pitching a rebuild — I just noticed the issues and thought you'd want a heads up.\n\nHappy to record a quick Loom showing exactly where the scroll bug kicks in if that'd help your dev team troubleshoot faster.\n\nRowan\nKSPF Studio | kspf.au",
     "lead": {
-      "name": "Style Magazines",
+      "name": "Style Media",
       "url": "https://stylemagazines.com.au",
       "leadScore": 35,
-      "issues": "slow loading (39/100 performance); technical issues (54/100 best practices)",
+      "issues": "scroll-lock bug on mobile Safari; slow loading (39/100 performance); technical issues (54/100 best practices)",
       "h1Text": "",
       "metaDescription": "Style Magazine curates the best in fashion, culture, beauty, food, and lifestyle, delivering inspiring stories, guides, and interviews that celebrate creativity and community."
     }
