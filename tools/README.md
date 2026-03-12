@@ -94,6 +94,58 @@ Weighted toward issues KSPF can solve:
 
 ---
 
+## Brand Monitor
+
+**What it is:** Automated discovery pipeline for finding new/launching brands that might need KSPF's design services. Monitors Instagram hashtags to surface early-stage businesses, then feeds their websites into the audit pipeline.
+
+**Location:** `tools/brand-monitor/`
+
+```bash
+cd tools/brand-monitor
+npm install
+
+# See the recommended workflow
+node monitor.js
+
+# Search Melbourne brand hashtags
+node instagram.js --preset
+
+# Search specific hashtags
+node instagram.js --hashtags "melbournebrand,indiebeauty,newbrandlaunch"
+
+# Look up a business on the Australian Business Register
+node abr-check.js --name "Alt Cosmetics"
+```
+
+### Brand Monitor Scripts
+
+| Script | What it does |
+|--------|-------------|
+| `monitor.js` | Prints the recommended step-by-step workflow |
+| `instagram.js` | Scrapes Instagram hashtags to find new brand accounts |
+| `extract-profiles.js` | Visits Instagram profiles to extract bios, websites, follower counts |
+| `pipeline.js` | Chains scrape → extract → audit into one command |
+| `abr-check.js` | Verifies businesses against the Australian Business Register |
+
+### Brand Monitor Workflow
+
+1. **Find brands** — `node instagram.js --preset` scrapes Melbourne brand hashtags
+2. **Review manually** — check found accounts for early-stage signals (small following, "launching soon", website in bio)
+3. **Audit websites** — run promising sites through `../website-auditor`
+4. **Outreach** — contact top-scored leads with a personalised pitch
+
+> ⚠️ **Note:** Instagram scraping is fragile and against TOS. Use sparingly, and expect it to break over time. For reliable lead finding, use the `/lead-finder` Claude command instead — see [Claude `/lead-finder` Command](#4-claude-lead-finder-command) above.
+
+### Other Sources for New Brands
+
+Since the ABR doesn't publish a new-registrations feed, you can also find new businesses via:
+- Local press — search "new store melbourne" or "brand launch"
+- Industry newsletters — Ragtrader, Beauty Directory AU
+- Crowdfunding — Kickstarter, Pozible for launching products
+- LinkedIn — "Founder" + "Melbourne" + recent job changes
+
+---
+
 ## Task Management
 
 ### Sync TASKS.md → GitHub Issues
@@ -129,7 +181,10 @@ tools/
 │   ├── audit.js              # Core Lighthouse auditor
 │   └── pipeline-audited.csv  # Output
 └── brand-monitor/
+    ├── README.md             # Full usage docs
+    ├── monitor.js            # ⭐ Prints recommended workflow
     ├── instagram.js          # Instagram hashtag scraper (fragile)
     ├── extract-profiles.js   # Profile → website extractor
+    ├── abr-check.js          # Australian Business Register lookup
     └── pipeline.js           # Combined pipeline
 ```
