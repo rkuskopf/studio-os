@@ -34,6 +34,9 @@
 
 ## In Progress
 
+**Alt Cosmetics — Identity**
+- [ ] **Concept 1: Organic / Botanical Monogram** — generate and develop Direction D organic monogram. Run GROUP D prompts in `projects/alt-cosmetics-mj-prompts.md`. Reference: [Figma node 24-203](https://www.figma.com/design/rvJZnrqjpW5zkOM9u80xZl/ALT.-COSMETICS-%7C-Identity-and-packaging?node-id=24-203&t=1dVS95InZLuGVRa1-1). Strongest 1–2 results → redraw in Illustrator → include in concept presentation alongside Directions A, B, C.
+
 **kspf.au**
 - [ ] **Mobile Safari bug — screen locks** — reported 11 Mar. Reproduce on iOS Safari, identify trigger (scroll lock? fixed position element? JS scroll handler not cleaning up?). Check for `overflow: hidden` on body/html or `-webkit-overflow-scrolling` issues. Log as GitHub issue in `rkuskopf/kspf.studio-repo`.
 

@@ -89,6 +89,32 @@ logo mark design, abstract art deco oval mark, dissolved geometric elements insi
 
 ---
 
+## GROUP D — Direction D: Organic / Botanical Monogram
+
+*Goal: fluid, nature-inspired letterform construction. Letters woven through or entwined with fine-line botanical elements — stems, tendrils, seedheads, leaf forms. Flowing stroke weight. Neither purely calligraphic nor geometric. Reference: Figma node 24-203. Organic softness as contrast to chrome materiality. All flat, black on white — no 3D, no gradients.*
+
+**D1 — Botanical monogram, letters and stems entwined**
+```
+logo mark design, organic botanical monogram, interlocking letterforms entwined with fine-line plant stems and tendrils, fluid organic construction, flowing stroke weight variation, natural curvature, luxury beauty brand, flat 2D, black on white, fine line, delicate, no geometric shapes --ar 1:1 --style raw --v 6.1 --no gradients, shadows, geometric, modern, celtic, knotwork
+```
+
+**D2 — Seedhead / botanical seal**
+```
+brand mark design, botanical seal monogram, letters emerging from organic seedhead or floral form, fine-line botanical illustration quality, fluid natural construction, stem and tendril detail, beauty brand identity, flat 2D, black on white, delicate line weight --ar 1:1 --style raw --v 6.1 --no gradients, shadows, geometric shapes, modern minimalism, celtic, knotwork
+```
+
+**D3 — Organic wreath monogram**
+```
+logo mark design, organic wreath monogram, letterforms inside a loose botanical wreath of fine stems and leaves, natural open composition, flowing organic forms, luxury beauty brand, flat 2D, black on white, botanical illustration register, not symmetrical, not rigid --ar 1:1 --style raw --v 6.1 --no gradients, shadows, art deco, geometric construction, celtic, knotwork
+```
+
+**D4 — Abstract / dissolved (legibility axis: abstract end)**
+```
+logo mark design, abstract organic botanical mark, dissolved letterform entwined with plant forms, fine-line natural construction, beauty brand, flat 2D, black on white, no readable letters, pure organic mark quality, botanical illustration register --ar 1:1 --style raw --v 6.1 --no gradients, shadows, geometric, modern, celtic, knotwork
+```
+
+---
+
 ## GROUP 1 — Typographic Wordmark (run alongside mark groups)
 
 **1A — Extended, wide tracking**
@@ -136,6 +162,7 @@ If a result is close but not quite right, use `--seed [number from that image]` 
 **To push Direction A further:** add `ancient Egyptian intaglio` or `pre-Columbian seal` or `Mesopotamian cylinder seal`
 **To push Direction B further:** add `copperplate engraving` or `Victorian penmanship` or `Spencerian script`
 **To push Direction C further:** add `art deco medallion` or `Bauhaus monogram` or `constructivist emblem`
+**To push Direction D further:** add `botanical illustration` or `herbarium drawing` or `William Morris floral` or `Art Nouveau tendril`
 **To push chrome materiality in mockups:** add `polished aluminium` or `mirror finish` or `chrome cosmetics`
 **To warm up any result:** add `warm lighting` or `linen texture background` or `stone surface`
 
