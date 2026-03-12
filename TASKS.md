@@ -1,9 +1,16 @@
 # Tasks
 
 ## Up Next
+
+**Growth Strategy (see `ops/growth-strategy.md` + issue #2)**
+- [ ] **Deliver Alt Cosmetics identity → document immediately as case study**
+- [ ] **Publish kspf.au Experience Design / UX case studies section** (prerequisite for outreach)
+- [ ] **Define service tiers + pricing** — write up and add to kspf.au or proposal template
 - [ ] **Set up Pinterest business account (studio@kspf.au) + claim kspf.au — see `ops/lead-generation.md` for steps**
 - [ ] **Build target outreach list (10–15 ideal clients)**
-- [ ] Audit ALT. Cosmetics to understand the halucinations and inconsistiencies (particularly in the creative brief). No one should have access to a creative brief below V5.1. We need to put together a quesitonaire to get to the bottom of all unknowns and create a report for what needs to be done
+- [ ] **Begin direct outreach — 5 contacts/week (start April)** — don't start until at least one case study is live
+- [ ] **Activate Askable as regular income stream** — complete optimisation + workflow (see Askable tasks below)
+- [ ] Audit ALT. Cosmetics to understand the hallucinations and inconsistencies (particularly in the creative brief). No one should have access to a creative brief below V5.1. We need to put together a questionnaire to get to the bottom of all unknowns and create a report for what needs to be done
 - [x] **Automate TASKS.md → GitHub Issues** — syncing tasks to GitHub Issues via `tools/sync-tasks-to-github.js`. Routes kspf.au tasks to `kspf.studio-repo` automatically.
 - [x] **Gmail draft sync for lead pipeline** — add Gmail API integration to `full-pipeline.js` so drafted emails appear in Gmail drafts ready to review/send. ✅ Working!
 - [x] **Asana ↔ GitHub two-way sync** — `tools/sync-asana-github.js` syncs tasks/issues between Asana and GitHub. Features:
