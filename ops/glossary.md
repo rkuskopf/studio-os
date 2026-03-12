@@ -26,6 +26,7 @@
 |------|---------|
 | Cargo | Web platform Rowan specialises in |
 | Askable | UX research platform — Rowan doing their researcher certification |
+| Codex | OpenAI's AI software-engineering agent. Connects to GitHub, runs tasks in an isolated environment, opens PRs. See `ops/codex-github-setup.md` |
 
 ## Client Shorthand
 | Term | Meaning |
