@@ -158,6 +158,7 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 - **Mark Generation Fri 06 March:** https://drive.google.com/drive/folders/1dOh68ruxMUNK6qbpcvDJgSup4HofqwwJ?usp=drive_link 
 - **Identity process log (internal — not client-facing):** https://docs.google.com/presentation/d/1RS7Gn8_xeHoCeaIE5_MF6wHlUXScHfZAw66fyqApn1s/edit
 - **Identity folder with Image references:** https://drive.google.com/drive/folders/1fAx_tn0dimGJ69Y4N9vL6GmT_LwBrc8J?usp=drive_link 
+- **Texture & surface quality guide (Illustrator + Photoshop):** `projects/alt-cosmetics-texture-guide.md`
 
 > **Note on document history:** The creative brief went through v1–v5 with Claude chat assistance and accumulated errors along the way — stale info was copied forward and compounded across versions. v5 is the most accurate version but is overwritten and unclear — not currently sendable. Needs a full rewrite workshop as a dedicated session (not a patch job). Do not rely on older versions or earlier repo content for brief details. When in doubt, the Drive folder and v5 brief are the source of truth.
 
