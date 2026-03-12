@@ -59,6 +59,10 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 - [x] Creative brief developed (v1.0 — pending client sign-off)
 - [x] Brand strategy synthesis document produced
 - [ ] Creative brief signed off by client — v5 is overwritten and unclear, not sendable. Needs a full rewrite workshop as a dedicated session. Do not patch it — start fresh.
+- [ ] **Get 2D assets ready** (Asana task 1213622452253080)
+  - [ ] Get 2D vectors of lace ready — [Figma frame](https://www.figma.com/design/rvJZnrqjpW5zkOM9u80xZl/ALT.-COSMETICS-%7C-Identity-and-packaging?node-id=32-19&t=1dVS95InZLuGVRa1-4) · [Asset preview](https://app.asana.com/app/asana/-/get_asset?asset_id=1213622361309105)
+  - [ ] Get ornamental elements ready for 2D logo design — [Figma frame](https://www.figma.com/design/rvJZnrqjpW5zkOM9u80xZl/ALT.-COSMETICS-%7C-Identity-and-packaging?node-id=32-24&t=1dVS95InZLuGVRa1-4) · [Asset preview](https://app.asana.com/app/asana/-/get_asset?asset_id=1213622361309101)
+  - [ ] Turn 3D render elements into flat 2D versions ready for logo — [Figma frame](https://www.figma.com/design/rvJZnrqjpW5zkOM9u80xZl/ALT.-COSMETICS-%7C-Identity-and-packaging?node-id=52-120&t=1dVS95InZLuGVRa1-4) · [Asset preview](https://app.asana.com/app/asana/-/get_asset?asset_id=1213621681525933)
 - [ ] Sort scattered reference images into Direction A / Direction B folders — use Cowork
 - [ ] Identify Van der Weyden serif via WhatTheFont
 - [ ] Locate fonts: ABC Favorit Condensed (Adobe Fonts), Söhne Schmal (Adobe Fonts), Neue Haas Grotesk Display (Adobe Fonts), Suisse Int'l Mono (try Fontshare), Van der Weyden serif (pending ID)
