@@ -121,6 +121,14 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 
 **Mark — current direction:**
 - Concept: hot-pressed onto the tube — engraved, stamped, or debossed quality
+
+**Anh's confirmed preferences (from concept presentation):**
+- Liked: **SRA SRA** (architectural oval with letters at compass points), **Loewe** (abstract interlocking, flowing), **JB monogram** (circular debossed, ornamental script)
+- Key feedback: Wants it **abstract and flowing** — "like the Loewe where you can't really tell what it says"
+- **NOT overly structured or masculine**
+- This steers the direction away from rigid geometric marks toward organic, interlocking, calligraphic forms
+- The tension: SRA SRA is structured but she also likes Loewe's fluidity — the sweet spot may be structured *container* (oval/circle) with flowing *letterforms* inside
+
 - Three directions in active development:
   - **Direction A — Ancient / Carved / Archaeological** — raw, primitive, worn-into-stone quality. Egyptian scarab seals, ancient intaglio gems, stone objects. Incised, not raised. Surface feeling and register defines this direction.
   - **Direction B — Victorian / Script / Medieval** — fine line heritage script quality. Ornate calligraphic letterforms, swash construction, Victorian penmanship register. Mauclot monogram sheet is the primary reference — interlocking looped letterforms with weight variation and fluid curves. Decorative, historically rooted.
@@ -158,6 +166,10 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 - **Mark Generation Fri 06 March:** https://drive.google.com/drive/folders/1dOh68ruxMUNK6qbpcvDJgSup4HofqwwJ?usp=drive_link 
 - **Identity process log (internal — not client-facing):** https://docs.google.com/presentation/d/1RS7Gn8_xeHoCeaIE5_MF6wHlUXScHfZAw66fyqApn1s/edit
 - **Identity folder with Image references:** https://drive.google.com/drive/folders/1fAx_tn0dimGJ69Y4N9vL6GmT_LwBrc8J?usp=drive_link 
+
+**Figma Files:**
+- **Discovery / Strategy exploration:** https://www.figma.com/design/uvb6BNWZIdGS9C5akoz4ch/Alt-cosmetics--Identity-Exploration---strategy?node-id=223-437
+- **Working Identity & Packaging file:** https://www.figma.com/design/rvJZnrqjpW5zkOM9u80xZl/ALT.-COSMETICS-%7C-Identity-and-packaging?node-id=6-31
 
 > **Note on document history:** The creative brief went through v1–v5 with Claude chat assistance and accumulated errors along the way — stale info was copied forward and compounded across versions. v5 is the most accurate version but is overwritten and unclear — not currently sendable. Needs a full rewrite workshop as a dedicated session (not a patch job). Do not rely on older versions or earlier repo content for brief details. When in doubt, the Drive folder and v5 brief are the source of truth.
 
