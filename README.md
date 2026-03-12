@@ -32,6 +32,7 @@ It is designed to be read by AI assistants. When you are given access to this re
 | `lead-generation.md` | Lead gen strategy — target client profile, active outreach, pipeline, channels, Pinterest setup guide, and 90-day plan. |
 | `alt-cosmetics-mj-prompts.md` | Midjourney prompts used for Alt Cosmetics logo mark ideation. |
 | `ops/services.md` | Rate card, service packages, proposal template, and payment terms. |
+| `ops/brand-voice.md` | KSPF brand voice guide — tone rules, banned phrases, AI prompt constraints, and example writing. |
 | `clients/README.md` | Client registry — active clients, past clients, referral potential, and new client template. |
 | `finance/README.md` | Monthly financial tracker — 6 David Carnegie metrics + running totals. |
 | `issues/2` | Scaling plan — 6 paths for growing KSPF (pricing, lead gen, portfolio, products, capacity, studio OS). |

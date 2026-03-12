@@ -1,7 +1,9 @@
 # Tasks
 
 ## Up Next
-- [ ] **Scale KSPF — review `issues/2` for full plan across 6 paths (pricing, lead gen, portfolio, products, capacity, studio OS)**
+- [ ] **Scale KSPF — review `issues/2` for full plan (research-backed, 6 paths + reading list + Melbourne resources)**
+- [ ] **Define KSPF's Purple Cow** — one sentence: what makes KSPF unmistakably different? (e.g. UX-trained brand strategist for indie beauty/fashion). This anchors all positioning and pricing. See `issues/2` Path A.
+- [ ] **Write KSPF brand voice doc** — `ops/brand-voice.md`. Reverse-engineer best emails + proposals → extract tone rules + banned phrases. Unlocks AI as a real force multiplier. See `issues/2` Path D.
 - [ ] **Review and finalise rate card** — `ops/services.md` has the draft. Adjust prices based on past project fees (AP-REPS, Bally Cara, Alt Cosmetics). See `issues/2` Path A.
 - [ ] **Run lead pipeline weekly (30 leads, 5 emails)** — 30 min every Monday. See `ops/lead-generation.md`.
 - [ ] **Populate `clients/`** — create individual files for Anh, AP-REPS, and Bally Cara using the template in `clients/README.md`.
