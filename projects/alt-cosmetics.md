@@ -60,8 +60,8 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 - [x] Brand strategy synthesis document produced
 - [ ] Creative brief signed off by client — v5 sent but brief is still evolving; previous version sent was too rambling. Needs a cleaner version before resending.
 - [x] Finish & Materiality confirmed — chrome. No longer a blocker.
-- [ ] Find Monestary brand reference — brand "Monestary" noted as doing embossed crest on bottle; source reference imagery to understand treatment (from Rowan, Fri 13 Mar)
-- [ ] Find assets of art deco window grills — explore feminine interpretation of SRA SRA direction using ornate art deco window grill / ironwork forms (from Rowan, Fri 13 Mar)
+- [x] Find Monestary brand reference — ✅ Brand is **Monastery** (monasterymade.com). SF luxury botanical skincare by Athena Hewett. Known for embossed/stamped heraldic crest on glass bottles. Reference imagery: [Dieline](https://thedieline.com/monasterys-luxe-packaging-visually-highlights-the-purity-of-the-ingredients-within/) · [Coveteur](https://coveteur.com/monastery-skincare-product-reviews) · AU stockist [Lume Sydney](https://lumesydney.com.au/collections/monastery-skincare)
+- [x] Find assets of art deco window grills — ✅ Best SVG/vector sources: [Freepik](https://freepik.com) (search "art deco ornamental frame") · [Vecteezy](https://vecteezy.com/free-vector/art-deco) · [Etsy](https://www.etsy.com/market/art_deco_window_grille) (hand-drawn SVG/AI/EPS) · [The Noun Project](https://thenounproject.com) (search "scrollwork", "ironwork") · [Public Domain Vectors](https://publicdomainvectors.org/en/free-art-deco-vector-frames) (copyright-free)
 - [ ] Explore Loewe-direction mark — single "A" letterform, line drawing, reflected 4 ways into abstract interlocking mark (from Rowan, Fri 13 Mar)
 - [ ] Explore wrought iron scrollwork style for mark — curved organic scrollwork as basis for constructing an "A" mark; "like a window grill / window iron" (from Rowan, Fri 13 Mar)
 - [ ] Confirm packaging supplier + receive dielines, dimensions, capacity — **blocker**
