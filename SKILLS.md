@@ -34,13 +34,20 @@ These are third-party Claude Code skills from the wider ecosystem. Install them 
 - Read/update Google Docs (briefs, proposals)
 - Check Drive for recently modified files without manual browsing
 
-**Install:**
+**Install (Claude Desktop MCP):**
 ```bash
-npm install -g @googleworkspace/cli
-gws mcp -s drive,gmail,calendar,sheets,docs
+# `gws mcp` was removed from the latest CLI after v0.7.x.
+# Keep the current CLI if you want terminal access, but pin 0.7.0 for MCP.
+npm install -g --prefix "$HOME/.gws-mcp-legacy" @googleworkspace/cli@0.7.0
+"$HOME/.gws-mcp-legacy/bin/gws" mcp -s drive,docs --tool-mode compact
 ```
 
-**In Claude:** Once the MCP server is running, Claude can call Drive/Gmail/Sheets APIs directly in conversation.
+**Install (terminal-only CLI, latest):**
+```bash
+npm install -g @googleworkspace/cli
+```
+
+**In Claude:** Once the MCP server is running, Claude can call Drive/Docs APIs directly in conversation. Expand the service list later if you also want Gmail, Calendar, or Sheets.
 
 ---
 
@@ -165,9 +172,12 @@ done
 ## Installing Skills: Quick Reference
 
 ```bash
-# Google Workspace (recommended first)
+# Google Workspace (Claude Desktop MCP)
+npm install -g --prefix "$HOME/.gws-mcp-legacy" @googleworkspace/cli@0.7.0
+"$HOME/.gws-mcp-legacy/bin/gws" mcp -s drive,docs --tool-mode compact
+
+# Google Workspace (latest terminal CLI)
 npm install -g @googleworkspace/cli
-gws mcp -s drive,gmail,calendar,sheets
 
 # Browser Use
 npx skills add browser-use/claude-skill
