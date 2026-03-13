@@ -1,0 +1,178 @@
+---
+Scale KSPF — Business & Studio OS Growth Plan
+
+Based on research into frameworks for scaling professional service businesses, humanising AI communication, and local Melbourne resources. This is the source doc — it should inform everything else.
+
+You want to grow from a solo operator doing one-off projects into a studio with consistent, compounding revenue. The paths below are not mutually exclusive — they layer. Start with the ones that remove the most friction or unlock the most revenue with the least effort.
+
+---
+
+## Context
+
+- **Stage:** Solo operator. Rebuilding and growing. Active client (Alt Cosmetics). Working pipeline (12 leads audited, Gmail draft sync live).
+- **Bottleneck:** The "Founder Bottleneck" — Rowan's individual labour is the sole engine of production. Strategy, design, dev, sales, and admin all run through one person.
+- **Goal:** More revenue per hour worked. Repeatable client acquisition. Systems that run without you.
+
+---
+
+## The Core Shift
+
+The research is clear: the move from solopreneur to scalable studio is not a quantity change (more clients) — it's a quality change (how value is created, captured, and communicated).
+
+> *"Most small business owners are technicians having an entrepreneurial seizure."* — The E-Myth
+
+The three-part shift required:
+1. **Work ON the business, not IN it** — document and systematise recurring tasks so they can be delegated or automated
+2. **Identify your Queen Bee Role** — the single function that creates the most value (for KSPF: likely creative direction + strategy). Protect it. Delegate everything else.
+3. **Make it run without you** — build Standard Operating Procedures (SOPs) for brand audits, web builds, client onboarding, and lead outreach
+
+---
+
+## Path A — Nail the Positioning (Blue Ocean / Purple Cow)
+
+Before you can scale, you need to be clear on *why someone picks KSPF over a cheaper option or a larger agency*. The research calls this "value innovation" — offering something so specific and remarkable it makes comparison irrelevant.
+
+### Tasks:
+1. **Define your Purple Cow** — what is the one thing KSPF does that no one else does quite the same way? Options: UX-trained brand strategist for indie beauty/fashion, accessibility-first brand + web, "whisper don't shout" aesthetic direction. Write it in one sentence.
+2. **Audit current pricing against delivered value** — what did AP-REPS, Bally Cara, and Alt Cosmetics pay? Where did scope creep happen? Was the value delivered higher than the fee?
+3. **Set new rate card** — define 3 service tiers with fixed pricing:
+   - `Starter` — brand audit + recommendations doc ($1.5–2.5k)
+   - `Core` — brand identity or web build ($5–12k)
+   - `Full` — strategy + identity + web ($15–30k)
+4. **Create a productised "Quick Win" offer** — e.g. a 1-week brand sprint for $2.5k. Low barrier, high margin, creates pipeline. This is your entry product.
+5. **Add retainer option to every proposal** — e.g. $800/month for 4hrs of ongoing design/strategy support. Even 2–3 retainers = stability floor.
+
+---
+
+## Path B — Build the Machine (Lead Gen Automation)
+
+The pipeline tooling already exists. The gap is volume and follow-through.
+
+### Tasks:
+1. **Run the full pipeline weekly** — 30 mins every Monday. Input: new seed list. Output: ranked leads + drafted emails in Gmail. See `ops/lead-generation.md`.
+2. **CRM — track every lead** — use the pipeline CSV or build a simple Notion/Airtable table with columns: `name`, `url`, `contacted_date`, `response`, `status`, `source`.
+3. **Set up a follow-up sequence** — if no reply in 5 days, send one follow-up. Add this to the pipeline scripts or use Google Calendar reminders.
+4. **Expand seed sources** — try: AGDA awards finalists, VIVID speakers list, State of Design festival brands, Melbourne Fashion Week exhibitors. Each = different lead quality to existing sources.
+5. **A/B test outreach copy** — run 2 different email templates in parallel. Track which gets more replies. Iterate. See the "Breakthrough Advertising" principle: channel existing desires, don't try to create new ones.
+
+---
+
+## Path C — Build the Reputation (Portfolio & Thought Leadership)
+
+Visibility compounds. One published case study keeps attracting clients for years. The research distinguishes between two types of visibility: **portfolio** (shows what you can do) and **thought leadership** (shows how you think). Both matter. Thought leadership is what positions you as a Key Opinion Leader (KOL) in your niche.
+
+### Tasks:
+1. **Publish Alt Cosmetics case study on kspf.au** — capture as you go. Don't wait until project is done. Publish a "process preview" during delivery.
+2. **Write AP-REPS and Bally Cara retrospectives** — even short (500 words + 3 images). They anchor your positioning.
+3. **Add UX case studies section to kspf.au** — even one solid case study changes how inbound leads perceive you.
+4. **Set up Pinterest** — low effort once done. See `ops/lead-generation.md`. Drives organic discovery for brand/packaging work.
+5. **One piece of thought leadership per week** — LinkedIn post, short article, or newsletter. Not pitching. "Here's what I noticed / learned / questioned." This is the "Made to Stick" approach: Simple, Unexpected, Concrete, Credible, Emotional, Stories.
+6. **Use the Hero's Journey in proposals** — position the client as the Hero, their market problem as the Antagonist, and KSPF as the Guide with the tool they need. This is the Resonate framework applied to sales decks.
+
+---
+
+## Path D — Build Leverage (Products, Templates & AI)
+
+Things you make once, use (or sell) repeatedly. This is where AI is a genuine force multiplier for a solo operator.
+
+### Tasks:
+1. **Build a brand audit template** — a structured doc you fill out for every new client. Reduces discovery time, creates consistency, feels premium. Can be sold as a standalone product ($500–1k).
+2. **Create a proposal template** — pull from Alt Cosmetics and AP-REPS. Standardise your deck. Should take 1hr to personalise, not 6.
+3. **Build a Synthetic Brand Bible for KSPF** — before deploying AI for anything client-facing, codify KSPF's voice. The method: reverse-engineer your best emails, project notes, and proposals to extract core tone principles. Then write hard constraints: banned phrases (e.g. "game-changing", "impactful"), rules about sentence length, when to use humour, how to handle pushback on pricing. Store in `ops/brand-voice.md`.
+4. **Use AI with RAG for client work** — once the brand bible exists, you can give Claude access to this repo + the brand bible to produce first drafts of proposals, outreach emails, and case study copy that actually sound like you. This is the "open-book exam" model — the AI draws from your actual files rather than hallucinating.
+5. **Explore Askable as income** — Askable researcher sessions are a reliable income stream that doesn't require client acquisition. Optimise your profile, streamline the workflow. See `tasks/askable.md` when created.
+6. **"Concept Projects" for portfolio** — self-initiated work for imaginary or speculative brands. Demonstrates range and taste without waiting for client work.
+
+---
+
+## Path E — Scale Capacity (Bring in Help)
+
+When the bottleneck is you and there's more work than you can take, bring in support. This is the "Integrator" role from EOS (Entrepreneurial Operating System) — someone who runs the daily execution while you hold the creative vision.
+
+### Tasks:
+1. **Identify your Queen Bee Role** — strategy, creative direction, client relationships. These stay with you.
+2. **Identify what can be delegated** — production design (final files, asset prep), web dev (Squarespace, Shopify templates), admin (scheduling, invoicing), outreach email drafting (automate with AI).
+3. **Build a trusted freelancer bench** — find 1–2 junior designers or web devs you can sub to. Test on a low-risk project. Pay properly.
+4. **Document your process as SOPs** — if someone can't follow your process from written notes, it can't be delegated. Start with the Alt Cosmetics project as the first SOP template. Aim: one SOP per service type.
+5. **Consider a part-time Integrator** — once there's enough work, someone to handle scheduling, invoicing, basic client comms, and admin. Even 5hrs/week changes the equation.
+
+---
+
+## Path F — Scale the Studio OS (This Repo)
+
+The system running your studio should grow with you. The research's "four-step implementation" maps directly to this repo.
+
+### Tasks:
+1. **Weekly review ritual** — every Monday, run `sprint-plan` skill. Update TASKS.md. 20 mins. Keeps everything current.
+2. **Create `ops/brand-voice.md`** — the Synthetic Brand Bible. KSPF tone, banned phrases, sentence length rules, examples. Used by AI (this repo as RAG context) and any future team members.
+3. **Build `ops/sops/`** — one SOP file per service type. Start with: `brand-identity.md`, `web-build.md`, `brand-audit.md`. Each should cover: discovery → brief → delivery → handover.
+4. **Populate `clients/`** — create individual files for Anh, AP-REPS, and Bally Cara using the template in `clients/README.md`.
+5. **Fill in `finance/`** — update `finance/README.md` with March 2026 actuals. Track monthly from here on.
+6. **Automate issue → task sync** — ensure all GitHub issues in this repo sync back to Asana. Already partially live. Verify it's catching everything.
+7. **Add weekly snapshot automation** — GitHub Action that auto-generates `week-of-[date].md` from TASKS.md and recent commits each Monday morning. Makes sprint planning faster.
+
+---
+
+## Melbourne Resources
+
+Specific to Melbourne — worth investigating as KSPF grows.
+
+| Resource | What | Link |
+|----------|------|------|
+| **Scaling Solo** | Melbourne community for solopreneurs, freelancers, and indie founders. Peer exchange, resources, events. | [meetup.com/scalingsolo](https://www.meetup.com/scalingsolo/) |
+| **Melbourne Business Network (MBN)** | Business growth specialists, networking, resources. Post-pandemic recovery focus. | [mbn.org.au](https://mbn.org.au/) |
+| **BlueRock Digital** | Strategic advisory — holistic business planning that integrates digital marketing with accounting/financial support. | [bluerock.com.au](https://www.bluerock.com.au/services/digital/marketing/) |
+| **TR Consulting** | Business management consultants, assumption-driven financial models for SMEs. | [trconsulting.com.au](https://www.trconsulting.com.au/) |
+| **The Melbourne Freelancer** | Strategic partner for solo founders scaling to courses/memberships. Backend ops and systems. | [themelbournefreelancer.com](https://www.themelbournefreelancer.com/about/) |
+| **Federico Re** | Business coach using NLP for founders. Creative entrepreneurs focus. | [creativeentrepreneur.com.au](https://creativeentrepreneur.com.au/services/business-coaching-melbourne/) |
+
+---
+
+## Reading List (from Research)
+
+The research references a stack of books directly applicable to KSPF's situation. In rough priority order:
+
+| Book | Author | Why it's relevant |
+|------|--------|-------------------|
+| **The E-Myth Revisited** | Michael Gerber | Breaking the technician trap. Systems over heroics. |
+| **Clockwork** | Mike Michalowicz | Making the business run without you. Queen Bee Role. |
+| **Traction** | Gino Wickman | EOS framework. Aligning vision with weekly execution. |
+| **Built to Sell** | John Warrillow | Productising your services for repeatability. |
+| **Profit First** | Mike Michalowicz | Cash management that scales with the business. |
+| **10x Is Easier Than 2x** | Dan Sullivan | Radical focus. Abandon low-value activities. |
+| **Never Split the Difference** | Chris Voss | Tactical empathy for client negotiations + pricing conversations. |
+| **Resonate** | Nancy Duarte | Storytelling for proposals and presentations. Hero's Journey applied to client decks. |
+| **Blue Ocean Strategy** | Kim & Mauborgne | Positioning KSPF so it doesn't compete on price. |
+| **Made to Stick** | Chip & Dan Heath | Making your brand message memorable. |
+| **Breakthrough Advertising** | Eugene Schwartz | Channelling existing client desire rather than creating it. Outreach copy. |
+
+---
+
+## Suggested Starting Order
+
+| Priority | Action | Time | Impact |
+|----------|--------|------|--------|
+| 1 | Define KSPF's Purple Cow (one sentence) | 1hr | Anchors everything else |
+| 2 | Run pipeline (30 leads, 5 emails drafted) | 30 min | Immediate pipeline |
+| 3 | Finalise rate card (`ops/services.md`) | 1–2hr | Raises revenue ceiling |
+| 4 | Publish Alt Cosmetics process preview | 2hr | Portfolio momentum |
+| 5 | Write KSPF brand voice / constraints (`ops/brand-voice.md`) | 2hr | Unlocks AI as a force multiplier |
+| 6 | Set up Pinterest | 1hr | Passive discovery |
+| 7 | Create brand audit + proposal templates | 3–4hr | Reduces future sales friction |
+| 8 | Join Scaling Solo Melbourne meetup | 30 min | Community + peer accountability |
+| 9 | Build SOPs for brand identity + web build | 4hr | Enables delegation |
+
+---
+
+## Expected Outcomes
+
+By executing across these paths over 90 days, KSPF should:
+- Have a clear, differentiated positioning that doesn't compete on price
+- Have a consistently active pipeline (10–15 warm leads at all times)
+- Have a published portfolio that converts inbound interest
+- Have a pricing structure that reflects actual value delivered
+- Have the studio OS and AI tools working together (brand voice → RAG → AI-assisted drafting)
+- Have a clearer picture of whether to stay solo or bring in an Integrator
+
+---
+
