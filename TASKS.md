@@ -34,6 +34,9 @@
 
 ## In Progress
 
+**Alt Cosmetics — Identity**
+- [ ] **Concept 1: Organic / Botanical Monogram** — full production workflow in `projects/alt-cosmetics-concept-1-organic-monogram.md`. Use Nano Banana (primary) + Firefly (secondary) to generate → evaluate → redraw in Illustrator. Reference: [Figma node 24-203](https://www.figma.com/design/rvJZnrqjpW5zkOM9u80xZl/ALT.-COSMETICS-%7C-Identity-and-packaging?node-id=24-203&t=1dVS95InZLuGVRa1-1). ~3–3.5 hrs total.
+
 **kspf.au**
 - [ ] **Mobile Safari bug — screen locks** — reported 11 Mar. Reproduce on iOS Safari, identify trigger (scroll lock? fixed position element? JS scroll handler not cleaning up?). Check for `overflow: hidden` on body/html or `-webkit-overflow-scrolling` issues. Log as GitHub issue in `rkuskopf/kspf.studio-repo`.
 
