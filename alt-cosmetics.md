@@ -62,7 +62,7 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 - [ ] Sort scattered reference images into Direction A / Direction B folders — use Cowork
 - [ ] Identify Van der Weyden serif via WhatTheFont
 - [ ] Locate fonts: ABC Favorit Condensed (Adobe Fonts), Söhne Schmal (Adobe Fonts), Neue Haas Grotesk Display (Adobe Fonts), Suisse Int'l Mono (try Fontshare), Van der Weyden serif (pending ID)
-- [ ] Mark concept development — two directions (ancient/carved + Victorian/regal), four build processes (see Mark section above)
+- [ ] Mark concept development — run `projects/alt-cosmetics-mark-workshop.md` session plan (Midjourney → Firefly Vector → Figma composition → 3-direction concept presentation)
 - [ ] Bulk download Pinterest reference boards — Pinloader Chrome extension or equivalent
 - [x] Finish & Materiality confirmed — chrome. No longer a blocker.
 - [ ] Confirm packaging supplier + receive dielines, dimensions, capacity — **blocker**
