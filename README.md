@@ -30,6 +30,7 @@ It is designed to be read by AI assistants. When you are given access to this re
 | `anh.md` | Profile for Anh — the Alt Cosmetics client. Background, product brief, brand direction, deadline, and meeting notes links. |
 | `david-carnegie.md` | Profile for David Carnegie — Rowan's business mentor at Holmesglen. What he asks for in finance check-ins. |
 | `lead-generation.md` | Lead gen strategy — target client profile, active outreach, pipeline, channels, Pinterest setup guide, and 90-day plan. |
+| `growth-strategy.md` | Studio growth plan — North Star vision, positioning, service tiers, quarterly roadmap, KPIs, and risks. See also: issue #2. |
 | `alt-cosmetics-mj-prompts.md` | Midjourney prompts used for Alt Cosmetics logo mark ideation. |
 | `dashboard.html` | A simple HTML dashboard page for the studio OS (visual overview). |
 
