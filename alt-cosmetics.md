@@ -65,10 +65,10 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 - [ ] Mark concept development — two directions (ancient/carved + Victorian/regal), four build processes (see Mark section above)
 - [ ] Bulk download Pinterest reference boards — Pinloader Chrome extension or equivalent
 - [x] Finish & Materiality confirmed — chrome. No longer a blocker.
-- [ ] Find Monestary brand reference — Anh flagged brand "Monestary" as doing embossed crest on bottle; source reference imagery to understand treatment (from Fri 13 Mar input)
-- [ ] Find assets of art deco window grills — Anh requested feminine interpretation of SRA SRA direction using ornate art deco window grill forms (from Fri 13 Mar input)
-- [ ] Explore Loewe-direction mark — single "A" letterform, line drawing, reflected 4 ways into abstract interlocking mark. Anh explicitly called this out as a direction to explore (from Fri 13 Mar input)
-- [ ] Explore wrought iron scrollwork style for mark — curved organic scrollwork as basis for constructing an "A" mark; Anh described this as "like a window grill / iron" (from Fri 13 Mar input)
+- [ ] Find Monestary brand reference — brand "Monestary" noted as doing embossed crest on bottle; source reference imagery to understand treatment (from Rowan, Fri 13 Mar)
+- [ ] Find assets of art deco window grills — explore feminine interpretation of SRA SRA direction using ornate art deco window grill / ironwork forms (from Rowan, Fri 13 Mar)
+- [ ] Explore Loewe-direction mark — single "A" letterform, line drawing, reflected 4 ways into abstract interlocking mark (from Rowan, Fri 13 Mar)
+- [ ] Explore wrought iron scrollwork style for mark — curved organic scrollwork as basis for constructing an "A" mark; "like a window grill / window iron" (from Rowan, Fri 13 Mar)
 - [ ] Confirm packaging supplier + receive dielines, dimensions, capacity — **blocker**
 - [ ] Receive final ingredient list + regulatory copy — **outstanding**
 - [ ] Receive confirmed pricing (retail + wholesale) — **outstanding**
@@ -133,17 +133,17 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 - This steers the direction away from rigid geometric marks toward organic, interlocking, calligraphic forms
 - The tension: SRA SRA is structured but she also likes Loewe's fluidity — the sweet spot may be structured *container* (oval/circle) with flowing *letterforms* inside
 
-**Fri 13 Mar — Anh's additional direction input:**
+**Fri 13 Mar — Rowan's studio direction notes:**
 - **3D → 2D simplification:** Ornate 3D monogram frames (Victorian/Baroque register) can be interpreted into 2D simplified marks that still carry a "modern logo feeling" — distil the container/character without literal reproduction
-- **Monestary brand embossing:** Anh flagged the brand "Monestary" as a reference for crest embossed on a bottle. Task: find this reference and understand the treatment
-- **Wrought iron / window grill scrollwork:** Anh described constructing an "A" using curved organic scrollwork lines — "almost like a window iron / window grill." This is an S-curve, scroll-based mark construction using a vocabulary of wrought ironwork
-- **Feminine art deco windows:** Building on the window grill reference — Anh wants to interpret the SRA SRA direction in a more feminine way, using ornate art deco window grill forms rather than hard geometric shapes. Task: find art deco window grill assets
-- **Loewe reflected letterform:** Anh explicitly called out the Loewe direction — "a super simple line drawing of an L that's been reflected 4 ways." Apply the same logic to "A" — single letterform, reflected across both axes — to produce a dense, abstract, interlocking mark that reads as a symbol
+- **Monestary brand embossing:** Brand "Monestary" noted as reference for crest embossed on a bottle. Task: find this reference and understand the treatment
+- **Wrought iron / window grill scrollwork:** Construct an "A" using curved organic scrollwork lines — "almost like a window iron / window grill." S-curve, scroll-based mark construction using a vocabulary of wrought ironwork
+- **Feminine art deco windows:** Explore interpreting the SRA SRA direction in a more feminine way, using ornate art deco window grill forms rather than hard geometric shapes. Task: find art deco window grill assets
+- **Loewe reflected letterform:** Explore the Loewe direction — "a super simple line drawing of an L that's been reflected 4 ways." Apply the same logic to "A" — single letterform, reflected across both axes — to produce a dense, abstract, interlocking mark that reads as a symbol
 
 - Three directions in active development:
   - **Direction A — Ancient / Carved / Archaeological** — raw, primitive, worn-into-stone quality. Egyptian scarab seals, ancient intaglio gems, stone objects. Incised, not raised. Surface feeling and register defines this direction.
-  - **Direction B — Victorian / Script / Medieval** — fine line heritage script quality. Ornate calligraphic letterforms, swash construction, Victorian penmanship register. Mauclot monogram sheet is the primary reference — interlocking looped letterforms with weight variation and fluid curves. Decorative, historically rooted. Fri 13 Mar: Anh reinforced this territory — 3D ornate frames should be distilled to flat 2D with a modern logo quality.
-  - **Direction C — Architectural / Art Deco / SRA SRA** — formal oval cartouche with letters or elements positioned within a structured frame. SRA SRA is the primary reference: letters at compass points inside a double-ring architectural oval with ornamental centrepiece. Art deco lineage — geometric, structured, authoritative. Fri 13 Mar: Anh wants a **more feminine interpretation** — ornate art deco window grill forms (curved ironwork, scrolls, organic) over hard geometry.
+  - **Direction B — Victorian / Script / Medieval** — fine line heritage script quality. Ornate calligraphic letterforms, swash construction, Victorian penmanship register. Mauclot monogram sheet is the primary reference — interlocking looped letterforms with weight variation and fluid curves. Decorative, historically rooted. Fri 13 Mar: 3D ornate frames should be distilled to flat 2D with a modern logo quality.
+  - **Direction C — Architectural / Art Deco / SRA SRA** — formal oval cartouche with letters or elements positioned within a structured frame. SRA SRA is the primary reference: letters at compass points inside a double-ring architectural oval with ornamental centrepiece. Art deco lineage — geometric, structured, authoritative. Fri 13 Mar: explore a **more feminine interpretation** — ornate art deco window grill forms (curved ironwork, scrolls, organic) over hard geometry.
 - **New sub-direction — Loewe / Reflected letterform (Fri 13 Mar):** Single "A" letterform as a simple line drawing, reflected 4 ways to create an abstract interlocking mark. Sits between Direction B fluidity and Direction C structure. Yielding a symbol that reads as a whole, not as individual letters.
 - Legibility vs abstraction is NOT a direction — it is an independent axis applying to all three. Each direction could produce a readable A-L-T mark or a dissolved abstract form. Decision deferred to concept presentation with Anh.
 - AI tools (Firefly, Midjourney) being used for rapid 2D logo mark ideation — structure and surface quality reference only, not final assets. 3D tube mockups are a separate, later step once mark direction is confirmed.

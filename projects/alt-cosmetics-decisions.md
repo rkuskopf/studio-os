@@ -54,12 +54,12 @@
 | Sweet spot | Structured container (oval/circle) + flowing letterforms inside |
 | Status | ✅ Confirmed from concept presentation |
 
-### Mark Direction — Fri 13 Mar Input (Anh)
+### Mark Direction — Rowan's Fri 13 Mar Direction Notes
 | Input | Detail |
 |-------|--------|
 | 3D → 2D simplification | Ornate 3D frames (Victorian/Baroque) can become flat 2D marks with a modern logo feeling |
 | Wrought iron scrollwork | Construct an "A" using organic curved scrollwork lines — "like a window grill / window iron" |
-| Art deco window grills | Feminine interpretation of SRA SRA using ornate art deco ironwork, not hard geometry |
+| Art deco window grills | Explore feminine interpretation of SRA SRA using ornate art deco ironwork, not hard geometry |
 | Loewe reflected letterform | Single "A" line drawing reflected 4 ways into abstract interlocking mark |
 | Monestary brand | Reference for crest embossed on bottle — task: find this reference |
 | Status | ✅ Captured (not yet in final direction selection) |
@@ -137,4 +137,4 @@ Three canonical directions in active development:
 
 | Date | Change |
 |------|--------|
-| 13 Mar 2026 | Created from alt-cosmetics.md + Issue #82 |
+| 13 Mar 2026 | Created from alt-cosmetics.md + Issue #82 (Rowan's Friday design thoughts) |
