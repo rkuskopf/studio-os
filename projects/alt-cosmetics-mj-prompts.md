@@ -4,10 +4,13 @@
 
 *Copy-paste ready. Run GROUP A, B, and C in parallel to generate wide coverage across all three directions before committing to any one.*
 
-**Workflow:**
+> **Full workflow (what to do before, during, and after running these prompts):** → `projects/alt-cosmetics-mark-workshop.md`
+
+**Prompt workflow:**
 1. Run Groups A, B, C to generate 2D mark directions across all three territories → pick strongest 1–2 per direction
 2. Run Group 1 (wordmark) to explore typographic lockups alongside
-3. Groups 4–5 (3D chrome tube mockups) come later, once mark is confirmed — chrome finish only
+3. Take best results into Firefly Text to Vector for SVG output → compose in Figma
+4. Groups 4–5 (3D chrome tube mockups) come later, once mark is confirmed — chrome finish only
 
 ---
 
@@ -150,10 +153,42 @@ Paste Pinterest image URLs directly into MJ Image Prompts field — no download 
 
 ---
 
-## After Midjourney — Illustrator steps
+## After Midjourney — Two paths forward
+
+### Path 1 — Firefly Text to Vector (recommended, no Illustrator skill required)
+
+1. Screenshot 2–3 strongest results per direction
+2. Go to [firefly.adobe.com](https://firefly.adobe.com) → **Text to Vector**
+3. Upload your strongest MJ screenshot as **Structure Reference** (strength ~50%)
+4. Use the condensed Firefly prompts below
+5. Output is a clean SVG — drag directly into Figma for composition
+6. Test at small sizes in Figma — if it breaks at 24px it's too complex
+
+### Path 2 — Illustrator redraw (if you want full control)
 
 1. Screenshot 2–3 strongest results per direction
 2. Import as reference layer in Illustrator, opacity ~30%
 3. Redraw from scratch using rectangles/paths — do not trace
 4. Test at small sizes (20px) — if it breaks it's not working
 5. Present as 3 distinct directions, not variations of one
+
+---
+
+## Firefly Text to Vector — condensed prompts
+
+*Use at firefly.adobe.com → Text to Vector. Set Content type to "Logo". Upload your strongest Midjourney output as Structure Reference at ~50% strength.*
+
+**Direction B (Victorian/Script — highest priority given Anh's feedback):**
+```
+Victorian monogram, interlocking calligraphic letterforms A-L-T, organic flowing swash construction, fine line, black on white, suitable for debossing, no background, logo mark
+```
+
+**Direction C (Architectural/Cartouche):**
+```
+Art deco oval seal, structured oval border, abstract flowing letterforms inside, fine line, luxury beauty brand, black on white, clean vector, logo mark
+```
+
+**Direction A (Ancient/Carved):**
+```
+Ancient carved seal mark, archaic symbol, worn incised stone quality, oval form, black on white, flat logo, primitive elegance, logo mark
+```
