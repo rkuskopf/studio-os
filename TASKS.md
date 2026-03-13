@@ -1,6 +1,18 @@
 # Tasks
 
 ## Up Next
+
+### Scaling (see `ops/scaling-strategy.md`)
+- [ ] **Define 3 core service packages with scope + price ranges** (Brand Sprint / Web Rebuild / Brand+Web)
+- [ ] **Action top 5 leads from seed list** — run through auditor, prioritise, draft outreach
+- [ ] **Reach out to ESS BEE / Steph** — close the warm lead
+- [ ] **Write one-page proposal template** — scope, deliverables, timeline, price
+- [ ] **Set up lightweight CRM** — Airtable base or improved tracking in `lead-generation.md`
+- [ ] **Define retainer offering** — monthly brand support, content direction, or web maintenance
+- [ ] **Create `ops/brand-voice.md`** — KSPF Synthetic Brand Bible: tone rules, banned phrases, vocabulary, examples of good vs. bad copy
+- [ ] **Attend Scaling Solo meetup** — Melbourne solopreneur community (free, exactly right for KSPF right now): https://www.meetup.com/scalingsolo/
+
+### General
 - [ ] **Set up Pinterest business account (studio@kspf.au) + claim kspf.au — see `ops/lead-generation.md` for steps**
 - [ ] **Build target outreach list (10–15 ideal clients)**
 - [ ] Audit ALT. Cosmetics to understand the halucinations and inconsistiencies (particularly in the creative brief). No one should have access to a creative brief below V5.1. We need to put together a quesitonaire to get to the bottom of all unknowns and create a report for what needs to be done
