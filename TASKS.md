@@ -41,6 +41,7 @@
 - [ ] Get Wacom Intuos Pro (PTH-451) tablet pen working — driver installed but not responding. Tablet works as trackpad, pen not recognised. Likely macOS Privacy & Security approval issue. Need to confirm macOS version and try clean reinstall. See GitHub issue.
 - [ ] Heaps of issues with logic... updated to logic 12 the other day and now logic files aren't working
 - [ ] **Migrate files from Dropbox to iCloud before deletion deadline — see `tasks/dropbox-icloud-migration.md`**
+- [ ] **Move studio-os repo out of iCloud** — git lock issues caused by iCloud sync. Move to `~/Developer/studio-os` and symlink or selectively sync only non-git files.
 
 
 

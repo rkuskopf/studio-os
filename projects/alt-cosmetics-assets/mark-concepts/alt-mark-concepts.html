@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ALT. — Mark Concepts</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', serif;
+      padding: 60px 40px;
+      color: #1a1a1a;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .header h1 { font-size: 10px; letter-spacing: 6px; text-transform: uppercase; color: #aaa; margin-bottom: 8px; }
+    .header h2 { font-size: 26px; letter-spacing: 12px; text-transform: uppercase; font-weight: normal; }
+    .insight-box {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #1a1a1a;
+      color: white;
+      padding: 30px 40px;
+      border-radius: 2px;
+    }
+    .insight-box h3 { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: #888; margin-bottom: 14px; }
+    .insight-box p { font-size: 13px; line-height: 1.8; color: #ddd; }
+    .insight-box strong { color: white; }
+    .section-title {
+      text-align: center;
+      font-size: 9px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: #aaa;
+      margin: 50px 0 30px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .concept {
+      background: white;
+      padding: 44px 24px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .concept svg { display: block; margin-bottom: 24px; }
+    .concept-label { font-size: 8px; letter-spacing: 4px; text-transform: uppercase; color: #bbb; margin-bottom: 5px; }
+    .concept-name { font-size: 12px; letter-spacing: 1px; color: #444; margin-bottom: 6px; }
+    .concept-note { font-size: 10px; color: #aaa; line-height: 1.6; text-align: center; font-style: italic; }
+    .divider { border: none; border-top: 1px solid #d8d3cc; margin: 50px auto; max-width: 1000px; }
+    .shortcut-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .shortcut {
+      background: white;
+      padding: 28px 30px;
+    }
+    .shortcut h4 { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #aaa; margin-bottom: 12px; }
+    .shortcut p { font-size: 12px; line-height: 1.9; color: #555; }
+    .shortcut code { background: #f5f5f5; padding: 1px 5px; font-size: 11px; color: #333; }
+    .chrome-row {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      align-items: flex-end;
+    }
+    .chrome-item { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .chrome-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #aaa; }
+    .on-chrome {
+      background: linear-gradient(160deg, #d4d4d4 0%, #f0f0f0 20%, #b0b0b0 40%, #e8e8e8 60%, #c0c0c0 80%, #d8d8d8 100%);
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Identity Exploration — Mark Concepts</h1>
+  <h2>ALT.</h2>
+</div>
+
+<!-- KEY INSIGHT BOX -->
+<div class="insight-box">
+  <h3>The key insight</h3>
+  <p>The Loewe logo works because <strong>"L" is asymmetric</strong> — when you reflect an asymmetric letter 4 ways, the strokes cross at the centre and create an interlocking pattern. Reflecting a symmetric letter (like "A") just makes a boring hourglass. <strong>ALT. already has an L in it.</strong> The anagram mark direction should use "L" as its base letterform — it will look exactly like the Loewe construction in principle, but it's yours. Directions below show both the L-anagram and the other two directions (cartouche, ferronnerie) as concept sketches.</p>
+</div>
+
+<!-- DIRECTION 01: L ANAGRAM -->
+<p class="section-title">Direction 01 — Anagram Mark using "L" from ALT.</p>
+
+<div class="grid-3">
+
+  <!-- 01A: Single arm showing the L construction -->
+  <div class="concept">
+    <svg viewBox="-100 -100 200 200" width="220" height="220" xmlns="http://www.w3.org/2000/svg">
+      <!-- SINGLE ARM: this is the "L" stroke. Reflect this 4 ways to get the full mark. -->
+      <!-- One arm goes from near-center to top-left, with a loop at the outer end (like Loewe L) -->
+      <path
+        d="M 8,14
+           C 12,16 16,18 14,24
+           C 12,28 6,26 4,22
+           C 2,18 4,12 8,14
+
+           M 6,10
+           C 2,4 -6,-6 -18,-18
+           C -30,-30 -44,-46 -54,-60
+           C -60,-68 -62,-78 -56,-84
+           C -50,-90 -40,-88 -36,-80
+           C -32,-72 -36,-62 -44,-60
+           C -38,-56 -28,-54 -24,-60
+           C -18,-66 -20,-74 -26,-76"
+        fill="none"
+        stroke="#e8e3dc"
+        stroke-width="13"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M 6,10
+           C 2,4 -6,-6 -18,-18
+           C -30,-30 -44,-46 -54,-60
+           C -60,-68 -62,-78 -56,-84
+           C -50,-90 -40,-88 -36,-80
+           C -32,-72 -36,-62 -44,-60
+           C -38,-56 -28,-54 -24,-60"
+        fill="none"
+        stroke="#1a1a1a"
+        stroke-width="9"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <!-- foot loop -->
+      <path
+        d="M 8,14 C 12,16 16,18 14,24 C 12,28 6,26 4,22 C 2,18 4,12 8,14"
+        fill="none"
+        stroke="#1a1a1a"
+        stroke-width="9"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <!-- Label showing this is the single arm -->
+      <text x="60" y="-10" text-anchor="middle" font-family="Georgia" font-size="7" fill="#ccc" letter-spacing="1">← one arm only</text>
+      <text x="60" y="4" text-anchor="middle" font-family="Georgia" font-size="7" fill="#ccc" letter-spacing="1">reflect 4 ways →</text>
+    </svg>
+    <div class="concept-label">01 — A</div>
+    <div class="concept-name">The single L arm</div>
+    <div class="concept-note">This is the base stroke. Draw this ONE path in Illustrator, then reflect.</div>
+  </div>
+
+  <!-- 01B: Full 4-way reflection -->
+  <div class="concept">
+    <svg viewBox="-100 -100 200 200" width="220" height="220" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- The L arm: from near-center going to top-left corner with outer loop -->
+        <g id="l-arm">
+          <!-- Drop shadow / thicker outer stroke for calligraphic feel -->
+          <path
+            d="M 6,10
+               C 2,4 -6,-6 -18,-18
+               C -30,-30 -44,-46 -54,-60
+               C -60,-68 -62,-78 -56,-84
+               C -50,-90 -40,-88 -36,-80
+               C -32,-72 -36,-62 -44,-60
+               C -38,-56 -28,-54 -24,-60"
+            fill="none"
+            stroke="#1a1a1a"
+            stroke-width="9"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <!-- foot loop at centre end -->
+          <path
+            d="M 8,14 C 14,16 18,20 14,26 C 10,30 4,28 2,22 C 0,16 4,10 8,14"
+            fill="none"
+            stroke="#1a1a1a"
+            stroke-width="7"
+            stroke-linecap="round"
+          />
+        </g>
+      </defs>
+      <!-- 4-fold reflection: top-left, top-right, bottom-left, bottom-right -->
+      <use href="#l-arm" transform="translate(0,0)"/>
+      <use href="#l-arm" transform="scale(-1,1)"/>
+      <use href="#l-arm" transform="scale(1,-1)"/>
+      <use href="#l-arm" transform="scale(-1,-1)"/>
+    </svg>
+    <div class="concept-label">01 — B</div>
+    <div class="concept-name">L reflected 4 ways</div>
+    <div class="concept-note">Same construction as Loewe. "L" is in ALT. The mark represents the brand, not just a letter.</div>
+  </div>
+
+  <!-- 01C: With wordmark -->
+  <div class="concept">
+    <svg viewBox="-110 -120 220 240" width="220" height="240" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <g id="l-arm-sm">
+          <path
+            d="M 5,8
+               C 2,3 -5,-5 -15,-15
+               C -25,-25 -37,-39 -46,-51
+               C -51,-57 -53,-66 -48,-71
+               C -43,-76 -34,-74 -31,-68
+               C -27,-62 -31,-53 -37,-51
+               C -32,-48 -23,-46 -20,-51"
+            fill="none" stroke="#1a1a1a" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"
+          />
+          <path
+            d="M 6,12 C 11,13 14,17 12,21 C 9,25 3,23 1,18 C -1,13 3,9 6,12"
+            fill="none" stroke="#1a1a1a" stroke-width="6" stroke-linecap="round"
+          />
+        </g>
+      </defs>
+      <use href="#l-arm-sm"/>
+      <use href="#l-arm-sm" transform="scale(-1,1)"/>
+      <use href="#l-arm-sm" transform="scale(1,-1)"/>
+      <use href="#l-arm-sm" transform="scale(-1,-1)"/>
+      <!-- Wordmark below -->
+      <text x="0" y="100" text-anchor="middle" font-family="Arial, sans-serif"
+        font-size="18" letter-spacing="10" fill="#1a1a1a" font-weight="normal">ALT.</text>
+      <line x1="-55" y1="84" x2="55" y2="84" stroke="#ccc" stroke-width="0.5"/>
+    </svg>
+    <div class="concept-label">01 — C</div>
+    <div class="concept-name">Mark + Wordmark lockup</div>
+    <div class="concept-note">How it sits with ALT. wordmark underneath. Replace "Arial" with Aktiv Grotesk Extended.</div>
+  </div>
+
+</div>
+
+<hr class="divider">
+<p class="section-title">Direction 02 — Baroque Cartouche / Badge</p>
+
+<div class="grid-3">
+
+  <!-- Oval cartouche -->
+  <div class="concept">
+    <svg viewBox="-80 -100 160 200" width="185" height="220" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 0,-84 C 22,-84 44,-72 54,-54 C 64,-36 66,-20 66,0 C 66,20 64,36 54,54 C 44,72 22,84 0,84 C -22,84 -44,72 -54,54 C -64,36 -66,20 -66,0 C -66,-20 -64,-36 -54,-54 C -44,-72 -22,-84 0,-84 Z"
+        fill="none" stroke="#1a1a1a" stroke-width="1.2"/>
+      <path d="M 0,-68 C 16,-68 34,-58 42,-44 C 52,-28 54,-16 54,0 C 54,16 52,28 42,44 C 34,58 16,68 0,68 C -16,68 -34,58 -42,44 C -52,28 -54,16 -54,0 C -54,-16 -52,-28 -42,-44 C -34,-58 -16,-68 0,-68 Z"
+        fill="none" stroke="#1a1a1a" stroke-width="0.5"/>
+      <!-- top ornament -->
+      <path d="M 0,-84 C -10,-94 -20,-92 -14,-82 C -8,-74 0,-78 0,-84 Z" fill="#1a1a1a"/>
+      <path d="M 0,-84 C 10,-94 20,-92 14,-82 C 8,-74 0,-78 0,-84 Z" fill="#1a1a1a"/>
+      <circle cx="0" cy="-84" r="2" fill="#1a1a1a"/>
+      <!-- bottom ornament -->
+      <path d="M 0,84 C -10,94 -20,92 -14,82 C -8,74 0,78 0,84 Z" fill="#1a1a1a"/>
+      <path d="M 0,84 C 10,94 20,92 14,82 C 8,74 0,78 0,84 Z" fill="#1a1a1a"/>
+      <!-- side scrolls -->
+      <path d="M -66,0 C -74,-8 -78,-18 -68,-20 C -60,-22 -58,-10 -66,0 Z M -66,0 C -74,8 -78,18 -68,20 C -60,22 -58,10 -66,0 Z" fill="#1a1a1a"/>
+      <path d="M 66,0 C 74,-8 78,-18 68,-20 C 60,-22 58,-10 66,0 Z M 66,0 C 74,8 78,18 68,20 C 60,22 58,10 66,0 Z" fill="#1a1a1a"/>
+      <!-- A inside -->
+      <text x="0" y="14" text-anchor="middle" font-family="Georgia" font-size="56" font-style="italic" fill="#1a1a1a">A</text>
+    </svg>
+    <div class="concept-label">02 — A</div>
+    <div class="concept-name">Oval Cartouche</div>
+    <div class="concept-note">Replace italic A with drawn letterform or custom A in Illustrator.</div>
+  </div>
+
+  <!-- Shield -->
+  <div class="concept">
+    <svg viewBox="-72 -90 144 185" width="185" height="220" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 0,-84 C 22,-84 52,-72 60,-50 C 66,-32 66,-10 60,14 C 50,42 34,64 18,76 C 10,82 4,88 0,90 C -4,88 -10,82 -18,76 C -34,64 -50,42 -60,14 C -66,-10 -66,-32 -60,-50 C -52,-72 -22,-84 0,-84 Z"
+        fill="none" stroke="#1a1a1a" stroke-width="1.2"/>
+      <path d="M 0,-70 C 16,-70 40,-60 48,-42 C 54,-26 54,-8 48,12 C 40,36 26,56 14,66 C 7,72 3,76 0,78 C -3,76 -7,72 -14,66 C -26,56 -40,36 -48,12 C -54,-8 -54,-26 -48,-42 C -40,-60 -16,-70 0,-70 Z"
+        fill="none" stroke="#1a1a1a" stroke-width="0.5"/>
+      <!-- crown -->
+      <path d="M -22,-82 L -16,-68 M 0,-86 L 0,-68 M 22,-82 L 16,-68"
+        stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="-22" cy="-84" r="2.8" fill="#1a1a1a"/>
+      <circle cx="0" cy="-87" r="3.2" fill="#1a1a1a"/>
+      <circle cx="22" cy="-84" r="2.8" fill="#1a1a1a"/>
+      <!-- divider line -->
+      <line x1="-48" y1="-14" x2="48" y2="-14" stroke="#1a1a1a" stroke-width="0.5"/>
+      <!-- A -->
+      <text x="0" y="8" text-anchor="middle" font-family="Georgia" font-size="38" font-style="italic" fill="#1a1a1a">A</text>
+      <!-- ALT. text strip -->
+      <text x="0" y="34" text-anchor="middle" font-family="Arial" font-size="6" fill="#1a1a1a" letter-spacing="4">ALT.</text>
+      <!-- bottom scroll -->
+      <path d="M -18,72 C -8,80 8,80 18,72" fill="none" stroke="#1a1a1a" stroke-width="0.8"/>
+    </svg>
+    <div class="concept-label">02 — B</div>
+    <div class="concept-name">Heraldic Shield</div>
+    <div class="concept-note">More architectural. The "badge" feeling from the brief.</div>
+  </div>
+
+  <!-- Art Deco frame -->
+  <div class="concept">
+    <svg viewBox="-78 -92 156 184" width="185" height="220" xmlns="http://www.w3.org/2000/svg">
+      <rect x="-64" y="-78" width="128" height="156" rx="6" fill="none" stroke="#1a1a1a" stroke-width="1.2"/>
+      <rect x="-52" y="-66" width="104" height="132" rx="3" fill="none" stroke="#1a1a1a" stroke-width="0.5"/>
+      <!-- art deco corner bars -->
+      <line x1="-64" y1="-50" x2="-52" y2="-50" stroke="#1a1a1a" stroke-width="1.5"/>
+      <line x1="52" y1="-50" x2="64" y2="-50" stroke="#1a1a1a" stroke-width="1.5"/>
+      <line x1="-64" y1="50" x2="-52" y2="50" stroke="#1a1a1a" stroke-width="1.5"/>
+      <line x1="52" y1="50" x2="64" y2="50" stroke="#1a1a1a" stroke-width="1.5"/>
+      <!-- corner dots -->
+      <circle cx="-64" cy="-78" r="2.5" fill="#1a1a1a"/>
+      <circle cx="64" cy="-78" r="2.5" fill="#1a1a1a"/>
+      <circle cx="-64" cy="78" r="2.5" fill="#1a1a1a"/>
+      <circle cx="64" cy="78" r="2.5" fill="#1a1a1a"/>
+      <!-- top rule and label zone -->
+      <line x1="-52" y1="-54" x2="52" y2="-54" stroke="#1a1a1a" stroke-width="0.5"/>
+      <text x="0" y="-60" text-anchor="middle" font-family="Arial" font-size="6" fill="#1a1a1a" letter-spacing="5">A L T.</text>
+      <!-- A -->
+      <text x="0" y="18" text-anchor="middle" font-family="Georgia" font-size="62" font-style="italic" fill="#1a1a1a">A</text>
+      <!-- bottom rule -->
+      <line x1="-52" y1="40" x2="52" y2="40" stroke="#1a1a1a" stroke-width="0.5"/>
+      <text x="0" y="56" text-anchor="middle" font-family="Arial" font-size="5" fill="#999" letter-spacing="2">EST. MMXXVI</text>
+    </svg>
+    <div class="concept-label">02 — C</div>
+    <div class="concept-name">Art Deco Cartouche</div>
+    <div class="concept-note">Rectangular. More architectural / structured direction.</div>
+  </div>
+
+</div>
+
+<hr class="divider">
+<p class="section-title">Direction 03 — Ferronnerie / Wrought Iron</p>
+
+<div class="grid-3">
+
+  <!-- Iron A -->
+  <div class="concept">
+    <svg viewBox="-80 -98 160 196" width="185" height="210" xmlns="http://www.w3.org/2000/svg">
+      <!-- Ferronnerie A: the letter A built from wrought iron curves -->
+      <!-- Right leg -->
+      <path d="M 0,-72 C 6,-60 14,-40 22,-20 C 28,-4 36,14 42,30 C 46,42 50,56 48,68 C 46,78 38,82 28,78"
+        fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
+      <!-- Left leg (mirror) -->
+      <path d="M 0,-72 C -6,-60 -14,-40 -22,-20 C -28,-4 -36,14 -42,30 C -46,42 -50,56 -48,68 C -46,78 -38,82 -28,78"
+        fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
+      <!-- Crossbar -->
+      <line x1="-22" y1="14" x2="22" y2="14" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
+      <!-- Apex finial (top) -->
+      <path d="M 0,-72 C -6,-80 -8,-90 0,-92 C 8,-90 6,-80 0,-72 Z" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+      <circle cx="0" cy="-91" r="2.5" fill="#1a1a1a"/>
+      <!-- Left foot scroll -->
+      <path d="M 28,78 C 16,84 6,84 -4,80 C -14,76 -14,66 -6,62 C 2,58 10,64 6,72"
+        fill="none" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/>
+      <!-- Right foot scroll -->
+      <path d="M -28,78 C -16,84 -6,84 4,80 C 14,76 14,66 6,62 C -2,58 -10,64 -6,72"
+        fill="none" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/>
+      <!-- Crossbar left terminal scroll -->
+      <path d="M -22,14 C -28,10 -38,12 -38,20 C -38,28 -28,30 -22,24 C -16,18 -18,12 -22,14"
+        fill="none" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/>
+      <!-- Crossbar right terminal scroll -->
+      <path d="M 22,14 C 28,10 38,12 38,20 C 38,28 28,30 22,24 C 16,18 18,12 22,14"
+        fill="none" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/>
+      <!-- leaf at left crossbar scroll end -->
+      <path d="M -38,20 C -44,14 -46,6 -40,4 C -36,8 -36,14 -38,20 Z" fill="#1a1a1a"/>
+      <path d="M 38,20 C 44,14 46,6 40,4 C 36,8 36,14 38,20 Z" fill="#1a1a1a"/>
+    </svg>
+    <div class="concept-label">03 — A</div>
+    <div class="concept-name">Iron A Letterform</div>
+    <div class="concept-note">The letter A in ferronnerie style. Scrolls at feet and crossbar.</div>
+  </div>
+
+  <!-- Iron Oval -->
+  <div class="concept">
+    <svg viewBox="-84 -96 168 192" width="185" height="210" xmlns="http://www.w3.org/2000/svg">
+      <!-- Oval frame -->
+      <ellipse cx="0" cy="0" rx="60" ry="74" fill="none" stroke="#1a1a1a" stroke-width="1.8"/>
+      <!-- Top scroll cluster -->
+      <path d="M -18,-74 C -12,-84 -4,-88 0,-86 C 4,-88 12,-84 18,-74"
+        fill="none" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M -18,-74 C -22,-82 -28,-84 -26,-78 C -24,-72 -16,-72 -14,-78"
+        fill="none" stroke="#1a1a1a" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M 18,-74 C 22,-82 28,-84 26,-78 C 24,-72 16,-72 14,-78"
+        fill="none" stroke="#1a1a1a" stroke-width="1.2" stroke-linecap="round"/>
+      <circle cx="0" cy="-87" r="2.5" fill="#1a1a1a"/>
+      <!-- Bottom scroll cluster -->
+      <path d="M -18,74 C -12,84 -4,88 0,86 C 4,88 12,84 18,74"
+        fill="none" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M -18,74 C -22,82 -28,84 -26,78 C -24,72 -16,72 -14,78"
+        fill="none" stroke="#1a1a1a" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M 18,74 C 22,82 28,84 26,78 C 24,72 16,72 14,78"
+        fill="none" stroke="#1a1a1a" stroke-width="1.2" stroke-linecap="round"/>
+      <!-- Side scrolls -->
+      <path d="M -60,0 C -68,-8 -72,-18 -64,-22 C -56,-24 -54,-12 -60,0 Z M -60,0 C -68,8 -72,18 -64,22 C -56,24 -54,12 -60,0 Z" fill="#1a1a1a"/>
+      <path d="M 60,0 C 68,-8 72,-18 64,-22 C 56,-24 54,-12 60,0 Z M 60,0 C 68,8 72,18 64,22 C 56,24 54,12 60,0 Z" fill="#1a1a1a"/>
+      <!-- Inner fine ring -->
+      <ellipse cx="0" cy="0" rx="48" ry="60" fill="none" stroke="#1a1a1a" stroke-width="0.5"/>
+      <!-- Italic A -->
+      <text x="0" y="16" text-anchor="middle" font-family="Georgia" font-size="58" font-style="italic" fill="#1a1a1a">A</text>
+    </svg>
+    <div class="concept-label">03 — B</div>
+    <div class="concept-name">Iron Oval Badge</div>
+    <div class="concept-note">Closest to the Monestary embossed reference. "Something like this embossed on the bottle."</div>
+  </div>
+
+  <!-- Iron rosette (standalone ornamental mark) -->
+  <div class="concept">
+    <svg viewBox="-90 -90 180 180" width="210" height="210" xmlns="http://www.w3.org/2000/svg">
+      <!-- Centre hub -->
+      <circle cx="0" cy="0" r="7" fill="white" stroke="#1a1a1a" stroke-width="2"/>
+      <circle cx="0" cy="0" r="2.5" fill="#1a1a1a"/>
+      <!-- Main cross bars -->
+      <line x1="-72" y1="0" x2="-8" y2="0" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="8" y1="0" x2="72" y2="0" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="0" y1="-72" x2="0" y2="-8" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="0" y1="8" x2="0" y2="72" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- Diagonal bars -->
+      <line x1="-52" y1="-52" x2="-6" y2="-6" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="52" y1="-52" x2="6" y2="-6" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="-52" y1="52" x2="-6" y2="6" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="52" y1="52" x2="6" y2="6" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/>
+      <!-- Corner acanthus scrolls -->
+      <path d="M -52,-52 C -62,-44 -70,-50 -66,-60 C -62,-68 -54,-64 -52,-52 Z" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+      <path d="M 52,-52 C 62,-44 70,-50 66,-60 C 62,-68 54,-64 52,-52 Z" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+      <path d="M -52,52 C -62,44 -70,50 -66,60 C -62,68 -54,64 -52,52 Z" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+      <path d="M 52,52 C 62,44 70,50 66,60 C 62,68 54,64 52,52 Z" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+      <!-- Axis terminals: tulip/leaf motifs -->
+      <path d="M 0,-72 C -5,-76 -6,-84 0,-84 C 6,-84 5,-76 0,-72 Z" fill="#1a1a1a"/>
+      <path d="M 0,72 C -5,76 -6,84 0,84 C 6,84 5,76 0,72 Z" fill="#1a1a1a"/>
+      <path d="M -72,0 C -76,-5 -84,-6 -84,0 C -84,6 -76,5 -72,0 Z" fill="#1a1a1a"/>
+      <path d="M 72,0 C 76,-5 84,-6 84,0 C 84,6 76,5 72,0 Z" fill="#1a1a1a"/>
+    </svg>
+    <div class="concept-label">03 — C</div>
+    <div class="concept-name">Ferronnerie Rosette</div>
+    <div class="concept-note">Standalone ornamental mark. No letter — works as a decorative device on packaging.</div>
+  </div>
+
+</div>
+
+<hr class="divider">
+<p class="section-title">On Chrome — Preview</p>
+
+<div class="chrome-row" style="max-width: 900px; margin: 0 auto 40px;">
+
+  <!-- Anagram on white -->
+  <div class="chrome-item">
+    <svg viewBox="-60 -60 120 120" width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+      <rect x="-60" y="-60" width="120" height="120" fill="white"/>
+      <defs>
+        <g id="la-sm">
+          <path d="M 4,7 C 1,3 -4,-4 -12,-12 C -20,-20 -30,-32 -37,-42 C -41,-48 -43,-55 -39,-59 C -35,-63 -28,-61 -26,-55 C -23,-49 -27,-43 -31,-41 C -27,-39 -20,-37 -17,-42"
+            fill="none" stroke="#1a1a1a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M 5,9 C 9,10 11,13 9,17 C 7,20 2,19 0,15 C -1,11 2,8 5,9"
+            fill="none" stroke="#1a1a1a" stroke-width="5" stroke-linecap="round"/>
+        </g>
+      </defs>
+      <use href="#la-sm"/>
+      <use href="#la-sm" transform="scale(-1,1)"/>
+      <use href="#la-sm" transform="scale(1,-1)"/>
+      <use href="#la-sm" transform="scale(-1,-1)"/>
+    </svg>
+    <div class="chrome-label">On white</div>
+  </div>
+
+  <!-- Anagram on chrome sim -->
+  <div class="chrome-item">
+    <svg viewBox="-60 -60 120 120" width="140" height="140" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="chrome" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#c8c8c8"/>
+          <stop offset="25%" style="stop-color:#f0f0f0"/>
+          <stop offset="50%" style="stop-color:#a8a8a8"/>
+          <stop offset="75%" style="stop-color:#e4e4e4"/>
+          <stop offset="100%" style="stop-color:#b8b8b8"/>
+        </linearGradient>
+        <g id="la-wh">
+          <path d="M 4,7 C 1,3 -4,-4 -12,-12 C -20,-20 -30,-32 -37,-42 C -41,-48 -43,-55 -39,-59 C -35,-63 -28,-61 -26,-55 C -23,-49 -27,-43 -31,-41 C -27,-39 -20,-37 -17,-42"
+            fill="none" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M 5,9 C 9,10 11,13 9,17 C 7,20 2,19 0,15 C -1,11 2,8 5,9"
+            fill="none" stroke="white" stroke-width="5" stroke-linecap="round"/>
+        </g>
+      </defs>
+      <rect x="-60" y="-60" width="120" height="120" fill="url(#chrome)"/>
+      <use href="#la-wh"/>
+      <use href="#la-wh" transform="scale(-1,1)"/>
+      <use href="#la-wh" transform="scale(1,-1)"/>
+      <use href="#la-wh" transform="scale(-1,-1)"/>
+    </svg>
+    <div class="chrome-label">On chrome</div>
+  </div>
+
+  <!-- Cartouche on chrome -->
+  <div class="chrome-item">
+    <svg viewBox="-65 -80 130 160" width="120" height="150" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="chrome2" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#c0c0c0"/>
+          <stop offset="30%" style="stop-color:#ececec"/>
+          <stop offset="60%" style="stop-color:#a0a0a0"/>
+          <stop offset="100%" style="stop-color:#d0d0d0"/>
+        </linearGradient>
+      </defs>
+      <rect x="-65" y="-80" width="130" height="160" fill="url(#chrome2)"/>
+      <ellipse cx="0" cy="0" rx="50" ry="62" fill="none" stroke="white" stroke-width="1.2"/>
+      <ellipse cx="0" cy="0" rx="40" ry="50" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="0.5"/>
+      <path d="M 0,-62 C -8,-70 -16,-68 -12,-60 C -8,-54 0,-58 0,-62 Z M 0,-62 C 8,-70 16,-68 12,-60 C 8,-54 0,-58 0,-62 Z" fill="white"/>
+      <path d="M -50,0 C -58,-6 -62,-14 -55,-17 C -48,-20 -46,-10 -50,0 Z M -50,0 C -58,6 -62,14 -55,17 C -48,20 -46,10 -50,0 Z" fill="white"/>
+      <path d="M 50,0 C 58,-6 62,-14 55,-17 C 48,-20 46,-10 50,0 Z M 50,0 C 58,6 62,14 55,17 C 48,20 46,10 50,0 Z" fill="white"/>
+      <text x="0" y="12" text-anchor="middle" font-family="Georgia" font-size="44" font-style="italic" fill="white">A</text>
+    </svg>
+    <div class="chrome-label">Cartouche on chrome</div>
+  </div>
+
+  <!-- On black -->
+  <div class="chrome-item">
+    <svg viewBox="-60 -60 120 120" width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+      <rect x="-60" y="-60" width="120" height="120" fill="#111"/>
+      <defs>
+        <g id="la-gold">
+          <path d="M 4,7 C 1,3 -4,-4 -12,-12 C -20,-20 -30,-32 -37,-42 C -41,-48 -43,-55 -39,-59 C -35,-63 -28,-61 -26,-55 C -23,-49 -27,-43 -31,-41 C -27,-39 -20,-37 -17,-42"
+            fill="none" stroke="#d4af70" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M 5,9 C 9,10 11,13 9,17 C 7,20 2,19 0,15 C -1,11 2,8 5,9"
+            fill="none" stroke="#d4af70" stroke-width="5" stroke-linecap="round"/>
+        </g>
+      </defs>
+      <use href="#la-gold"/>
+      <use href="#la-gold" transform="scale(-1,1)"/>
+      <use href="#la-gold" transform="scale(1,-1)"/>
+      <use href="#la-gold" transform="scale(-1,-1)"/>
+    </svg>
+    <div class="chrome-label">On black (gold)</div>
+  </div>
+
+</div>
+
+<hr class="divider">
+<p class="section-title">Monday Plan — Fastest Path to Mockups</p>
+
+<div class="shortcut-grid">
+  <div class="shortcut">
+    <h4>Tonight / Saturday AM — Get the marks</h4>
+    <p>
+      <strong>Anagram (Dir 01):</strong> Open this HTML in Illustrator via File → Place. The SVG arm path is your starting point. Trace it with the Pen tool using a calligraphic brush, then use Object → Transform → Reflect. 30–40 min.<br><br>
+      <strong>Cartouche (Dir 02):</strong> Don't generate it — <em>buy it</em>. Go to <strong>creativemarket.com</strong> and search <code>baroque cartouche vector</code> or <code>ornate oval frame vector</code>. $15–25, you get a perfect Illustrator file. Drop your A letterform in. Done in 10 minutes.<br><br>
+      <strong>Ferronnerie (Dir 03):</strong> Same approach — search <code>art nouveau frame vector</code> or <code>wrought iron ornament vector</code> on Creative Market or <strong>envato.com</strong>.
+    </p>
+  </div>
+  <div class="shortcut">
+    <h4>Saturday PM — Get the mockups</h4>
+    <p>
+      <strong>Chrome tube mockup:</strong> Go to <strong>unblast.com</strong> (free) or <strong>yellowimages.com</strong> and download a cosmetic tube mockup PSD. Search <code>cosmetic tube mockup PSD</code>. Open in Photoshop, double-click the smart object layer, paste your mark. Save. Done in 5 minutes per direction.<br><br>
+      <strong>Alternative (even faster):</strong> Go to <strong>smartmockups.com</strong> — upload a PNG of your mark, it places it on a 3D tube render in the browser. No Photoshop needed. Free tier available.<br><br>
+      <strong>Result:</strong> 3 directions × chrome tube = 3 mockup images ready for Anh.
+    </p>
+  </div>
+</div>
+
+<div style="max-width: 1000px; margin: 30px auto 0; background: white; padding: 24px 30px;">
+  <p style="font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #aaa; margin-bottom: 10px;">Note on the A vs L question</p>
+  <p style="font-size: 12px; line-height: 1.8; color: #666;">The anagram direction doesn't have to use the literal letter A. The Loewe logo uses L — but it's known as the Loewe <em>anagram</em>, not just the Loewe L. The mark represents the brand, not the initial. Using L from ALT. gives you the same interlocking dynamic that makes the Loewe construction work. If you want A specifically, use just one diagonal stroke of the A (not the full letter) — that asymmetric stroke will reflect in an interesting way. The full symmetric A reflects into an hourglass. One diagonal arm of A reflects into something much more alive.</p>
+</div>
+
+</body>
+</html>
