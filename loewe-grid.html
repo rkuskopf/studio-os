@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loewe Anagram — Grid Construction</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+    background: #edece9;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  .wrap {
+    display: flex;
+    gap: 36px;
+    align-items: flex-start;
+    max-width: 880px;
+    width: 100%;
+  }
+  .svg-panel {
+    flex: 0 0 480px;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 20px rgba(0,0,0,.09);
+    overflow: hidden;
+  }
+  svg { display: block; width: 100%; height: auto; }
+
+  /* SVG layer transitions */
+  .layer { transition: opacity .22s ease; }
+
+  .ctrl-panel { flex: 1; min-width: 0; }
+  .ctrl-panel h2 {
+    font-size: 10.5px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #1a1a1a;
+    margin-bottom: 3px;
+  }
+  .ctrl-panel .sub {
+    font-size: 11.5px;
+    color: #888;
+    line-height: 1.55;
+    margin-bottom: 22px;
+  }
+  .group-label {
+    font-size: 9.5px;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: #bbb;
+    margin: 18px 0 7px;
+  }
+  .toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 11px;
+    background: #fff;
+    border: 1px solid #e6e5e0;
+    border-radius: 2px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    font-size: 11.5px;
+    color: #555;
+    margin-bottom: 4px;
+    transition: border-color .15s, color .15s;
+    letter-spacing: .01em;
+  }
+  .toggle:hover { border-color: #c8c7c2; }
+  .toggle.on { border-color: var(--c); color: #1a1a1a; }
+  .swatch {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    border: 2px solid var(--c);
+    flex-shrink: 0;
+    transition: background .15s;
+  }
+  .toggle.on .swatch { background: var(--c); }
+
+  .note {
+    margin-top: 22px;
+    padding: 14px;
+    background: #fff;
+    border: 1px solid #e6e5e0;
+    border-radius: 2px;
+    font-size: 11px;
+    color: #888;
+    line-height: 1.7;
+  }
+  .note b { color: #444; font-weight: 500; }
+
+  .legend {
+    margin-top: 14px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    color: #999;
+  }
+  .legend-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <!-- ─── SVG CANVAS ─── -->
+  <div class="svg-panel">
+    <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" fill="none">
+      <rect width="500" height="500" fill="#f9f8f5"/>
+
+      <!-- ── DIAGONAL CONSTRUCTION LINES ── -->
+      <g id="l-diag" class="layer" opacity="0">
+        <!-- Main diagonals of bounding square -->
+        <line x1="65" y1="65" x2="435" y2="435" stroke="#a8b4c4" stroke-width="0.75" stroke-dasharray="4 3"/>
+        <line x1="435" y1="65" x2="65" y2="435" stroke="#a8b4c4" stroke-width="0.75" stroke-dasharray="4 3"/>
+        <!-- Quarter diagonals (quadrant corners to quadrant centers) -->
+        <line x1="65" y1="65" x2="250" y2="250" stroke="#a8b4c4" stroke-width="0.45" stroke-dasharray="2 5" opacity="0.55"/>
+        <line x1="435" y1="65" x2="250" y2="250" stroke="#a8b4c4" stroke-width="0.45" stroke-dasharray="2 5" opacity="0.55"/>
+        <line x1="65" y1="435" x2="250" y2="250" stroke="#a8b4c4" stroke-width="0.45" stroke-dasharray="2 5" opacity="0.55"/>
+        <line x1="435" y1="435" x2="250" y2="250" stroke="#a8b4c4" stroke-width="0.45" stroke-dasharray="2 5" opacity="0.55"/>
+      </g>
+
+      <!-- ── BOUNDING SQUARE ── -->
+      <g id="l-box" class="layer" opacity="0">
+        <rect x="65" y="65" width="370" height="370" stroke="#3b82f6" stroke-width="1.5"/>
+        <!-- Side midpoint marks -->
+        <line x1="62" y1="250" x2="68" y2="250" stroke="#3b82f6" stroke-width="1"/>
+        <line x1="432" y1="250" x2="438" y2="250" stroke="#3b82f6" stroke-width="1"/>
+        <line x1="250" y1="62" x2="250" y2="68" stroke="#3b82f6" stroke-width="1"/>
+        <line x1="250" y1="432" x2="250" y2="438" stroke="#3b82f6" stroke-width="1"/>
+      </g>
+
+      <!-- ── QUADRANT DIVIDERS ── -->
+      <g id="l-quad" class="layer" opacity="0">
+        <line x1="65" y1="250" x2="435" y2="250" stroke="#7c3aed" stroke-width="1.2"/>
+        <line x1="250" y1="65" x2="250" y2="435" stroke="#7c3aed" stroke-width="1.2"/>
+        <!-- Quadrant midpoint markers -->
+        <circle cx="157" cy="65" r="1.5" fill="#7c3aed" opacity="0.5"/>
+        <circle cx="343" cy="65" r="1.5" fill="#7c3aed" opacity="0.5"/>
+        <circle cx="157" cy="435" r="1.5" fill="#7c3aed" opacity="0.5"/>
+        <circle cx="343" cy="435" r="1.5" fill="#7c3aed" opacity="0.5"/>
+        <circle cx="65" cy="157" r="1.5" fill="#7c3aed" opacity="0.5"/>
+        <circle cx="65" cy="343" r="1.5" fill="#7c3aed" opacity="0.5"/>
+        <circle cx="435" cy="157" r="1.5" fill="#7c3aed" opacity="0.5"/>
+        <circle cx="435" cy="343" r="1.5" fill="#7c3aed" opacity="0.5"/>
+      </g>
+
+      <!-- ── PRIMARY QUADRANT CIRCLES ── -->
+      <!-- Each inscribed in a quadrant: radius = 185/2 ≈ 92.5, centered at quadrant center -->
+      <!-- Quadrant centers: TL(157,157), TR(343,157), BL(157,343), BR(343,343) -->
+      <g id="l-prim" class="layer" opacity="0">
+        <circle cx="157" cy="157" r="92" stroke="#ef4444" stroke-width="1.3" stroke-dasharray="5 3.5"/>
+        <circle cx="343" cy="157" r="92" stroke="#ef4444" stroke-width="1.3" stroke-dasharray="5 3.5"/>
+        <circle cx="157" cy="343" r="92" stroke="#ef4444" stroke-width="1.3" stroke-dasharray="5 3.5"/>
+        <circle cx="343" cy="343" r="92" stroke="#ef4444" stroke-width="1.3" stroke-dasharray="5 3.5"/>
+      </g>
+
+      <!-- ── SECONDARY CIRCLES (off-axis) ── -->
+      <!-- These are the circles your single-quadrant overlay misses.          Each letterform uses a large primary arc + transitions to an         inner secondary circle for the terminal hook.         The secondary circles are NOT centered at the quadrant center.         They are tangent to the primary circle from the inside. -->
+      <!-- r_secondary ≈ r_primary × (φ-1) ≈ 92 × 0.618 ≈ 57  -->
+      <!-- Positioned inside each quadrant, offset toward the center of the logo -->
+      <g id="l-sec" class="layer" opacity="0">
+        <!-- Secondary circles are INTERNALLY TANGENT to the primary circles.              r_secondary ≈ r_primary / φ² ≈ 35px.              Centers sit along the diagonal toward the logo center, at              distance (r_primary − r_secondary) = 57px from the primary center.              This means the two circles are tangent at exactly (223,223) for TL — the              point where the main arc hands off to the terminal hook arc. -->
+        <!-- TL secondary: internally tangent to TL primary, toward logo center -->
+        <circle cx="198" cy="198" r="35" stroke="#f97316" stroke-width="1.3" stroke-dasharray="3.5 3"/>
+        <!-- TR secondary: mirror across x=250 -->
+        <circle cx="302" cy="198" r="35" stroke="#f97316" stroke-width="1.3" stroke-dasharray="3.5 3"/>
+        <!-- BL secondary: mirror across y=250 -->
+        <circle cx="198" cy="302" r="35" stroke="#f97316" stroke-width="1.3" stroke-dasharray="3.5 3"/>
+        <!-- BR secondary -->
+        <circle cx="302" cy="302" r="35" stroke="#f97316" stroke-width="1.3" stroke-dasharray="3.5 3"/>
+      </g>
+
+      <!-- ── CENTRAL JUNCTION CIRCLE ── -->
+      <g id="l-cent" class="layer" opacity="0">
+        <circle cx="250" cy="250" r="19" stroke="#f59e0b" stroke-width="1.25" stroke-dasharray="3 3"/>
+      </g>
+
+      <!-- ── CONSTRUCTION POINTS ── -->
+      <g id="l-pts" class="layer" opacity="0">
+        <!-- Primary circle centers (red) -->
+        <circle cx="157" cy="157" r="3.5" fill="#ef4444"/>
+        <circle cx="343" cy="157" r="3.5" fill="#ef4444"/>
+        <circle cx="157" cy="343" r="3.5" fill="#ef4444"/>
+        <circle cx="343" cy="343" r="3.5" fill="#ef4444"/>
+
+        <!-- Secondary circle centers (orange) -->
+        <circle cx="198" cy="198" r="2.8" fill="#f97316"/>
+        <circle cx="302" cy="198" r="2.8" fill="#f97316"/>
+        <circle cx="198" cy="302" r="2.8" fill="#f97316"/>
+        <circle cx="302" cy="302" r="2.8" fill="#f97316"/>
+
+        <!-- Logo center (amber) -->
+        <circle cx="250" cy="250" r="3" fill="#f59e0b"/>
+
+        <!-- Key tangent points — where primary arc ends and secondary arc begins (pink) -->
+        <!-- Computed: primary center + r_primary * unit_toward_logo_center          TL tangent: (157.5 + 92.5/√2, 157.5 + 92.5/√2) = (222.9, 222.9) -->
+        <circle cx="223" cy="223" r="2.5" fill="#ec4899"/>
+        <!-- TR tangent: mirror -->
+        <circle cx="277" cy="223" r="2.5" fill="#ec4899"/>
+        <!-- BL tangent -->
+        <circle cx="223" cy="277" r="2.5" fill="#ec4899"/>
+        <!-- BR tangent -->
+        <circle cx="277" cy="277" r="2.5" fill="#ec4899"/>
+
+        <!-- Tangent points on primary circles at quadrant boundaries -->
+        <!-- TL circle at vertical midline x=250 → (249,157) -->
+        <circle cx="249" cy="157" r="1.8" fill="#8b5cf6" opacity="0.9"/>
+        <circle cx="157" cy="249" r="1.8" fill="#8b5cf6" opacity="0.9"/>
+        <!-- TR -->
+        <circle cx="251" cy="157" r="1.8" fill="#8b5cf6" opacity="0.9"/>
+        <circle cx="343" cy="249" r="1.8" fill="#8b5cf6" opacity="0.9"/>
+        <!-- BL -->
+        <circle cx="249" cy="343" r="1.8" fill="#8b5cf6" opacity="0.9"/>
+        <circle cx="157" cy="251" r="1.8" fill="#8b5cf6" opacity="0.9"/>
+        <!-- BR -->
+        <circle cx="251" cy="343" r="1.8" fill="#8b5cf6" opacity="0.9"/>
+        <circle cx="343" cy="251" r="1.8" fill="#8b5cf6" opacity="0.9"/>
+      </g>
+
+      <!-- ── LOGO PATHS ── -->
+      <!-- Schematic approximation of the Loewe anagram geometry.            Each form: large primary arc (counterclockwise around quadrant circle)          + transition to a smaller inner arc at the terminal hook.          The two arcs connect at a tangent point, so the curvature reversal           is what creates the characteristic hook.                    Note: this is a geometric schematic — not a traced copy of the logo. -->
+      <g id="l-logo" class="layer">
+
+        <!-- TOP-LEFT FORM -->
+        <!-- Main arc: CCW sweep around TL primary circle, entering from center -->
+        <!-- Then transitions to secondary circle for terminal hook -->
+        <path d="
+          M 249,245
+          C 244,225 228,200 206,186
+          C 182,170 151,165 124,174
+          C 94,184 73,209 70,238
+          C 67,265 80,293 103,308
+          C 126,323 157,323 181,310
+          C 202,299 214,278 213,256
+          C 212,241 204,228 193,225
+          C 182,222 171,228 168,239
+          C 165,249 171,260 181,263
+          C 190,265 201,258 203,248
+          C 205,238 199,228 190,226
+        " stroke="#111" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+
+        <!-- TOP-RIGHT FORM (exact mirror across x=250) -->
+        <path d="
+          M 251,245
+          C 256,225 272,200 294,186
+          C 318,170 349,165 376,174
+          C 406,184 427,209 430,238
+          C 433,265 420,293 397,308
+          C 374,323 343,323 319,310
+          C 298,299 286,278 287,256
+          C 288,241 296,228 307,225
+          C 318,222 329,228 332,239
+          C 335,249 329,260 319,263
+          C 310,265 299,258 297,248
+          C 295,238 301,228 310,226
+        " stroke="#111" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+
+        <!-- BOTTOM-LEFT FORM -->
+        <!-- Clockwise sweep around BL primary circle, from center downward -->
+        <path d="
+          M 249,255
+          C 244,275 228,300 206,314
+          C 182,330 151,335 124,326
+          C 94,316 73,291 70,262
+          C 67,235 80,207 103,192
+          C 126,177 157,177 181,190
+          C 202,201 214,222 213,244
+          C 212,259 204,272 193,275
+          C 182,278 171,272 168,261
+          C 165,251 171,240 181,237
+          C 190,235 201,242 203,252
+          C 205,262 199,272 190,274
+        " stroke="#111" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+
+        <!-- BOTTOM-RIGHT FORM (mirror of BL) -->
+        <path d="
+          M 251,255
+          C 256,275 272,300 294,314
+          C 318,330 349,335 376,326
+          C 406,316 427,291 430,262
+          C 433,235 420,207 397,192
+          C 374,177 343,177 319,190
+          C 298,201 286,222 287,244
+          C 288,259 296,272 307,275
+          C 318,278 329,272 332,261
+          C 335,251 329,240 319,237
+          C 310,235 299,242 297,252
+          C 295,262 301,272 310,274
+        " stroke="#111" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+
+      </g>
+
+    </svg>
+  </div>
+
+  <!-- ─── CONTROL PANEL ─── -->
+  <div class="ctrl-panel">
+    <h2>Loewe Anagram</h2>
+    <p class="sub">Grid construction system. Toggle layers to see the geometry behind each letterform.</p>
+
+    <div class="group-label">Foundation</div>
+    <button class="toggle on" style="--c:#111" onclick="tog('logo',this)">
+      <span class="swatch"></span>Logo paths (schematic)
+    </button>
+    <button class="toggle" style="--c:#3b82f6" onclick="tog('box',this)">
+      <span class="swatch"></span>Bounding square
+    </button>
+    <button class="toggle" style="--c:#7c3aed" onclick="tog('quad',this)">
+      <span class="swatch"></span>Quadrant dividers
+    </button>
+    <button class="toggle" style="--c:#a8b4c4" onclick="tog('diag',this)">
+      <span class="swatch"></span>Diagonal construction
+    </button>
+
+    <div class="group-label">Circle system</div>
+    <button class="toggle" style="--c:#ef4444" onclick="tog('prim',this)">
+      <span class="swatch"></span>Primary circles ×4 — letter bodies
+    </button>
+    <button class="toggle" style="--c:#f97316" onclick="tog('sec',this)">
+      <span class="swatch"></span>Secondary circles ×4 — terminal hooks
+    </button>
+    <button class="toggle" style="--c:#f59e0b" onclick="tog('cent',this)">
+      <span class="swatch"></span>Central junction circle
+    </button>
+    <button class="toggle" style="--c:#ec4899" onclick="tog('pts',this)">
+      <span class="swatch"></span>Centers + tangent points
+    </button>
+
+    <div class="note">
+      <b>Why single circles don't work:</b> Each stroke uses two circles in sequence. The main body follows a large primary arc (r ≈ 92px), then the path transitions — without breaking — to a smaller secondary circle (r ≈ 35px ≈ r/φ²) for the terminal hook. This transition is smooth because the two circles are <b>internally tangent</b>: they share exactly one point, (223, 223) for the top-left form. At that point, the curvature flips but the direction stays continuous.
+      <br><br>
+      The secondary circles are <b>not at the quadrant center</b> — they sit 57px toward the logo's center along the diagonal, which is why a simple 4-circle inscribed grid never explains the hooks. Toggle both circle layers together to see the full system.
+      <div class="legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#ef4444"></div>Primary centers</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#f97316"></div>Secondary centers</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#ec4899"></div>Tangent transitions</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#8b5cf6"></div>Circle boundary pts</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const state = { logo:1, box:0, quad:0, diag:0, prim:0, sec:0, cent:0, pts:0 };
+
+  function tog(id, btn) {
+    state[id] = state[id] ? 0 : 1;
+    const el = document.getElementById('l-' + id);
+    if (el) el.style.opacity = state[id];
+    btn.classList.toggle('on', !!state[id]);
+  }
+
+  // Apply initial state
+  Object.entries(state).forEach(([k, v]) => {
+    const el = document.getElementById('l-' + k);
+    if (el) el.style.opacity = v;
+  });
+</script>
+
+</body>
+</html>
