@@ -235,75 +235,73 @@
       </g>
 
       <!-- ── LOGO PATHS ── -->
-      <!-- Schematic approximation of the Loewe anagram geometry.            Each form: large primary arc (counterclockwise around quadrant circle)          + transition to a smaller inner arc at the terminal hook.          The two arcs connect at a tangent point, so the curvature reversal           is what creates the characteristic hook.                    Note: this is a geometric schematic — not a traced copy of the logo. -->
+      <!--
+        Each form = three segments:
+          1. Entry stroke: near-vertical from centre to the primary circle's inner tangent
+          2. Primary arc:  270° SVG arc following the quadrant's primary circle (r=92)
+                           — this extends to the outer edges of the bounding square
+          3. Terminal hook: short bezier curl off the secondary circle
+
+        Arc directions (SVG screen coords, Y-down):
+          TL: from (249,157) CCW → (157,249)  →  A 92,92 0 1,0
+          TR: from (251,157) CW  → (343,249)  →  A 92,92 0 1,1
+          BL: from (249,343) CW  → (157,251)  →  A 92,92 0 1,1
+          BR: from (251,343) CCW → (343,251)  →  A 92,92 0 1,0
+      -->
       <g id="l-logo" class="layer">
 
         <!-- TOP-LEFT FORM -->
-        <!-- Main arc: CCW sweep around TL primary circle, entering from center -->
-        <!-- Then transitions to secondary circle for terminal hook -->
+        <!-- Entry: centre → right tangent of TL circle (249,157) -->
+        <!-- Arc CCW 270°: right tangent → top (157,65) → left (65,157) → bottom tangent (157,249) -->
+        <!-- Hook: exits rightward from (157,249), curls via secondary circle -->
         <path d="
-          M 249,245
-          C 244,225 228,200 206,186
-          C 182,170 151,165 124,174
-          C 94,184 73,209 70,238
-          C 67,265 80,293 103,308
-          C 126,323 157,323 181,310
-          C 202,299 214,278 213,256
-          C 212,241 204,228 193,225
-          C 182,222 171,228 168,239
-          C 165,249 171,260 181,263
-          C 190,265 201,258 203,248
-          C 205,238 199,228 190,226
-        " stroke="#111" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+          M 250,247
+          C 249,222 249,192 249,157
+          A 92,92 0 1,0 157,249
+          C 167,249 182,245 191,237
+          C 200,229 201,217 195,209
+          C 189,202 180,201 173,207
+          C 166,213 164,225 170,234
+        " stroke="#111" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
 
-        <!-- TOP-RIGHT FORM (exact mirror across x=250) -->
+        <!-- TOP-RIGHT FORM — mirror of TL across x=250 -->
+        <!-- Entry: centre → left tangent of TR circle (251,157) -->
+        <!-- Arc CW 270°: left tangent → top (343,65) → right (435,157) → bottom tangent (343,249) -->
         <path d="
-          M 251,245
-          C 256,225 272,200 294,186
-          C 318,170 349,165 376,174
-          C 406,184 427,209 430,238
-          C 433,265 420,293 397,308
-          C 374,323 343,323 319,310
-          C 298,299 286,278 287,256
-          C 288,241 296,228 307,225
-          C 318,222 329,228 332,239
-          C 335,249 329,260 319,263
-          C 310,265 299,258 297,248
-          C 295,238 301,228 310,226
-        " stroke="#111" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+          M 250,247
+          C 251,222 251,192 251,157
+          A 92,92 0 1,1 343,249
+          C 333,249 318,245 309,237
+          C 300,229 299,217 305,209
+          C 311,202 320,201 327,207
+          C 334,213 336,225 330,234
+        " stroke="#111" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
 
-        <!-- BOTTOM-LEFT FORM -->
-        <!-- Clockwise sweep around BL primary circle, from center downward -->
+        <!-- BOTTOM-LEFT FORM — vertical mirror of TL across y=250 -->
+        <!-- Entry: centre → right tangent of BL circle (249,343) -->
+        <!-- Arc CW 270°: right tangent → bottom (157,435) → left (65,343) → top tangent (157,251) -->
         <path d="
-          M 249,255
-          C 244,275 228,300 206,314
-          C 182,330 151,335 124,326
-          C 94,316 73,291 70,262
-          C 67,235 80,207 103,192
-          C 126,177 157,177 181,190
-          C 202,201 214,222 213,244
-          C 212,259 204,272 193,275
-          C 182,278 171,272 168,261
-          C 165,251 171,240 181,237
-          C 190,235 201,242 203,252
-          C 205,262 199,272 190,274
-        " stroke="#111" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+          M 250,253
+          C 249,278 249,308 249,343
+          A 92,92 0 1,1 157,251
+          C 167,251 182,255 191,263
+          C 200,271 201,283 195,291
+          C 189,298 180,299 173,293
+          C 166,287 164,275 170,266
+        " stroke="#111" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
 
-        <!-- BOTTOM-RIGHT FORM (mirror of BL) -->
+        <!-- BOTTOM-RIGHT FORM — mirror of BL across x=250 -->
+        <!-- Entry: centre → left tangent of BR circle (251,343) -->
+        <!-- Arc CCW 270°: left tangent → bottom (343,435) → right (435,343) → top tangent (343,251) -->
         <path d="
-          M 251,255
-          C 256,275 272,300 294,314
-          C 318,330 349,335 376,326
-          C 406,316 427,291 430,262
-          C 433,235 420,207 397,192
-          C 374,177 343,177 319,190
-          C 298,201 286,222 287,244
-          C 288,259 296,272 307,275
-          C 318,278 329,272 332,261
-          C 335,251 329,240 319,237
-          C 310,235 299,242 297,252
-          C 295,262 301,272 310,274
-        " stroke="#111" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+          M 250,253
+          C 251,278 251,308 251,343
+          A 92,92 0 1,0 343,251
+          C 333,251 318,255 309,263
+          C 300,271 299,283 305,291
+          C 311,298 320,299 327,293
+          C 334,287 336,275 330,266
+        " stroke="#111" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
 
       </g>
 
