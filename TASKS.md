@@ -48,6 +48,11 @@
 - [ ] **Migrate files from Dropbox to iCloud before deletion deadline — see `tasks/dropbox-icloud-migration.md`**
 - [ ] **Move studio-os repo out of iCloud** — git lock issues caused by iCloud sync. Move to `~/Developer/studio-os` and symlink or selectively sync only non-git files.
 
+**Finance / Debt**
+- [ ] **$1,000 owed to old landlord — due 04 April** — figure out how to get the money
+- [ ] **Pioneer Credit (Latitude) — request financial hardship** — Account #26020929, contact Jillian at jgonda@pioneercredit.com.au or 0862142347. Applied for hardship with Latitude, didn't hear back, now with debt collector. Need to email requesting hardship arrangement.
+- [ ] **Probe Finance (Afterpay) — apply for hardship**
+
 
 
 - [x] **Fix lead scraping automation** — replaced broken Google/Maps scrapers with `/lead-finder` Claude slash command. See `tools/SCRAPING-TODO.md` and `SKILLS.md`.
