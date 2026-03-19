@@ -4,6 +4,34 @@ Two-way sync between Asana and GitHub (`rkuskopf/studio-os`), with optional cros
 
 ---
 
+## Quick Reference (TL;DR)
+
+Most common workflow — push new tasks from TASKS.md all the way to Asana:
+
+```bash
+# 1. Push TASKS.md → GitHub Issues
+node tools/sync/sync-tasks-to-github.js --create
+
+# 2. Push GitHub Issues → Asana (via GitHub Action — no local token needed)
+gh workflow run "asana-sync.yml" --field direction=gh-to-asana
+
+# 3. Check sync status
+gh run list --workflow="asana-sync.yml" --limit 3
+```
+
+| Task | Command |
+|------|---------|
+| Preview TASKS.md sync | `node tools/sync/sync-tasks-to-github.js` |
+| Push TASKS.md → GitHub | `node tools/sync/sync-tasks-to-github.js --create` |
+| Push GitHub → Asana | `gh workflow run "asana-sync.yml" --field direction=gh-to-asana` |
+| Push Asana → GitHub | `gh workflow run "asana-sync.yml" --field direction=asana-to-gh` |
+| Full two-way sync | `gh workflow run "asana-sync.yml" --field direction=both` |
+| Dry run (preview) | `gh workflow run "asana-sync.yml" --field dry_run=true` |
+
+**Note:** The Asana PAT is stored as a GitHub secret (`ASANA_PAT`), so you don't need it locally when using the GitHub Action.
+
+---
+
 ## How it works
 
 | Direction | What happens |
@@ -68,13 +96,13 @@ Copy `tools/.env.example` to `tools/.env` as a reference (`.env` is gitignored).
 All commands are run from the `tools/` directory.
 
 ```bash
-cd tools
+cd tools/sync
 ```
 
 ### Dry run (no changes — safe to run any time)
 
 ```bash
-node sync-asana-github.js
+node tools/sync/sync-asana-github.js
 # or:
 npm run sync
 ```
@@ -82,7 +110,7 @@ npm run sync
 ### Full two-way sync (live)
 
 ```bash
-node sync-asana-github.js --sync
+node tools/sync/sync-asana-github.js --sync
 # or:
 npm run sync:live
 ```
@@ -91,13 +119,13 @@ npm run sync:live
 
 ```bash
 # Asana → GitHub only
-node sync-asana-github.js --direction asana-to-gh --sync
+node tools/sync/sync-asana-github.js --direction asana-to-gh --sync
 
 # GitHub → Asana only
-node sync-asana-github.js --direction gh-to-asana --sync
+node tools/sync/sync-asana-github.js --direction gh-to-asana --sync
 
 # Cross-repo mirror only (no Asana PAT needed)
-node sync-asana-github.js --direction cross-repo --sync
+node tools/sync/sync-asana-github.js --direction cross-repo --sync
 ```
 
 ### Specific Asana project
@@ -105,7 +133,7 @@ node sync-asana-github.js --direction cross-repo --sync
 Filter to a single Asana project by name or GID:
 
 ```bash
-node sync-asana-github.js --project "Studio OS" --sync
+node tools/sync/sync-asana-github.js --project "Studio OS" --sync
 ```
 
 ---
