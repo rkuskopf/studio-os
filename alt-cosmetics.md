@@ -58,7 +58,8 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 - [x] Strategy session (completed 25 Feb)
 - [x] Creative brief developed (v1.0 — pending client sign-off)
 - [x] Brand strategy synthesis document produced
-- [ ] Creative brief signed off by client — v5 is overwritten and unclear, not sendable. Needs a full rewrite workshop as a dedicated session. Do not patch it — start fresh.
+- [x] Brand brief rewritten — clean client-facing version created at `projects/alt-cosmetics-brand-brief.md` (v1.0 · March 2026). Brand identity only — no production detail, no prescriptions. Ready to share with Anh for sign-off.
+- [ ] Creative brief (v5 Google Doc) — archive or align to new brand brief. Do not resend v5.
 - [ ] Sort scattered reference images into Direction A / Direction B folders — use Cowork
 - [ ] Identify Van der Weyden serif via WhatTheFont
 - [ ] Locate fonts: ABC Favorit Condensed (Adobe Fonts), Söhne Schmal (Adobe Fonts), Neue Haas Grotesk Display (Adobe Fonts), Suisse Int'l Mono (try Fontshare), Van der Weyden serif (pending ID)
@@ -161,6 +162,7 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 
 ## Key Assets
 
+- **Brand brief (v1.0 — client-facing, clean):** `projects/alt-cosmetics-brand-brief.md`
 - **Client folder (Drive — source of truth for all docs):** https://drive.google.com/drive/folders/1Jqd77iqU2USKZK1QMKyLwE9Sc5tWjxtF
 - **Creative brief (v5 — current):** https://docs.google.com/document/d/1AG2q65K26iMXyRqv_5_GSdLbEMgSan5Y/edit
 - **Mark Generation Fri 06 March:** https://drive.google.com/drive/folders/1dOh68ruxMUNK6qbpcvDJgSup4HofqwwJ?usp=drive_link 
