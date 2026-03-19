@@ -100,10 +100,10 @@ Weighted toward issues KSPF can solve:
 
 ```bash
 # Preview what would be created
-node tools/sync-tasks-to-github.js
+node tools/sync/sync-tasks-to-github.js
 
 # Create the issues
-node tools/sync-tasks-to-github.js --create
+node tools/sync/sync-tasks-to-github.js --create
 ```
 
 Routes tasks automatically:

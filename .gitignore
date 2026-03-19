@@ -30,3 +30,6 @@ tools/brand-monitor/websites-to-audit.csv
 .idea/
 *.swp
 *.swo
+
+# Claude worktrees (local only)
+.claude/worktrees/

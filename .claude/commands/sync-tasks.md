@@ -23,13 +23,13 @@ Parse TASKS.md and create GitHub issues for any unchecked tasks that don't alrea
 
 ```bash
 # Preview what would be created (dry run)
-node tools/sync-tasks-to-github.js
+node tools/sync/sync-tasks-to-github.js
 
 # Actually create the issues
-node tools/sync-tasks-to-github.js --create
+node tools/sync/sync-tasks-to-github.js --create
 
 # Override the target repo
-node tools/sync-tasks-to-github.js --create --repo owner/repo
+node tools/sync/sync-tasks-to-github.js --create --repo owner/repo
 ```
 
 ## Requirements

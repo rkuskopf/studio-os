@@ -4,17 +4,17 @@
 - [ ] **Set up Pinterest business account (studio@kspf.au) + claim kspf.au — see `ops/lead-generation.md` for steps**
 - [ ] **Build target outreach list (10–15 ideal clients)**
 - [ ] Audit ALT. Cosmetics to understand the halucinations and inconsistiencies (particularly in the creative brief). No one should have access to a creative brief below V5.1. We need to put together a quesitonaire to get to the bottom of all unknowns and create a report for what needs to be done
-- [x] **Automate TASKS.md → GitHub Issues** — syncing tasks to GitHub Issues via `tools/sync-tasks-to-github.js`. Routes kspf.au tasks to `kspf.studio-repo` automatically.
+- [x] **Automate TASKS.md → GitHub Issues** — syncing tasks to GitHub Issues via `tools/sync/sync-tasks-to-github.js`. Routes kspf.au tasks to `kspf.studio-repo` automatically.
 - [x] **Gmail draft sync for lead pipeline** — add Gmail API integration to `full-pipeline.js` so drafted emails appear in Gmail drafts ready to review/send. ✅ Working!
-- [x] **Asana ↔ GitHub two-way sync** — `tools/sync-asana-github.js` syncs tasks/issues between Asana and GitHub. Features:
+- [x] **Asana ↔ GitHub two-way sync** — `tools/sync/sync-asana-github.js` syncs tasks/issues between Asana and GitHub. Features:
   - ✅ Bidirectional sync (Asana → GitHub, GitHub → Asana)
-  - ✅ Label-based routing: GitHub issues with specific labels route to different Asana projects (via `tools/label-routing.json` or `LABEL_ROUTING` env var)
+  - ✅ Label-based routing: GitHub issues with specific labels route to different Asana projects (via `tools/sync/label-routing.json` or `LABEL_ROUTING` env var)
   - ✅ Subtask support: `--subtasks` flag syncs Asana subtasks as GitHub issues
   - ✅ Cross-repo mirroring for kspf.au issues
   - ✅ GitHub Actions workflow: `.github/workflows/asana-sync.yml`
 - [ ] **Askable**
  - [ ] we need to create an askable page in this repo with details on this ongoing income stream. we need to optimise my language when I apply for jobs. we also need to create a workflow for when I receive the job sms, I can drop it in here and it gets services.
- - [ ] Scrape UX case study source material and generate portfolio presentation — see `projects/ux-portfolio.md`. This is to be displayed on my askable researcher profile
+ - [ ] Scrape UX case study source material and generate portfolio presentation — see `clients/ux-portfolio.md`. This is to be displayed on my askable researcher profile
 
 ## Future — Lead Gen & Sales Automation
 - [ ] **CRM dashboard for leads/clients** — central place to track lead status, client updates, project history. Options: Notion database, Airtable, or custom dashboard. Should integrate with pipeline outputs.
@@ -35,7 +35,7 @@
 ## In Progress
 
 **ALT. Cosmetics**
-- [ ] **Brand guidelines v2 (landscape format)** — new HTML file at `projects/alt-cosmetics-assets/brand-guidelines-v2.html`. Uses Aktiv Grotesk Extended. Removed unapproved tagline ("Beautiful because it works...") from all files and added to REJECTED in decision log. Next: add visual assets, integrate Figma exports, finalize typography/color specs.
+- [ ] **Brand guidelines v2 (landscape format)** — new HTML file at `clients/alt-cosmetics/assets/brand-guidelines-v2.html`. Uses Aktiv Grotesk Extended. Removed unapproved tagline ("Beautiful because it works...") from all files and added to REJECTED in decision log. Next: add visual assets, integrate Figma exports, finalize typography/color specs.
 - [ ] Audit ALT. Cosmetics to understand the hallucinations and inconsistencies (particularly in the creative brief). No one should have access to a creative brief below V5.1. We need to put together a questionnaire to get to the bottom of all unknowns and create a report for what needs to be done.
 
 **kspf.au**
@@ -45,7 +45,7 @@
 - [ ] **Fix Google Drive MCP connection** — OAuth tokens exist in `claude_desktop_config.json` but no MCP server configured to use them. Previously worked — check if config was lost in a branch merge or reset. Need to add `mcpServers` section with google-drive server. Check git history for previous working config.
 - [ ] Get Wacom Intuos Pro (PTH-451) tablet pen working — driver installed but not responding. Tablet works as trackpad, pen not recognised. Likely macOS Privacy & Security approval issue. Need to confirm macOS version and try clean reinstall. See GitHub issue.
 - [ ] Heaps of issues with logic... updated to logic 12 the other day and now logic files aren't working
-- [ ] **Migrate files from Dropbox to iCloud before deletion deadline — see `tasks/dropbox-icloud-migration.md`**
+- [ ] **Migrate files from Dropbox to iCloud before deletion deadline — see `personal/dropbox-migration.md`**
 - [ ] **Move studio-os repo out of iCloud** — git lock issues caused by iCloud sync. Move to `~/Developer/studio-os` and symlink or selectively sync only non-git files.
 
 **Finance / Debt**
@@ -61,7 +61,7 @@
 
 ## Backlog
 
-- [ ] **Scrape UX case study source material and generate portfolio presentation — see `projects/ux-portfolio.md`**
+- [ ] **Scrape UX case study source material and generate portfolio presentation — see `clients/ux-portfolio.md`**
 - [ ] **Document Alt Cosmetics progress for case study (capture before project wraps)**
 - [ ] **Add UX case studies section to kspf.au**
 - [ ] **Write AP-REPS retrospective case study**
