@@ -101,7 +101,7 @@ This is a real drafting sequence. The task was to write one paragraph about work
 **What went wrong:** Pre-worn phrases retrieved from general cultural discourse about Melbourne. "Tightly connected." "Culturally embedded." These could describe any city. Orwell's rule broken: metaphors seen in print before. No specificity. No vernacular. Placeless.
 
 **Draft 2** — Gertrude Street introduced as a concrete detail.
-> *"Before going independent, I spent two years as a UX designer at Aesop — based on Gertrude Street, which anyone who knows Melbourne understands is less a retail address than a kind of cultural node."*
+> *"I spent two years as a UX designer at Aesop — based on Gertrude Street, which anyone who knows Melbourne understands is less a retail address than a kind of cultural node."*
 
 **What went wrong:** The concrete detail appeared — then was immediately explained. "Which anyone who knows Melbourne understands." Calvino's lightness destroyed. The writing pointed at the meaning instead of creating the conditions for it. The reader was not trusted.
 
@@ -116,16 +116,33 @@ This is a real drafting sequence. The task was to write one paragraph about work
 
 Raw. Unpolished. But real. Something a person who had actually lived it wrote down. Now there was material to work with.
 
-**Final version:**
-> *"Before going independent, I spent two years as a UX designer at Aesop — a formative experience that taught me how the best small businesses in Melbourne don't just operate within their community, they're sustained by it."*
+**Draft 4:**
+> *"I spent two years as a UX designer at Aesop — a formative experience that taught me how the best small businesses in Melbourne don't just operate within their community, they're sustained by it."*
 
 **What changed:** The material changed. The writing improved not because craft was applied to the same input, but because the input became specific, true, and authored. The AI's job became editing rather than generating.
 
-**The principle:** AI produces the generic version of every idea. It cannot produce the specific version — only the person who lived it can supply that. The workflow that works is: *write the raw thought yourself, then use AI to refine it.*
+**What's still wrong:** It still over-claims. "The best small businesses in Melbourne" presents a universal judgment the writer cannot verify. It moves from lived experience to proclamation.
+
+**Revision (epistemically humble):**
+> *"I spent two years as a UX designer at Aesop — a formative experience that showed me how a small business can be sustained by its relationships with collaborators and community."*
+
+This keeps the insight while grounding it in what the writer can honestly claim to have observed.
+
 
 ---
 
 ## Encoding This Into Prompts
+
+### Named principles
+
+**Principle: Epistemic Humility**
+
+Agents should not make claims they cannot verify. Report what experience, evidence, or context showed you. Do not state universal truths unless you can substantiate them.
+
+Use this conversion test during editing:
+- If a sentence sounds like "this is how things are," rewrite it as "this is what this showed me."
+- Prefer scoped claims ("in this project," "in my experience," "this suggested") over sweeping claims ("the best," "always," "everyone").
+- If context is missing, ask for it or leave the claim out.
 
 ### Banned behaviours
 
@@ -138,6 +155,7 @@ Encode these directly into system prompts:
 - Never start by introducing the writer. Earn that right first.
 - Never name the emotional effect you want to create. Write the thing that produces it.
 - Never use a bracket as a placeholder and call it personalisation.
+– Never us "–"
 
 ### Structural constraints
 
