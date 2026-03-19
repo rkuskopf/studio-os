@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALT. COSMETICS — Project Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8f7f5;
+    --surface: #ffffff;
+    --border: #e0ddd8;
+    --accent: #1a1a1a;
+    --accent-warm: #8b7355;
+    --chrome: linear-gradient(135deg, #d4d4d4 0%, #a8a8a8 25%, #e8e8e8 50%, #b0b0b0 75%, #c8c8c8 100%);
+    --muted: #999;
+    --text: #1a1a1a;
+    --text-dim: #666;
+    --success: #4a7c59;
+    --warning: #c9a227;
+    --danger: #b85450;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Syne', sans-serif;
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+
+  .shell {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 32px;
+  }
+
+  /* Header */
+  header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 48px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid var(--accent);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .chrome-badge {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--chrome);
+    border: 1px solid #999;
+  }
+
+  .wordmark {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .title {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .meta {
+    text-align: right;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    line-height: 1.8;
+  }
+
+  .status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--accent);
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    margin-bottom: 8px;
+  }
+
+  /* Progress bar */
+  .progress-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 24px;
+    margin-bottom: 32px;
+  }
+
+  .progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .progress-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .progress-value {
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .progress-bar {
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+  }
+
+  .progress-phases {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 10px;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* Grid layout */
+  .grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .grid-full {
+    grid-column: 1 / -1;
+  }
+
+  /* Cards */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 24px;
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .card-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .card-badge {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .badge-urgent {
+    background: var(--danger);
+    color: white;
+  }
+
+  .badge-blocked {
+    background: var(--warning);
+    color: var(--accent);
+  }
+
+  .badge-ready {
+    background: var(--success);
+    color: white;
+  }
+
+  /* Task list */
+  .task-list {
+    list-style: none;
+  }
+
+  .task-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .task-item:last-child {
+    border-bottom: none;
+  }
+
+  .task-checkbox {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--border);
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+  }
+
+  .task-checkbox.done {
+    background: var(--success);
+    border-color: var(--success);
+    color: white;
+  }
+
+  .task-checkbox.done::after {
+    content: '✓';
+  }
+
+  .task-content {
+    flex: 1;
+  }
+
+  .task-title {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 2px;
+  }
+
+  .task-title.done {
+    text-decoration: line-through;
+    color: var(--muted);
+  }
+
+  .task-meta {
+    font-size: 11px;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+  }
+
+  .task-tag {
+    display: inline-block;
+    font-size: 9px;
+    padding: 2px 6px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    margin-left: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .task-tag.blocker {
+    background: #fff0f0;
+    border-color: var(--danger);
+    color: var(--danger);
+  }
+
+  /* Info blocks */
+  .info-block {
+    margin-bottom: 16px;
+  }
+
+  .info-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  .info-value {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .info-value a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .info-value a:hover {
+    border-color: var(--accent);
+  }
+
+  /* Typography specimens */
+  .type-specimen {
+    padding: 20px;
+    background: var(--bg);
+    margin-bottom: 12px;
+  }
+
+  .type-name {
+    font-size: 10px;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    margin-bottom: 8px;
+  }
+
+  .type-sample-primary {
+    font-family: 'Aktiv Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .type-sample-secondary {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-dim);
+  }
+
+  /* Colour swatches */
+  .swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
+  .swatch {
+    aspect-ratio: 1;
+    border-radius: 4px;
+    position: relative;
+    border: 1px solid var(--border);
+  }
+
+  .swatch-label {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    font-size: 9px;
+    font-family: 'DM Mono', monospace;
+    color: var(--muted);
+  }
+
+  .swatch-chrome {
+    background: var(--chrome);
+  }
+
+  .swatch-warm-1 {
+    background: #e8e4df;
+  }
+
+  .swatch-warm-2 {
+    background: #d4cdc4;
+  }
+
+  .swatch-ink {
+    background: #1a1a1a;
+  }
+
+  /* Dependencies table */
+  .dep-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .dep-table th {
+    text-align: left;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .dep-table td {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .dep-status {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+
+  .dep-status.open {
+    background: var(--danger);
+  }
+
+  .dep-status.done {
+    background: var(--success);
+  }
+
+  /* Links section */
+  .links-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .link-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    background: var(--bg);
+    text-decoration: none;
+    color: var(--text);
+    font-size: 13px;
+    transition: background 0.15s ease;
+  }
+
+  .link-item:hover {
+    background: var(--border);
+  }
+
+  .link-icon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+
+  /* Week plan */
+  .week-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .day-card {
+    padding: 16px;
+    background: var(--bg);
+  }
+
+  .day-name {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .day-date {
+    font-family: 'DM Mono', monospace;
+    font-weight: 400;
+  }
+
+  .day-tasks {
+    list-style: none;
+    font-size: 13px;
+  }
+
+  .day-tasks li {
+    padding: 6px 0;
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .day-tasks li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--muted);
+  }
+
+  .time-estimate {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .week-grid,
+    .links-grid,
+    .swatch-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <div class="chrome-badge"></div>
+      <div>
+        <div class="wordmark">kspf.studio</div>
+        <h1 class="title">ALT. COSMETICS</h1>
+      </div>
+    </div>
+    <div class="meta">
+      <div class="status-badge">Week 4 — Final Delivery</div>
+      <div>Client: Anh Tran</div>
+      <div>Deadline: 20 March 2026</div>
+      <div>Updated: 18 March 2026</div>
+    </div>
+  </header>
+
+  <!-- Progress -->
+  <div class="progress-section">
+    <div class="progress-header">
+      <span class="progress-label">Project Progress</span>
+      <span class="progress-value">~65% complete</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" style="width: 65%"></div>
+    </div>
+    <div class="progress-phases">
+      <span>Strategy ✓</span>
+      <span>Identity (in progress)</span>
+      <span>Packaging (blocked)</span>
+      <span>Guidelines (this week)</span>
+    </div>
+  </div>
+
+  <!-- Main Grid -->
+  <div class="grid">
+    
+    <!-- This Week Tasks -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">This Week — March 18–20</span>
+        <span class="card-badge badge-urgent">2 Days Left</span>
+      </div>
+      
+      <div class="week-grid">
+        <div class="day-card">
+          <div class="day-name">
+            Wednesday <span class="day-date">18 Mar</span>
+          </div>
+          <ul class="day-tasks">
+            <li>Midjourney tube mockups — 3-4 per mark direction <span class="time-estimate">2-3h</span></li>
+            <li>Lock typography system (primary + secondary) <span class="time-estimate">1-2h</span></li>
+            <li>Finalise colour palette values <span class="time-estimate">30m</span></li>
+          </ul>
+        </div>
+        
+        <div class="day-card">
+          <div class="day-name">
+            Thursday <span class="day-date">19 Mar</span>
+          </div>
+          <ul class="day-tasks">
+            <li>Brand guidelines PDF structure <span class="time-estimate">2-3h</span></li>
+            <li>Direction Preview deck for Anh <span class="time-estimate">2h</span></li>
+            <li>Packaging layout template (assumed dims) <span class="time-estimate">1-2h</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Quick Links</span>
+      </div>
+      
+      <div class="links-grid">
+        <a href="https://drive.google.com/drive/folders/1Jqd77iqU2USKZK1QMKyLwE9Sc5tWjxtF" class="link-item" target="_blank">
+          <span class="link-icon">📁</span> Client Folder
+        </a>
+        <a href="https://www.figma.com/design/rvJZnrqjpW5zkOM9u80xZl/ALT.-COSMETICS-%7C-Identity-and-packaging" class="link-item" target="_blank">
+          <span class="link-icon">🎨</span> Figma — Working File
+        </a>
+        <a href="https://docs.google.com/document/d/1AG2q65K26iMXyRqv_5_GSdLbEMgSan5Y/edit" class="link-item" target="_blank">
+          <span class="link-icon">📄</span> Creative Brief (v5)
+        </a>
+        <a href="https://drive.google.com/drive/folders/1fAx_tn0dimGJ69Y4N9vL6GmT_LwBrc8J" class="link-item" target="_blank">
+          <span class="link-icon">🖼️</span> Image References
+        </a>
+        <a href="https://docs.google.com/presentation/d/1RS7Gn8_xeHoCeaIE5_MF6wHlUXScHfZAw66fyqApn1s/edit" class="link-item" target="_blank">
+          <span class="link-icon">📊</span> Process Log
+        </a>
+        <a href="mark-concepts/alt-mark-concepts.html" class="link-item">
+          <span class="link-icon">✦</span> Mark Concepts
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Deliverables & Dependencies -->
+  <div class="grid">
+    
+    <!-- Deliverables -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Deliverables</span>
+      </div>
+      
+      <ul class="task-list">
+        <li class="task-item">
+          <div class="task-checkbox done"></div>
+          <div class="task-content">
+            <div class="task-title done">Brand strategy + positioning</div>
+            <div class="task-meta">Completed Week 1</div>
+          </div>
+        </li>
+        <li class="task-item">
+          <div class="task-checkbox"></div>
+          <div class="task-content">
+            <div class="task-title">Mark / Logo <span class="task-tag">in progress</span></div>
+            <div class="task-meta">Multiple directions in development — needs final selection</div>
+          </div>
+        </li>
+        <li class="task-item">
+          <div class="task-checkbox"></div>
+          <div class="task-content">
+            <div class="task-title">Typography system <span class="task-tag">ready</span></div>
+            <div class="task-meta">Primary: Aktiv Grotesque · Secondary: TBD (not mono)</div>
+          </div>
+        </li>
+        <li class="task-item">
+          <div class="task-checkbox"></div>
+          <div class="task-content">
+            <div class="task-title">Colour palette <span class="task-tag">ready</span></div>
+            <div class="task-meta">Chrome + warm neutrals direction confirmed</div>
+          </div>
+        </li>
+        <li class="task-item">
+          <div class="task-checkbox"></div>
+          <div class="task-content">
+            <div class="task-title">Brand guidelines PDF <span class="task-tag">this week</span></div>
+            <div class="task-meta">Lite version — can complete 70-80% without final mark</div>
+          </div>
+        </li>
+        <li class="task-item">
+          <div class="task-checkbox"></div>
+          <div class="task-content">
+            <div class="task-title">Packaging artwork <span class="task-tag blocker">blocked</span></div>
+            <div class="task-meta">Waiting on supplier dielines, dimensions, ingredient list</div>
+          </div>
+        </li>
+        <li class="task-item">
+          <div class="task-checkbox"></div>
+          <div class="task-content">
+            <div class="task-title">Print-ready production files <span class="task-tag blocker">blocked</span></div>
+            <div class="task-meta">Requires final packaging artwork</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Dependencies -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Waiting on Client</span>
+        <span class="card-badge badge-blocked">6 Open</span>
+      </div>
+      
+      <table class="dep-table">
+        <tr>
+          <th>Item</th>
+          <th>Status</th>
+        </tr>
+        <tr>
+          <td><span class="dep-status open"></span>Supplier dielines + dimensions</td>
+          <td>Open</td>
+        </tr>
+        <tr>
+          <td><span class="dep-status open"></span>Tube capacity (3ml/4ml/5ml)</td>
+          <td>Open</td>
+        </tr>
+        <tr>
+          <td><span class="dep-status open"></span>Secondary packaging confirmed</td>
+          <td>Open</td>
+        </tr>
+        <tr>
+          <td><span class="dep-status open"></span>Final ingredient list</td>
+          <td>Open</td>
+        </tr>
+        <tr>
+          <td><span class="dep-status open"></span>Brand name confirmed in writing</td>
+          <td>Open</td>
+        </tr>
+        <tr>
+          <td><span class="dep-status open"></span>Retail + wholesale pricing</td>
+          <td>Open</td>
+        </tr>
+        <tr>
+          <td><span class="dep-status done"></span>Finish & materiality (chrome)</td>
+          <td>Done ✓</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Identity System -->
+  <div class="grid">
+    
+    <!-- Typography -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Typography System</span>
+      </div>
+      
+      <div class="type-specimen">
+        <div class="type-name">Primary — Aktiv Grotesque (confirmed)</div>
+        <div class="type-sample-primary">ALT. COSMETICS</div>
+      </div>
+      
+      <div class="type-specimen">
+        <div class="type-name">Secondary — TBD (mono rejected by Anh)</div>
+        <div class="type-sample-secondary">
+          Aqua, Glycerin, Biotinoyl Tripeptide-1, Myristoyl Pentapeptide-17, 
+          Panthenol, Sodium Hyaluronate, Trifolium Pratense (Red Clover) Extract...
+        </div>
+      </div>
+      
+      <div class="info-block" style="margin-top: 16px;">
+        <div class="info-label">Secondary options to explore</div>
+        <div class="info-value" style="font-size: 13px; color: var(--text-dim);">
+          Refined serif (Freight Text, Tiempos) or lighter grotesque variant. 
+          Needs warmth to balance chrome materiality.
+        </div>
+      </div>
+    </div>
+
+    <!-- Colour -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Colour Palette</span>
+      </div>
+      
+      <div class="swatch-grid" style="margin-bottom: 32px;">
+        <div>
+          <div class="swatch swatch-chrome"></div>
+          <div class="swatch-label">Chrome</div>
+        </div>
+        <div>
+          <div class="swatch swatch-warm-1"></div>
+          <div class="swatch-label">Warm Neutral 1</div>
+        </div>
+        <div>
+          <div class="swatch swatch-warm-2"></div>
+          <div class="swatch-label">Warm Neutral 2</div>
+        </div>
+        <div>
+          <div class="swatch swatch-ink"></div>
+          <div class="swatch-label">Ink</div>
+        </div>
+      </div>
+      
+      <div class="info-block">
+        <div class="info-label">Direction</div>
+        <div class="info-value" style="font-size: 13px; color: var(--text-dim);">
+          Monochrome, low contrast. Near-neutrals with warmth. 
+          Not pure black/white — material quality present.
+          Chrome paired with warm secondary elements.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mark Directions -->
+  <div class="card grid-full" style="margin-bottom: 32px;">
+    <div class="card-header">
+      <span class="card-title">Mark Directions (Current)</span>
+      <span class="card-badge badge-ready">Ready for mockups</span>
+    </div>
+    
+    <div class="week-grid" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="day-card">
+        <div class="day-name">Direction A</div>
+        <p style="font-size: 13px; color: var(--text-dim); margin-bottom: 8px;">
+          <strong>Ancient / Carved / Archaeological</strong>
+        </p>
+        <p style="font-size: 12px; color: var(--muted);">
+          Raw, primitive, worn-into-stone quality. Egyptian scarab seals, 
+          ancient intaglio gems. Incised, not raised.
+        </p>
+      </div>
+      
+      <div class="day-card">
+        <div class="day-name">Direction B</div>
+        <p style="font-size: 13px; color: var(--text-dim); margin-bottom: 8px;">
+          <strong>Victorian / Script / Medieval</strong>
+        </p>
+        <p style="font-size: 12px; color: var(--muted);">
+          Fine line heritage script. Ornate calligraphic letterforms, 
+          swash construction. Mauclot monogram sheet reference.
+        </p>
+      </div>
+      
+      <div class="day-card">
+        <div class="day-name">Direction C</div>
+        <p style="font-size: 13px; color: var(--text-dim); margin-bottom: 8px;">
+          <strong>Architectural / Art Deco / SRA SRA</strong>
+        </p>
+        <p style="font-size: 12px; color: var(--muted);">
+          Formal oval cartouche with structured frame. 
+          Letters at compass points. Geometric, authoritative.
+        </p>
+      </div>
+    </div>
+    
+    <div style="margin-top: 16px; padding: 16px; background: var(--bg); font-size: 13px;">
+      <strong>Anh's feedback:</strong> Wants it <em>abstract and flowing</em> — "like the Loewe where you can't really tell what it says." 
+      Not overly structured or masculine. Sweet spot: structured container (oval/circle) with flowing letterforms inside.
+    </div>
+  </div>
+
+  <!-- Packaging Setup -->
+  <div class="card grid-full" style="margin-bottom: 32px;">
+    <div class="card-header">
+      <span class="card-title">Packaging — What You Can Do Now</span>
+    </div>
+    
+    <div class="week-grid">
+      <div class="day-card">
+        <div class="day-name">Assumed Dimensions</div>
+        <ul class="day-tasks" style="font-family: 'DM Mono', monospace; font-size: 12px;">
+          <li>Tube body: ~12mm Ø × 90mm H</li>
+          <li>Label/engrave area: ~25mm × 60mm</li>
+          <li>Secondary pouch: ~80mm × 120mm</li>
+        </ul>
+      </div>
+      
+      <div class="day-card">
+        <div class="day-name">Layout Decisions (No Specs Needed)</div>
+        <ul class="day-tasks">
+          <li>Mark placement — centred vs offset</li>
+          <li>Wordmark positioning</li>
+          <li>Hierarchy: Brand → Product → Volume → Regulatory</li>
+          <li>Back panel structure</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tone of Voice -->
+  <div class="card grid-full">
+    <div class="card-header">
+      <span class="card-title">Tone of Voice</span>
+    </div>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+      <div>
+        <div class="info-label" style="margin-bottom: 8px;">Character</div>
+        <p style="font-size: 14px; line-height: 1.6;">
+          Precise, confident, uncluttered. States rather than suggests. 
+          No exclamation marks. Warm in the way a trusted expert is warm — not effusive. 
+          Specificity over vagueness.
+        </p>
+      </div>
+      
+      <div>
+        <div class="info-label" style="margin-bottom: 8px;">Avoid</div>
+        <p style="font-size: 14px; line-height: 1.6; color: var(--danger);">
+          "ritual" · "glow" · "nourishing" · "clean beauty" · wellness clichés · 
+          over-explanation · exclamation marks
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <span>ALT. COSMETICS · kspf.studio</span>
+    <span>Last updated: Wed 18 March 2026</span>
+  </footer>
+
+</div>
+</body>
+</html>

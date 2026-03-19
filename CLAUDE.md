@@ -71,3 +71,8 @@ David Carnegie at Holmesglen is a business mentor/advisor. Finance check-ins hap
 - Asana is primary PM tool
 - Prefers structured daily calendar with named blocks
 - Music practice is part of daily routine, not just hobby
+
+## Tool Limitations
+
+- **Google Docs/Sheets/Slides:** Cannot access authenticated Google Workspace content. Export as CSV, PDF, or copy-paste content into chat or repo files.
+- **PDFs:** Cannot read PDF files — they appear as binary. Export pages as images or copy-paste text content.

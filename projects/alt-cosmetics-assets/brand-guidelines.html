@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALT. COSMETICS — Brand Guidelines</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  :root {
+    --bg: #faf9f7;
+    --surface: #ffffff;
+    --border: #e8e5e0;
+    --accent: #1a1a1a;
+    --warm-1: #e8e4df;
+    --warm-2: #d4cdc4;
+    --warm-3: #b8ad9e;
+    --chrome: linear-gradient(135deg, #d4d4d4 0%, #a8a8a8 25%, #e8e8e8 50%, #b0b0b0 75%, #c8c8c8 100%);
+    --muted: #888;
+    --text: #1a1a1a;
+    --text-dim: #666;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* Page structure */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto 40px;
+    background: var(--surface);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    padding: 48px 56px;
+    position: relative;
+    page-break-after: always;
+  }
+
+  .page-number {
+    position: absolute;
+    bottom: 32px;
+    right: 56px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+  }
+
+  /* Cover page */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: calc(297mm - 96px);
+  }
+
+  .cover-brand {
+    margin-top: 80px;
+  }
+
+  .cover-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 64px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .cover-subtitle {
+    font-size: 18px;
+    color: var(--text-dim);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  .cover-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 2;
+  }
+
+  .cover-chrome {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: var(--chrome);
+    margin-bottom: 40px;
+  }
+
+  /* Section headers */
+  .section-number {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--accent);
+  }
+
+  .subsection-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    margin-top: 32px;
+  }
+
+  .subsection-title:first-of-type {
+    margin-top: 0;
+  }
+
+  /* Content blocks */
+  p {
+    margin-bottom: 16px;
+    max-width: 560px;
+  }
+
+  .lead {
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--text-dim);
+    margin-bottom: 32px;
+    max-width: 480px;
+  }
+
+  /* Logo display */
+  .logo-display {
+    background: var(--warm-1);
+    padding: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 24px 0;
+    min-height: 200px;
+  }
+
+  .logo-display.dark {
+    background: var(--accent);
+  }
+
+  .logo-display.chrome {
+    background: var(--chrome);
+  }
+
+  .logo-placeholder {
+    font-family: 'Syne', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--accent);
+  }
+
+  .logo-display.dark .logo-placeholder {
+    color: var(--surface);
+  }
+
+  .logo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .logo-grid .logo-display {
+    margin: 0;
+    min-height: 160px;
+  }
+
+  /* Clear space diagram */
+  .clearspace-diagram {
+    background: var(--bg);
+    padding: 48px;
+    position: relative;
+    margin: 24px 0;
+  }
+
+  .clearspace-box {
+    border: 1px dashed var(--muted);
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .clearspace-label {
+    position: absolute;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+  }
+
+  /* Minimum size */
+  .min-size-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 32px;
+    margin: 24px 0;
+    padding: 24px;
+    background: var(--bg);
+  }
+
+  .min-size-item {
+    text-align: center;
+  }
+
+  .min-size-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+
+  /* Typography specimens */
+  .type-specimen {
+    margin: 24px 0;
+    padding: 32px;
+    background: var(--bg);
+  }
+
+  .type-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .type-sample {
+    font-size: 48px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .type-alphabet {
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    color: var(--text-dim);
+    line-height: 1.8;
+  }
+
+  .type-weights {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .type-weight {
+    padding: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+  }
+
+  .type-weight-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .type-weight-sample {
+    font-size: 24px;
+  }
+
+  /* Colour swatches */
+  .colour-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin: 24px 0;
+  }
+
+  .colour-swatch {
+    aspect-ratio: 16/9;
+    border-radius: 4px;
+    position: relative;
+  }
+
+  .colour-swatch.chrome {
+    background: var(--chrome);
+  }
+
+  .colour-swatch.warm-1 {
+    background: #e8e4df;
+  }
+
+  .colour-swatch.warm-2 {
+    background: #d4cdc4;
+  }
+
+  .colour-swatch.ink {
+    background: #1a1a1a;
+  }
+
+  .colour-info {
+    margin-top: 12px;
+  }
+
+  .colour-name {
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .colour-values {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  /* Usage examples */
+  .usage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 24px 0;
+  }
+
+  .usage-item {
+    padding: 24px;
+    background: var(--bg);
+  }
+
+  .usage-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  /* Do / Don't */
+  .do-dont-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 24px 0;
+  }
+
+  .do-item, .dont-item {
+    padding: 24px;
+  }
+
+  .do-item {
+    background: #f0f7f0;
+    border-left: 3px solid #4a7c59;
+  }
+
+  .dont-item {
+    background: #fdf0f0;
+    border-left: 3px solid #b85450;
+  }
+
+  .do-label, .dont-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .do-label {
+    color: #4a7c59;
+  }
+
+  .dont-label {
+    color: #b85450;
+  }
+
+  /* Voice examples */
+  .voice-example {
+    padding: 24px;
+    margin: 16px 0;
+    background: var(--bg);
+    border-left: 3px solid var(--accent);
+  }
+
+  .voice-example-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .voice-example-text {
+    font-size: 16px;
+    font-style: italic;
+  }
+
+  /* Table of contents */
+  .toc {
+    margin-top: 48px;
+  }
+
+  .toc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+
+  .toc-number {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    margin-right: 16px;
+  }
+
+  .toc-page {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* Notes / placeholders */
+  .placeholder {
+    background: #fffbe6;
+    border: 1px dashed #c9a227;
+    padding: 16px;
+    margin: 16px 0;
+    font-size: 13px;
+    color: #8b7355;
+  }
+
+  .placeholder::before {
+    content: '⚠ ';
+  }
+
+  /* Print styles */
+  @media print {
+    body {
+      background: white;
+    }
+    
+    .page {
+      box-shadow: none;
+      margin: 0;
+    }
+  }
+
+  /* Screen indicator */
+  .screen-only {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    background: var(--accent);
+    color: white;
+    padding: 8px 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    z-index: 100;
+  }
+
+  @media print {
+    .screen-only {
+      display: none;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="screen-only">WORKING DRAFT — NOT FOR DISTRIBUTION</div>
+
+<!-- ==================== COVER ==================== -->
+<div class="page">
+  <div class="cover">
+    <div class="cover-brand">
+      <div class="cover-chrome"></div>
+      <h1 class="cover-title">ALT.<br>COSMETICS</h1>
+      <p class="cover-subtitle">Brand Guidelines</p>
+    </div>
+    
+    <div class="cover-meta">
+      <div>Version 1.0 — Draft</div>
+      <div>March 2026</div>
+      <div>Prepared by kspf.studio</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== HOW TO USE ==================== -->
+<div class="page">
+  <div class="section-number">00</div>
+  <h2 class="section-title">How To Use This Document</h2>
+  
+  <p class="lead">
+    This guide defines how ALT. Cosmetics looks, sounds, and feels. 
+    Use it to maintain consistency across every touchpoint.
+  </p>
+  
+  <h3 class="subsection-title">Who This Is For</h3>
+  <p>
+    This document is intended for anyone creating materials for ALT. Cosmetics — 
+    including the brand owner, packaging suppliers, printers, photographers, 
+    digital designers, and marketing partners.
+  </p>
+  
+  <h3 class="subsection-title">What's Included</h3>
+  <div class="usage-grid">
+    <div class="usage-item">
+      <div class="usage-label">Brand Overview</div>
+      <p style="margin: 0; font-size: 13px;">Positioning, character, and strategic foundation</p>
+    </div>
+    <div class="usage-item">
+      <div class="usage-label">Logo</div>
+      <p style="margin: 0; font-size: 13px;">Mark usage, variations, clear space, minimum sizes</p>
+    </div>
+    <div class="usage-item">
+      <div class="usage-label">Typography</div>
+      <p style="margin: 0; font-size: 13px;">Typefaces, hierarchy, usage rules, font assets</p>
+    </div>
+    <div class="usage-item">
+      <div class="usage-label">Colour</div>
+      <p style="margin: 0; font-size: 13px;">Palette specifications for print and digital</p>
+    </div>
+    <div class="usage-item">
+      <div class="usage-label">Tone of Voice</div>
+      <p style="margin: 0; font-size: 13px;">Writing style, language, messaging hierarchy</p>
+    </div>
+    <div class="usage-item">
+      <div class="usage-label">Applications</div>
+      <p style="margin: 0; font-size: 13px;">Packaging, digital, and environmental examples</p>
+    </div>
+  </div>
+  
+  <h3 class="subsection-title">Brand Assets</h3>
+  <p>
+    Logo files, fonts, and templates are available in the brand assets folder. 
+    Contact the brand owner for access.
+  </p>
+  
+  <div class="usage-item" style="margin: 16px 0;">
+    <div class="usage-label">Asset Folder</div>
+    <p style="margin: 0; font-size: 13px; font-family: 'DM Mono', monospace;">
+      [Google Drive link to be added]
+    </p>
+  </div>
+  
+  <h3 class="subsection-title">Questions?</h3>
+  <p>
+    For brand usage questions, asset requests, or approval of new applications:
+  </p>
+  <div class="usage-item" style="margin: 16px 0;">
+    <p style="margin: 0; font-size: 13px; font-family: 'DM Mono', monospace;">
+      Brand Owner: Anh Tran<br>
+      Brand Design: kspf.studio · hello@kspf.au
+    </p>
+  </div>
+  
+  <div class="page-number">02</div>
+</div>
+
+<!-- ==================== TABLE OF CONTENTS ==================== -->
+<div class="page">
+  <div class="section-number">00</div>
+  <h2 class="section-title">Contents</h2>
+  
+  <div class="toc">
+    <div class="toc-item">
+      <span><span class="toc-number">00</span> How To Use This Document</span>
+      <span class="toc-page">02</span>
+    </div>
+    <div class="toc-item">
+      <span><span class="toc-number">01</span> Brand Overview</span>
+      <span class="toc-page">04</span>
+    </div>
+    <div class="toc-item">
+      <span><span class="toc-number">02</span> Logo</span>
+      <span class="toc-page">06</span>
+    </div>
+    <div class="toc-item">
+      <span><span class="toc-number">03</span> Typography</span>
+      <span class="toc-page">10</span>
+    </div>
+    <div class="toc-item">
+      <span><span class="toc-number">04</span> Colour</span>
+      <span class="toc-page">15</span>
+    </div>
+    <div class="toc-item">
+      <span><span class="toc-number">05</span> Tone of Voice</span>
+      <span class="toc-page">19</span>
+    </div>
+    <div class="toc-item">
+      <span><span class="toc-number">06</span> Photography</span>
+      <span class="toc-page">23</span>
+    </div>
+    <div class="toc-item">
+      <span><span class="toc-number">07</span> Applications</span>
+      <span class="toc-page">25</span>
+    </div>
+  </div>
+  
+  <div class="page-number">03</div>
+</div>
+
+<!-- ==================== 01 BRAND OVERVIEW ==================== -->
+<div class="page">
+  <div class="section-number">01</div>
+  <h2 class="section-title">Brand Overview</h2>
+  
+  <p class="lead">
+    Beautiful because it works. Designed because it deserves to be.
+  </p>
+  
+  <h3 class="subsection-title">About ALT.</h3>
+  <p>
+    ALT. Cosmetics is a design-forward premium beauty brand launching with a single hero product: 
+    a plant-based, peptide-rich lash serum. Founded by Anh Tran — experienced lash technician 
+    and cosmetic tattoo artist.
+  </p>
+  <p>
+    The brand sits between overtly clinical (Clinique, pharmacy-adjacent) and mass-lifestyle 
+    (Grande, Zali). It neither shouts nor explains itself. It earns its place through restraint, 
+    finish, and intention.
+  </p>
+  
+  <h3 class="subsection-title">Positioning</h3>
+  <p>
+    ALT. occupies whitespace in the Australian beauty market: design-forward aesthetics paired 
+    with genuine clinical credibility. Not pharmacy-cold, not lifestyle-loud. Quietly confident.
+  </p>
+  
+  <h3 class="subsection-title">Brand Character</h3>
+  <p>
+    Quietly confident. Doesn't explain itself. Thrives in simplicity. Not afraid of appearing 
+    shallow. Doesn't follow trends, doesn't deliberately subvert them either. Aesthetics as 
+    an extension of sense and pleasure.
+  </p>
+  
+  <div class="page-number">03</div>
+</div>
+
+<div class="page">
+  <h3 class="subsection-title">Brand Axes</h3>
+  
+  <div class="usage-grid">
+    <div class="usage-item">
+      <div class="usage-label">Personality</div>
+      <p style="margin: 0;">
+        Bold ←→ <strong>Restrained</strong><br>
+        Clinical ←→ <strong>Middle</strong><br>
+        Mass ←→ <strong>Elite</strong><br>
+        Conversational ←→ <strong>Authoritative</strong>
+      </p>
+    </div>
+    <div class="usage-item">
+      <div class="usage-label">Materiality</div>
+      <p style="margin: 0;">
+        Primary finish: <strong>Reflective chrome</strong><br>
+        Balanced with warm secondary elements — 
+        low-tone neutrals, natural textures, organic forms.
+      </p>
+    </div>
+  </div>
+  
+  <h3 class="subsection-title">Long-term Vision</h3>
+  <p>
+    Mecca retail placement within three years. Brand built for eventual sale. 
+    Every touchpoint should reflect a brand that belongs on premium shelves.
+  </p>
+  
+  <div class="page-number">04</div>
+</div>
+
+<!-- ==================== 02 LOGO ==================== -->
+<div class="page">
+  <div class="section-number">02</div>
+  <h2 class="section-title">Logo</h2>
+  
+  <p class="lead">
+    The ALT. mark is designed to be hot-pressed onto product — engraved, stamped, or debossed 
+    into chrome surfaces.
+  </p>
+  
+  <div class="placeholder">
+    Mark artwork to be inserted once direction is finalised. Current directions in development: 
+    Victorian/Script, Architectural/Art Deco, and Ancient/Carved.
+  </div>
+  
+  <h3 class="subsection-title">Primary Mark</h3>
+  
+  <div class="logo-display">
+    <span class="logo-placeholder">ALT.</span>
+  </div>
+  
+  <p>
+    The primary mark should be used wherever possible. It functions as both a symbol 
+    and wordmark — equally legible at small scales and impactful at large.
+  </p>
+  
+  <div class="page-number">05</div>
+</div>
+
+<div class="page">
+  <h3 class="subsection-title">Logo Variations</h3>
+  
+  <div class="logo-grid">
+    <div class="logo-display">
+      <span class="logo-placeholder">ALT.</span>
+    </div>
+    <div class="logo-display dark">
+      <span class="logo-placeholder">ALT.</span>
+    </div>
+    <div class="logo-display chrome">
+      <span class="logo-placeholder" style="color: #1a1a1a;">ALT.</span>
+    </div>
+    <div class="logo-display" style="background: #1a1a1a;">
+      <span class="logo-placeholder" style="background: var(--chrome); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">ALT.</span>
+    </div>
+  </div>
+  
+  <p>
+    The mark is available in positive (dark on light), reversed (light on dark), 
+    and chrome variations. Use the version that provides maximum contrast and legibility.
+  </p>
+  
+  <div class="page-number">06</div>
+</div>
+
+<div class="page">
+  <h3 class="subsection-title">Clear Space</h3>
+  
+  <p>
+    Maintain clear space around the mark equal to the cap-height of the "A" on all sides. 
+    This ensures the mark has room to breathe and maintains its presence.
+  </p>
+  
+  <div class="clearspace-diagram">
+    <div class="clearspace-box">
+      <span class="logo-placeholder" style="font-size: 36px;">ALT.</span>
+    </div>
+    <span class="clearspace-label" style="top: 24px; left: 50%; transform: translateX(-50%);">x</span>
+    <span class="clearspace-label" style="bottom: 24px; left: 50%; transform: translateX(-50%);">x</span>
+    <span class="clearspace-label" style="left: 24px; top: 50%; transform: translateY(-50%);">x</span>
+    <span class="clearspace-label" style="right: 24px; top: 50%; transform: translateY(-50%);">x</span>
+  </div>
+  
+  <h3 class="subsection-title">Minimum Size</h3>
+  
+  <p>
+    To maintain legibility, the mark should never appear smaller than the following sizes:
+  </p>
+  
+  <div class="min-size-row">
+    <div class="min-size-item">
+      <span class="logo-placeholder" style="font-size: 14px;">ALT.</span>
+      <div class="min-size-label">Print: 10mm width</div>
+    </div>
+    <div class="min-size-item">
+      <span class="logo-placeholder" style="font-size: 14px;">ALT.</span>
+      <div class="min-size-label">Digital: 48px width</div>
+    </div>
+  </div>
+  
+  <div class="page-number">07</div>
+</div>
+
+<div class="page">
+  <h3 class="subsection-title">Incorrect Usage</h3>
+  
+  <p>
+    Protect the integrity of the mark by avoiding the following:
+  </p>
+  
+  <div class="do-dont-grid">
+    <div class="dont-item">
+      <div class="dont-label">Don't</div>
+      <p style="margin: 0;">Stretch or distort the mark</p>
+    </div>
+    <div class="dont-item">
+      <div class="dont-label">Don't</div>
+      <p style="margin: 0;">Apply unapproved colours</p>
+    </div>
+    <div class="dont-item">
+      <div class="dont-label">Don't</div>
+      <p style="margin: 0;">Add effects (shadows, outlines, gradients)</p>
+    </div>
+    <div class="dont-item">
+      <div class="dont-label">Don't</div>
+      <p style="margin: 0;">Place on busy or low-contrast backgrounds</p>
+    </div>
+    <div class="dont-item">
+      <div class="dont-label">Don't</div>
+      <p style="margin: 0;">Rotate or angle the mark</p>
+    </div>
+    <div class="dont-item">
+      <div class="dont-label">Don't</div>
+      <p style="margin: 0;">Recreate using alternative typefaces</p>
+    </div>
+  </div>
+  
+  <div class="page-number">08</div>
+</div>
+
+<!-- ==================== 03 TYPOGRAPHY ==================== -->
+<div class="page">
+  <div class="section-number">03</div>
+  <h2 class="section-title">Typography</h2>
+  
+  <p class="lead">
+    Typography is restrained, functional, and quietly authoritative. 
+    The system balances contemporary clarity with warmth.
+  </p>
+  
+  <h3 class="subsection-title">Primary Typeface</h3>
+  
+  <div class="type-specimen">
+    <div class="type-name">Aktiv Grotesk</div>
+    <div class="type-sample" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+      ALT. Cosmetics
+    </div>
+    <div class="type-alphabet" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+      ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+      abcdefghijklmnopqrstuvwxyz<br>
+      0123456789
+    </div>
+  </div>
+  
+  <p>
+    Aktiv Grotesk is the primary typeface for all brand communications. 
+    Use it for headlines, body copy, and UI elements. Its geometric construction 
+    provides clarity, while subtle humanist details add warmth.
+  </p>
+  
+  <div class="page-number">09</div>
+</div>
+
+<div class="page">
+  <h3 class="subsection-title">Type Weights</h3>
+  
+  <div class="type-weights">
+    <div class="type-weight">
+      <div class="type-weight-name">Light</div>
+      <div class="type-weight-sample" style="font-weight: 300;">Aa</div>
+    </div>
+    <div class="type-weight">
+      <div class="type-weight-name">Regular</div>
+      <div class="type-weight-sample" style="font-weight: 400;">Aa</div>
+    </div>
+    <div class="type-weight">
+      <div class="type-weight-name">Medium</div>
+      <div class="type-weight-sample" style="font-weight: 500;">Aa</div>
+    </div>
+    <div class="type-weight">
+      <div class="type-weight-name">Bold</div>
+      <div class="type-weight-sample" style="font-weight: 700;">Aa</div>
+    </div>
+  </div>
+  
+  <p style="margin-top: 24px;">
+    Use Light and Regular for body copy and supporting text. 
+    Medium for subheadings and emphasis. Bold sparingly, for primary headlines only.
+  </p>
+  
+  <h3 class="subsection-title">Secondary Typeface</h3>
+  
+  <div class="placeholder">
+    Secondary typeface to be confirmed. Direction: refined serif or lighter grotesque variant 
+    for ingredients, regulatory text, and functional copy. Mono direction was rejected.
+  </div>
+  
+  <div class="type-specimen">
+    <div class="type-name">Secondary — TBD (sample: Georgia)</div>
+    <div class="type-alphabet" style="font-family: Georgia, serif; font-size: 14px;">
+      Aqua, Glycerin, Biotinoyl Tripeptide-1, Myristoyl Pentapeptide-17, 
+      Panthenol, Sodium Hyaluronate, Trifolium Pratense (Red Clover) Extract, 
+      Camellia Sinensis Leaf Extract, Biotin, Phenoxyethanol, Ethylhexylglycerin.
+    </div>
+  </div>
+  
+  <div class="page-number">10</div>
+</div>
+
+<div class="page">
+  <h3 class="subsection-title">Type Hierarchy</h3>
+  
+  <div class="usage-item" style="margin-bottom: 16px;">
+    <div class="usage-label">Headline</div>
+    <p style="font-size: 32px; font-weight: 500; letter-spacing: -0.02em; margin: 0;">
+      Beautiful because it works.
+    </p>
+  </div>
+  
+  <div class="usage-item" style="margin-bottom: 16px;">
+    <div class="usage-label">Subheadline</div>
+    <p style="font-size: 18px; font-weight: 500; margin: 0;">
+      Plant-based peptide lash serum
+    </p>
+  </div>
+  
+  <div class="usage-item" style="margin-bottom: 16px;">
+    <div class="usage-label">Body</div>
+    <p style="font-size: 14px; margin: 0;">
+      A concentrated formula designed to support natural lash health. 
+      Peptides and botanical extracts work together to condition and strengthen.
+    </p>
+  </div>
+  
+  <div class="usage-item" style="margin-bottom: 16px;">
+    <div class="usage-label">Caption / Legal</div>
+    <p style="font-size: 11px; color: var(--muted); margin: 0; font-family: Georgia, serif;">
+      3ml / 0.10 fl oz. Made in Australia. Store below 25°C.
+    </p>
+  </div>
+  
+  <div class="page-number">11</div>
+</div>
+
+<div class="page">
+  <h3 class="subsection-title">Typography Rules</h3>
+  
+  <div class="do-dont-grid">
+    <div class="do-item">
+      <div class="do-label">Do</div>
+      <p style="margin: 0;">Use sentence case for body copy and most headings</p>
+    </div>
+    <div class="do-item">
+      <div class="do-label">Do</div>
+      <p style="margin: 0;">Maintain generous line spacing (1.4–1.6)</p>
+    </div>
+    <div class="do-item">
+      <div class="do-label">Do</div>
+      <p style="margin: 0;">Use tracking sparingly — slightly negative for headlines</p>
+    </div>
+    <div class="do-item">
+      <div class="do-label">Do</div>
+      <p style="margin: 0;">Allow type to breathe with adequate margins</p>
+    </div>
+  </div>
+  
+  <div class="do-dont-grid" style="margin-top: 0;">
+    <div class="dont-item">
+      <div class="dont-label">Don't</div>
+      <p style="margin: 0;">Use all caps for body copy</p>
+    </div>
+    <div class="dont-item">
+      <div class="dont-label">Don't</div>
+      <p style="margin: 0;">Mix more than two typefaces</p>
+    </div>
+    <div class="dont-item">
+      <div class="dont-label">Don't</div>
+      <p style="margin: 0;">Use decorative or script fonts</p>
+    </div>
+    <div class="dont-item">
+      <div class="dont-label">Don't</div>
+      <p style="margin: 0;">Underline text (except hyperlinks)</p>
+    </div>
+  </div>
+  
+  <div class="page-number">12</div>
+</div>
+
+<div class="page">
+  <h3 class="subsection-title">Font Assets</h3>
+  
+  <p>
+    The following fonts are required for all ALT. Cosmetics materials. 
+    Ensure correct licensing before use.
+  </p>
+  
+  <div class="usage-item" style="margin: 24px 0;">
+    <div class="usage-label">Primary — Aktiv Grotesk</div>
+    <table class="dep-table" style="margin-top: 8px;">
+      <tr>
+        <th style="width: 30%;">Weight</th>
+        <th style="width: 35%;">File Name</th>
+        <th>Use</th>
+      </tr>
+      <tr>
+        <td>Light (300)</td>
+        <td style="font-family: 'DM Mono', monospace; font-size: 11px;">AktivGrotesk-Light</td>
+        <td>Captions, supporting text</td>
+      </tr>
+      <tr>
+        <td>Regular (400)</td>
+        <td style="font-family: 'DM Mono', monospace; font-size: 11px;">AktivGrotesk-Regular</td>
+        <td>Body copy</td>
+      </tr>
+      <tr>
+        <td>Medium (500)</td>
+        <td style="font-family: 'DM Mono', monospace; font-size: 11px;">AktivGrotesk-Medium</td>
+        <td>Subheadings, emphasis</td>
+      </tr>
+      <tr>
+        <td>Bold (700)</td>
+        <td style="font-family: 'DM Mono', monospace; font-size: 11px;">AktivGrotesk-Bold</td>
+        <td>Headlines only</td>
+      </tr>
+    </table>
+  </div>
+  
+  <div class="usage-item" style="margin: 24px 0;">
+    <div class="usage-label">Licensing</div>
+    <p style="margin: 8px 0 0 0; font-size: 13px;">
+      Aktiv Grotesk is available via <strong>Adobe Fonts</strong> (included with Creative Cloud subscription) 
+      or for purchase from Dalton Maag. For web use, ensure appropriate web font licensing.
+    </p>
+  </div>
+  
+  <div class="usage-item" style="margin: 24px 0;">
+    <div class="usage-label">Fallback Fonts</div>
+    <p style="margin: 8px 0 0 0; font-size: 13px;">
+      When Aktiv Grotesk is unavailable (email, third-party platforms), use these system fallbacks:
+    </p>
+    <p style="margin: 8px 0 0 0; font-family: 'DM Mono', monospace; font-size: 11px;">
+      macOS / iOS: SF Pro Text, Helvetica Neue<br>
+      Windows: Segoe UI, Arial<br>
+      Web CSS: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif
+    </p>
+  </div>
+  
+  <div class="placeholder">
+    Secondary typeface details to be added once confirmed.
+  </div>
+  
+  <div class="page-number">13</div>
+</div>
+
+<!-- ==================== 04 COLOUR ==================== -->
+<div class="page">
+  <div class="section-number">04</div>
+  <h2 class="section-title">Colour</h2>
+  
+  <p class="lead">
+    The palette is restrained and material-adjacent. Near-neutrals with considered warmth. 
+    Monochrome with depth, not flatness.
+  </p>
+  
+  <h3 class="subsection-title">Primary Palette</h3>
+  
+  <div class="colour-grid">
+    <div>
+      <div class="colour-swatch chrome"></div>
+      <div class="colour-info">
+        <div class="colour-name">Chrome</div>
+        <div class="colour-values">
+          Physical finish — not a flat colour.<br>
+          Reflective, metallic silver.
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="colour-swatch ink"></div>
+      <div class="colour-info">
+        <div class="colour-name">Ink</div>
+        <div class="colour-values">
+          HEX #1A1A1A<br>
+          RGB 26 / 26 / 26<br>
+          CMYK 0 / 0 / 0 / 95
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <p>
+    Chrome is the signature material finish — used on primary packaging. 
+    Ink is used for typography and graphic elements. Not pure black — 
+    slightly warmer to pair with material palette.
+  </p>
+  
+  <div class="page-number">13</div>
+</div>
+
+<div class="page">
+  <h3 class="subsection-title">Secondary Palette</h3>
+  
+  <div class="colour-grid">
+    <div>
+      <div class="colour-swatch warm-1"></div>
+      <div class="colour-info">
+        <div class="colour-name">Warm Neutral 1 — Linen</div>
+        <div class="colour-values">
+          HEX #E8E4DF<br>
+          RGB 232 / 228 / 223<br>
+          CMYK 8 / 8 / 10 / 0
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="colour-swatch warm-2"></div>
+      <div class="colour-info">
+        <div class="colour-name">Warm Neutral 2 — Stone</div>
+        <div class="colour-values">
+          HEX #D4CDC4<br>
+          RGB 212 / 205 / 196<br>
+          CMYK 16 / 15 / 18 / 0
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <p>
+    Secondary colours provide warmth and balance the industrial quality of chrome. 
+    Use for backgrounds, supporting materials, and environmental applications. 
+    These tones ensure the brand feels liveable alongside its harder material choices.
+  </p>
+  
+  <h3 class="subsection-title">Colour Ratios</h3>
+  
+  <div class="usage-item">
+    <p style="margin: 0;">
+      <strong>60%</strong> — Neutral backgrounds (Warm Neutral 1, white)<br>
+      <strong>30%</strong> — Chrome / metallic elements<br>
+      <strong>10%</strong> — Ink (typography, details)
+    </p>
+  </div>
+  
+  <div class="page-number">14</div>
+</div>
+
+<div class="page">
+  <h3 class="subsection-title">Colour Application</h3>
+  
+  <div class="do-dont-grid">
+    <div class="do-item">
+      <div class="do-label">Do</div>
+      <p style="margin: 0;">Pair chrome with warm, soft backgrounds</p>
+    </div>
+    <div class="do-item">
+      <div class="do-label">Do</div>
+      <p style="margin: 0;">Use high contrast for text legibility</p>
+    </div>
+    <div class="do-item">
+      <div class="do-label">Do</div>
+      <p style="margin: 0;">Allow neutrals to dominate compositions</p>
+    </div>
+    <div class="do-item">
+      <div class="do-label">Do</div>
+      <p style="margin: 0;">Use Ink for all body text</p>
+    </div>
+  </div>
+  
+  <div class="do-dont-grid" style="margin-top: 0;">
+    <div class="dont-item">
+      <div class="dont-label">Don't</div>
+      <p style="margin: 0;">Use bright or saturated accent colours</p>
+    </div>
+    <div class="dont-item">
+      <div class="dont-label">Don't</div>
+      <p style="margin: 0;">Pair chrome with pure white or pure black</p>
+    </div>
+    <div class="dont-item">
+      <div class="dont-label">Don't</div>
+      <p style="margin: 0;">Use colour to communicate product variants</p>
+    </div>
+    <div class="dont-item">
+      <div class="dont-label">Don't</div>
+      <p style="margin: 0;">Apply gradients to flat colour areas</p>
+    </div>
+  </div>
+  
+  <div class="page-number">15</div>
+</div>
+
+<div class="page">
+  <h3 class="subsection-title">Material Context</h3>
+  
+  <p>
+    Chrome is the brand's defining material — but it requires balancing. 
+    In photography and environmental applications, pair chrome with:
+  </p>
+  
+  <div class="usage-grid">
+    <div class="usage-item">
+      <div class="usage-label">Organic textures</div>
+      <p style="margin: 0; font-size: 13px; color: var(--text-dim);">
+        Linen, raw cotton, natural fibres, dried botanicals, 
+        stone surfaces, raw plaster, soft shadows
+      </p>
+    </div>
+    <div class="usage-item">
+      <div class="usage-label">Warm tones</div>
+      <p style="margin: 0; font-size: 13px; color: var(--text-dim);">
+        Cream, sand, blush, terracotta undertones. 
+        Avoid cold greys or blue-whites.
+      </p>
+    </div>
+  </div>
+  
+  <p>
+    This balance ensures the brand remains approachable and liveable — 
+    industrial enough to command attention, warm enough to feel welcome.
+  </p>
+  
+  <div class="page-number">16</div>
+</div>
+
+<!-- ==================== 05 TONE OF VOICE ==================== -->
+<div class="page">
+  <div class="section-number">05</div>
+  <h2 class="section-title">Tone of Voice</h2>
+  
+  <p class="lead">
+    Precise. Confident. Uncluttered. ALT. states rather than suggests. 
+    Warm in the way a trusted expert is warm — not effusive.
+  </p>
+  
+  <h3 class="subsection-title">Voice Principles</h3>
+  
+  <div class="usage-grid">
+    <div class="usage-item">
+      <div class="usage-label">Confident</div>
+      <p style="margin: 0; font-size: 13px;">
+        We know our product works. We don't hedge or over-qualify. 
+        Statements are direct and assured.
+      </p>
+    </div>
+    <div class="usage-item">
+      <div class="usage-label">Precise</div>
+      <p style="margin: 0; font-size: 13px;">
+        Specificity over vagueness. We say what we mean. 
+        Every word earns its place.
+      </p>
+    </div>
+    <div class="usage-item">
+      <div class="usage-label">Restrained</div>
+      <p style="margin: 0; font-size: 13px;">
+        No exclamation marks. No hyperbole. We don't shout — 
+        our quality speaks for itself.
+      </p>
+    </div>
+    <div class="usage-item">
+      <div class="usage-label">Expert</div>
+      <p style="margin: 0; font-size: 13px;">
+        Founded by a professional. We speak with authority 
+        because we have genuine knowledge.
+      </p>
+    </div>
+  </div>
+  
+  <div class="page-number">17</div>
+</div>
+
+<div class="page">
+  <h3 class="subsection-title">Voice in Practice</h3>
+  
+  <div class="voice-example">
+    <div class="voice-example-label">Product description</div>
+    <div class="voice-example-text">
+      "A concentrated peptide formula designed to support natural lash health. 
+      Botanical extracts condition. Consistent use shows results in four to six weeks."
+    </div>
+  </div>
+  
+  <div class="voice-example">
+    <div class="voice-example-label">Instruction</div>
+    <div class="voice-example-text">
+      "Apply once daily to clean, dry lashes. One stroke along the lash line."
+    </div>
+  </div>
+  
+  <div class="voice-example">
+    <div class="voice-example-label">Brand statement</div>
+    <div class="voice-example-text">
+      "Beautiful because it works. Designed because it deserves to be."
+    </div>
+  </div>
+  
+  <div class="page-number">18</div>
+</div>
+
+<div class="page">
+  <h3 class="subsection-title">Language to Avoid</h3>
+  
+  <p>
+    Certain words and phrases undermine the brand's positioning. 
+    Avoid wellness clichés and beauty industry hyperbole:
+  </p>
+  
+  <div class="dont-item" style="margin: 24px 0;">
+    <div class="dont-label">Avoid these words</div>
+    <p style="margin: 0; font-size: 15px;">
+      ritual · glow · nourishing · luxurious · indulgent · pamper · 
+      transform · miracle · revolutionary · game-changer · obsessed · 
+      literally · amazing · clean beauty · self-care · wellness · journey
+    </p>
+  </div>
+  
+  <div class="dont-item" style="margin: 24px 0;">
+    <div class="dont-label">Avoid these patterns</div>
+    <p style="margin: 0; font-size: 15px;">
+      Exclamation marks · ALL CAPS for emphasis · Questions as headlines · 
+      Over-promising ("lashes you've always dreamed of") · 
+      Diminutives ("little" "just" "simply")
+    </p>
+  </div>
+  
+  <h3 class="subsection-title">Alternatives</h3>
+  
+  <div class="do-dont-grid">
+    <div class="dont-item">
+      <div class="dont-label">Instead of</div>
+      <p style="margin: 0;">"Nourishing formula for gorgeous lashes!"</p>
+    </div>
+    <div class="do-item">
+      <div class="do-label">Write</div>
+      <p style="margin: 0;">"Peptide-rich formula supports lash condition."</p>
+    </div>
+    <div class="dont-item">
+      <div class="dont-label">Instead of</div>
+      <p style="margin: 0;">"Transform your lash game"</p>
+    </div>
+    <div class="do-item">
+      <div class="do-label">Write</div>
+      <p style="margin: 0;">"Designed for visible results."</p>
+    </div>
+  </div>
+  
+  <div class="page-number">19</div>
+</div>
+
+<div class="page">
+  <h3 class="subsection-title">Messaging Hierarchy</h3>
+  
+  <p>
+    When space is limited, prioritise messaging in this order:
+  </p>
+  
+  <div class="usage-item" style="margin: 24px 0;">
+    <p style="margin: 0;">
+      <strong>1. Brand name</strong> — ALT. or ALT. COSMETICS<br>
+      <strong>2. Product descriptor</strong> — Lash Serum<br>
+      <strong>3. Key benefit</strong> — Plant-based peptide formula<br>
+      <strong>4. Proof point</strong> — Results in 4–6 weeks<br>
+      <strong>5. Supporting details</strong> — Prostaglandin-free, Australian made
+    </p>
+  </div>
+  
+  <p>
+    Note: "Prostaglandin-free" and "clean" are table stakes in 2026 — 
+    not differentiators. Don't lead with them.
+  </p>
+  
+  <div class="page-number">20</div>
+</div>
+
+<!-- ==================== 06 PHOTOGRAPHY ==================== -->
+<div class="page">
+  <div class="section-number">06</div>
+  <h2 class="section-title">Photography</h2>
+  
+  <p class="lead">
+    Editorial, considered, high-contrast. Photography should feel intentional — 
+    every element placed with purpose.
+  </p>
+  
+  <div class="placeholder">
+    Photography guidelines and example imagery to be developed. 
+    Key references: Alaïa, Prada, retaW — high-contrast, editorial, considered.
+  </div>
+  
+  <h3 class="subsection-title">Photography Principles</h3>
+  
+  <div class="usage-grid">
+    <div class="usage-item">
+      <div class="usage-label">Composition</div>
+      <p style="margin: 0; font-size: 13px;">
+        Clean, uncluttered frames. Generous negative space. 
+        Product as focal point, not competing with props.
+      </p>
+    </div>
+    <div class="usage-item">
+      <div class="usage-label">Lighting</div>
+      <p style="margin: 0; font-size: 13px;">
+        Studio lighting preferred. Soft shadows add dimension. 
+        Avoid flat, even lighting or harsh direct light.
+      </p>
+    </div>
+    <div class="usage-item">
+      <div class="usage-label">Material pairing</div>
+      <p style="margin: 0; font-size: 13px;">
+        Chrome product against warm, organic textures. 
+        Linen, stone, dried botanicals, natural fibres.
+      </p>
+    </div>
+    <div class="usage-item">
+      <div class="usage-label">Colour treatment</div>
+      <p style="margin: 0; font-size: 13px;">
+        Muted, desaturated tones. Warm neutrals. 
+        No heavy filters or colour casts.
+      </p>
+    </div>
+  </div>
+  
+  <div class="page-number">21</div>
+</div>
+
+<div class="page">
+  <h3 class="subsection-title">Photography Don'ts</h3>
+  
+  <div class="do-dont-grid">
+    <div class="dont-item">
+      <div class="dont-label">Don't</div>
+      <p style="margin: 0;">Use lifestyle imagery with excessive props</p>
+    </div>
+    <div class="dont-item">
+      <div class="dont-label">Don't</div>
+      <p style="margin: 0;">Show product in use on models (for now)</p>
+    </div>
+    <div class="dont-item">
+      <div class="dont-label">Don't</div>
+      <p style="margin: 0;">Use cool-toned or blue-white backgrounds</p>
+    </div>
+    <div class="dont-item">
+      <div class="dont-label">Don't</div>
+      <p style="margin: 0;">Over-retouch or add artificial shine</p>
+    </div>
+  </div>
+  
+  <div class="page-number">22</div>
+</div>
+
+<!-- ==================== 07 APPLICATIONS ==================== -->
+<div class="page">
+  <div class="section-number">07</div>
+  <h2 class="section-title">Applications</h2>
+  
+  <p class="lead">
+    The identity system in context. Packaging, digital, and environmental applications.
+  </p>
+  
+  <div class="placeholder">
+    Application mockups to be added once packaging artwork is finalised. 
+    Will include: primary packaging (tube), secondary packaging (pouch), 
+    digital applications, and environmental/retail presence.
+  </div>
+  
+  <h3 class="subsection-title">Primary Packaging</h3>
+  
+  <p>
+    Chrome tube with mark applied via hot-stamping, debossing, or engraving. 
+    Finish is reflective metallic — not matte or brushed.
+  </p>
+  
+  <div class="usage-item" style="margin: 24px 0;">
+    <div class="usage-label">Packaging hierarchy</div>
+    <p style="margin: 0; font-size: 13px;">
+      Front: Mark / Logo<br>
+      Back: Product name, volume, key ingredients, regulatory, batch code<br>
+      Base: Country of origin, barcode
+    </p>
+  </div>
+  
+  <h3 class="subsection-title">Secondary Packaging</h3>
+  
+  <p>
+    Vacuum foil pouch or slim metal tin (final format TBC). 
+    Continues warm neutral palette with chrome or ink mark application.
+  </p>
+  
+  <div class="page-number">23</div>
+</div>
+
+<div class="page">
+  <h3 class="subsection-title">Digital Applications</h3>
+  
+  <div class="usage-grid">
+    <div class="usage-item">
+      <div class="usage-label">Website</div>
+      <p style="margin: 0; font-size: 13px;">
+        Warm neutral background (Linen). Ink typography. 
+        Product photography as hero. Minimal navigation.
+      </p>
+    </div>
+    <div class="usage-item">
+      <div class="usage-label">Social media</div>
+      <p style="margin: 0; font-size: 13px;">
+        Grid aesthetic: alternating product shots and texture/detail images. 
+        Consistent warm tone across all posts.
+      </p>
+    </div>
+  </div>
+  
+  <h3 class="subsection-title">Contact</h3>
+  
+  <div class="usage-item" style="margin: 24px 0;">
+    <p style="margin: 0; font-size: 13px; font-family: 'DM Mono', monospace;">
+      Brand design: kspf.studio<br>
+      hello@kspf.au<br><br>
+      For brand asset requests, contact the brand owner directly.
+    </p>
+  </div>
+  
+  <div class="page-number">24</div>
+</div>
+
+</body>
+</html>
