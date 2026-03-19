@@ -38,7 +38,7 @@
 - [ ] **Mobile Safari bug — screen locks** — reported 11 Mar. Reproduce on iOS Safari, identify trigger (scroll lock? fixed position element? JS scroll handler not cleaning up?). Check for `overflow: hidden` on body/html or `-webkit-overflow-scrolling` issues. Log as GitHub issue in `rkuskopf/kspf.studio-repo`.
 
 **IT / Admin**
-- [ ] Get Wacom Intuos Pro (PTH-451) tablet pen working — driver installed but not responding. Tablet works as trackpad, pen not recognised. Likely macOS Privacy & Security approval issue. Need to confirm macOS version and try clean reinstall. See GitHub issue.
+- [ ] Get Wacom Intuos Pro (PTH-451) tablet pen working — **blocking logo mark deliverable**. Tablet works as trackpad (hardware OK), pen not recognised. Root cause: macOS Privacy & Security not approving driver (Input Monitoring / Accessibility). Old Wacom Center crashes = old driver incompatible with current macOS — don't use. See `tasks/wacom-tablet-fix.md` for step-by-step fix and prediction.
 - [ ] Heaps of issues with logic... updated to logic 12 the other day and now logic files aren't working
 - [ ] **Migrate files from Dropbox to iCloud before deletion deadline — see `tasks/dropbox-icloud-migration.md`**
 - [ ] **Move studio-os repo out of iCloud** — git lock issues caused by iCloud sync. Move to `~/Developer/studio-os` and symlink or selectively sync only non-git files.
