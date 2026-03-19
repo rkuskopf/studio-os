@@ -13,6 +13,128 @@
 
 ---
 
+## Getting 2D assets ready — Plan + Firefly prompts
+
+*Three assets from Figma need to be converted into clean, usable 2D vector elements before logo design can proceed. This section explains the workflow for each one and provides Adobe Firefly prompts to assist.*
+
+---
+
+### Asset 1 — 2D vectors of lace
+[Figma frame: node 32-19](https://www.figma.com/design/rvJZnrqjpW5zkOM9u80xZl/ALT.-COSMETICS-%7C-Identity-and-packaging?node-id=32-19&t=1dVS95InZLuGVRa1-4)
+
+**What it is:** Lace/textile pattern elements intended for use as a decorative motif in the logo or supporting brand assets.
+
+**Plan:**
+1. Export the lace frame from Figma at 2× or 4× as a high-res PNG (File → Export, no background)
+2. Open in Adobe Illustrator → Object → Image Trace → Preset: "High Fidelity Photo" or "Black and White Logo"
+3. Expand the trace → Ungroup → Delete any background fills, keep only the lace paths
+4. Simplify paths (Object → Path → Simplify) to reduce anchor points without losing detail
+5. Test at small sizes (logo scale, ~30–50px) — if lace dissolves it may need to be redrawn more selectively
+6. Save as `.svg` and `.ai` — ready for logo layout
+
+**If the source Figma frame is not clean enough to trace directly, use Firefly first:**
+
+**Firefly — Text to Image (use as trace reference):**
+```
+flat 2D lace pattern, botanical fine line, delicate textile lace motif, high contrast, pure black on white background, isolated, no shadows, no gradients, suitable for vectorisation, beauty brand decorative element, editorial luxury, Victorian needle lace
+```
+
+```
+close-up flat lace textile detail, black on white, fine thread construction, delicate open weave, ornate floral lace, isolated single motif suitable for logo use, no background, high contrast, vector-ready
+```
+
+**Firefly — Generative Fill (Photoshop, if cleaning up an existing Asana/Figma export):**
+- Select any muddy or low-contrast areas → Generative Fill → prompt: `clean high contrast lace detail, black on white, fine thread, no background`
+
+---
+
+### Asset 2 — Ornamental elements for 2D logo design
+[Figma frame: node 32-24](https://www.figma.com/design/rvJZnrqjpW5zkOM9u80xZl/ALT.-COSMETICS-%7C-Identity-and-packaging?node-id=32-24&t=1dVS95InZLuGVRa1-4)
+
+**What it is:** Decorative ornament elements (flourishes, dividers, borders, centrepiece motifs) to be used as raw material for the 2D logo layout.
+
+**Plan:**
+1. Export each ornament element from Figma individually as SVG (right-click frame → Copy as SVG, or export panel)
+2. Paste into Illustrator — if they are already vectors in Figma they will come through clean
+3. If they came through as raster: Image Trace as above, then Expand + clean paths
+4. Build a small library of individual ornament elements — each on its own artboard, black on white
+5. These become the ingredient set for logo composition: combine with letterforms in logo layout files
+
+**If generating new ornament elements with Firefly:**
+
+**Firefly — Text to Image:**
+```
+single decorative ornament, Victorian divider flourish, black on white, flat 2D, isolated, symmetrical, fine line, ornate but restrained, suitable for logo use, beauty brand, no background, high contrast
+```
+
+```
+art deco ornamental centrepiece, geometric floral motif, formal symmetry, black on white, flat vector quality, isolated, luxury cosmetics brand element, no shading, no gradients, suitable for embossing or hot stamp
+```
+
+```
+heritage border element, thin line ornamental rule, Victorian penmanship flourish, calligraphic swash, isolated on white, flat 2D, black ink quality, fine line, no background
+```
+
+**Firefly — Text to Vector (Illustrator beta, if available):**
+- Open Illustrator → Window → Text to Vector → type prompt: `Victorian ornamental flourish, symmetrical, fine line, black, suitable for logo use`
+- This outputs a native Illustrator vector — no tracing step needed
+
+---
+
+### Asset 3 — Turn 3D renders into flat 2D versions ready for logo
+[Figma frame: node 52-120](https://www.figma.com/design/rvJZnrqjpW5zkOM9u80xZl/ALT.-COSMETICS-%7C-Identity-and-packaging?node-id=52-120&t=1dVS95InZLuGVRa1-4)
+
+**What it is:** 3D rendered mark concepts (likely Midjourney outputs shown on a chrome tube) that need to be extracted and redrawn as clean, scalable flat 2D vectors — the actual logo files.
+
+**This is the most important step in the current workflow.** The 3D renders are ideation material, not final assets. The logo mark must be a clean vector.
+
+**Plan:**
+1. Export each 3D render from Figma as a PNG at 4× resolution
+2. Open in Illustrator — place as a reference layer, lock it, reduce opacity to 25–35%
+3. On a new layer above: manually redraw the core mark shape using the Pen tool — paths and rectangles only, no tracing
+4. Strip everything back to the essential form — no chrome, no tube, no shadows, just the flat mark
+5. Work in pure black on white. Single colour. No gradients
+6. Test at 20px — if it holds it's logo-ready. If it falls apart, simplify further
+7. Export as `.svg`, `.eps`, and `.pdf` — one artboard per mark direction
+
+**If using Firefly to generate a flat reference before redrawing:**
+
+**Firefly — Text to Image (for each mark direction):**
+
+*Direction A (Ancient/Carved):*
+```
+flat 2D logo mark, ancient carved intaglio seal, Egyptian scarab oval, incised stone quality, black on white, no 3D, no chrome, no shadows, no gradients, pure flat vector-ready form, luxury beauty brand
+```
+
+*Direction B (Victorian/Script):*
+```
+flat 2D logo mark, Victorian monogram, calligraphic interlocking letterforms, fine line ornate construction, black on white, no 3D, no chrome, no shadows, pure flat vector-ready form, luxury beauty brand
+```
+
+*Direction C (Architectural/Art Deco):*
+```
+flat 2D logo mark, art deco oval cartouche, letters at compass points inside double ring border, geometric interior motif, black on white, no 3D, no chrome, no shadows, pure flat vector-ready form, luxury beauty brand
+```
+
+**Firefly — Remove Background + flatten (Photoshop, before bringing into Illustrator):**
+1. Open 3D render in Photoshop → Remove Background (one click in Properties panel)
+2. Desaturate → Levels adjustment to force high contrast (black mark, white ground)
+3. Export as clean PNG → bring into Illustrator as trace reference
+
+---
+
+### Summary: Which tool for which task
+
+| Asset | Recommended tool | Notes |
+|-------|-----------------|-------|
+| Lace vectors (32-19) | Illustrator Image Trace | Use Firefly only if source is too low-res or muddy |
+| Ornamental elements (32-24) | Export SVG direct from Figma | Use Firefly Text to Vector if generating new ornaments |
+| 3D renders → flat 2D (52-120) | Manual redraw in Illustrator | Never trace 3D renders — always redraw. Firefly useful for generating a flattened reference first |
+
+---
+
+---
+
 ## GROUP A — Direction A: Ancient / Carved / Archaeological
 
 *Goal: raw, stone-carved quality. Think Egyptian scarab seal, ancient intaglio gem, something found not made. Incised into the surface. All flat, black on white — no 3D, no gradients.*

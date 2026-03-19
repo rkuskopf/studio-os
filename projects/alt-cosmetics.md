@@ -59,6 +59,10 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 - [x] Creative brief developed (v1.0 — pending client sign-off)
 - [x] Brand strategy synthesis document produced
 - [ ] Creative brief signed off by client — v5 sent but brief is still evolving; previous version sent was too rambling. Needs a cleaner version before resending.
+- [ ] **Get 2D assets ready** (Asana task 1213622452253080)
+  - [ ] Get 2D vectors of lace ready — [Figma frame](https://www.figma.com/design/rvJZnrqjpW5zkOM9u80xZl/ALT.-COSMETICS-%7C-Identity-and-packaging?node-id=32-19&t=1dVS95InZLuGVRa1-4) · [Asset preview](https://app.asana.com/app/asana/-/get_asset?asset_id=1213622361309105)
+  - [ ] Get ornamental elements ready for 2D logo design — [Figma frame](https://www.figma.com/design/rvJZnrqjpW5zkOM9u80xZl/ALT.-COSMETICS-%7C-Identity-and-packaging?node-id=32-24&t=1dVS95InZLuGVRa1-4) · [Asset preview](https://app.asana.com/app/asana/-/get_asset?asset_id=1213622361309101)
+  - [ ] Turn 3D render elements into flat 2D versions ready for logo — [Figma frame](https://www.figma.com/design/rvJZnrqjpW5zkOM9u80xZl/ALT.-COSMETICS-%7C-Identity-and-packaging?node-id=52-120&t=1dVS95InZLuGVRa1-4) · [Asset preview](https://app.asana.com/app/asana/-/get_asset?asset_id=1213621681525933)
 - [x] Finish & Materiality confirmed — chrome. No longer a blocker.
 - [ ] Confirm packaging supplier + receive dielines, dimensions, capacity — **blocker**
 - [ ] Receive final ingredient list + regulatory copy — **outstanding**
