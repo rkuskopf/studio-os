@@ -190,7 +190,7 @@ Based on client feedback from concept presentation, the mark direction has been 
 
 | Direction | Description | Status |
 |-----------|-------------|--------|
-| Ancient/Carved | Raw, primitive, worn-into-stone. Egyptian scarab seals, intaglio gems. | ❌ Client preferred abstract over material-based |
+| Ancient/Carved | Raw, primitive, worn-into-stone. Egyptian scarab seals, intaglio gems. | ❌ Ruled out by Rowan — didn't align with abstract/flowing direction |
 | Victorian/Script | Fine copperplate script, Mauclot monogram ref. Flowing, organic. | ⚠️ Partial — flowing quality liked, but too ornate |
 | Architectural/Art Deco | Formal oval cartouche, SRA SRA ref. Structured frame. | ⚠️ Partial — SRA SRA ref liked, but softer execution needed |
 
@@ -201,7 +201,7 @@ Based on client feedback from concept presentation, the mark direction has been 
 | Item | Rejected | Reason |
 |------|----------|--------|
 | Mono/typewriter secondary typeface | Strategy session | Anh didn't like it |
-| Ancient/material-based mark direction | Concept presentation | Client prefers abstract, flowing — "not old or material-based" |
+| Ancient/material-based mark direction | Creative decision (Rowan) | Didn't align with abstract/flowing direction from client feedback |
 | Tagline "Beautiful because it works..." | Pre-workshop | Hallucination — never approved, removed from all files |
 | Overly structured/masculine marks | Concept presentation | Doesn't match brand character |
 

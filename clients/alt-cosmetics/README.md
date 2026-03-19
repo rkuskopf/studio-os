@@ -3,7 +3,7 @@
 **Client:** Anh Tran
 **Studio:** kspf.studio
 **Asana Project:** 1213237592487953
-**Status:** Active — Week 2 (rapid concept/ideation phase, mark direction being tested in 3D)
+**Status:** Active — Mark refinement phase, guidelines in progress
 **Deadline:** 20 March 2026 · Phase 1: 06 March · Phase 2: 20 March
 
 ---
@@ -15,8 +15,6 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 **Long-term goal:** Mecca retail placement (~3 years). Eventual brand sale.
 
 **Positioning:** Design-forward premium beauty. Sits between overtly clinical (Clinique, pharmacy-adjacent) and mass-lifestyle (Grande, Zali). Neither shouts nor explains itself. Earns its place through restraint, finish, and intention.
-
-**Brand in one line:** Beautiful because it works. Designed because it deserves to be.
 
 ---
 
@@ -115,13 +113,13 @@ Standalone beauty brand launching with a single hero product: a plant-based, pep
 - Material balancing required in brand imagery: pair chrome with warm secondary elements (low-tone neutrals, natural textures, organic forms) to ensure the brand remains liveable alongside its harder material choices.
 
 **Mark — current direction:**
-- Concept: hot-pressed onto the tube — engraved, stamped, or debossed quality
-- Three directions in active development:
-  - **Direction A — Ancient / Carved / Archaeological** — raw, primitive, worn-into-stone quality. Egyptian scarab seals, ancient intaglio gems, stone objects. Incised, not raised. Surface feeling and register defines this direction.
-  - **Direction B — Victorian / Script / Medieval** — fine line heritage script quality. Ornate calligraphic letterforms, swash construction, Victorian penmanship register. Mauclot monogram sheet is the primary reference — interlocking looped letterforms with weight variation and fluid curves. Decorative, historically rooted.
-  - **Direction C — Architectural / Art Deco / SRA SRA** — formal oval cartouche with letters or elements positioned within a structured frame. SRA SRA is the primary reference: letters at compass points inside a double-ring architectural oval with ornamental centrepiece. Art deco lineage — geometric, structured, authoritative. Also encompasses geometric shared-stroke monogram construction (MB monogram, DR embossed mark territory).
-- Legibility vs abstraction is NOT a direction — it is an independent axis applying to all three. Each direction could produce a readable A-L-T mark or a dissolved abstract form. Decision deferred to concept presentation with Anh.
-- AI tools (Firefly, Midjourney) being used for rapid 2D logo mark ideation — structure and surface quality reference only, not final assets. 3D tube mockups are a separate, later step once mark direction is confirmed.
+- Client feedback from concept presentation: Abstract, flowing, hand-drawn monogram vibes
+- Primary references: Loewe anagram (abstract, interlocking), JB monogram, SRA SRA
+- Character: "Like the Loewe where you can't really tell what it says" — simple but refined
+- Contrast with wordmark: Intentional tension between organic mark and geometric brand system
+- Avoid: Overly structured/masculine, ancient/material-based (no stone textures, carved marks)
+- Application: Hot-stamped, debossed, or engraved onto chrome tube surface
+- See `visual-direction.md` for full creative direction and Pinterest search terms
 
 **Tone of voice:** Precise, confident, uncluttered. States rather than suggests. No exclamation marks. No wellness clichés ("ritual," "glow," "nourishing"). Warm in the way a trusted expert is warm — not effusive. Specificity over vagueness.
 
