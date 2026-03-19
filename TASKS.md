@@ -34,6 +34,12 @@
 
 ## In Progress
 
+**VCAT / Legal**
+- [x] **VCAT overflow text** — Resolved by adding a continuation sheet. Final PDF: `VCAT_Application_Rowan_Kuskopf_v_Apple_FINAL.pdf` on Desktop (11 pages). Ready to print and submit.
+
+**Mon — Website Build**
+- [ ] **Kick-off meeting with Mon today** — build her website. Get brief, assets, content, login details. Run dev handover checklist.
+
 **ALT. Cosmetics**
 - [ ] **Brand guidelines v2 (landscape format)** — new HTML file at `clients/alt-cosmetics/assets/brand-guidelines-v2.html`. Uses Aktiv Grotesk Extended. Removed unapproved tagline ("Beautiful because it works...") from all files and added to REJECTED in decision log. Next: add visual assets, integrate Figma exports, finalize typography/color specs.
 - [ ] Audit ALT. Cosmetics to understand the hallucinations and inconsistencies (particularly in the creative brief). No one should have access to a creative brief below V5.1. We need to put together a questionnaire to get to the bottom of all unknowns and create a report for what needs to be done.
@@ -50,7 +56,7 @@
 
 **Finance / Debt**
 - [ ] **$1,000 owed to old landlord — due 04 April** — figure out how to get the money
-- [ ] **Pioneer Credit (Latitude) — request financial hardship** — Account #26020929, contact Jillian at jgonda@pioneercredit.com.au or 0862142347. Applied for hardship with Latitude, didn't hear back, now with debt collector. Need to email requesting hardship arrangement.
+- [x] **Pioneer Credit (Latitude) — request financial hardship** — Account #26020929. Dispute letter drafted and actioned. See `personal/latitude-pioneer-dispute.md`.
 - [ ] **Probe Finance (Afterpay) — apply for hardship**
 
 
@@ -61,6 +67,7 @@
 
 ## Backlog
 
+- [ ] **humanising-ai-communication.md — complete repo integration** — File updated in `comms/`. Needs: proper GitHub issue created, linked to studio scaling strategy, development roadmap fleshed out. Add subjectivity/epistemic humility section.
 - [ ] **Scrape UX case study source material and generate portfolio presentation — see `clients/ux-portfolio.md`**
 - [ ] **Document Alt Cosmetics progress for case study (capture before project wraps)**
 - [ ] **Add UX case studies section to kspf.au**
