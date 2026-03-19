@@ -171,16 +171,28 @@
 
 ## 🚧 OPEN / IN PROGRESS
 
-### Mark Direction
-Three canonical directions in active development:
+### Mark Direction — Refined
+Based on client feedback from concept presentation, the mark direction has been narrowed:
+
+| Element | Direction |
+|---------|-----------|
+| **Style** | Abstract, flowing, hand-drawn monogram |
+| **References** | Loewe anagram, JB monogram, SRA SRA |
+| **Character** | Simple but refined — "can't really tell what it says" |
+| **Relationship to system** | Contrasts with clinical chrome — tension is intentional |
+
+**Status:** ⚠️ Awaiting mark exploration within these parameters
+
+> See `visual-direction.md` for full creative direction brief.
+
+### Previous Mark Directions (Archived)
+*These explorations were presented but didn't match client vision. Kept for reference only.*
 
 | Direction | Description | Status |
 |-----------|-------------|--------|
-| **A — Ancient/Carved** | Raw, primitive, worn-into-stone. Egyptian scarab seals, intaglio gems. Incised not raised. | In progress |
-| **B — Victorian/Script** | Fine copperplate script, Mauclot monogram ref. Flowing, organic, interlocking. | In progress |
-| **C — Architectural/Art Deco** | Formal oval cartouche, SRA SRA ref. Letters at compass points in structured frame. | In progress |
-
-> **Note:** Legibility vs abstraction is an INDEPENDENT AXIS — not a direction. Each could be readable or abstract.
+| Ancient/Carved | Raw, primitive, worn-into-stone. Egyptian scarab seals, intaglio gems. | ❌ Client preferred abstract over material-based |
+| Victorian/Script | Fine copperplate script, Mauclot monogram ref. Flowing, organic. | ⚠️ Partial — flowing quality liked, but too ornate |
+| Architectural/Art Deco | Formal oval cartouche, SRA SRA ref. Structured frame. | ⚠️ Partial — SRA SRA ref liked, but softer execution needed |
 
 ---
 
@@ -189,7 +201,9 @@ Three canonical directions in active development:
 | Item | Rejected | Reason |
 |------|----------|--------|
 | Mono/typewriter secondary typeface | Strategy session | Anh didn't like it |
-| — | — | — |
+| Ancient/material-based mark direction | Concept presentation | Client prefers abstract, flowing — "not old or material-based" |
+| Tagline "Beautiful because it works..." | Pre-workshop | Hallucination — never approved, removed from all files |
+| Overly structured/masculine marks | Concept presentation | Doesn't match brand character |
 
 ---
 
