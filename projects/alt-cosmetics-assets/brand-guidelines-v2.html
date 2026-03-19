@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALT. COSMETICS — Brand Guidelines</title>
+<style>
+  /* ============================================
+     ALT. COSMETICS — BRAND GUIDELINES
+     Landscape presentation format (16:9)
+     Typography: Aktiv Grotesk Extended
+     ============================================ */
+
+  @page {
+    size: landscape;
+    margin: 0;
+  }
+
+  :root {
+    --bg: #f5f4f2;
+    --surface: #ffffff;
+    --border: #e8e5e0;
+    --ink: #1a1a1a;
+    --warm-1: #e8e4df;
+    --warm-2: #d4cdc4;
+    --chrome: linear-gradient(135deg, #e8e8e8 0%, #b8b8b8 25%, #f0f0f0 50%, #c0c0c0 75%, #d8d8d8 100%);
+    --muted: #999;
+    --text: #1a1a1a;
+    --text-dim: #666;
+    
+    /* Slide dimensions - 16:9 */
+    --slide-width: 1280px;
+    --slide-height: 720px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    /* Aktiv Grotesk Extended with system fallbacks */
+    font-family: 'Aktiv Grotesk Extended', 'Aktiv Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ============================================
+     SLIDE STRUCTURE
+     ============================================ */
+
+  .slide {
+    width: var(--slide-width);
+    height: var(--slide-height);
+    margin: 40px auto;
+    background: var(--surface);
+    box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+    display: grid;
+    grid-template-rows: 1fr auto;
+  }
+
+  .slide-content {
+    padding: 64px 80px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .slide-footer {
+    padding: 20px 80px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .slide-number {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ============================================
+     TYPOGRAPHY
+     ============================================ */
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .slide-title {
+    font-size: 48px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 32px;
+    text-transform: uppercase;
+  }
+
+  .slide-title-large {
+    font-size: 72px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .lead {
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--text-dim);
+    max-width: 640px;
+  }
+
+  h3 {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+
+  p {
+    margin-bottom: 16px;
+    max-width: 560px;
+  }
+
+  /* ============================================
+     LAYOUT UTILITIES
+     ============================================ */
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    flex: 1;
+    align-items: start;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    flex: 1;
+  }
+
+  .grid-4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 24px;
+  }
+
+  .flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+  }
+
+  .flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .mt-auto {
+    margin-top: auto;
+  }
+
+  /* ============================================
+     COVER SLIDE
+     ============================================ */
+
+  .slide-cover {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .slide-cover .slide-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .cover-title {
+    font-size: 96px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+
+  .cover-subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 24px;
+  }
+
+  .cover-meta {
+    position: absolute;
+    bottom: 80px;
+    right: 80px;
+    text-align: right;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  .cover-chrome {
+    position: absolute;
+    top: 64px;
+    right: 80px;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: var(--chrome);
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+
+  /* ============================================
+     CONTENT BLOCKS
+     ============================================ */
+
+  .info-block {
+    margin-bottom: 24px;
+  }
+
+  .info-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .info-value {
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  /* ============================================
+     LOGO DISPLAY
+     ============================================ */
+
+  .logo-display {
+    background: var(--warm-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+    min-height: 200px;
+  }
+
+  .logo-display.dark {
+    background: var(--ink);
+  }
+
+  .logo-display.chrome {
+    background: var(--chrome);
+  }
+
+  .logo-placeholder {
+    font-size: 56px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .logo-display.dark .logo-placeholder {
+    color: var(--surface);
+  }
+
+  /* ============================================
+     TYPOGRAPHY SPECIMENS
+     ============================================ */
+
+  .type-specimen {
+    padding: 32px;
+    background: var(--bg);
+  }
+
+  .type-label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .type-sample {
+    font-size: 48px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+
+  .type-alphabet {
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    color: var(--text-dim);
+    line-height: 1.6;
+    margin-top: 16px;
+  }
+
+  .type-weights {
+    display: flex;
+    gap: 32px;
+    margin-top: 24px;
+  }
+
+  .type-weight {
+    text-align: center;
+  }
+
+  .type-weight-sample {
+    font-size: 36px;
+    margin-bottom: 8px;
+  }
+
+  .type-weight-name {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ============================================
+     COLOUR SWATCHES
+     ============================================ */
+
+  .swatch-large {
+    aspect-ratio: 16/9;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+
+  .swatch-chrome { background: var(--chrome); }
+  .swatch-ink { background: var(--ink); }
+  .swatch-warm-1 { background: #e8e4df; }
+  .swatch-warm-2 { background: #d4cdc4; }
+
+  .swatch-info {
+    font-size: 13px;
+  }
+
+  .swatch-name {
+    font-weight: 500;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .swatch-values {
+    font-size: 11px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ============================================
+     DO / DON'T
+     ============================================ */
+
+  .do-block, .dont-block {
+    padding: 24px;
+    height: 100%;
+  }
+
+  .do-block {
+    background: #f0f5f0;
+    border-left: 3px solid #4a7c59;
+  }
+
+  .dont-block {
+    background: #fdf0f0;
+    border-left: 3px solid #b85450;
+  }
+
+  .do-label, .dont-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .do-label { color: #4a7c59; }
+  .dont-label { color: #b85450; }
+
+  /* ============================================
+     VOICE EXAMPLES
+     ============================================ */
+
+  .voice-example {
+    padding: 24px;
+    background: var(--bg);
+    border-left: 3px solid var(--ink);
+    margin-bottom: 16px;
+  }
+
+  .voice-example-label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .voice-example-text {
+    font-size: 18px;
+    font-style: italic;
+  }
+
+  /* ============================================
+     PLACEHOLDERS
+     ============================================ */
+
+  .placeholder {
+    background: #fffbe6;
+    border: 1px dashed #c9a227;
+    padding: 20px;
+    font-size: 13px;
+    color: #8b7355;
+  }
+
+  .placeholder::before {
+    content: '⚠ ';
+  }
+
+  /* ============================================
+     SCREEN INDICATOR
+     ============================================ */
+
+  .draft-badge {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    background: var(--ink);
+    color: white;
+    padding: 8px 16px;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    z-index: 100;
+  }
+
+  @media print {
+    .draft-badge { display: none; }
+    .slide { 
+      box-shadow: none; 
+      margin: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="draft-badge">Working Draft</div>
+
+<!-- ==================== 00 COVER ==================== -->
+<div class="slide slide-cover">
+  <div class="cover-chrome"></div>
+  <div class="slide-content">
+    <h1 class="cover-title">ALT.<br>COSMETICS</h1>
+    <p class="cover-subtitle">Brand Guidelines</p>
+  </div>
+  <div class="cover-meta">
+    Version 1.0 — Draft<br>
+    March 2026<br>
+    kspf.studio
+  </div>
+</div>
+
+<!-- ==================== 01 CONTENTS ==================== -->
+<div class="slide">
+  <div class="slide-content">
+    <div class="section-label">00</div>
+    <h2 class="slide-title">Contents</h2>
+    
+    <div class="grid-2" style="margin-top: 32px;">
+      <div>
+        <div class="info-block">
+          <div class="info-label">01</div>
+          <div class="info-value">Brand Overview</div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">02</div>
+          <div class="info-value">Logo</div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">03</div>
+          <div class="info-value">Typography</div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">04</div>
+          <div class="info-value">Colour</div>
+        </div>
+      </div>
+      <div>
+        <div class="info-block">
+          <div class="info-label">05</div>
+          <div class="info-value">Tone of Voice</div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">06</div>
+          <div class="info-value">Photography</div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">07</div>
+          <div class="info-value">Applications</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>ALT. Cosmetics</span>
+    <span class="slide-number">02</span>
+  </div>
+</div>
+
+<!-- ==================== 02 BRAND OVERVIEW ==================== -->
+<div class="slide">
+  <div class="slide-content">
+    <div class="section-label">01 — Brand Overview</div>
+    <h2 class="slide-title">About ALT.</h2>
+    
+    <div class="grid-2">
+      <div>
+        <p class="lead">
+          Design-forward premium beauty. 
+          Earns its place through restraint, finish, and intention.
+        </p>
+        <p style="margin-top: 24px;">
+          ALT. Cosmetics launches with a single hero product: 
+          a plant-based, peptide-rich lash serum. Founded by Anh Tran — 
+          experienced lash technician and cosmetic tattoo artist.
+        </p>
+      </div>
+      <div>
+        <div class="info-block">
+          <div class="info-label">Positioning</div>
+          <div class="info-value">Between clinical and lifestyle — neither pharmacy-cold nor mass-market loud</div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">Character</div>
+          <div class="info-value">Quietly confident. Doesn't explain itself. Thrives in simplicity.</div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">Long-term</div>
+          <div class="info-value">Mecca retail placement. Brand built for eventual sale.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>ALT. Cosmetics</span>
+    <span class="slide-number">03</span>
+  </div>
+</div>
+
+<!-- ==================== 03 BRAND CHARACTER ==================== -->
+<div class="slide">
+  <div class="slide-content">
+    <div class="section-label">01 — Brand Overview</div>
+    <h2 class="slide-title">Brand Character</h2>
+    
+    <div class="grid-4" style="margin-top: 48px;">
+      <div class="info-block">
+        <div class="info-label">Personality</div>
+        <div class="info-value">Restrained over bold</div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Register</div>
+        <div class="info-value">Middle — not clinical, not lifestyle</div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Market</div>
+        <div class="info-value">Elite over mass</div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Voice</div>
+        <div class="info-value">Authoritative over conversational</div>
+      </div>
+    </div>
+    
+    <div style="margin-top: 64px; max-width: 720px;">
+      <p>
+        ALT. doesn't follow trends, doesn't deliberately subvert them either. 
+        Aesthetics as an extension of sense and pleasure. Not afraid of appearing shallow.
+      </p>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>ALT. Cosmetics</span>
+    <span class="slide-number">04</span>
+  </div>
+</div>
+
+<!-- ==================== 04 LOGO INTRO ==================== -->
+<div class="slide">
+  <div class="slide-content">
+    <div class="section-label">02 — Logo</div>
+    <h2 class="slide-title">Mark System</h2>
+    
+    <div class="grid-2">
+      <div>
+        <p class="lead">
+          Two-element identity: hard geometric wordmark + ornamental secondary mark.
+        </p>
+        <p style="margin-top: 24px;">
+          These two elements should not look like they came from the same place — 
+          the tension is intentional. Inspired by atelier and silversmith traditions.
+        </p>
+        <div class="info-block" style="margin-top: 32px;">
+          <div class="info-label">Application</div>
+          <div class="info-value">Hot-stamping, debossing, or engraving onto chrome surfaces</div>
+        </div>
+      </div>
+      <div>
+        <div class="placeholder">
+          Mark artwork to be inserted once direction is finalised.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>ALT. Cosmetics</span>
+    <span class="slide-number">05</span>
+  </div>
+</div>
+
+<!-- ==================== 05 LOGO VARIATIONS ==================== -->
+<div class="slide">
+  <div class="slide-content">
+    <div class="section-label">02 — Logo</div>
+    <h2 class="slide-title">Logo Variations</h2>
+    
+    <div class="grid-4" style="margin-top: 32px;">
+      <div>
+        <div class="logo-display">
+          <span class="logo-placeholder">ALT.</span>
+        </div>
+        <p style="font-size: 12px; color: var(--muted); margin-top: 12px;">Positive</p>
+      </div>
+      <div>
+        <div class="logo-display dark">
+          <span class="logo-placeholder">ALT.</span>
+        </div>
+        <p style="font-size: 12px; color: var(--muted); margin-top: 12px;">Reversed</p>
+      </div>
+      <div>
+        <div class="logo-display chrome">
+          <span class="logo-placeholder" style="color: var(--ink);">ALT.</span>
+        </div>
+        <p style="font-size: 12px; color: var(--muted); margin-top: 12px;">On Chrome</p>
+      </div>
+      <div>
+        <div class="logo-display" style="background: var(--ink);">
+          <span class="logo-placeholder" style="background: var(--chrome); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">ALT.</span>
+        </div>
+        <p style="font-size: 12px; color: var(--muted); margin-top: 12px;">Chrome on Dark</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>ALT. Cosmetics</span>
+    <span class="slide-number">06</span>
+  </div>
+</div>
+
+<!-- ==================== 06 TYPOGRAPHY ==================== -->
+<div class="slide">
+  <div class="slide-content">
+    <div class="section-label">03 — Typography</div>
+    <h2 class="slide-title">Primary Typeface</h2>
+    
+    <div class="grid-2">
+      <div class="type-specimen">
+        <div class="type-label">Aktiv Grotesk Extended</div>
+        <div class="type-sample">ALT. COSMETICS</div>
+        <div class="type-alphabet">
+          ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+          abcdefghijklmnopqrstuvwxyz<br>
+          0123456789
+        </div>
+      </div>
+      <div>
+        <p>
+          Aktiv Grotesk Extended is the primary typeface for all brand communications. 
+          All-caps treatment throughout. Medium-bold weight for headlines.
+        </p>
+        <p>
+          The extended width provides presence at small scale. 
+          Geometric construction is the character — not applied decoration.
+        </p>
+        <div class="info-block" style="margin-top: 32px;">
+          <div class="info-label">Source</div>
+          <div class="info-value">Adobe Fonts or Dalton Maag</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>ALT. Cosmetics</span>
+    <span class="slide-number">07</span>
+  </div>
+</div>
+
+<!-- ==================== 07 TYPE WEIGHTS ==================== -->
+<div class="slide">
+  <div class="slide-content">
+    <div class="section-label">03 — Typography</div>
+    <h2 class="slide-title">Type Weights</h2>
+    
+    <div class="type-weights" style="margin-top: 48px;">
+      <div class="type-weight">
+        <div class="type-weight-sample" style="font-weight: 300;">Aa</div>
+        <div class="type-weight-name">Light</div>
+      </div>
+      <div class="type-weight">
+        <div class="type-weight-sample" style="font-weight: 400;">Aa</div>
+        <div class="type-weight-name">Regular</div>
+      </div>
+      <div class="type-weight">
+        <div class="type-weight-sample" style="font-weight: 500;">Aa</div>
+        <div class="type-weight-name">Medium</div>
+      </div>
+      <div class="type-weight">
+        <div class="type-weight-sample" style="font-weight: 700;">Aa</div>
+        <div class="type-weight-name">Bold</div>
+      </div>
+    </div>
+    
+    <div class="grid-2" style="margin-top: 64px;">
+      <div class="do-block">
+        <div class="do-label">Use</div>
+        <p style="margin: 0;">Light/Regular for body. Medium for subheads. Bold for headlines only.</p>
+      </div>
+      <div class="dont-block">
+        <div class="dont-label">Avoid</div>
+        <p style="margin: 0;">Mixing more than two weights on a single page.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>ALT. Cosmetics</span>
+    <span class="slide-number">08</span>
+  </div>
+</div>
+
+<!-- ==================== 08 COLOUR ==================== -->
+<div class="slide">
+  <div class="slide-content">
+    <div class="section-label">04 — Colour</div>
+    <h2 class="slide-title">Primary Palette</h2>
+    
+    <div class="grid-4" style="margin-top: 32px;">
+      <div>
+        <div class="swatch-large swatch-chrome"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Chrome</div>
+          <div class="swatch-values">Physical finish<br>Reflective metallic</div>
+        </div>
+      </div>
+      <div>
+        <div class="swatch-large swatch-ink"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Ink</div>
+          <div class="swatch-values">#1A1A1A<br>RGB 26 / 26 / 26</div>
+        </div>
+      </div>
+      <div>
+        <div class="swatch-large swatch-warm-1"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Linen</div>
+          <div class="swatch-values">#E8E4DF<br>RGB 232 / 228 / 223</div>
+        </div>
+      </div>
+      <div>
+        <div class="swatch-large swatch-warm-2"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Stone</div>
+          <div class="swatch-values">#D4CDC4<br>RGB 212 / 205 / 196</div>
+        </div>
+      </div>
+    </div>
+    
+    <p style="margin-top: 32px; color: var(--text-dim);">
+      Monochrome, low contrast. Chrome paired with warm neutrals to balance industrial materiality.
+    </p>
+  </div>
+  <div class="slide-footer">
+    <span>ALT. Cosmetics</span>
+    <span class="slide-number">09</span>
+  </div>
+</div>
+
+<!-- ==================== 09 TONE OF VOICE ==================== -->
+<div class="slide">
+  <div class="slide-content">
+    <div class="section-label">05 — Tone of Voice</div>
+    <h2 class="slide-title">Voice Principles</h2>
+    
+    <div class="grid-2">
+      <div>
+        <div class="voice-example">
+          <div class="voice-example-label">Product copy</div>
+          <div class="voice-example-text">
+            "Peptide-rich formula. Visible results in four to six weeks."
+          </div>
+        </div>
+        <div class="voice-example">
+          <div class="voice-example-label">Instruction</div>
+          <div class="voice-example-text">
+            "Apply once daily to clean, dry lashes. One stroke along the lash line."
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="info-block">
+          <div class="info-label">Character</div>
+          <div class="info-value">Precise, assured, uncluttered. States rather than suggests.</div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">Flexibility</div>
+          <div class="info-value">Can be cheeky, flirty — adapts to seasons and moments. IFYKYK energy.</div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">Avoid</div>
+          <div class="info-value">Wellness clichés: ritual, glow, nourishing, clean beauty</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>ALT. Cosmetics</span>
+    <span class="slide-number">10</span>
+  </div>
+</div>
+
+<!-- ==================== 10 PHOTOGRAPHY ==================== -->
+<div class="slide">
+  <div class="slide-content">
+    <div class="section-label">06 — Photography</div>
+    <h2 class="slide-title">Photography Direction</h2>
+    
+    <div class="grid-2">
+      <div>
+        <p class="lead">
+          Editorial, considered, high-contrast. Every element placed with intention.
+        </p>
+        <div class="info-block" style="margin-top: 32px;">
+          <div class="info-label">References</div>
+          <div class="info-value">Alaïa, Prada, retaW</div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">Material pairing</div>
+          <div class="info-value">Chrome against warm textures — linen, stone, dried botanicals</div>
+        </div>
+      </div>
+      <div>
+        <div class="placeholder" style="height: 240px; display: flex; align-items: center; justify-content: center;">
+          Photography examples to be added
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>ALT. Cosmetics</span>
+    <span class="slide-number">11</span>
+  </div>
+</div>
+
+<!-- ==================== 11 APPLICATIONS ==================== -->
+<div class="slide">
+  <div class="slide-content">
+    <div class="section-label">07 — Applications</div>
+    <h2 class="slide-title">Packaging</h2>
+    
+    <div class="grid-2">
+      <div>
+        <div class="info-block">
+          <div class="info-label">Primary</div>
+          <div class="info-value">Chrome tube — mark applied via hot-stamping, debossing, or engraving</div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">Secondary</div>
+          <div class="info-value">Vacuum foil pouch (format TBC)</div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">Hierarchy</div>
+          <div class="info-value">Mark → Product name → Volume → Regulatory</div>
+        </div>
+      </div>
+      <div>
+        <div class="placeholder" style="height: 280px; display: flex; align-items: center; justify-content: center;">
+          Packaging mockups to be added
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>ALT. Cosmetics</span>
+    <span class="slide-number">12</span>
+  </div>
+</div>
+
+<!-- ==================== 12 CONTACT ==================== -->
+<div class="slide">
+  <div class="slide-content flex-center">
+    <div style="text-align: center;">
+      <h2 class="slide-title-large">ALT.</h2>
+      <p style="margin-top: 48px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; font-size: 14px;">
+        Brand design by kspf.studio
+      </p>
+      <p style="margin-top: 8px; color: var(--muted); font-size: 14px;">
+        hello@kspf.au
+      </p>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>ALT. Cosmetics</span>
+    <span class="slide-number">13</span>
+  </div>
+</div>
+
+</body>
+</html>

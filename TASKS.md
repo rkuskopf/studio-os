@@ -34,10 +34,15 @@
 
 ## In Progress
 
+**ALT. Cosmetics**
+- [ ] **Brand guidelines v2 (landscape format)** — new HTML file at `projects/alt-cosmetics-assets/brand-guidelines-v2.html`. Uses Aktiv Grotesk Extended. Removed unapproved tagline ("Beautiful because it works...") from all files and added to REJECTED in decision log. Next: add visual assets, integrate Figma exports, finalize typography/color specs.
+- [ ] Audit ALT. Cosmetics to understand the hallucinations and inconsistencies (particularly in the creative brief). No one should have access to a creative brief below V5.1. We need to put together a questionnaire to get to the bottom of all unknowns and create a report for what needs to be done.
+
 **kspf.au**
 - [ ] **Mobile Safari bug — screen locks** — reported 11 Mar. Reproduce on iOS Safari, identify trigger (scroll lock? fixed position element? JS scroll handler not cleaning up?). Check for `overflow: hidden` on body/html or `-webkit-overflow-scrolling` issues. Log as GitHub issue in `rkuskopf/kspf.studio-repo`.
 
 **IT / Admin**
+- [ ] **Fix Google Drive MCP connection** — OAuth tokens exist in `claude_desktop_config.json` but no MCP server configured to use them. Previously worked — check if config was lost in a branch merge or reset. Need to add `mcpServers` section with google-drive server. Check git history for previous working config.
 - [ ] Get Wacom Intuos Pro (PTH-451) tablet pen working — driver installed but not responding. Tablet works as trackpad, pen not recognised. Likely macOS Privacy & Security approval issue. Need to confirm macOS version and try clean reinstall. See GitHub issue.
 - [ ] Heaps of issues with logic... updated to logic 12 the other day and now logic files aren't working
 - [ ] **Migrate files from Dropbox to iCloud before deletion deadline — see `tasks/dropbox-icloud-migration.md`**
