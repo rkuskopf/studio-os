@@ -12,6 +12,7 @@
  *   node sync-asana-github.js --direction asana-to-gh   # One direction only
  *   node sync-asana-github.js --direction gh-to-asana   # One direction only
  *   node sync-asana-github.js --direction cross-repo    # Cross-repo mirror only
+ *   node sync-asana-github.js --direction pr-update --pr <N>  # Update Asana task linked to PR #N
  *   node sync-asana-github.js --project "Studio OS"     # Specific Asana project (name or GID)
  *   node sync-asana-github.js --target-project "Engine" # Default project for GitHub issues
  *   node sync-asana-github.js --subtasks                # Include subtasks in sync
@@ -114,6 +115,9 @@ const projectFilter = args.includes('--project')
 const targetProjectFilter = args.includes('--target-project')
   ? args[args.indexOf('--target-project') + 1]
   : process.env.ASANA_TARGET_PROJECT || null;
+const prNumberArg = args.includes('--pr')
+  ? parseInt(args[args.indexOf('--pr') + 1], 10)
+  : null;
 
 // ─── Utilities ────────────────────────────────────────────────────────────────
 
@@ -761,6 +765,119 @@ async function syncCrossRepo() {
   return { mirrored };
 }
 
+// ─── Sync: PR → Asana task update ────────────────────────────────────────────
+
+/**
+ * When a GitHub PR references issues (via Closes/Fixes/Resolves #N in the body),
+ * find the linked Asana task for each issue and append PR info to its notes.
+ */
+async function syncPrUpdate(prNumber, repo) {
+  console.log(`\n🔀  PR #${prNumber} → Asana\n`);
+
+  if (!prNumber || isNaN(prNumber)) {
+    console.error('❌  --pr <number> is required for pr-update direction');
+    return { updated: 0 };
+  }
+
+  // Fetch PR details
+  let pr;
+  try {
+    const out = ghExec(
+      `gh pr view ${prNumber} --repo ${repo} --json number,title,url,state,body`
+    );
+    pr = JSON.parse(out);
+  } catch (err) {
+    console.error(`❌  Could not fetch PR #${prNumber}: ${err.message}`);
+    return { updated: 0 };
+  }
+
+  console.log(`  PR: "${pr.title}" (${pr.state?.toLowerCase()})\n`);
+
+  // Extract linked issue numbers from PR body
+  const pattern = /(?:close[sd]?|fix(?:es)?|resolve[sd]?)\s+#(\d+)/gi;
+  const linkedNums = new Set();
+  let m;
+  while ((m = pattern.exec(pr.body || '')) !== null) {
+    linkedNums.add(parseInt(m[1], 10));
+  }
+
+  if (!linkedNums.size) {
+    console.log('  No linked issues found in PR body (Closes/Fixes/Resolves #N).\n');
+    return { updated: 0 };
+  }
+  console.log(`  Linked issues: ${[...linkedNums].map(n => `#${n}`).join(', ')}\n`);
+
+  // Load all Asana tasks across all projects to find those with matching GitHub issue numbers
+  const allProjects = await asanaGetProjects();
+  const activeProjects = allProjects.filter(p => !p.archived);
+
+  // Build map: github issue number → asana task
+  const numToTask = new Map();
+  for (const project of activeProjects) {
+    const projectTasks = await asanaGetTasks(project.gid);
+    for (const task of projectTasks || []) {
+      const num = extractGithubNumber(task.notes);
+      if (num) numToTask.set(num, task);
+    }
+  }
+
+  const prState = (pr.state || 'open').toLowerCase();
+  const prLine = `PR #${pr.number}: ${pr.title} (${prState}) — ${pr.url}`;
+  const prMarker = `<!-- github-pr: ${pr.number} -->`;
+
+  let updated = 0;
+
+  for (const issueNum of linkedNums) {
+    const task = numToTask.get(issueNum);
+    if (!task) {
+      console.log(`  ⚠️   No Asana task linked to issue #${issueNum} — skipping`);
+      continue;
+    }
+
+    const notes = task.notes || '';
+
+    // Check if this PR is already recorded; if so, update it, otherwise append
+    if (notes.includes(prMarker)) {
+      // Update existing PR line
+      const updatedNotes = notes.replace(
+        new RegExp(`PR #${pr.number}:.*(?:\\n|$)`),
+        `${prLine}\n`
+      );
+      if (updatedNotes === notes) {
+        console.log(`  ⏭️   PR already up to date for issue #${issueNum}`);
+        continue;
+      }
+      if (isDryRun) {
+        console.log(`  📝  Would update PR info on task: "${task.name?.slice(0, 55)}" (issue #${issueNum})`);
+      } else {
+        try {
+          await asanaUpdateTask(task.gid, { notes: updatedNotes });
+          console.log(`  📝  Updated PR info on: "${task.name?.slice(0, 55)}" (issue #${issueNum})`);
+          updated++;
+        } catch (err) {
+          console.error(`  ❌  Failed to update task "${task.name?.slice(0, 40)}": ${err.message}`);
+        }
+      }
+    } else {
+      // Append new PR info to task notes
+      const newNotes = [notes.trimEnd(), '', '---', prLine, prMarker].join('\n');
+      if (isDryRun) {
+        console.log(`  🆕  Would add PR info to task: "${task.name?.slice(0, 55)}" (issue #${issueNum})`);
+      } else {
+        try {
+          await asanaUpdateTask(task.gid, { notes: newNotes });
+          console.log(`  ✅  Added PR info to: "${task.name?.slice(0, 55)}" (issue #${issueNum})`);
+          updated++;
+        } catch (err) {
+          console.error(`  ❌  Failed to update task "${task.name?.slice(0, 40)}": ${err.message}`);
+        }
+      }
+    }
+  }
+
+  return { updated };
+}
+
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
 async function main() {
@@ -771,19 +888,38 @@ async function main() {
   if (projectFilter) console.log(`Project:   ${projectFilter}`);
   if (targetProjectFilter) console.log(`Target:    ${targetProjectFilter}`);
   if (includeSubtasks) console.log(`Subtasks:  enabled`);
+  if (prNumberArg) console.log(`PR:        #${prNumberArg}`);
   console.log();
 
   // ── Pre-flight checks ──────────────────────────────────────────────────────
 
   if (!checkGhAuth()) process.exit(1);
 
-  const needsAsana = ['both', 'asana-to-gh', 'gh-to-asana'].includes(directionArg);
+  const needsAsana = ['both', 'asana-to-gh', 'gh-to-asana', 'pr-update'].includes(directionArg);
 
   if (needsAsana && !CONFIG.asanaPat) {
     console.error('❌  ASANA_PAT is required for Asana sync directions.');
     console.error('   Get your token at: https://app.asana.com/0/my-profile-apps');
     console.error('   Then run:  export ASANA_PAT=your_token\n');
     if (directionArg !== 'cross-repo') process.exit(1);
+  }
+
+  // ── PR update (short-circuit — doesn't need project list) ─────────────────
+
+  if (directionArg === 'pr-update') {
+    if (!prNumberArg) {
+      console.error('❌  --pr <number> is required when using --direction pr-update');
+      process.exit(1);
+    }
+    const result = await syncPrUpdate(prNumberArg, CONFIG.defaultRepo);
+    console.log('\n─────────────────────────────────────────────────\n');
+    if (isDryRun) {
+      console.log('✅  Dry run complete — no changes were made.');
+      console.log('   Run with --sync to apply changes.\n');
+    } else {
+      console.log(`✅  PR update complete. ${result.updated} Asana task(s) updated.\n`);
+    }
+    return;
   }
 
   // ── Load Asana projects ────────────────────────────────────────────────────

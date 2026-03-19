@@ -1,0 +1,52 @@
+name: PR → Asana & TASKS.md
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened, closed]
+
+jobs:
+  pr-update:
+    name: Update Asana task and TASKS.md
+    runs-on: ubuntu-latest
+    permissions:
+      issues: read
+      pull-requests: read
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup GitHub CLI auth
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
+
+      - name: Update TASKS.md with PR link
+        working-directory: tools/sync
+        run: node sync-github-to-tasks.js --pr ${{ github.event.pull_request.number }} --sync --repo ${{ github.repository }}
+
+      - name: Update linked Asana task with PR info
+        if: ${{ secrets.ASANA_PAT }}
+        working-directory: tools/sync
+        env:
+          ASANA_PAT: ${{ secrets.ASANA_PAT }}
+          GITHUB_REPO: ${{ github.repository }}
+        run: |
+          node sync-asana-github.js \
+            --direction pr-update \
+            --pr ${{ github.event.pull_request.number }} \
+            --sync
+
+      - name: Commit TASKS.md changes
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add TASKS.md
+          git diff --cached --quiet || git commit -m "chore: add PR #${{ github.event.pull_request.number }} link to TASKS.md [skip ci]"
+          git push

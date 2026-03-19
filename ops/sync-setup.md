@@ -1,6 +1,6 @@
-# Asana ↔ GitHub Sync — Setup & Rollout
+# Asana ↔ GitHub ↔ TASKS.md Sync — Setup & Rollout
 
-Two-way sync between Asana and GitHub (`rkuskopf/studio-os`), with optional cross-repo mirroring to `rkuskopf/kspf.studio-repo` for website-related tasks.
+Three-way sync between Asana, GitHub (`rkuskopf/studio-os`), and `TASKS.md`, with optional cross-repo mirroring to `rkuskopf/kspf.studio-repo` for website-related tasks.
 
 ---
 
@@ -19,6 +19,12 @@ gh workflow run "asana-sync.yml" --field direction=gh-to-asana
 gh run list --workflow="asana-sync.yml" --limit 3
 ```
 
+Pull completed tasks back to TASKS.md (runs automatically on schedule):
+
+```bash
+node tools/sync/sync-github-to-tasks.js --sync
+```
+
 | Task | Command |
 |------|---------|
 | Preview TASKS.md sync | `node tools/sync/sync-tasks-to-github.js` |
@@ -26,6 +32,7 @@ gh run list --workflow="asana-sync.yml" --limit 3
 | Push GitHub → Asana | `gh workflow run "asana-sync.yml" --field direction=gh-to-asana` |
 | Push Asana → GitHub | `gh workflow run "asana-sync.yml" --field direction=asana-to-gh` |
 | Full two-way sync | `gh workflow run "asana-sync.yml" --field direction=both` |
+| Pull GitHub closures → TASKS.md | `node tools/sync/sync-github-to-tasks.js --sync` |
 | Dry run (preview) | `gh workflow run "asana-sync.yml" --field dry_run=true` |
 
 **Note:** The Asana PAT is stored as a GitHub secret (`ASANA_PAT`), so you don't need it locally when using the GitHub Action.
@@ -36,9 +43,36 @@ gh run list --workflow="asana-sync.yml" --limit 3
 
 | Direction | What happens |
 |-----------|-------------|
+| **TASKS.md → GitHub** | Each unchecked task in TASKS.md becomes a GitHub issue (skips duplicates). |
+| **GitHub → TASKS.md** | Closed GitHub issues check off `[ ]` → `[x]` in TASKS.md. PRs linked to issues add a `🔀 PR #N` child bullet under the matching task. |
 | **Asana → GitHub** | Each open Asana task becomes a GitHub issue. Completed tasks close their linked issue. |
 | **GitHub → Asana** | Each GitHub issue (not originally created from Asana) is pushed to Asana as a task. Closed issues mark their task complete. |
+| **PR → Asana + TASKS.md** | When a PR references an issue (Closes/Fixes/Resolves #N), the linked Asana task gets PR info in its notes, and TASKS.md gets a `🔀 PR #N` bullet under the task. |
 | **Cross-repo mirror** | Issues in `studio-os` that mention `kspf.au`, `kspf.studio`, or `website` are mirrored to `kspf.studio-repo`. |
+
+### Completion flow (end-to-end)
+
+```
+Mark complete in Asana
+  ↓  (daily sync)
+GitHub issue closes
+  ↓  (daily sync / asana-sync workflow)
+TASKS.md task checked off [x]
+  ↓  (auto-committed back to repo)
+```
+
+### PR notification flow
+
+```
+Open PR that says "Fixes #5"
+  ↓  (pr-update.yml workflow triggers immediately)
+TASKS.md: 🔀 PR bullet added under the task
+Asana: PR link added to the task's notes
+  ↓  (on merge)
+GitHub issue #5 closes
+  ↓  (next daily sync)
+TASKS.md: task checked off [x]
+```
 
 ### Loop prevention
 
@@ -49,6 +83,7 @@ gh run list --workflow="asana-sync.yml" --limit 3
 
 - GitHub issue body stores the Asana task GID in a marker comment.
 - Asana task notes store the GitHub issue number as `GitHub Issue: #N`.
+- TASKS.md tasks are matched to GitHub issues by **normalised title** (strips markdown, lowercased).
 
 ---
 
@@ -93,39 +128,38 @@ Copy `tools/.env.example` to `tools/.env` as a reference (`.env` is gitignored).
 
 ## Running the sync
 
-All commands are run from the `tools/` directory.
+All commands are run from the repo root.
+
+### TASKS.md → GitHub Issues (one-way push)
 
 ```bash
-cd tools/sync
+node tools/sync/sync-tasks-to-github.js          # dry run
+node tools/sync/sync-tasks-to-github.js --create # live
 ```
 
-### Dry run (no changes — safe to run any time)
+### GitHub Issues → TASKS.md (close completed tasks + add PR links)
 
 ```bash
-node tools/sync/sync-asana-github.js
-# or:
-npm run sync
+node tools/sync/sync-github-to-tasks.js          # dry run
+node tools/sync/sync-github-to-tasks.js --sync   # live
+
+# Only update for a specific PR:
+node tools/sync/sync-github-to-tasks.js --pr 7 --sync
 ```
 
-### Full two-way sync (live)
+### Asana ↔ GitHub (two-way sync)
 
 ```bash
-node tools/sync/sync-asana-github.js --sync
-# or:
-npm run sync:live
-```
+node tools/sync/sync-asana-github.js             # dry run (both directions)
+node tools/sync/sync-asana-github.js --sync      # live (both directions)
 
-### One direction only
-
-```bash
-# Asana → GitHub only
+# One direction only:
 node tools/sync/sync-asana-github.js --direction asana-to-gh --sync
-
-# GitHub → Asana only
 node tools/sync/sync-asana-github.js --direction gh-to-asana --sync
-
-# Cross-repo mirror only (no Asana PAT needed)
 node tools/sync/sync-asana-github.js --direction cross-repo --sync
+
+# Notify Asana of a PR:
+node tools/sync/sync-asana-github.js --direction pr-update --pr 7 --sync
 ```
 
 ### Specific Asana project
@@ -140,21 +174,21 @@ node tools/sync/sync-asana-github.js --project "Studio OS" --sync
 
 ## Mapping rules
 
-| Asana field | GitHub field |
-|-------------|-------------|
-| Task name | Issue title |
-| Task notes | Issue body (first section) |
-| Task completed | Issue state (open/closed) |
-| Project name | Noted in issue body footer |
+| TASKS.md / GitHub field | Asana field |
+|-------------------------|-------------|
+| Task title (normalised) | Task name |
+| Issue body | Task notes |
+| Issue state (closed) | Task completed |
+| PR reference in body | Notes footer entry |
 
 ### Status mapping
 
-| Asana | GitHub |
-|-------|--------|
-| Incomplete | Open |
-| Completed | Closed |
+| Asana | GitHub | TASKS.md |
+|-------|--------|----------|
+| Incomplete | Open | `- [ ]` |
+| Completed | Closed | `- [x]` |
 
-### Label
+### Labels
 
 All Asana-synced issues receive the `asana-sync` label (created automatically if it doesn't exist). Customise with the `SYNC_LABEL` env var.
 
@@ -162,14 +196,31 @@ All Asana-synced issues receive the `asana-sync` label (created automatically if
 
 ## GitHub Actions (automated schedule)
 
-A workflow at `.github/workflows/asana-sync.yml` runs the sync automatically. To enable it:
+Two workflows automate the sync:
 
-1. Add your Asana PAT as a [repository secret](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions):
-   - **Name:** `ASANA_PAT`
-   - **Value:** your Personal Access Token
-2. Push the repo — the workflow runs daily at 6 AM AEST and on manual trigger.
+### `asana-sync.yml` — Daily Asana ↔ GitHub ↔ TASKS.md sync
+
+Runs daily at 6 AM AEDT and on manual trigger.
+
+1. Syncs Asana ↔ GitHub (both directions by default).
+2. Runs `sync-github-to-tasks.js --sync` to check off completed tasks in TASKS.md.
+3. Commits any TASKS.md changes back to the repo.
+
+To enable:
+1. Add `ASANA_PAT` as a [repository secret](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions).
+2. Push the repo — the workflow runs on schedule.
 
 To run manually: **Actions tab → Asana ↔ GitHub Sync → Run workflow**.
+
+### `pr-update.yml` — Real-time PR → Asana + TASKS.md
+
+Triggers automatically when a PR is opened, updated, or closed.
+
+- Adds a `🔀 PR #N` bullet under the matching task in TASKS.md.
+- Updates the linked Asana task's notes with PR title, state, and URL.
+- Commits the TASKS.md change back to the repo.
+
+No manual setup needed — activates as soon as the workflow file is in the repo (and `ASANA_PAT` is set for the Asana step).
 
 ---
 
@@ -180,8 +231,9 @@ To run manually: **Actions tab → Asana ↔ GitHub Sync → Run workflow**.
 | Same title exists in both | Skipped (no duplicate created) |
 | Task renamed in Asana | Issue title updated on next sync |
 | Issue renamed in GitHub | Asana task name updated on next sync |
-| Task completed in Asana | Issue closed on next sync |
-| Issue closed in GitHub | Asana task marked complete on next sync |
+| Task completed in Asana | Issue closed → TASKS.md checked off on next sync |
+| Issue closed in GitHub | Asana task marked complete + TASKS.md checked off on next sync |
+| PR opened referencing issue | TASKS.md gets PR bullet, Asana task gets PR note (immediately) |
 | Both changed simultaneously | Last sync wins (most recent run applies) |
 
 ---
@@ -189,9 +241,9 @@ To run manually: **Actions tab → Asana ↔ GitHub Sync → Run workflow**.
 ## Rollout steps
 
 1. **Test authentication**: run `gh auth status` and verify your `ASANA_PAT` works by running a dry run.
-2. **Dry run first**: run `npm run sync` to preview all changes.
+2. **Dry run first**: run `node tools/sync/sync-asana-github.js` to preview all changes.
 3. **Review output**: check for unexpected creates or closes.
-4. **Enable live sync**: run `npm run sync:live` once satisfied.
+4. **Enable live sync**: run `node tools/sync/sync-asana-github.js --sync` once satisfied.
 5. **Set up Actions**: add `ASANA_PAT` secret and let the scheduled workflow take over.
 
 ---
@@ -206,3 +258,5 @@ To run manually: **Actions tab → Asana ↔ GitHub Sync → Run workflow**.
 | `Asana 403` | PAT doesn't have access to the workspace/project |
 | `gh: label not found` | Label creation is attempted automatically; check repo permissions |
 | Rate limit warnings | Normal — the script pauses and retries automatically |
+| TASKS.md task not found | Title must match exactly (after stripping `**`, backticks, links) |
+

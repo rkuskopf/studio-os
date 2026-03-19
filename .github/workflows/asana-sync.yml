@@ -46,11 +46,13 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       issues: write
-      contents: read
+      contents: write
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -89,11 +91,26 @@ jobs:
           fi
 
           echo "args=$ARGS" >> "$GITHUB_OUTPUT"
+          echo "dry_run=$DRY_RUN" >> "$GITHUB_OUTPUT"
 
-      - name: Run sync
-        working-directory: tools
+      - name: Run Asana ↔ GitHub sync
+        working-directory: tools/sync
         env:
           ASANA_PAT: ${{ secrets.ASANA_PAT }}
           GITHUB_REPO: rkuskopf/studio-os
           LABEL_ROUTING: ${{ inputs.label_routing }}
         run: node sync-asana-github.js ${{ steps.args.outputs.args }}
+
+      - name: Update TASKS.md from GitHub issue state
+        if: ${{ steps.args.outputs.dry_run != 'true' }}
+        working-directory: tools/sync
+        run: node sync-github-to-tasks.js --sync --repo rkuskopf/studio-os
+
+      - name: Commit TASKS.md changes
+        if: ${{ steps.args.outputs.dry_run != 'true' }}
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add TASKS.md
+          git diff --cached --quiet || git commit -m "chore: sync TASKS.md from GitHub issue state [skip ci]"
+          git push
