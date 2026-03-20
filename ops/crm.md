@@ -9,17 +9,17 @@ Visual dashboard: `ops/crm-dashboard.html`
 ## Immediate Focus
 
 - Check whether `ESS BEE (Steph)` has emailed yet. If not, send a light nudge on 23 March 2026.
-- Send `Style Magazines` first. It already has a contact, an audit, and a specific angle.
 - Clean and personalize the next three fashion leads before sending: `Alpha60`, `Dinosaur Designs`, `Kuwaii`.
 - Re-run the missing audit for `FME Apparel`.
 - Research direct emails or named contacts for the six leads that only have contact forms / Instagram.
+- Keep `Style Magazines` parked unless a stronger outreach angle appears. The Safari lock bug now looks resolved.
 
 ## Working CRM
 
 | Lead | Type | Priority | Status | Next action | Owner | Follow-up date | Contact |
 |------|------|----------|--------|-------------|-------|----------------|---------|
 | ESS BEE (Steph) | Warm lead | P1 | Waiting on reply | Check inbox and send a short nudge if nothing has come through | Rowan | 2026-03-23 | Email pending |
-| Style Magazines | Cold lead | P1 | Descoped | cheked the site the other day and it looks like the lock bug is resolved | Rowan | 2026-03-23 | kiri@stylemedia.com.au |
+| Style Magazines | Cold lead | P1 | Descoped | Rechecked the site and parked the lead because the Safari scroll-lock issue now appears resolved | Rowan | 2026-03-23 | kiri@stylemedia.com.au |
 | Alpha60 | Cold lead | P1 | Ready to personalize | Replace the generic audit line with one concrete accessibility observation, then send | Rowan | 2026-03-24 | shop@alpha60.com.au |
 | Dinosaur Designs | Cold lead | P1 | Ready to personalize | Make the opener less generic and send | Rowan | 2026-03-24 | customerservice@dinosaurdesigns.com.au |
 | FME Apparel | Cold lead | P1 | Needs audit | Re-run the site audit and decide if it belongs in the first outreach wave | Rowan | 2026-03-24 | Unknown |
