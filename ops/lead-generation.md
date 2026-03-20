@@ -30,6 +30,7 @@ Who KSPF is going after — solo founders, small creative brands, fashion/beauty
 | Seed list / merged shortlist | `data/leads/pipeline-leads.csv` |
 | Best current audited list + draft emails | `data/leads/pipeline-audited.csv` |
 | Working CRM / next actions | `ops/crm.md` |
+| Visual dashboard / read view | `ops/crm-dashboard.html` |
 | Manual notes / strategy / channels | `ops/lead-generation.md` |
 | Weekly context / warm lead reminders | `journal/2026-03-16.md` |
 

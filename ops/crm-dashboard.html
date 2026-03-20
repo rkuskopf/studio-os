@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KSPF CRM Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --paper: rgba(255, 251, 245, 0.88);
+      --paper-strong: #fffaf1;
+      --ink: #201814;
+      --muted: #6d6157;
+      --line: rgba(32, 24, 20, 0.12);
+      --shadow: 0 28px 90px rgba(58, 40, 23, 0.12);
+      --accent: #b24b2a;
+      --accent-soft: rgba(178, 75, 42, 0.12);
+      --olive: #50663f;
+      --olive-soft: rgba(80, 102, 63, 0.12);
+      --blue: #295d7a;
+      --blue-soft: rgba(41, 93, 122, 0.12);
+      --gold: #c58a1e;
+      --gold-soft: rgba(197, 138, 30, 0.12);
+      --danger: #8c2d2d;
+      --danger-soft: rgba(140, 45, 45, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, rgba(178, 75, 42, 0.14), transparent 28%),
+        radial-gradient(circle at top right, rgba(41, 93, 122, 0.12), transparent 30%),
+        linear-gradient(180deg, #f7f2e9 0%, #f1eadf 100%);
+      color: var(--ink);
+      font-family: "Space Grotesk", sans-serif;
+      line-height: 1.45;
+      padding: 32px 20px 64px;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .shell {
+      max-width: 1380px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr) minmax(280px, 1fr);
+      gap: 20px;
+      margin-bottom: 22px;
+    }
+
+    .hero-card,
+    .panel,
+    .stat-card,
+    .controls,
+    .lead-card {
+      background: var(--paper);
+      backdrop-filter: blur(18px);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 28px;
+      border-radius: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      right: -40px;
+      top: -70px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(178, 75, 42, 0.18), rgba(41, 93, 122, 0.05));
+      pointer-events: none;
+    }
+
+    .eyebrow,
+    .meta-label,
+    .chip,
+    .pill,
+    .stat-label,
+    .panel-label,
+    .mini-label {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid rgba(32, 24, 20, 0.08);
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 4vw, 4.2rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      max-width: 12ch;
+      margin-bottom: 12px;
+    }
+
+    .hero-copy {
+      max-width: 62ch;
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 18px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(32, 24, 20, 0.08);
+      color: var(--ink);
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 20px;
+    }
+
+    .meta-card {
+      padding: 24px;
+      border-radius: 24px;
+    }
+
+    .meta-card p {
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .meta-stack {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .meta-item {
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    .meta-value {
+      display: block;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .stat-card {
+      border-radius: 22px;
+      padding: 20px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .stat-value {
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      line-height: 0.9;
+      letter-spacing: -0.05em;
+      font-weight: 700;
+    }
+
+    .stat-foot {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .overview {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(320px, 0.9fr);
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .panel {
+      border-radius: 26px;
+      padding: 22px;
+    }
+
+    .panel-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .panel-title {
+      font-size: 1.2rem;
+      letter-spacing: -0.03em;
+      font-weight: 700;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+    }
+
+    .timeline-item,
+    .wave-item {
+      display: grid;
+      gap: 8px;
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.62);
+      border: 1px solid rgba(32, 24, 20, 0.08);
+      border-radius: 18px;
+    }
+
+    .timeline-top,
+    .wave-top,
+    .lead-head,
+    .lead-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .timeline-date,
+    .due-tag {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: rgba(32, 24, 20, 0.06);
+      white-space: nowrap;
+    }
+
+    .lead-name,
+    .timeline-name,
+    .wave-name {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .timeline-copy,
+    .wave-copy,
+    .lead-copy,
+    .lead-contact,
+    .lead-footer {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .send-wave {
+      display: grid;
+      gap: 12px;
+    }
+
+    .controls {
+      border-radius: 24px;
+      padding: 20px;
+      margin-bottom: 18px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .control-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 12px;
+      align-items: center;
+    }
+
+    .search {
+      flex: 1 1 260px;
+      min-width: 240px;
+      max-width: 420px;
+      padding: 13px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(32, 24, 20, 0.12);
+      background: rgba(255, 255, 255, 0.78);
+      font: inherit;
+      color: var(--ink);
+    }
+
+    .search:focus {
+      outline: 2px solid rgba(178, 75, 42, 0.18);
+      border-color: rgba(178, 75, 42, 0.28);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      border: 1px solid rgba(32, 24, 20, 0.12);
+      background: rgba(255, 255, 255, 0.68);
+      color: var(--muted);
+      padding: 9px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: transform 120ms ease, border-color 120ms ease, background 120ms ease, color 120ms ease;
+    }
+
+    .chip:hover {
+      transform: translateY(-1px);
+      border-color: rgba(32, 24, 20, 0.28);
+      color: var(--ink);
+    }
+
+    .chip.active {
+      background: var(--ink);
+      color: #fef9f2;
+      border-color: var(--ink);
+    }
+
+    .board-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .board-meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .lead-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .lead-card {
+      border-radius: 24px;
+      padding: 18px;
+      display: grid;
+      gap: 14px;
+      min-height: 248px;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .lead-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 24px 70px rgba(58, 40, 23, 0.18);
+    }
+
+    .lead-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag,
+    .priority-tag {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .priority-tag {
+      background: rgba(32, 24, 20, 0.07);
+      color: var(--ink);
+    }
+
+    .tag-ready {
+      background: var(--olive-soft);
+      color: var(--olive);
+    }
+
+    .tag-research,
+    .tag-audit,
+    .tag-verify {
+      background: var(--gold-soft);
+      color: #7d5b11;
+    }
+
+    .tag-waiting,
+    .tag-nurture {
+      background: var(--blue-soft);
+      color: var(--blue);
+    }
+
+    .tag-hold {
+      background: var(--danger-soft);
+      color: var(--danger);
+    }
+
+    .lead-type {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .lead-action {
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(32, 24, 20, 0.08);
+      border-radius: 16px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .lead-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding-top: 4px;
+    }
+
+    .contact-link {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(178, 75, 42, 0.25);
+    }
+
+    .contact-link:hover {
+      border-bottom-color: rgba(178, 75, 42, 0.7);
+    }
+
+    .empty {
+      padding: 26px;
+      text-align: center;
+      border-radius: 22px;
+      border: 1px dashed rgba(32, 24, 20, 0.18);
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.45);
+    }
+
+    @media (max-width: 1180px) {
+      .hero,
+      .overview {
+        grid-template-columns: 1fr;
+      }
+
+      .stats,
+      .lead-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      body {
+        padding: 18px 14px 44px;
+      }
+
+      .hero-card,
+      .meta-card,
+      .panel,
+      .stat-card,
+      .controls,
+      .lead-card {
+        border-radius: 20px;
+      }
+
+      .stats,
+      .lead-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .control-row,
+      .lead-head,
+      .lead-meta,
+      .timeline-top,
+      .wave-top,
+      .board-top,
+      .panel-head,
+      .lead-footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="eyebrow">KSPF Studio CRM</div>
+        <h1>Client Acquisition Dashboard</h1>
+        <p class="hero-copy">
+          Read view for the current lead pipeline. This is seeded from the working CRM snapshot created on 20 March 2026, so you can see priorities, next actions, and follow-up dates without digging through notes.
+        </p>
+        <div class="hero-meta">
+          <span class="pill">Read view only</span>
+          <span class="pill">Edit source: <a href="./crm.md">ops/crm.md</a></span>
+          <span class="pill">Strategy notes: <a href="./lead-generation.md">ops/lead-generation.md</a></span>
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <div class="hero-card meta-card">
+          <div class="meta-label">Snapshot</div>
+          <p>Purpose-built to make the pipeline legible, not just stored. Open the markdown files to edit, use this page to decide what to do next.</p>
+          <div class="meta-stack">
+            <div class="meta-item">
+              <div class="meta-label">Current focus</div>
+              <span class="meta-value">Style first, then Alpha60 / Dinosaur Designs / Kuwaii</span>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Structural gap</div>
+              <span class="meta-value">Contact research and send cadence</span>
+            </div>
+            <div class="meta-item">
+              <div class="meta-label">Status discipline</div>
+              <span class="meta-value">Update the CRM on every send or reply</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats" id="stats"></section>
+
+    <section class="overview">
+      <article class="panel">
+        <div class="panel-head">
+          <div>
+            <div class="panel-label">Upcoming</div>
+            <h2 class="panel-title">Next Follow-Ups</h2>
+          </div>
+          <div class="board-meta" id="timeline-meta"></div>
+        </div>
+        <div class="timeline" id="timeline"></div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head">
+          <div>
+            <div class="panel-label">First Wave</div>
+            <h2 class="panel-title">Best Immediate Sends</h2>
+          </div>
+          <div class="board-meta">Based on current CRM priorities</div>
+        </div>
+        <div class="send-wave" id="send-wave"></div>
+      </article>
+    </section>
+
+    <section class="controls">
+      <div class="control-row">
+        <input class="search" id="search" type="search" placeholder="Search lead, type, status, or next action">
+      </div>
+
+      <div class="control-row">
+        <div>
+          <div class="mini-label">Status View</div>
+          <div class="chips" id="status-filters"></div>
+        </div>
+      </div>
+
+      <div class="control-row">
+        <div>
+          <div class="mini-label">Priority</div>
+          <div class="chips" id="priority-filters"></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="board-top">
+        <div>
+          <div class="panel-label">Pipeline</div>
+          <h2 class="panel-title">Lead Board</h2>
+        </div>
+        <div class="board-meta" id="results-meta"></div>
+      </div>
+      <div class="lead-grid" id="lead-grid"></div>
+    </section>
+  </div>
+
+  <script>
+    const leads = [
+      {
+        lead: "ESS BEE (Steph)",
+        type: "Warm lead",
+        priority: "P1",
+        status: "Waiting on reply",
+        nextAction: "Check inbox and send a short nudge if nothing has come through.",
+        owner: "Rowan",
+        followUpDate: "2026-03-23",
+        contactLabel: "Email pending",
+        contactHref: ""
+      },
+      {
+        lead: "Style Magazines",
+        type: "Cold lead",
+        priority: "P1",
+        status: "Ready to send",
+        nextAction: "Rewrite the draft around the Safari scroll-lock issue and send to Kiri.",
+        owner: "Rowan",
+        followUpDate: "2026-03-23",
+        contactLabel: "kiri@stylemedia.com.au",
+        contactHref: "mailto:kiri@stylemedia.com.au"
+      },
+      {
+        lead: "Alpha60",
+        type: "Cold lead",
+        priority: "P1",
+        status: "Ready to personalize",
+        nextAction: "Replace the generic audit line with one concrete accessibility observation, then send.",
+        owner: "Rowan",
+        followUpDate: "2026-03-24",
+        contactLabel: "shop@alpha60.com.au",
+        contactHref: "mailto:shop@alpha60.com.au"
+      },
+      {
+        lead: "Dinosaur Designs",
+        type: "Cold lead",
+        priority: "P1",
+        status: "Ready to personalize",
+        nextAction: "Make the opener less generic and send.",
+        owner: "Rowan",
+        followUpDate: "2026-03-24",
+        contactLabel: "customerservice@dinosaurdesigns.com.au",
+        contactHref: "mailto:customerservice@dinosaurdesigns.com.au"
+      },
+      {
+        lead: "FME Apparel",
+        type: "Cold lead",
+        priority: "P1",
+        status: "Needs audit",
+        nextAction: "Re-run the site audit and decide if it belongs in the first outreach wave.",
+        owner: "Rowan",
+        followUpDate: "2026-03-24",
+        contactLabel: "Unknown",
+        contactHref: ""
+      },
+      {
+        lead: "Kuwaii",
+        type: "Cold lead",
+        priority: "P1",
+        status: "Ready to personalize",
+        nextAction: "Tighten the draft and send if it still feels like a fit.",
+        owner: "Rowan",
+        followUpDate: "2026-03-25",
+        contactLabel: "contact@kuwaii.com.au",
+        contactHref: "mailto:contact@kuwaii.com.au"
+      },
+      {
+        lead: "Ngali",
+        type: "Cold lead",
+        priority: "P1",
+        status: "Research contact",
+        nextAction: "Find a direct email or named decision-maker before outreach; use the contact form only if needed.",
+        owner: "Rowan",
+        followUpDate: "2026-03-25",
+        contactLabel: "Instagram + contact form",
+        contactHref: "https://www.instagram.com/ngali_australia/"
+      },
+      {
+        lead: "Boteh",
+        type: "Cold lead",
+        priority: "P1",
+        status: "Research contact",
+        nextAction: "Find a direct email or named founder/contact before outreach.",
+        owner: "Rowan",
+        followUpDate: "2026-03-25",
+        contactLabel: "Instagram + contact form",
+        contactHref: "https://www.instagram.com/boteh__/"
+      },
+      {
+        lead: "En Gold",
+        type: "Cold lead",
+        priority: "P2",
+        status: "Ready to personalize",
+        nextAction: "Decide whether homewares is still in scope, then send or park.",
+        owner: "Rowan",
+        followUpDate: "2026-03-26",
+        contactLabel: "hello@engold.com.au",
+        contactHref: "mailto:hello@engold.com.au"
+      },
+      {
+        lead: "Vow Studio",
+        type: "Cold lead",
+        priority: "P2",
+        status: "Research contact",
+        nextAction: "Find a direct email and decide whether it is still a fit for this wave.",
+        owner: "Rowan",
+        followUpDate: "2026-03-26",
+        contactLabel: "Instagram + contact form",
+        contactHref: "https://www.instagram.com/vowstudio.melbourne/"
+      },
+      {
+        lead: "Sister Studios",
+        type: "Cold lead",
+        priority: "P2",
+        status: "Research contact",
+        nextAction: "Find a direct contact and clean the draft before any outreach.",
+        owner: "Rowan",
+        followUpDate: "2026-03-26",
+        contactLabel: "Instagram + contact form",
+        contactHref: "https://www.instagram.com/sister_studios/"
+      },
+      {
+        lead: "Seventh Gallery",
+        type: "Cold lead",
+        priority: "P2",
+        status: "Ready to personalize",
+        nextAction: "Decide whether galleries are part of this wave, then send if yes.",
+        owner: "Rowan",
+        followUpDate: "2026-03-27",
+        contactLabel: "info@seventhgallery.org",
+        contactHref: "mailto:info@seventhgallery.org"
+      },
+      {
+        lead: "Caves Collect",
+        type: "Cold lead",
+        priority: "P2",
+        status: "Research contact",
+        nextAction: "Find a direct email and decide whether the issue is strong enough for outreach.",
+        owner: "Rowan",
+        followUpDate: "2026-03-27",
+        contactLabel: "Instagram + contact form",
+        contactHref: "https://www.instagram.com/caves_collect/"
+      },
+      {
+        lead: "Outre Gallery",
+        type: "Cold lead",
+        priority: "P3",
+        status: "Research contact",
+        nextAction: "Decide whether galleries are core target clients; if yes, find a direct email.",
+        owner: "Rowan",
+        followUpDate: "2026-03-28",
+        contactLabel: "Instagram + contact form",
+        contactHref: "https://www.instagram.com/outregallery/"
+      },
+      {
+        lead: "Anh (Alt Cosmetics)",
+        type: "Active client",
+        priority: "P2",
+        status: "Referral source to nurture",
+        nextAction: "Ask for 2-3 intros once the project is in a stable delivered state.",
+        owner: "Rowan",
+        followUpDate: "2026-03-31",
+        contactLabel: "Existing client relationship",
+        contactHref: ""
+      },
+      {
+        lead: "Blindside",
+        type: "Cold lead",
+        priority: "P3",
+        status: "Verify contact",
+        nextAction: "Clean and verify the email before sending anything.",
+        owner: "Rowan",
+        followUpDate: "2026-03-31",
+        contactLabel: "info@blindside.org.au (?)",
+        contactHref: "mailto:info@blindside.org.au"
+      },
+      {
+        lead: "No Vacancy",
+        type: "Cold lead",
+        priority: "P3",
+        status: "Hold for later wave",
+        nextAction: "Keep for a later outreach pass after fashion / beauty leads.",
+        owner: "Rowan",
+        followUpDate: "2026-04-03",
+        contactLabel: "Info@no-vacancy.com.au",
+        contactHref: "mailto:Info@no-vacancy.com.au"
+      }
+    ];
+
+    const state = {
+      search: "",
+      status: "all",
+      priority: "all"
+    };
+
+    const statusFilters = [
+      { key: "all", label: "All" },
+      { key: "ready", label: "Ready" },
+      { key: "research", label: "Research / Audit" },
+      { key: "waiting", label: "Waiting / Nurture" },
+      { key: "hold", label: "Hold" }
+    ];
+
+    const priorityFilters = [
+      { key: "all", label: "All priorities" },
+      { key: "P1", label: "P1" },
+      { key: "P2", label: "P2" },
+      { key: "P3", label: "P3" }
+    ];
+
+    const readyStatuses = new Set(["Ready to send", "Ready to personalize"]);
+    const researchStatuses = new Set(["Research contact", "Needs audit", "Verify contact"]);
+    const waitingStatuses = new Set(["Waiting on reply", "Referral source to nurture"]);
+    const holdStatuses = new Set(["Hold for later wave"]);
+
+    function parseDate(dateString) {
+      return new Date(`${dateString}T00:00:00`);
+    }
+
+    function formatDate(dateString) {
+      return parseDate(dateString).toLocaleDateString("en-AU", {
+        day: "numeric",
+        month: "short",
+        year: "numeric"
+      });
+    }
+
+    function diffDays(dateString) {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const target = parseDate(dateString);
+      return Math.round((target - today) / 86400000);
+    }
+
+    function getStatusFilterMatch(lead) {
+      if (state.status === "all") return true;
+      if (state.status === "ready") return readyStatuses.has(lead.status);
+      if (state.status === "research") return researchStatuses.has(lead.status);
+      if (state.status === "waiting") return waitingStatuses.has(lead.status);
+      if (state.status === "hold") return holdStatuses.has(lead.status);
+      return true;
+    }
+
+    function getPriorityFilterMatch(lead) {
+      if (state.priority === "all") return true;
+      return lead.priority === state.priority;
+    }
+
+    function getSearchMatch(lead) {
+      if (!state.search) return true;
+      const haystack = [
+        lead.lead,
+        lead.type,
+        lead.priority,
+        lead.status,
+        lead.nextAction,
+        lead.contactLabel
+      ].join(" ").toLowerCase();
+      return haystack.includes(state.search);
+    }
+
+    function getFilteredLeads() {
+      return leads
+        .filter((lead) => getStatusFilterMatch(lead) && getPriorityFilterMatch(lead) && getSearchMatch(lead))
+        .sort((a, b) => parseDate(a.followUpDate) - parseDate(b.followUpDate));
+    }
+
+    function getStatusTone(status) {
+      if (readyStatuses.has(status)) return "tag-ready";
+      if (researchStatuses.has(status)) {
+        if (status === "Needs audit") return "tag-audit";
+        if (status === "Verify contact") return "tag-verify";
+        return "tag-research";
+      }
+      if (waitingStatuses.has(status)) return status === "Waiting on reply" ? "tag-waiting" : "tag-nurture";
+      return "tag-hold";
+    }
+
+    function dueLabel(dateString) {
+      const days = diffDays(dateString);
+      if (days < 0) return `Overdue by ${Math.abs(days)}d`;
+      if (days === 0) return "Due today";
+      if (days === 1) return "Due tomorrow";
+      return `Due in ${days}d`;
+    }
+
+    function renderFilters() {
+      const statusRoot = document.getElementById("status-filters");
+      const priorityRoot = document.getElementById("priority-filters");
+
+      statusRoot.innerHTML = statusFilters.map((filter) => `
+        <button class="chip ${state.status === filter.key ? "active" : ""}" data-status="${filter.key}">
+          ${filter.label}
+        </button>
+      `).join("");
+
+      priorityRoot.innerHTML = priorityFilters.map((filter) => `
+        <button class="chip ${state.priority === filter.key ? "active" : ""}" data-priority="${filter.key}">
+          ${filter.label}
+        </button>
+      `).join("");
+
+      statusRoot.querySelectorAll("[data-status]").forEach((button) => {
+        button.addEventListener("click", () => {
+          state.status = button.dataset.status;
+          render();
+        });
+      });
+
+      priorityRoot.querySelectorAll("[data-priority]").forEach((button) => {
+        button.addEventListener("click", () => {
+          state.priority = button.dataset.priority;
+          render();
+        });
+      });
+    }
+
+    function renderStats() {
+      const dueSoon = leads.filter((lead) => diffDays(lead.followUpDate) >= 0 && diffDays(lead.followUpDate) <= 7).length;
+      const ready = leads.filter((lead) => readyStatuses.has(lead.status)).length;
+      const research = leads.filter((lead) => researchStatuses.has(lead.status)).length;
+      const nurture = leads.filter((lead) => waitingStatuses.has(lead.status)).length;
+
+      document.getElementById("stats").innerHTML = [
+        {
+          label: "Total leads",
+          value: leads.length,
+          foot: "Full working set across warm, cold, and referral paths."
+        },
+        {
+          label: "Ready now",
+          value: ready,
+          foot: "Can move after light draft cleanup or send preparation."
+        },
+        {
+          label: "Research gap",
+          value: research,
+          foot: "Blocked by contact finding, audit cleanup, or verification."
+        },
+        {
+          label: "Due in 7 days",
+          value: dueSoon,
+          foot: "Touchpoints scheduled in the near term."
+        },
+        {
+          label: "Nurture / waiting",
+          value: nurture,
+          foot: "Warm or relationship-based leads that need timing."
+        }
+      ].slice(0, 4).map((card) => `
+        <article class="stat-card">
+          <div class="stat-label">${card.label}</div>
+          <div class="stat-value">${card.value}</div>
+          <div class="stat-foot">${card.foot}</div>
+        </article>
+      `).join("");
+    }
+
+    function renderTimeline() {
+      const items = leads
+        .slice()
+        .sort((a, b) => parseDate(a.followUpDate) - parseDate(b.followUpDate))
+        .slice(0, 6);
+
+      document.getElementById("timeline-meta").textContent = `${items.length} scheduled touchpoints`;
+      document.getElementById("timeline").innerHTML = items.map((lead) => `
+        <article class="timeline-item">
+          <div class="timeline-top">
+            <div>
+              <div class="timeline-name">${lead.lead}</div>
+              <div class="timeline-copy">${lead.status}</div>
+            </div>
+            <div class="timeline-date">${formatDate(lead.followUpDate)}</div>
+          </div>
+          <div class="timeline-copy">${lead.nextAction}</div>
+        </article>
+      `).join("");
+    }
+
+    function renderSendWave() {
+      const wave = leads.filter((lead) => lead.priority === "P1" && (lead.status === "Ready to send" || lead.status === "Ready to personalize")).slice(0, 4);
+      document.getElementById("send-wave").innerHTML = wave.map((lead) => `
+        <article class="wave-item">
+          <div class="wave-top">
+            <div>
+              <div class="wave-name">${lead.lead}</div>
+              <div class="wave-copy">${lead.status}</div>
+            </div>
+            <div class="due-tag">${formatDate(lead.followUpDate)}</div>
+          </div>
+          <div class="wave-copy">${lead.nextAction}</div>
+        </article>
+      `).join("");
+    }
+
+    function contactMarkup(lead) {
+      if (!lead.contactHref) return lead.contactLabel;
+      return `<a class="contact-link" href="${lead.contactHref}" target="_blank" rel="noreferrer">${lead.contactLabel}</a>`;
+    }
+
+    function renderBoard() {
+      const filtered = getFilteredLeads();
+      const grid = document.getElementById("lead-grid");
+      document.getElementById("results-meta").textContent = `${filtered.length} of ${leads.length} visible`;
+
+      if (!filtered.length) {
+        grid.innerHTML = `<div class="empty">No leads match the current filters. Try clearing search or switching status / priority.</div>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map((lead) => `
+        <article class="lead-card">
+          <div class="lead-head">
+            <div>
+              <div class="lead-name">${lead.lead}</div>
+              <div class="lead-type">${lead.type}</div>
+            </div>
+            <div class="due-tag">${dueLabel(lead.followUpDate)}</div>
+          </div>
+
+          <div class="lead-tags">
+            <span class="priority-tag">${lead.priority}</span>
+            <span class="tag ${getStatusTone(lead.status)}">${lead.status}</span>
+          </div>
+
+          <div class="lead-action">
+            <div class="mini-label">Next action</div>
+            <div class="lead-copy">${lead.nextAction}</div>
+          </div>
+
+          <div class="lead-meta">
+            <div>
+              <div class="mini-label">Follow-up</div>
+              <div class="lead-copy">${formatDate(lead.followUpDate)}</div>
+            </div>
+            <div>
+              <div class="mini-label">Owner</div>
+              <div class="lead-copy">${lead.owner}</div>
+            </div>
+          </div>
+
+          <div class="lead-footer">
+            <div>
+              <div class="mini-label">Contact</div>
+              <div class="lead-contact">${contactMarkup(lead)}</div>
+            </div>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function render() {
+      renderFilters();
+      renderStats();
+      renderTimeline();
+      renderSendWave();
+      renderBoard();
+    }
+
+    document.getElementById("search").addEventListener("input", (event) => {
+      state.search = event.target.value.trim().toLowerCase();
+      render();
+    });
+
+    render();
+  </script>
+</body>
+</html>

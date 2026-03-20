@@ -4,6 +4,8 @@ _Last updated: 20 March 2026_
 
 Use this as the working lead tracker. Update it after every send, reply, call, or decision to pause.
 
+Visual dashboard: `ops/crm-dashboard.html`
+
 ## Immediate Focus
 
 - Check whether `ESS BEE (Steph)` has emailed yet. If not, send a light nudge on 23 March 2026.
@@ -17,7 +19,7 @@ Use this as the working lead tracker. Update it after every send, reply, call, o
 | Lead | Type | Priority | Status | Next action | Owner | Follow-up date | Contact |
 |------|------|----------|--------|-------------|-------|----------------|---------|
 | ESS BEE (Steph) | Warm lead | P1 | Waiting on reply | Check inbox and send a short nudge if nothing has come through | Rowan | 2026-03-23 | Email pending |
-| Style Magazines | Cold lead | P1 | Ready to send | Rewrite the draft around the Safari scroll-lock issue and send to Kiri | Rowan | 2026-03-23 | kiri@stylemedia.com.au |
+| Style Magazines | Cold lead | P1 | Descoped | cheked the site the other day and it looks like the lock bug is resolved | Rowan | 2026-03-23 | kiri@stylemedia.com.au |
 | Alpha60 | Cold lead | P1 | Ready to personalize | Replace the generic audit line with one concrete accessibility observation, then send | Rowan | 2026-03-24 | shop@alpha60.com.au |
 | Dinosaur Designs | Cold lead | P1 | Ready to personalize | Make the opener less generic and send | Rowan | 2026-03-24 | customerservice@dinosaurdesigns.com.au |
 | FME Apparel | Cold lead | P1 | Needs audit | Re-run the site audit and decide if it belongs in the first outreach wave | Rowan | 2026-03-24 | Unknown |
