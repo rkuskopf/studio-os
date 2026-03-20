@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dev Handover Checklist — kspf.studio</title>
+<style>
+  :root {
+    --bg: #fafafa;
+    --surface: #ffffff;
+    --border: #e5e5e5;
+    --text: #1a1a1a;
+    --text-dim: #666;
+    --accent: #2563eb;
+    --success: #16a34a;
+    --warning: #d97706;
+    --error: #dc2626;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 40px 20px;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  header {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 2px solid var(--text);
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .meta {
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+
+  .meta span {
+    margin-right: 24px;
+  }
+
+  .intro {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 40px;
+  }
+
+  .intro h2 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .intro p {
+    font-size: 14px;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+  }
+
+  .intro ul {
+    font-size: 14px;
+    color: var(--text-dim);
+    margin-left: 20px;
+  }
+
+  .budget-note {
+    background: #fef3c7;
+    border: 1px solid #f59e0b;
+    border-radius: 6px;
+    padding: 16px;
+    margin-top: 16px;
+    font-size: 13px;
+  }
+
+  .budget-note strong {
+    color: var(--warning);
+  }
+
+  section {
+    margin-bottom: 40px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-number {
+    background: var(--text);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .section-desc {
+    font-size: 14px;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+  }
+
+  .checklist {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .checklist-item:last-child {
+    border-bottom: none;
+  }
+
+  .checklist-item.sub-item {
+    padding-left: 52px;
+    background: var(--bg);
+  }
+
+  .checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    flex-shrink: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+    transition: all 0.15s ease;
+  }
+
+  .checkbox:hover {
+    border-color: var(--accent);
+  }
+
+  .checkbox.checked {
+    background: var(--success);
+    border-color: var(--success);
+  }
+
+  .checkbox.checked::after {
+    content: '✓';
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .checkbox.na {
+    background: var(--text-dim);
+    border-color: var(--text-dim);
+  }
+
+  .checkbox.na::after {
+    content: '—';
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .item-content {
+    flex: 1;
+  }
+
+  .item-label {
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .item-desc {
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  .item-note {
+    font-size: 12px;
+    color: var(--warning);
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 8px;
+  }
+
+  .tag.required {
+    background: #fee2e2;
+    color: var(--error);
+  }
+
+  .tag.optional {
+    background: #e0e7ff;
+    color: #4338ca;
+  }
+
+  .tag.out-of-scope {
+    background: #f3f4f6;
+    color: #6b7280;
+  }
+
+  .notes-field {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 13px;
+    resize: vertical;
+    min-height: 60px;
+    margin-top: 8px;
+  }
+
+  .notes-field:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  .summary {
+    background: var(--surface);
+    border: 2px solid var(--text);
+    border-radius: 8px;
+    padding: 24px;
+    margin-top: 48px;
+  }
+
+  .summary h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .progress-bar {
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--success);
+    width: 0%;
+    transition: width 0.3s ease;
+  }
+
+  .progress-text {
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+
+  .scope-summary {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  .scope-summary h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .scope-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .scope-item:last-child {
+    border-bottom: none;
+  }
+
+  footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-dim);
+    text-align: center;
+  }
+
+  @media print {
+    body { padding: 20px; }
+    .checkbox { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 20px 16px; }
+    .checklist-item { padding: 14px 16px; }
+    .checklist-item.sub-item { padding-left: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>Dev Handover Checklist</h1>
+    <div class="meta">
+      <span>Client: <strong>_______________</strong></span>
+      <span>Date: <strong>_______________</strong></span>
+    </div>
+  </header>
+
+  <div class="intro">
+    <h2>How to use this checklist</h2>
+    <p>Walk through each section with the designer to confirm what's ready, what's missing, and what's out of scope. Click checkboxes to mark items complete.</p>
+    <ul>
+      <li><strong>Required</strong> — must have before build can start</li>
+      <li><strong>Optional</strong> — nice to have, can add if time permits</li>
+      <li><strong>Out of scope</strong> — not included in this quote</li>
+    </ul>
+    <div class="budget-note">
+      <strong>Budget: $750</strong> — This is a template-based build (Framer/Squarespace/similar). 
+      Keep scope tight: 1–5 pages, minimal custom code, no complex interactions. 
+      Anything beyond basic template customisation will need a scope change.
+    </div>
+  </div>
+
+  <!-- SECTION 1: PROJECT INFO -->
+  <section>
+    <div class="section-header">
+      <div class="section-number">1</div>
+      <h2 class="section-title">Project Info</h2>
+    </div>
+    <p class="section-desc">Basic project details and timeline expectations.</p>
+    
+    <div class="checklist">
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Project name / brand confirmed</div>
+          <div class="item-desc">What's the business/brand name exactly as it should appear?</div>
+          <textarea class="notes-field" placeholder="Brand name..."></textarea>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Website URL / domain</div>
+          <div class="item-desc">Does the client already own a domain? What is it?</div>
+          <textarea class="notes-field" placeholder="e.g., www.example.com or 'needs to purchase'"></textarea>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Launch deadline</div>
+          <div class="item-desc">Is there a hard deadline? Event, campaign, etc?</div>
+          <textarea class="notes-field" placeholder="Target date and any dependencies..."></textarea>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Platform confirmed <span class="tag required">Required</span></div>
+          <div class="item-desc">Where will this be built? Framer, Squarespace, Webflow, etc.</div>
+          <textarea class="notes-field" placeholder="Platform choice..."></textarea>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: PAGES & STRUCTURE -->
+  <section>
+    <div class="section-header">
+      <div class="section-number">2</div>
+      <h2 class="section-title">Pages & Structure</h2>
+    </div>
+    <p class="section-desc">What pages are being built? Keep it minimal for this budget.</p>
+    
+    <div class="checklist">
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Page list confirmed <span class="tag required">Required</span></div>
+          <div class="item-desc">List every page. For $750, recommend max 5 pages.</div>
+          <textarea class="notes-field" placeholder="e.g., Home, About, Services, Contact..."></textarea>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Navigation structure</div>
+          <div class="item-desc">What goes in the main nav? Any dropdowns? (Dropdowns add complexity)</div>
+          <textarea class="notes-field" placeholder="Nav items..."></textarea>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Footer content</div>
+          <div class="item-desc">What's in the footer? Links, social icons, newsletter signup?</div>
+          <textarea class="notes-field" placeholder="Footer elements..."></textarea>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: DESIGN FILES -->
+  <section>
+    <div class="section-header">
+      <div class="section-number">3</div>
+      <h2 class="section-title">Design Files</h2>
+    </div>
+    <p class="section-desc">What design assets are being handed over?</p>
+    
+    <div class="checklist">
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Design file access <span class="tag required">Required</span></div>
+          <div class="item-desc">Figma link, or exported files. Dev needs edit/view access.</div>
+          <textarea class="notes-field" placeholder="Link to design file..."></textarea>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Desktop design complete <span class="tag required">Required</span></div>
+          <div class="item-desc">All pages designed at desktop width (1440px or 1280px typical).</div>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Mobile design complete <span class="tag required">Required</span></div>
+          <div class="item-desc">All pages designed at mobile width (375px typical). Not optional!</div>
+          <div class="item-note">If no mobile designs, dev will interpret — may not match expectations.</div>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Tablet design <span class="tag optional">Optional</span></div>
+          <div class="item-desc">768px breakpoint. Often skipped — dev interpolates between mobile/desktop.</div>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Hover states defined <span class="tag optional">Optional</span></div>
+          <div class="item-desc">What happens when you hover on buttons, links, cards?</div>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Component states</div>
+          <div class="item-desc">If there are forms: empty, filled, error, success states?</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: ASSETS -->
+  <section>
+    <div class="section-header">
+      <div class="section-number">4</div>
+      <h2 class="section-title">Assets</h2>
+    </div>
+    <p class="section-desc">Logo, images, fonts — everything needed to build.</p>
+    
+    <div class="checklist">
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Logo files <span class="tag required">Required</span></div>
+          <div class="item-desc">SVG preferred. PNG with transparent background as backup. Need both light and dark versions?</div>
+        </div>
+      </div>
+      <div class="checklist-item sub-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Logo — SVG format</div>
+        </div>
+      </div>
+      <div class="checklist-item sub-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Logo — PNG fallback (@2x)</div>
+        </div>
+      </div>
+      <div class="checklist-item sub-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Favicon (square version of logo or mark)</div>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Fonts <span class="tag required">Required</span></div>
+          <div class="item-desc">Font names + where to get them. Google Fonts? Adobe Fonts? Custom files?</div>
+          <textarea class="notes-field" placeholder="Font names and source..."></textarea>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Images — final, print-ready <span class="tag required">Required</span></div>
+          <div class="item-desc">All images used in design, exported at 2x, optimised for web (under 500kb each ideally).</div>
+          <div class="item-note">Stock images: confirm licensing. Client's own photos: confirm they have rights.</div>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Icons</div>
+          <div class="item-desc">SVG format. Or specify icon library (e.g., Feather, Phosphor, Heroicons).</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: CONTENT -->
+  <section>
+    <div class="section-header">
+      <div class="section-number">5</div>
+      <h2 class="section-title">Content</h2>
+    </div>
+    <p class="section-desc">Is the copy final? This is the #1 cause of delays.</p>
+    
+    <div class="checklist">
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">All copy is FINAL <span class="tag required">Required</span></div>
+          <div class="item-desc">Headlines, body copy, button labels — all approved by client. No "we'll update this later".</div>
+          <div class="item-note">Placeholder copy = guaranteed revision rounds = scope creep.</div>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Copy is in the design file</div>
+          <div class="item-desc">Or provided in a separate doc with clear page/section labels.</div>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Legal pages <span class="tag optional">Optional</span></div>
+          <div class="item-desc">Privacy Policy, Terms & Conditions. Client responsibility to provide, not designer/dev.</div>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">SEO basics</div>
+          <div class="item-desc">Page titles, meta descriptions. Can be added later but good to have upfront.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: FUNCTIONALITY -->
+  <section>
+    <div class="section-header">
+      <div class="section-number">6</div>
+      <h2 class="section-title">Functionality</h2>
+    </div>
+    <p class="section-desc">What needs to actually DO something? Each item here adds complexity.</p>
+    
+    <div class="checklist">
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Contact form</div>
+          <div class="item-desc">Where do submissions go? Email address? What fields are needed?</div>
+          <textarea class="notes-field" placeholder="Form fields: Name, Email, Message... Sends to: ..."></textarea>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">External links</div>
+          <div class="item-desc">Social media links, booking system, etc. Need actual URLs.</div>
+          <textarea class="notes-field" placeholder="Instagram: ... / Booking: ..."></textarea>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Newsletter signup <span class="tag optional">Optional</span></div>
+          <div class="item-desc">Which provider? Mailchimp, Klaviyo, etc. Need account access or embed code.</div>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">E-commerce <span class="tag out-of-scope">Out of Scope</span></div>
+          <div class="item-desc">Selling products? Not included at this budget. Would need separate quote.</div>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Blog / CMS <span class="tag out-of-scope">Out of Scope</span></div>
+          <div class="item-desc">If client needs to update content themselves, that's CMS setup — adds complexity.</div>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Custom animations <span class="tag out-of-scope">Out of Scope</span></div>
+          <div class="item-desc">Scroll animations, complex transitions, parallax. Template defaults only at this budget.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: LAUNCH REQUIREMENTS -->
+  <section>
+    <div class="section-header">
+      <div class="section-number">7</div>
+      <h2 class="section-title">Launch Requirements</h2>
+    </div>
+    <p class="section-desc">What's needed to actually go live?</p>
+    
+    <div class="checklist">
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Domain ownership confirmed</div>
+          <div class="item-desc">Who owns the domain? Client needs to own it or purchase it.</div>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Domain access / DNS</div>
+          <div class="item-desc">Login details for domain registrar (GoDaddy, Namecheap, etc) — needed to connect domain.</div>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Hosting plan</div>
+          <div class="item-desc">Most template platforms include hosting (Framer, Squarespace). Confirm who pays ongoing.</div>
+          <textarea class="notes-field" placeholder="Hosting: included with platform / client pays $ /month"></textarea>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Analytics <span class="tag optional">Optional</span></div>
+          <div class="item-desc">Google Analytics? Need client's GA4 property ID, or set up new one.</div>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">SSL certificate</div>
+          <div class="item-desc">Usually included with modern platforms. Just confirm HTTPS will work.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: HANDOVER NOTES -->
+  <section>
+    <div class="section-header">
+      <div class="section-number">8</div>
+      <h2 class="section-title">Handover Notes</h2>
+    </div>
+    <p class="section-desc">Anything else the dev needs to know?</p>
+    
+    <div class="checklist">
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Design decisions / rationale</div>
+          <div class="item-desc">Any specific spacing, interaction, or layout notes for dev?</div>
+          <textarea class="notes-field" placeholder="Notes..." style="min-height: 80px;"></textarea>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Things that are "close enough" vs "pixel perfect"</div>
+          <div class="item-desc">Where can dev use template defaults vs. where does it need to match exactly?</div>
+          <textarea class="notes-field" placeholder="Must match exactly: ... / Flexible: ..."></textarea>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Revision expectations</div>
+          <div class="item-desc">How many revision rounds included? What counts as a revision vs. new feature?</div>
+          <textarea class="notes-field" placeholder="e.g., 2 rounds of revisions included"></textarea>
+        </div>
+      </div>
+      <div class="checklist-item">
+        <div class="checkbox" onclick="toggleCheck(this)"></div>
+        <div class="item-content">
+          <div class="item-label">Client contact</div>
+          <div class="item-desc">Does dev communicate with client directly, or through designer?</div>
+          <textarea class="notes-field" placeholder="Communication flow..."></textarea>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUMMARY -->
+  <div class="summary">
+    <h2>Checklist Summary</h2>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <div class="progress-text"><span id="checkedCount">0</span> of <span id="totalCount">0</span> items checked</div>
+    
+    <div class="scope-summary">
+      <h3>Scope Summary for $750</h3>
+      <div class="scope-item">
+        <span>Pages</span>
+        <span>Max 5</span>
+      </div>
+      <div class="scope-item">
+        <span>Platform</span>
+        <span>Template-based (Framer/Squarespace)</span>
+      </div>
+      <div class="scope-item">
+        <span>Responsive</span>
+        <span>Desktop + Mobile</span>
+      </div>
+      <div class="scope-item">
+        <span>Forms</span>
+        <span>1 contact form</span>
+      </div>
+      <div class="scope-item">
+        <span>Revisions</span>
+        <span>2 rounds</span>
+      </div>
+      <div class="scope-item">
+        <span>Timeline</span>
+        <span>~1–2 weeks from handover</span>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Dev Handover Checklist — kspf.studio<br>
+    Last updated: March 2026
+  </footer>
+</div>
+
+<script>
+  function toggleCheck(el) {
+    if (el.classList.contains('checked')) {
+      el.classList.remove('checked');
+      el.classList.add('na');
+    } else if (el.classList.contains('na')) {
+      el.classList.remove('na');
+    } else {
+      el.classList.add('checked');
+    }
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const checkboxes = document.querySelectorAll('.checkbox');
+    const checked = document.querySelectorAll('.checkbox.checked').length;
+    const total = checkboxes.length;
+    
+    document.getElementById('checkedCount').textContent = checked;
+    document.getElementById('totalCount').textContent = total;
+    document.getElementById('progressFill').style.width = (checked / total * 100) + '%';
+  }
+
+  // Initialize on load
+  document.addEventListener('DOMContentLoaded', updateProgress);
+</script>
+
+</body>
+</html>
