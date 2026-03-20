@@ -20,9 +20,13 @@ Runs his own kids, busy schedule — has mentioned dropping kids off to sport mi
 
 ## What He Wants
 
-Unknown — he never got to explain the brief before the thread went cold. Original contact Dec 2025, said he "had a project in mind." By January he mentioned it had "gone a bit rogue" but still wanted to connect. As of March 2026 he's calling again — likely a fresh or revised brief.
+Two potential projects confirmed on call 20 March 2026:
 
-Given Lulu referred him (Rowan did dev work for Lulu), the ask is almost certainly **web development** — custom build, Shopify, or Squarespace.
+**Project 1 — Marketplace (complex, phase 2):** Some kind of marketplace platform that also needs a website. Launching phase 1 on Squarespace, but phase 2 will need a more complex custom build. Also involves an app. Not ecommerce. Brief still unclear — needs more detail.
+
+**Project 2 — Events company portfolio site (active):** Portfolio/showcase site for an events company. 5 pages: Home, About, News, Jobs, Contact. Probably custom build with a solid headless CMS (Sanity likely fit). Brad is supplying designs — this is a dev engagement.
+
+Quote sent 20 March 2026: **$5,600 + GST** (7 days @ $800/day). Assumptions: designs supplied by Brad, Sanity CMS, News and Jobs are CMS-managed, subcontract through Never. Always.
 
 ---
 
@@ -40,9 +44,11 @@ Given Lulu referred him (Rowan did dev work for Lulu), the ask is almost certain
 | 18–19 Feb 2026 | Multiple missed calls both directions across two days |
 | 24 Feb 2026 | Rowan followed up: "still want to touch base?" |
 | 20 Mar 2026 | Brad called again — Rowan missed it |
-| 20 Mar 2026 | Rowan called back: brad said he had two potential projects, 1. bit confusing - some kind of marketplace that needs a website as well? they're launching phase 1 with squarespace but then they'll need a more complex site? but there's also an app and its a marketplace but it's not eccomerce. 2. portfolio for an events company, probably custom build with a really could headless CMS. Need to figure out what that could be. Brad said he's send through more info |
+| 20 Mar 2026 | Rowan called back — Brad confirmed two projects (see What He Wants). Brad to send more info on both. |
+| 20 Mar 2026 | Brad emailed brief for Project 2 — events company, 5 pages (Home, About, News, Jobs, Contact), reference screenshots attached. |
+| 20 Mar 2026 | Quote sent: $5,600 + GST for Project 2 (7 days @ $800/day, custom build + Sanity CMS). |
 
-**Status: Warm lead, needs a call. Has been trying to connect for 3+ months.**
+**Status: Active. Quote sent for Project 2. Project 1 brief still TBC.**
 
 ---
 
