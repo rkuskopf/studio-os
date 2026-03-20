@@ -40,7 +40,7 @@ Who KSPF is going after — solo founders, small creative brands, fashion/beauty
 | Name / Studio | Type | Channel | Status | Last Contact |
 |---------------|------|---------|--------|--------------|
 | ESS BEE (Steph) | Warm lead | Email | Waiting on her email before follow-up | — |
-| Style Magazines | Cold lead | Email | Audited + draft prepared, not sent | Draft generated 2026-03-12 |
+| Style Magazines | Cold lead | Email | Descoped after recheck | Safari scroll-lock issue appears resolved |
 
 ---
 
@@ -49,7 +49,7 @@ Who KSPF is going after — solo founders, small creative brands, fashion/beauty
 |------|--------|-------|-------|
 | Anh (Alt Cosmetics) | Direct | Active client | Referral potential when project wraps |
 | ESS BEE (Steph) | Warm lead | Contact pending | Mentioned in weekly journal, not yet added to CSV pipeline |
-| Style Magazines | Web research | Audited + draft ready | In `pipeline-audited.csv` with captured email |
+| Style Magazines | Web research | Audited, then parked | Email and audit exist, but the original Safari bug appears resolved after recheck |
 | Fashion / art shortlist | Website auditor | 14 / 15 audited | See `pipeline-audited.csv`; `FME Apparel` still missing from output |
 
 ---

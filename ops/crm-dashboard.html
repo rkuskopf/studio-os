@@ -629,8 +629,8 @@
         lead: "Style Magazines",
         type: "Cold lead",
         priority: "P1",
-        status: "Ready to send",
-        nextAction: "Rewrite the draft around the Safari scroll-lock issue and send to Kiri.",
+        status: "Descoped",
+        nextAction: "Keep parked unless a stronger outreach angle appears. The Safari scroll-lock issue now looks resolved.",
         owner: "Rowan",
         followUpDate: "2026-03-23",
         contactLabel: "kiri@stylemedia.com.au",
@@ -827,7 +827,7 @@
     const readyStatuses = new Set(["Ready to send", "Ready to personalize"]);
     const researchStatuses = new Set(["Research contact", "Needs audit", "Verify contact"]);
     const waitingStatuses = new Set(["Waiting on reply", "Referral source to nurture"]);
-    const holdStatuses = new Set(["Hold for later wave"]);
+    const holdStatuses = new Set(["Hold for later wave", "Descoped"]);
 
     function parseDate(dateString) {
       return new Date(`${dateString}T00:00:00`);
