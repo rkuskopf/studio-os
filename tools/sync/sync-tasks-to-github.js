@@ -22,7 +22,7 @@ import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const TASKS_FILE = join(__dirname, '..', 'TASKS.md');
+const TASKS_FILE = join(__dirname, '..', '..', 'TASKS.md');
 
 // Config: map keywords to repos
 const REPO_ROUTING = {
