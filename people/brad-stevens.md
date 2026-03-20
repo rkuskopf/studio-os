@@ -40,6 +40,7 @@ Given Lulu referred him (Rowan did dev work for Lulu), the ask is almost certain
 | 18–19 Feb 2026 | Multiple missed calls both directions across two days |
 | 24 Feb 2026 | Rowan followed up: "still want to touch base?" |
 | 20 Mar 2026 | Brad called again — Rowan missed it |
+| 20 Mar 2026 | Rowan called back: brad said he had two potential projects, 1. bit confusing - some kind of marketplace that needs a website as well? they're launching phase 1 with squarespace but then they'll need a more complex site? but there's also an app and its a marketplace but it's not eccomerce. 2. portfolio for an events company, probably custom build with a really could headless CMS. Need to figure out what that could be. Brad said he's send through more info |
 
 **Status: Warm lead, needs a call. Has been trying to connect for 3+ months.**
 
