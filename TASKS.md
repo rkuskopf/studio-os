@@ -37,8 +37,17 @@
 **VCAT / Legal**
 - [x] **VCAT overflow text** — Resolved by adding a continuation sheet. Final PDF: `VCAT_Application_Rowan_Kuskopf_v_Apple_FINAL.pdf` on Desktop (11 pages). Ready to print and submit.
 
-**Mon — Website Build**
-- [ ] **Kick-off meeting with Mon today** — build her website. Get brief, assets, content, login details. Run dev handover checklist.
+**Mon — Website Build** *(~2 weeks, $750)*
+- [x] **Kick-off meeting with Mon** — got brief, Figma file, logo, font. Awaiting video + domain.
+- [ ] **Phase 1: Setup** — Framer project, breakpoints, font upload, colour vars, logo import
+- [ ] **Phase 2: Components** — Nav/header, footer, test both breakpoints
+- [ ] **Phase 3: Info page** — Desktop + mobile layout, links
+- [ ] **Phase 4: Work page + CMS** — Project collection, template page, sidebar nav, dropdown (mobile)
+- [ ] **Phase 5: Home page** — Video container (placeholder until Mon provides MP4)
+- [ ] **Phase 6: Review 1** — Send preview link to Mon
+- [ ] **Phase 7: Revisions** — Implement feedback (2 rounds included)
+- [ ] **Phase 8: Launch** — Add video, connect domain, publish, send final invoice ($375)
+- **Mon's to-dos:** Homepage video (MP4) + purchase domain (monstudios.com.au)
 
 **ALT. Cosmetics**
 - [ ] **Brand guidelines v2 (landscape format)** — new HTML file at `clients/alt-cosmetics/assets/brand-guidelines-v2.html`. Uses Aktiv Grotesk Extended. Removed unapproved tagline ("Beautiful because it works...") from all files and added to REJECTED in decision log. Next: add visual assets, integrate Figma exports, finalize typography/color specs.

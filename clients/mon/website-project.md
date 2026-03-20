@@ -94,15 +94,23 @@
 
 | Item | Status |
 |------|--------|
-| Figma access | ⚠️ Need link |
+| Figma access | ✅ Received |
 | Desktop designs | ✅ Complete (3 pages) |
 | Mobile designs | ✅ Complete |
 | Tablet designs | ❌ N/A — using mobile |
-| Logo (SVG) | ⚠️ Need export |
-| Fonts | ⚠️ Need names + source |
-| Project images | ⚠️ Need exports |
-| Homepage video | ⚠️ Need file |
+| Logo (SVG) | ✅ Ready |
+| Fonts | ✅ Akzidenz Grotesk (ready) |
+| Project images | ✅ In Figma (export during build) |
+| Homepage video | ⚠️ Mon to provide |
+| Domain | ⚠️ Mon to purchase |
 | Copy | ✅ In designs |
+
+---
+
+## Mon's To-Do List
+
+- [ ] **Homepage video** — provide montage file (MP4 or MOV, max 50MB recommended for web performance)
+- [ ] **Domain** — purchase monstudios.com.au (or confirm alternative)
 
 ---
 
@@ -208,3 +216,68 @@ kspf.studio
 
 - Design file: [Figma link TBC]
 - Assets folder: [Google Drive link TBC]
+
+---
+
+## Build Plan
+
+### Phase 1: Setup
+- [ ] Create new Framer project
+- [ ] Set up breakpoints (Desktop 1440px, Mobile 390px)
+- [ ] Upload Akzidenz Grotesk font
+- [ ] Set up colour variables (from Figma)
+- [ ] Import logo (SVG)
+
+### Phase 2: Universal Components
+- [ ] **Nav/Header** — logo left, Work/Info links right
+- [ ] **Footer** — logo, contact email, Instagram, privacy link, copyright
+- [ ] Test nav + footer on both breakpoints
+
+### Phase 3: Info Page
+- [ ] Build desktop layout (about text, services list, contact)
+- [ ] Build mobile layout
+- [ ] Link email (mailto:hello@monstudios.com.au)
+- [ ] Link Instagram (@mon.studios_)
+
+### Phase 4: Work Page + CMS
+- [ ] Set up CMS collection: Projects
+  - [ ] Fields: title, slug, description, images (gallery), order
+- [ ] Build project template page
+  - [ ] Desktop: left sidebar (project list) + right content (image grid)
+  - [ ] Mobile: dropdown for project nav
+- [ ] Add 2–3 sample projects for testing
+- [ ] Test CMS switching between projects
+
+### Phase 5: Home Page
+- [ ] Build video container (placeholder until Mon provides file)
+- [ ] Set up video autoplay, loop, muted
+- [ ] Test on mobile (may need poster image fallback)
+
+### Phase 6: Polish & Review
+- [ ] Check all links work
+- [ ] Check hover states
+- [ ] Test responsive behaviour at all widths
+- [ ] Review typography consistency
+- [ ] Optimise images (compress exports)
+- [ ] Send preview link to Mon → **Review 1**
+
+### Phase 7: Revisions
+- [ ] Implement Mon's feedback (Round 1)
+- [ ] Send updated preview → **Review 2**
+- [ ] Final tweaks
+
+### Phase 8: Launch
+- [ ] Add homepage video (when Mon provides)
+- [ ] Connect domain (when Mon purchases)
+- [ ] Set up redirects if needed
+- [ ] Final QA
+- [ ] Publish live
+- [ ] Send final invoice ($375)
+
+---
+
+## Progress Log
+
+| Date | Update |
+|------|--------|
+| 20 Mar | Project kick-off. Assets received: Figma, logo, font. Awaiting video + domain from Mon. |
