@@ -12,10 +12,34 @@ Who KSPF is going after — solo founders, small creative brands, fashion/beauty
 
 ---
 
+## Current Status (20 March 2026)
+
+- Lead sourcing and audit tooling are working.
+- Seed list exists in `data/leads/pipeline-leads.csv` with 15 leads.
+- Audited output exists in `data/leads/pipeline-audited.csv` with 14 audited leads dated 2026-03-12.
+- `FME Apparel` is in the seed list but missing from the audited output.
+- 8 audited leads already have email addresses captured. 6 still need contact research.
+- Outreach drafts exist inside `pipeline-audited.csv`, but there is no confirmed send / reply tracking in the repo yet.
+- Warm leads outside the audited CSV: `ESS BEE (Steph)` and referral potential via `Anh / Alt Cosmetics`.
+
+---
+
+## Source of Truth
+| Need | File |
+|------|------|
+| Seed list / merged shortlist | `data/leads/pipeline-leads.csv` |
+| Best current audited list + draft emails | `data/leads/pipeline-audited.csv` |
+| Working CRM / next actions | `ops/crm.md` |
+| Manual notes / strategy / channels | `ops/lead-generation.md` |
+| Weekly context / warm lead reminders | `journal/2026-03-16.md` |
+
+---
+
 ## Active Outreach
 | Name / Studio | Type | Channel | Status | Last Contact |
 |---------------|------|---------|--------|--------------|
-| — | — | — | — | — |
+| ESS BEE (Steph) | Warm lead | Email | Waiting on her email before follow-up | — |
+| Style Magazines | Cold lead | Email | Audited + draft prepared, not sent | Draft generated 2026-03-12 |
 
 ---
 
@@ -23,15 +47,18 @@ Who KSPF is going after — solo founders, small creative brands, fashion/beauty
 | Lead | Source | Stage | Notes |
 |------|--------|-------|-------|
 | Anh (Alt Cosmetics) | Direct | Active client | Referral potential when project wraps |
-| Style Magazines | Web research | To audit | stylemagazines.com.au — flagged by Rowan |
+| ESS BEE (Steph) | Warm lead | Contact pending | Mentioned in weekly journal, not yet added to CSV pipeline |
+| Style Magazines | Web research | Audited + draft ready | In `pipeline-audited.csv` with captured email |
+| Fashion / art shortlist | Website auditor | 14 / 15 audited | See `pipeline-audited.csv`; `FME Apparel` still missing from output |
 
 ---
 
 ## Seed Lists Generated
 
 ### Fashion & Art Organisations (March 2026)
-CSV: `tools/website-auditor/fashion-art-leads.csv`
-**To audit:** `cd tools/website-auditor && node simple-pipeline.js --input fashion-art-leads.csv`
+CSV: `data/leads/fashion-art-leads.csv`
+**Audited output:** `data/leads/pipeline-audited.csv`
+**Note:** `data/leads/leads-ranked-fashion-art.csv` contains failed DNS runs and should not be treated as the current source of truth.
 
 | Name | URL | Category |
 |------|-----|----------|
@@ -66,7 +93,7 @@ CSV: `tools/website-auditor/fashion-art-leads.csv`
 | kspf.au | Live | Landing + visual folio. UX case studies to add. |
 | Pinterest | Not set up | See setup guide below |
 | Instagram | — | Tied to content calendar |
-| Direct outreach | Not started | Priority for next 90 days |
+| Direct outreach | Prepared, not started | Audited list + draft emails exist, but no send cadence or reply tracking yet |
 | Referrals | Passive | Activate after Alt Cosmetics delivery |
 
 ---

@@ -226,4 +226,23 @@ Based on client feedback from concept presentation, the mark direction has been 
 
 | Date | Change |
 |------|--------|
+| 20 Mar 2026 | Direction reset — see note below. Added scientific naturalism visual language to brand system. |
 | 13 Mar 2026 | Created from alt-cosmetics.md + Issue #82 |
+
+---
+
+## 🔄 DIRECTION RESET — 20 March 2026
+
+**What happened:** Mark and brand system exploration drifted into ornamental/ancient territory (Victorian lace, carved motifs, decorative marks). This was a misread of Anh's feedback. When she said "not too industrial or masculine," the correction went too far toward soft/decorative — when the actual correction was *warmth through subject matter, not decoration.*
+
+**What was already correct (from this doc):** The ornamental direction was already explicitly ruled out — "no ancient textures, primitive marks, carved stone, Victorian flourishes." The visual direction doc was right. Execution drifted.
+
+**The correction:**
+
+The brand system direction (clinical, chrome, geometric, Aktiv Grotesk Extended) stays unchanged. What's being added is a visual language layer for photography, texture, and background context:
+
+> **Scientific naturalism** — the brand's plant-based credentials expressed through the visual register of scientific study: botanical specimen photography, microscopy, organism cross-sections, ingredient imagery. The chrome is the vessel. The science is what's inside it.
+
+This is NOT Aesop territory (too warm, too ritual, explicitly avoided). The reference point is the *typographic register* of 90s pharmaceutical/scientific design — clinical precision, not apothecary warmth.
+
+**Impact on mark direction:** No change. Mark is still abstract, flowing, hand-drawn (Loewe, JB monogram, SRA SRA). The ornamental mark directions were already archived as rejected.

@@ -74,6 +74,55 @@ object design beauty products
 
 ---
 
+---
+
+## 3. VISUAL LANGUAGE — Scientific Naturalism *(added 20 Mar 2026)*
+
+The brand's plant-based story lives in the *context* around the product — not in the mark, not in decorative elements, but in photography, texture, and background imagery.
+
+**The concept:** ALT. treats its ingredients the way a scientist treats something precious — observed closely, named precisely, held up to the light. This is the "whisper don't shout" made visual.
+
+**What this looks like:**
+- Botanical specimens on white ground — cross-sections, pressed flora, macro photography
+- Microscopy: plant cell structure, translucent leaves, backlit organism slides
+- Ingredient imagery — raw material, not processed/packaged
+- Scientific illustration register — precise line, no sentimentality
+- 90s pharmaceutical design typography (not Aesop-warm — colder, more precise)
+
+**What this is NOT:**
+- Aesop (explicitly avoided — too ritual, too earthy, too warm)
+- Decorative botanical (florals, wreaths, ornamental illustration)
+- Wellness clichés (soft light, linen, hands holding bottles)
+
+**Reference sources:**
+- [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/subject/Botanical+illustrations) — digitised natural history journals, specimen labels, taxonomic typography
+- [Biodiversity Heritage Library — Nomenclature](https://www.biodiversitylibrary.org/subject/Nomenclature) — scientific naming conventions, letterform register
+- [Wellcome Collection — Specimens](https://wellcomecollection.org/works/tzxt6jzc) — medical/scientific imagery archive, pharmaceutical ephemera
+- [Wellcome Collection](https://wellcomecollection.org/collections) — 35,000+ items of pharmaceutical and medical product literature
+- Ernst Haeckel, *Kunstformen der Natur* — structural geometry of organisms, radial symmetry, microscopic life forms (search: "Haeckel art forms nature plates")
+- [Aesop — Fonts In Use](https://fontsinuse.com/uses/20234/aesop-logo-website-and-packaging) — Optima/Zapf Humanist, scientific-apothecary typographic register. Reference the *type logic*, not the brand aesthetic.
+- [Aesop bespoke typeface — Behance](https://www.behance.net/gallery/91617815/Aesop-Bespoke-Typeface-Design) — how scientific precision translates to letterform
+
+**Midjourney prompts for this direction:**
+```
+cross-section of plant stem under microscope, scientific slide photography,
+botanical specimen on white ground, fine detail, clinical lighting --style raw --ar 3:4
+
+macro photography plant cell structure, translucent leaf,
+backlit specimen, laboratory aesthetic, scientific journal --style raw --ar 1:1
+
+chrome cosmetic tube on white surface, harsh directional light,
+clinical product photography, no color, precision, luxury serum --style raw --ar 4:5
+
+chrome metallic surface with botanical etching, fine line, precision,
+scientific instrument meets luxury beauty, minimal --style raw --ar 2:3
+
+90s scientific editorial photography, laboratory glassware, plant extract,
+amber liquid, clinical white, precise typography, understated luxury --style raw --ar 16:9
+```
+
+---
+
 ## Reference Sources
 
 | Source | URL | What to look for |
