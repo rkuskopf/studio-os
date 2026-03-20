@@ -23,17 +23,17 @@
 - **Business support:** Holmesglen Self Employment Assistance (David Carnegie)
 
 ## Asana Projects (active/open)
-| Project | Notes |
-|---------|-------|
-| Branding: Alt Cosmetics | Client work — Anh |
-| kspf.au | Studio site |
-| CEO work | Business leadership tasks |
-| Financial plan | Budgeting, outgoings, loan |
-| Lead Generation | New client acquisition |
-| North Star | Vision + long-range strategy |
-| Content calendar | Social posts |
-| Personal Admin | Personal tasks |
-| Engine | Skill building (Askable cert) |
+| Project | Stream | Notes |
+|---------|--------|-------|
+| Branding: Alt Cosmetics | KSPF | Client work — Anh |
+| kspf.au | KSPF | Studio site |
+| CEO work | KSPF | Business leadership tasks |
+| Financial plan | KSPF | Budgeting, outgoings, loan |
+| Lead Generation | KSPF | New client acquisition |
+| Content calendar | KSPF | Social posts |
+| Engine | KSPF | Skill building (Askable cert) |
+| Personal Admin | Personal | Personal tasks |
+| Slowtides *(to create)* | Music | Music business — link to `rkuskopf/north-star` |
 
 
 <!--
@@ -53,4 +53,4 @@ this needs to be revised - create a task looking at optimising schedule
 With David Carnegie via Webex — recurring sessions to review KSPF financials. <!-- David is my business mentor. we have a meeting every 3 months to talk about progress and finances. see example of his post meeting reports .-->
 
 ## Music
-Music production is a serious parallel pursuit (likely tied to "Copenhagen" sonic identity / North Star vision). Daily practice block.
+Music production is a serious parallel pursuit under the **Slowtides** business identity (formerly "North Star"). Daily practice block. See `music/README.md` for business overview and `music/practice-routine.md` for the practice structure.

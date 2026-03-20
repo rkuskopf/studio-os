@@ -16,6 +16,30 @@
  - [ ] we need to create an askable page in this repo with details on this ongoing income stream. we need to optimise my language when I apply for jobs. we also need to create a workflow for when I receive the job sms, I can drop it in here and it gets services.
  - [ ] Scrape UX case study source material and generate portfolio presentation — see `clients/ux-portfolio.md`. This is to be displayed on my askable researcher profile
 
+## Stream 1 — KSPF Infrastructure
+
+- [ ] **Install Google Workspace MCP** — `npm install -g @googleworkspace/cli && gws mcp -s drive,gmail,calendar,sheets` — unlocks Drive/Gmail/Sheets API access from Claude. See `SKILLS.md`.
+- [ ] **Set up GitHub Actions cron for TASKS.md sync** — automate the weekly sync so Issues stay current without running the script manually. Add `.github/workflows/sync-tasks.yml`.
+- [ ] **Figma → GitHub Issues workflow** — when a design direction needs feedback, export key frames and attach to a GitHub issue. Document the process in `ops/infrastructure.md`.
+- [ ] **Explore Asana API** — investigate pulling Asana tasks into TASKS.md automatically (close the loop on the sync flow). See `ops/automation-map.md`.
+
+## Stream 2 — Slowtides (Music)
+
+- [ ] **Initialise `rkuskopf/north-star` GitHub repo** — run `git init` in `north-star/`, add `.gitignore`, push to GitHub. See `north-star-migration.md`.
+- [ ] **Finish Midnight — Arrangement 4** — priority 1 song. Full task list in `north-star/songs/midnight.md`.
+- [ ] **Add production logs for other songs** — Song 2, 4, and 5 are next after Midnight.
+- [ ] **Create Slowtides Asana project** — separate from KSPF. Link to `rkuskopf/north-star` repo via Asana GitHub integration.
+- [ ] **Start skills map practice routine** — see `music/practice-routine.md`. Start with keys technique (Week A) + granular synthesis exploration.
+- [ ] **Research ambient/electronic music industry** — distribution, sync licensing, Bandcamp vs Spotify strategy. Update `music/README.md` with findings.
+- [ ] **Set up Slowtides Spotify playlists** — 4 playlists per `music/creative-inputs.md` (Reference, Texture, Mood, Discovered).
+
+## Stream 3 — Personal
+
+- [ ] **Migrate tasks from Apple Notes / Google Tasks → TASKS.md** — one-time cleanup. Archive anything not actionable.
+- [ ] **Set up Apple Reminders as capture tool** — add widget to iPhone home screen. See `ops/task-management.md`.
+- [ ] **Research flat-foot orthotics** — evaluate options. Note Keen Jasper fit on next wear.
+- [ ] **Build simple weekly meal template** — reduce decision fatigue around food. Draft in `personal/README.md`.
+
 ## Future — Lead Gen & Sales Automation
 - [ ] **CRM dashboard for leads/clients** — central place to track lead status, client updates, project history. Options: Notion database, Airtable, or custom dashboard. Should integrate with pipeline outputs.
 - [ ] **Branding lead scraper** — find businesses that need branding (not just web). Ideas: scrape social media for DIY branding signals, look for businesses with inconsistent visual identity, or new business registrations. Research Instagram/LinkedIn scraping feasibility.
