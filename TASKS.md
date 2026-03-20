@@ -12,6 +12,7 @@
   - ✅ Subtask support: `--subtasks` flag syncs Asana subtasks as GitHub issues
   - ✅ Cross-repo mirroring for kspf.au issues
   - ✅ GitHub Actions workflow: `.github/workflows/asana-sync.yml`
+- [x] **Codex integration with GitHub** — documented in `ops/codex-github-setup.md`. Connect via platform.openai.com/codex → authorise the GitHub App → select `rkuskopf/studio-os`. Codex will open PRs from plain-English task descriptions.
 - [ ] **Askable**
  - [ ] we need to create an askable page in this repo with details on this ongoing income stream. we need to optimise my language when I apply for jobs. we also need to create a workflow for when I receive the job sms, I can drop it in here and it gets services.
  - [ ] Scrape UX case study source material and generate portfolio presentation — see `clients/ux-portfolio.md`. This is to be displayed on my askable researcher profile
